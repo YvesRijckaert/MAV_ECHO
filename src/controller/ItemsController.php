@@ -19,8 +19,24 @@ class ItemsController extends Controller {
     }
 
     public function progress() {
+      if(!empty($_GET['category'])) {
+        switch ($_GET['category']) {
+          case 'statistics':
+            break;
+          case 'achievements':
+            break;
+          case 'goals':
+            # code...
+            break;
+          default:
+            header('Location: index.php?page=progress&category=statistics');
+            break;
+        }
+      } else {
+        header('Location: index.php?page=progress&category=statistics');
+      }
       $this->set('title', 'Progress');
-        $this->set('currentPage', 'progress');
+      $this->set('currentPage', 'progress');
     }
 
 }

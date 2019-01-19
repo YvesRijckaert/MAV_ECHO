@@ -12,7 +12,22 @@ class UsersController extends Controller {
     $this->userDAO = new UserDAO();
   }
 
-  public function index() {
+  public function profile() {
+    if(!empty($_GET['category'])) {
+      switch ($_GET['category']) {
+        case 'information':
+          break;
+        case 'customize':
+          break;
+        default:
+          header('Location: index.php?page=profile&category=information');
+          break;
+      }
+    } else {
+      header('Location: index.php?page=profile&category=information');
+    }
+    $this->set('title', 'Profile');
+    $this->set('currentPage', 'profile');
   }
 
   public function register() {
@@ -39,7 +54,7 @@ class UsersController extends Controller {
         ));
         if (!empty($inserteduser)) {
           $_SESSION['info'] = 'Registration Successful!';
-          header('Location: index.php');
+          header('Location: index.php?page=overview');
           exit();
         }
       }

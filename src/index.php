@@ -16,6 +16,10 @@ $routes = array(
     'controller' => 'Items',
     'action' => 'progress'
   ),
+  'profile' => array(
+    'controller' => 'Users',
+    'action' => 'profile'
+  ),
   'login' => array(
     'controller' => 'Users',
     'action' => 'login'
