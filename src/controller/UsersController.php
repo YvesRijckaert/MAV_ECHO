@@ -46,9 +46,14 @@ class UsersController extends Controller {
       $_SESSION['error'] = 'Registration Failed!';
       $this->set('errors', $errors);
     }
+    $this->set('title', 'Register');
+    $this->set('currentPage', 'register');
   }
 
   public function login() {
+    if (!empty($_SESSION['user'])) {
+      header('Location: index.php?page=overview');
+    }
     if (!empty($_POST)) {
       if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $existing = $this->userDAO->selectByEmail($_POST['email']);
@@ -56,6 +61,8 @@ class UsersController extends Controller {
           if (password_verify($_POST['password'], $existing['password'])) {
             $_SESSION['user'] = $existing;
             $_SESSION['info'] = 'Logged In';
+            header('Location: index.php?page=overview');
+            exit();
           } else {
             $_SESSION['error'] = 'Unknown username / password';
           }
@@ -66,8 +73,8 @@ class UsersController extends Controller {
         $_SESSION['error'] = 'Unknown username / password';
       }
     }
-    header('Location: index.php');
-    exit();
+    $this->set('title', 'Login');
+    $this->set('currentPage', 'login');
   }
 
   public function logout() {

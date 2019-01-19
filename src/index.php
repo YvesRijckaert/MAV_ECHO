@@ -8,21 +8,13 @@ $routes = array(
     'controller' => 'Pages',
     'action' => 'index'
   ),
-  'about' => array(
-    'controller' => 'Pages',
-    'action' => 'about'
-  ),
-  'items' => array(
+  'overview' => array(
     'controller' => 'Items',
-    'action' => 'items'
+    'action' => 'overview'
   ),
-  'detail' => array(
-    'controller' => 'Images',
-    'action' => 'view'
-  ),
-  'add' => array(
-    'controller' => 'Images',
-    'action' => 'add'
+  'progress' => array(
+    'controller' => 'Items',
+    'action' => 'progress'
   ),
   'login' => array(
     'controller' => 'Users',

@@ -11,11 +11,16 @@ class ItemsController extends Controller {
         $this->itemDAO = new ItemDAO();
     }
 
-    public function items() {
+    public function overview() {
         $items = $this->itemDAO->selectAll();
         $this->set('items', $items);
-        $this->set('title', 'Items');
-        $this->set('currentPage', 'items');
+        $this->set('title', 'Overview');
+        $this->set('currentPage', 'overview');
+    }
+
+    public function progress() {
+      $this->set('title', 'Progress');
+        $this->set('currentPage', 'progress');
     }
 
 }

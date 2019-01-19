@@ -9,9 +9,4 @@ class PagesController extends Controller {
         $this->set('currentPage', 'home');
     }
 
-    public function about() {
-        $this->set('title', 'About');
-        $this->set('currentPage', 'about');
-    }
-
 }

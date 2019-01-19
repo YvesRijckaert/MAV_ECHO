@@ -1,6 +1,5 @@
 <section>
   <header><h1 class="page-header">Register</h1></header>
-  <div class="page-content">
     <form class="register-form" method="post">
       <div class="input-container text">
         <label>
@@ -27,5 +26,4 @@
         <input type="submit" name="action" value="Register" class="form-submit" />
       </div>
     </form>
-  </div>
 </section>
