@@ -22,11 +22,13 @@ class ItemsController extends Controller {
       if(!empty($_GET['category'])) {
         switch ($_GET['category']) {
           case 'statistics':
+            $this->set('currentCategory', 'statistics');
             break;
           case 'achievements':
+            $this->set('currentCategory', 'achievements');
             break;
           case 'goals':
-            # code...
+            $this->set('currentCategory', 'goals');
             break;
           default:
             header('Location: index.php?page=progress&category=statistics');

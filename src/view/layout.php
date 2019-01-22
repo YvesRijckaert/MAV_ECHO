@@ -32,7 +32,9 @@
         }
       ?>
     </header>
+    <main>
     <?php echo $content; ?>
+    </main>
     <?php echo $js; ?>
   </body>
 </html>

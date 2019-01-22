@@ -66,7 +66,7 @@ const commonConfig = {
   plugins: [
     new webpack.ProvidePlugin({
       Promise: `es6-promise`,
-      fetch: `imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch`
+      fetch: 'exports-loader?self.fetch!whatwg-fetch/dist/fetch.umd'
     })
   ]
 };

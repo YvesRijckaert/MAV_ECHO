@@ -16,8 +16,10 @@ class UsersController extends Controller {
     if(!empty($_GET['category'])) {
       switch ($_GET['category']) {
         case 'information':
+          $this->set('category', 'information');
           break;
         case 'customize':
+          $this->set('category', 'customize');
           break;
         default:
           header('Location: index.php?page=profile&category=information');
@@ -31,36 +33,62 @@ class UsersController extends Controller {
   }
 
   public function register() {
-    if (!empty($_POST)) {
+    $this->set('currentStep', 1);
+    if (!empty($_POST['register1'])){
       $errors = array();
-      if (empty($_POST['email'])) {
-        $errors['email'] = 'Please enter your email';
-      } else {
-        $existing = $this->userDAO->selectByEmail($_POST['email']);
-        if (!empty($existing)) {
-          $errors['email'] = 'Email address is already in use';
+        if (empty($_POST['email'])) {
+          $errors['email'] = 'Please enter your email.';
+        } else {
+          $existing = $this->userDAO->selectByEmail($_POST['email']);
+          if(!empty($existing)) {
+            $errors['email'] = 'Email address is already in use.';
+          }
         }
-      }
-      if (empty($_POST['password'])) {
-        $errors['password'] = 'Please enter a password';
-      }
-      if ($_POST['confirm_password'] != $_POST['password']) {
-        $errors['confirm_password'] = 'Passwords do not match';
-      }
-      if (empty($errors)) {
-        $inserteduser = $this->userDAO->insert(array(
-          'email' => $_POST['email'],
-          'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)
-        ));
-        if (!empty($inserteduser)) {
-          $_SESSION['info'] = 'Registration Successful!';
-          header('Location: index.php?page=overview');
-          exit();
+        if (empty($_POST['password'])) {
+          $errors['password'] = 'Please enter a password.';
         }
+        if ($_POST['confirm_password'] != $_POST['password']) {
+          $errors['confirm_password'] = 'Passwords do not match.';
+        }
+        if (empty($errors)) {
+          $_SESSION['email'] = $_POST['email'];
+          $_SESSION['password'] = $_POST['password'];
+          $this->set('currentStep', 2);
+        }
+        $this->set('errors', $errors);
       }
-      $_SESSION['error'] = 'Registration Failed!';
-      $this->set('errors', $errors);
-    }
+
+    if (!empty($_POST['register2'])){
+      $errors = array();
+        if (empty($_POST['nickname'])) {
+          $errors['nickname'] = 'Please enter your nickname.';
+        }
+        if (empty($_POST['birthdate'])) {
+          $errors['birthdate'] = 'Please enter your birthdate.';
+        }
+        if (empty($errors)) {
+          $_SESSION['nickname'] = $_POST['nickname'];
+          $_SESSION['birthdate'] = $_POST['birthdate'];
+          $this->set('currentStep', 3);
+        }
+        $this->set('errors', $errors);
+      }
+
+    if (!empty($_POST['register3'])){
+      $errors = array();
+        if (empty($_POST['goals'])) {
+          $errors['goals'] = 'Please choose your goal.';
+        }
+        if (empty($errors)) {
+          var_dump($_SESSION['email']);
+          var_dump($_SESSION['password']);
+          var_dump($_SESSION['nickname']);
+          var_dump($_SESSION['birthdate']);
+          var_dump($_POST['goals']);
+        }
+        $this->set('currentStep', 3);
+        $this->set('errors', $errors);
+      }
     $this->set('title', 'Register');
     $this->set('currentPage', 'register');
   }
