@@ -25,11 +25,32 @@ class PostsController extends Controller {
     }
 
     public function add() {
-      if(!empty($_SESSION['user'])){
-        $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
-        $this->set('habits', $habits);
-      } else {
+      if(empty($_SESSION['user'])) {
         header('Location: index.php');
+      }
+      $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+      $this->set('habits', $habits);
+
+      $date = date("Y-m-d");
+      //check if already posted on that day, if so UPDATE instead of INSERT
+      //insert unfulfilled to database (compare $_POST['habits'] to $habits)
+      if(!empty($_POST['add-day'])) {
+        $errors = array();
+        if (empty($_POST['short-memory'])) {
+          $errors['short-memory'] = 'Please enter a short memory.';
+        }
+        if (empty($errors)) {
+          $this->postDAO->insertFulfilledHabits(array(
+            'user_id' => $_SESSION['user']['user_id'],
+            'date' => $date,
+            'short_memory' => $_POST['short-memory'],
+            'happiness_ratio' => $_POST['happiness-ratio'],
+            'fulfilled_habits' => implode(', ', $_POST['habits']),
+            'unfulfilled_habits' => 'test',
+          ));
+          header('Location: index.php?page=add');
+        }
+        $this->set('errors', $errors);
       }
       $this->set('title', 'Add day');
       $this->set('currentPage', 'overview');

@@ -13,24 +13,27 @@ class UsersController extends Controller {
   }
 
   public function profile() {
-    if(!empty($_GET['category'])) {
-      switch ($_GET['category']) {
-        case 'information':
-          $this->set('category', 'information');
-          break;
-        case 'customize':
-          $this->set('category', 'customize');
-          break;
-        default:
-          header('Location: index.php?page=profile&category=information');
-          break;
+    if (!empty($_SESSION['user'])) {
+      if (!empty($_GET['category'])) {
+        switch ($_GET['category']) {
+          case 'information':
+            $this->set('category', 'information');
+            break;
+          case 'customize':
+            $this->set('category', 'customize');
+            break;
+          default:
+            header('Location: index.php?page=profile&category=information');
+            break;
+        }
+      } else {
+        header('Location: index.php?page=profile&category=information');
+      }
+      if (!empty($_POST['update'])) {
+        //handle update information
       }
     } else {
-      header('Location: index.php?page=profile&category=information');
-    }
-
-    if(!empty($_POST['update'])) {
-      //handle update information
+      header('Location: index.php');
     }
 
     $this->set('title', 'Profile');
