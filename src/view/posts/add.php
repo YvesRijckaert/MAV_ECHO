@@ -1,4 +1,5 @@
 <section>
+  <p>Current date: <?php echo $current_date ?></p>
   <form class="add-day-form" method="post">
     <label>
       <span class="form-label">What do you want to remember from this day?</span>

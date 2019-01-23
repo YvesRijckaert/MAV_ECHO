@@ -29,26 +29,47 @@ class PostsController extends Controller {
         header('Location: index.php');
       }
       $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+      $current_date = date("Y-m-d");
       $this->set('habits', $habits);
+      $this->set('current_date', $current_date);
+      //select all fulfilled habits and check them
+      //select all unfulfilled habits and don't check them
 
-      $date = date("Y-m-d");
-      //check if already posted on that day, if so UPDATE instead of INSERT
       //insert unfulfilled to database (compare $_POST['habits'] to $habits)
+
       if(!empty($_POST['add-day'])) {
         $errors = array();
         if (empty($_POST['short-memory'])) {
           $errors['short-memory'] = 'Please enter a short memory.';
         }
         if (empty($errors)) {
-          $this->postDAO->insertFulfilledHabits(array(
+          $alreadyPostedToday = $this->postDAO->checkDate(array(
             'user_id' => $_SESSION['user']['user_id'],
-            'date' => $date,
-            'short_memory' => $_POST['short-memory'],
-            'happiness_ratio' => $_POST['happiness-ratio'],
-            'fulfilled_habits' => implode(', ', $_POST['habits']),
-            'unfulfilled_habits' => 'test',
+            'current_date' => $current_date
           ));
-          header('Location: index.php?page=add');
+          if(empty($alreadyPostedToday)) {
+            $this->postDAO->insertDailyPost(array(
+              'user_id' => $_SESSION['user']['user_id'],
+              'date' => $current_date,
+              'short_memory' => $_POST['short-memory'],
+              'happiness_ratio' => $_POST['happiness-ratio'],
+              'fulfilled_habits' => implode(', ', $_POST['habits']),
+              'unfulfilled_habits' => 'test'
+              ));
+              $_SESSION['info'] = 'Added your new day entry.';
+              header('Location: index.php?page=add');
+          } else {
+            $this->postDAO->updateDailyPost(array(
+              'user_id' => $_SESSION['user']['user_id'],
+              'date' => $current_date,
+              'short_memory' => $_POST['short-memory'],
+              'happiness_ratio' => $_POST['happiness-ratio'],
+              'fulfilled_habits' => implode(', ', $_POST['habits']),
+              'unfulfilled_habits' => 'test'
+              ));
+              $_SESSION['info'] = 'Successfully updated your day entry.';
+              header('Location: index.php?page=add');
+          }
         }
         $this->set('errors', $errors);
       }
