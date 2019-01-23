@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Gegenereerd op: 23 jan 2019 om 14:40
+-- Gegenereerd op: 23 jan 2019 om 20:26
 -- Serverversie: 5.7.23
 -- PHP-versie: 7.2.8
 
@@ -32,8 +32,8 @@ CREATE TABLE `daily_posts` (
   `date` date NOT NULL,
   `short_memory` varchar(255) NOT NULL,
   `happiness_ratio` int(11) NOT NULL,
-  `fulfilled_habits` varchar(255) NOT NULL,
-  `unfulfilled_habits` varchar(255) NOT NULL
+  `fulfilled_habits` varchar(255) DEFAULT NULL,
+  `unfulfilled_habits` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -54,11 +54,11 @@ CREATE TABLE `habits` (
 --
 
 INSERT INTO `habits` (`habit_id`, `user_id`, `habit_name`, `habit_icon`) VALUES
-(2, 14, 'meditate', NULL),
-(3, 14, 'hiking', NULL),
-(4, 14, 'reading', NULL),
-(5, 14, 'listen to music', NULL),
-(6, 14, 'deepen your conversations', NULL);
+(7, 15, 'meditate', NULL),
+(8, 15, 'hiking', NULL),
+(9, 15, 'reading', NULL),
+(10, 15, 'listen to music', NULL),
+(11, 15, 'deepen your conversations', NULL);
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `email`, `password`, `nickname`, `birthdate`, `lifegoal`) VALUES
-(14, 'hi@yvesrijckaert.com', '$2y$10$9m60XxlD7IHnSdY9831oqukwaWfIe/6Nfjr2p0Lf9diCunqh73jfi', 'test', '1222-12-23', 'decrease-anxiety');
+(15, 'hi@yvesrijckaert.com', '$2y$10$YoqcNLMoRUwOKRMZPsqPS.4qCQi.p8wE3qd0/ow71h3au6m31cqZC', 'Yves', '1998-07-13', 'decrease-anxiety');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -180,13 +180,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `daily_posts`
 --
 ALTER TABLE `daily_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT voor een tabel `habits`
 --
 ALTER TABLE `habits`
-  MODIFY `habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT voor een tabel `repetitive`
@@ -210,7 +210,7 @@ ALTER TABLE `total_amount`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Beperkingen voor geëxporteerde tabellen
