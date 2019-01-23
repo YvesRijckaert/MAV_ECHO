@@ -25,10 +25,10 @@
       <?php endif; ?>
       <?php
         if (!empty($_SESSION['error'])) {
-          echo '<div class="error box">' . $_SESSION['error'] . '</div>';
+          echo '<div class="session-error">' . $_SESSION['error'] . '</div>';
         }
         if (!empty($_SESSION['info'])) {
-          echo '<div class="info box">' . $_SESSION['info'] . '</div>';
+          echo '<div class="session-info">' . $_SESSION['info'] . '</div>';
         }
       ?>
     </header>

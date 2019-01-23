@@ -134,12 +134,18 @@ class UsersController extends Controller {
             exit();
           } else {
             $_SESSION['error'] = 'Unknown username / password';
+            header('Location: index.php?page=login');
+            exit();
           }
         } else {
           $_SESSION['error'] = 'Unknown username / password';
+          header('Location: index.php?page=login');
+          exit();
         }
       } else {
         $_SESSION['error'] = 'Unknown username / password';
+        header('Location: index.php?page=login');
+        exit();
       }
     }
     $this->set('title', 'Login');

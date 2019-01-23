@@ -3,7 +3,7 @@
   <form class="add-day-form" method="post">
     <label>
       <span class="form-label">What do you want to remember from this day?</span>
-      <textarea class="form-input" name="short-memory" cols="30" rows="10" maxlength="255" <?php if(!empty($_POST['short-memory'])) echo 'value="' . $_POST['short-memory'] . '"';?>></textarea>
+      <textarea class="form-input" name="short-memory" cols="30" rows="10" maxlength="255"><?php if(!empty($_POST['short-memory'])) echo $_POST['short-memory'];?></textarea>
       <?php if(!empty($errors['short-memory'])) echo '<span class="error">' . $errors['short-memory'] . '</span>';?>
     </label>
     <label>
