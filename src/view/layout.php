@@ -21,7 +21,7 @@
           <li><a href="index.php?page=profile&category=information">Profile</a></li>
         </ul>
       </nav>
-        <p><?php echo $_SESSION['user']['email'];?> - <a href="index.php?page=logout" class="logout-button">Logout</a></p>
+        <p>Hi, <?php echo $_SESSION['user']['nickname'];?> - <a href="index.php?page=logout" class="logout-button">Logout</a></p>
       <?php endif; ?>
       <?php
         if (!empty($_SESSION['error'])) {

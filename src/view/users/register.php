@@ -1,10 +1,10 @@
 <section>
   <header><h1 class="page-header">Register</h1></header>
-  <?php if($currentStep === 1) { ?>
+  <?php if ($currentStep === 1): ?>
   <form class="register-form" method="post">
     <label>
       <span class="form-label">Email:</span>
-      <input type="text" name="email" class="form-input"<?php if(!empty($_POST['email'])) echo 'value="' . $_POST['email'] . '"';?> />
+      <input type="email" name="email" class="form-input"<?php if(!empty($_POST['email'])) echo 'value="' . $_POST['email'] . '"';?> />
       <?php if(!empty($errors['email'])) echo '<span class="error">' . $errors['email'] . '</span>';?>
     </label>
     <label>
@@ -19,9 +19,9 @@
     </label>
     <input type="submit" name="register1" value="next step" class="form-submit" />
   </form>
-  <?php } ?>
+  <?php endif; ?>
 
-  <?php if($currentStep === 2) { ?>
+  <?php if($currentStep === 2): ?>
   <form class="register-form" method="post">
     <label>
       <span class="form-label">How do you want to be called?</span>
@@ -35,9 +35,9 @@
     </label>
     <input type="submit" name="register2" value="next step" />
   </form>
-  <?php } ?>
+  <?php endif; ?>
 
-  <?php if($currentStep === 3) { ?>
+  <?php if($currentStep === 3): ?>
   <form class="register-form" method="post">
     <label for="feel-happier">
       <span>feel happier</span>
@@ -54,5 +54,5 @@
     <?php if(!empty($errors['goals'])) echo '<span class="error">' . $errors['goals'] . '</span>';?>
     <input type="submit" name="register3" value="finish" />
   </form>
-  <?php } ?>
+  <?php endif; ?>
 </section>

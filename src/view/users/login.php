@@ -5,7 +5,7 @@
       <div class="input-container text">
         <label>
           <span class="form-label hidden">Email:</span>
-          <input type="text" autocomplete="on" name="email" placeholder="email" class="form-input" />
+          <input type="email" autocomplete="on" name="email" placeholder="email" class="form-input" />
         </label>
       </div>
       <div class="input-container text">

@@ -28,11 +28,19 @@ class UsersController extends Controller {
     } else {
       header('Location: index.php?page=profile&category=information');
     }
+
+    if(!empty($_POST['update'])) {
+      //handle update information
+    }
+
     $this->set('title', 'Profile');
     $this->set('currentPage', 'profile');
   }
 
   public function register() {
+    if (!empty($_SESSION['user'])) {
+      header('Location: index.php?page=overview');
+    }
     $this->set('currentStep', 1);
     if (!empty($_POST['register1'])){
       $errors = array();
@@ -52,7 +60,7 @@ class UsersController extends Controller {
         }
         if (empty($errors)) {
           $_SESSION['email'] = $_POST['email'];
-          $_SESSION['password'] = $_POST['password'];
+          $_SESSION['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
           $this->set('currentStep', 2);
         }
         $this->set('errors', $errors);
@@ -80,11 +88,18 @@ class UsersController extends Controller {
           $errors['goals'] = 'Please choose your goal.';
         }
         if (empty($errors)) {
-          var_dump($_SESSION['email']);
-          var_dump($_SESSION['password']);
-          var_dump($_SESSION['nickname']);
-          var_dump($_SESSION['birthdate']);
-          var_dump($_POST['goals']);
+          $inserteduser = $this->userDAO->insert(array(
+            'email' => $_SESSION['email'],
+            'password' => $_SESSION['password'],
+            'nickname' => $_SESSION['nickname'],
+            'birthdate' => $_SESSION['birthdate'],
+            'goals' => $_POST['goals']
+          ));
+          if (!empty($inserteduser)) {
+            $_SESSION['info'] = 'Registration Successful! You can now log in.';
+            header('Location: index.php?page=login');
+            exit();
+          }
         }
         $this->set('currentStep', 3);
         $this->set('errors', $errors);

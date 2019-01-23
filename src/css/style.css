@@ -1,51 +1,15 @@
 @import 'reset';
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  /* stylelint-disable-line */
+*, *:before, *:after { /* stylelint-disable-line */
   box-sizing: inherit;
 }
 
 body {
   height: 100vh;
   font-size: 1.5rem;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.progress-header-nav {
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-}
-
-.progress-category-active {
-  font-weight: bold;
-}
-
-.progress-indicator {
-  width: 33.33%;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  background: #84abf1;
-  transition: .3s ease;
-}
-
-.progress-category1.progress-category-active ~ .progress-indicator {
-  left: 0;
-}
-
-.progress-category2.progress-category-active ~ .progress-indicator {
-  left: 33.33%;
-}
-
-.progress-category3.progress-category-active ~ .progress-indicator {
-  right: 0;
 }
