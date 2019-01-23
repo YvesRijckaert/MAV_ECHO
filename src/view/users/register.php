@@ -41,17 +41,17 @@
   <form class="register-form" method="post">
     <label for="feel-happier">
       <span>feel happier</span>
-      <input type="radio" name="goals" id="feel-happier" value="feel-happier">
+      <input type="radio" name="lifegoal" id="feel-happier" value="feel-happier">
     </label>
     <label for="decrease-anxiety">
       <span>decrease anxiety</span>
-      <input type="radio" name="goals" id="decrease-anxiety" value="decrease-anxiety">
+      <input type="radio" name="lifegoal" id="decrease-anxiety" value="decrease-anxiety">
     </label>
     <label for="build-confidence">
       <span>build confidence</span>
-      <input type="radio" name="goals" id="build-confidence" value="build-confidence">
+      <input type="radio" name="lifegoal" id="build-confidence" value="build-confidence">
     </label>
-    <?php if(!empty($errors['goals'])) echo '<span class="error">' . $errors['goals'] . '</span>';?>
+    <?php if(!empty($errors['lifegoal'])) echo '<span class="error">' . $errors['lifegoal'] . '</span>';?>
     <input type="submit" name="register3" value="finish" />
   </form>
   <?php endif; ?>

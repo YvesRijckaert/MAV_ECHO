@@ -4,7 +4,7 @@ require_once __DIR__ . '/DAO.php';
 class UserDAO extends DAO {
 
   public function selectById($id) {
-    $sql = "SELECT * FROM `users` WHERE `id` = :id";
+    $sql = "SELECT * FROM `users` WHERE `user_id` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
@@ -22,19 +22,28 @@ class UserDAO extends DAO {
   public function insert($data) {
     $errors = $this->validate($data);
     if (empty($errors)) {
-      $sql = "INSERT INTO `users` (`email`, `password`, `nickname`, `birthdate`, `goals`) VALUES (:email, :password, :nickname, :birthdate, :goals)";
+      $sql = "INSERT INTO `users` (`email`, `password`, `nickname`, `birthdate`, `lifegoal`) VALUES (:email, :password, :nickname, :birthdate, :lifegoal)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':email', $data['email']);
       $stmt->bindValue(':password', $data['password']);
       $stmt->bindValue(':nickname', $data['nickname']);
       $stmt->bindValue(':birthdate', $data['birthdate']);
-      $stmt->bindValue(':goals', $data['goals']);
+      $stmt->bindValue(':lifegoal', $data['lifegoal']);
       if($stmt->execute()) {
         $insertedId = $this->pdo->lastInsertId();
         return $this->selectById($insertedId);
       }
     }
     return false;
+  }
+
+  public function insertHabits($data) {
+    var_dump($data);
+    $sql = "INSERT INTO `habits` (`user_id`, `habit_name`) VALUES (:user_id, :habit)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit', $data['habit']);
+    $stmt->execute();
   }
 
   public function validate($data) {
@@ -51,8 +60,8 @@ class UserDAO extends DAO {
     if (empty($data['birthdate'])) {
       $errors['birthdate'] = 'please enter the birthdate';
     }
-    if (empty($data['goals'])) {
-      $errors['goals'] = 'please choose the goals';
+    if (empty($data['lifegoal'])) {
+      $errors['lifegoal'] = 'please enter the lifegoal';
     }
     return $errors;
   }

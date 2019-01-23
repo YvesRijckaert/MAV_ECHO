@@ -84,8 +84,8 @@ class UsersController extends Controller {
 
     if (!empty($_POST['register3'])){
       $errors = array();
-        if (empty($_POST['goals'])) {
-          $errors['goals'] = 'Please choose your goal.';
+        if (empty($_POST['lifegoal'])) {
+          $errors['lifegoal'] = 'Please choose your lifegoal.';
         }
         if (empty($errors)) {
           $inserteduser = $this->userDAO->insert(array(
@@ -93,9 +93,17 @@ class UsersController extends Controller {
             'password' => $_SESSION['password'],
             'nickname' => $_SESSION['nickname'],
             'birthdate' => $_SESSION['birthdate'],
-            'goals' => $_POST['goals']
+            'lifegoal' => $_POST['lifegoal']
           ));
           if (!empty($inserteduser)) {
+            //HIER BEREKENEN WELKE DEFAULT HABITS ER MOETEN ZIJN BIJ WELKE GEKOZEN LIFEGOAL?
+            $defaultHabits = array('meditate', 'hiking', 'reading', 'listen to music', 'deepen your conversations');
+            foreach ($defaultHabits as $defaultHabit) {
+              $this->userDAO->insertHabits(array(
+                'user_id' => $inserteduser['user_id'],
+                'habit' => $defaultHabit
+              ));
+            }
             $_SESSION['info'] = 'Registration Successful! You can now log in.';
             header('Location: index.php?page=login');
             exit();

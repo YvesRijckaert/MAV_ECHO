@@ -9,11 +9,15 @@ $routes = array(
     'action' => 'index'
   ),
   'overview' => array(
-    'controller' => 'Items',
+    'controller' => 'Posts',
     'action' => 'overview'
   ),
+  'add' => array(
+    'controller' => 'Posts',
+    'action' => 'add'
+  ),
   'progress' => array(
-    'controller' => 'Items',
+    'controller' => 'Posts',
     'action' => 'progress'
   ),
   'profile' => array(
