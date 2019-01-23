@@ -32,6 +32,7 @@ a:hover {
 }
 
 header {
+  display: flex;
   margin-bottom: 2.5rem;
 }
 
@@ -52,6 +53,10 @@ nav ul li, .progress-header-nav li {
 
 .update-form {
   margin-top: 5rem;
+}
+
+.nav-item-active {
+  text-decoration: underline;
 }
 
 /* session */

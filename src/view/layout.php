@@ -11,15 +11,31 @@
   <body>
     <header>
       <?php if (empty($_SESSION['user'])): ?>
-        <a href="index.php">home</a>
-        <a href="index.php?page=register">register</a>
-        <a href="index.php?page=login">login</a>
+      <nav>
+        <ul>
+          <li class="nav-item <?php if($currentPage === 'home') { echo 'nav-item-active';} ?>">
+            <a href="index.php">Home</a>
+          </li>
+          <li class="nav-item <?php if($currentPage === 'register') { echo 'nav-item-active';} ?>">
+            <a href="index.php?page=register">Register</a>
+          </li>
+          <li class="nav-item <?php if($currentPage === 'login') { echo 'nav-item-active';} ?>">
+            <a href="index.php?page=login">Login</a>
+          </li>
+        </ul>
+      </nav>
       <?php else: ?>
       <nav>
         <ul>
-          <li><a href="index.php?page=overview">Overview</a></li>
-          <li><a href="index.php?page=progress&category=statistics">Progress</a></li>
-          <li><a href="index.php?page=profile&category=information">Profile</a></li>
+          <li class="nav-item <?php if($currentPage === 'overview') { echo 'nav-item-active';} ?>">
+            <a href="index.php?page=overview">Overview</a>
+          </li>
+          <li class="nav-item <?php if($currentPage === 'progress') { echo 'nav-item-active';} ?>">
+            <a href="index.php?page=progress&category=statistics">Progress</a>
+          </li>
+          <li class="nav-item <?php if($currentPage === 'profile') { echo 'nav-item-active';} ?>">
+            <a href="index.php?page=profile&category=information">Profile</a>
+          </li>
         </ul>
       </nav>
         <p>Hi, <?php echo $_SESSION['user']['nickname'];?> - <a href="index.php?page=logout" class="logout-button">Logout</a></p>

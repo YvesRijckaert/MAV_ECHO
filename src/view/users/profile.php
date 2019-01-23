@@ -1,9 +1,19 @@
 <section>
-  <a href="index.php?page=profile&category=information">Information</a>
-  <a href="index.php?page=profile&category=customize">Customize</a>
+  <nav>
+    <ul>
+      <li class="nav-item <?php if($currentCategory === 'information') { echo 'nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=information">Information</a>
+      </li>
+      <li class="nav-item <?php if($currentCategory === 'customize') { echo 'nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=customize">Customize</a>
+      </li>
+    </ul>
+  </nav>
+
+
 </section>
 
-<?php if ($category == 'information') : ?>
+<?php if ($currentCategory == 'information') : ?>
   <section>
     <p>Information page</p>
     <form class="update-form" method="post">
@@ -28,7 +38,7 @@
   </section>
 <?php endif; ?>
 
-<?php if ($category == 'customize'): ?>
+<?php if ($currentCategory == 'customize'): ?>
   <section>
     <p>Customize page</p>
   </section>

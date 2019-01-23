@@ -17,10 +17,10 @@ class UsersController extends Controller {
       if (!empty($_GET['category'])) {
         switch ($_GET['category']) {
           case 'information':
-            $this->set('category', 'information');
+            $this->set('currentCategory', 'information');
             break;
           case 'customize':
-            $this->set('category', 'customize');
+            $this->set('currentCategory', 'customize');
             break;
           default:
             header('Location: index.php?page=profile&category=information');
