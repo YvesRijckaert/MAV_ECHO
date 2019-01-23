@@ -11,6 +11,7 @@
   <body>
     <header>
       <?php if (empty($_SESSION['user'])): ?>
+        <a href="index.php">home</a>
         <a href="index.php?page=register">register</a>
         <a href="index.php?page=login">login</a>
       <?php else: ?>
