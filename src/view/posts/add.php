@@ -11,11 +11,6 @@
       <input type="range" name="happiness-ratio" class="form-input" min="0" max="10" step="1" <?php if(!empty($_POST['happiness-ratio'])) echo 'value="' . $_POST['happiness-ratio'] . '"';?> />
       <?php if(!empty($errors['happiness-ratio'])) echo '<span class="error">' . $errors['happiness-ratio'] . '</span>';?>
     </label>
-    <?php if(empty($alreadyPostedToday)): ?>
-      <p>nog niet gepost vandaag</p>
-    <?php else: ?>
-      <p>wel al gepost vandaag</p>
-    <?php endif; ?>
     <?php foreach($habits as $habit): ?>
     <label for="<?php echo $habit['habit_id'] ?>">
       <span class="form-label"><?php echo $habit['habit_name'] ?></span>

@@ -38,11 +38,6 @@ class PostsController extends Controller {
           'post_id' => '',
           'current_date' => ''
         ));
-        $unfulfilled_habits = $this->habitDAO->selectAllUnfulfilledHabits(array(
-          'user_id' => $_SESSION['user']['user_id'],
-          'post_id' => '',
-          'current_date' => ''
-        ));
         //if form is submitted
         //update current day entry
       } else {
@@ -62,14 +57,16 @@ class PostsController extends Controller {
                 'short_memory' => $_POST['short-memory'],
                 'happiness_ratio' => $_POST['happiness-ratio'],
                 ));
-                $this->habitDAO->insertFulfilledHabits(array(
-                  'user_id' => $_SESSION['user']['user_id'],
-                  'post_id' => $insertedPost['post_id']
-                ));
-                $this->habitDAO->insertUnfulfilledHabits(array(
-                  'user_id' => $_SESSION['user']['user_id'],
-                  'post_id' => $insertedPost['post_id']
-                ));
+                foreach ($_POST['habits'] as $chosenHabit) {
+                  $fulfilled_habit = array_filter($habits, function ($var) use ($chosenHabit) {
+                    return ($var['habit_name'] === $chosenHabit);
+                  });
+                  $this->habitDAO->insertFulfilledHabit(array(
+                    'user_id' => $_SESSION['user']['user_id'],
+                    'post_id' => $insertedPost['post_id'],
+                    'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
+                  ));
+                }
               $_SESSION['info'] = 'Added your new day entry.';
               header('Location: index.php?page=add');
             } else {
