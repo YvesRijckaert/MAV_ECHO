@@ -12,9 +12,9 @@ class PostDAO extends DAO {
   }
 
   public function selectById($id){
-    $sql = "SELECT * FROM `daily_posts` WHERE `id` = :id";
+    $sql = "SELECT * FROM `daily_posts` WHERE `post_id` = :post_id";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':id', $id);
+    $stmt->bindValue(':post_id', $id);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
@@ -28,30 +28,38 @@ class PostDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
-  public function insertDailyPost($data){
-    $sql = "INSERT INTO `daily_posts` (`user_id`, `date`, `short_memory`, `happiness_ratio`, `fulfilled_habits`, `unfulfilled_habits`) VALUES (:user_id, :date, :short_memory, :happiness_ratio, :fulfilled_habits, :unfulfilled_habits)";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':date', $data['date']);
-    $stmt->bindValue(':short_memory', $data['short_memory']);
-    $stmt->bindValue(':happiness_ratio', $data['happiness_ratio']);
-    $stmt->bindValue(':fulfilled_habits', $data['fulfilled_habits']);
-    $stmt->bindValue(':unfulfilled_habits', $data['unfulfilled_habits']);
-    $stmt->execute();
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+  public function insertDailyPost($data) {
+    $errors = $this->validate($data);
+    if (empty($errors)) {
+      $sql = "INSERT INTO `daily_posts` (`user_id`, `date`, `short_memory`, `happiness_ratio`) VALUES (:user_id, :date, :short_memory, :happiness_ratio)";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':user_id', $data['user_id']);
+      $stmt->bindValue(':date', $data['date']);
+      $stmt->bindValue(':short_memory', $data['short_memory']);
+      $stmt->bindValue(':happiness_ratio', $data['happiness_ratio']);
+      if($stmt->execute()) {
+        $insertedId = $this->pdo->lastInsertId();
+        return $this->selectById($insertedId);
+      }
+    }
+    return false;
   }
 
-  public function updateDailyPost($data){
-    $sql = "UPDATE `daily_posts` SET `short_memory` = :short_memory, `happiness_ratio` = :happiness_ratio, `fulfilled_habits` = :fulfilled_habits, `unfulfilled_habits` = :unfulfilled_habits WHERE `user_id` = :user_id AND `date` = :date";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':short_memory', $data['short_memory']);
-    $stmt->bindValue(':happiness_ratio', $data['happiness_ratio']);
-    $stmt->bindValue(':fulfilled_habits', $data['fulfilled_habits']);
-    $stmt->bindValue(':unfulfilled_habits', $data['unfulfilled_habits']);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':date', $data['date']);
-    $stmt->execute();
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+  public function validate($data) {
+    $errors = array();
+    if (empty($data['user_id'])) {
+      $errors['user_id'] = 'please enter the user id';
+    }
+    if (empty($data['date'])) {
+      $errors['date'] = 'please enter the date';
+    }
+    if (empty($data['short_memory'])) {
+      $errors['short_memory'] = 'please enter the short memory';
+    }
+    if (empty($data['happiness_ratio'])) {
+      $errors['happiness_ratio'] = 'please choose a happiness ratio';
+    }
+    return $errors;
   }
 
 }

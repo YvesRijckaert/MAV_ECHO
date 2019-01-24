@@ -38,7 +38,6 @@ class UserDAO extends DAO {
   }
 
   public function insertHabits($data) {
-    var_dump($data);
     $sql = "INSERT INTO `habits` (`user_id`, `habit_name`) VALUES (:user_id, :habit)";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $data['user_id']);
