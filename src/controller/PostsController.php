@@ -37,19 +37,42 @@ class PostsController extends Controller {
           'user_id' => $_SESSION['user']['user_id'],
           'post_id' => $alreadyPostedToday['post_id'],
         ));
-        var_dump($fulfilled_habits);
-        die();
-        //if form is submitted
-        //update current day entry
+        $all_habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+        function arrayRecursiveDiff($aArray1, $aArray2) {
+          $aReturn = array();
+          foreach ($aArray1 as $mKey => $mValue) {
+            if (array_key_exists($mKey, $aArray2)) {
+              if (is_array($mValue)) {
+                $aRecursiveDiff = arrayRecursiveDiff($mValue, $aArray2[$mKey]);
+                if (count($aRecursiveDiff)) { $aReturn[$mKey] = $aRecursiveDiff; }
+              } else {
+                if ($mValue != $aArray2[$mKey]) {
+                  $aReturn[$mKey] = $mValue;
+                }
+              }
+            } else {
+              $aReturn[$mKey] = $mValue;
+            }
+          }
+          return $aReturn;
+        }
+        $unfulfilled_habits = arrayRecursiveDiff($all_habits, $fulfilled_habits);
+
+        //die();
+        //get unfulfilled_habits
+        //put fulfilled and unfulfilled habits in the same array
+        //make sure you can distinguish between them
+        $habits = [];
+
+        if(!empty($_POST['add-day'])) {
+          $errors = array();
+        }
       } else {
         $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
         if (!empty($_POST['add-day'])) {
             $errors = array();
             if (empty($_POST['short-memory'])) {
                 $errors['short-memory'] = 'Please enter a short memory.';
-            }
-            if (empty($_POST['happiness-ratio'])) {
-                $errors['happiness-ratio'] = 'Please select a happiness ratio.';
             }
             if (empty($errors)) {
               $insertedPost = $this->postDAO->insertDailyPost(array(
