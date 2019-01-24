@@ -35,9 +35,10 @@ class PostsController extends Controller {
       if(!empty($alreadyPostedToday)){
         $fulfilled_habits = $this->habitDAO->selectAllFulfilledHabits(array(
           'user_id' => $_SESSION['user']['user_id'],
-          'post_id' => '',
-          'current_date' => ''
+          'post_id' => $alreadyPostedToday['post_id'],
         ));
+        var_dump($fulfilled_habits);
+        die();
         //if form is submitted
         //update current day entry
       } else {
@@ -69,6 +70,7 @@ class PostsController extends Controller {
                 }
               $_SESSION['info'] = 'Added your new day entry.';
               header('Location: index.php?page=add');
+              exit();
             } else {
               $this->set('errors', $errors);
             }
