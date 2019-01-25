@@ -35,7 +35,7 @@ class PostsController extends Controller {
                 if($isDayValid) {
                   $enteredDate = new DateTime($_GET['day']);
                   $dateRegistered = new DateTime($_SESSION['user']['date_joined']);
-                  if($dateRegistered->format('d-m-Y') > $enteredDate->format('d-m-Y')) {
+                  if($dateRegistered > $enteredDate) {
                     $_SESSION['error'] = 'You were not a user back then.';
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
