@@ -34,6 +34,12 @@ class PostsController extends Controller {
                 $isDayValid = validateDate($_GET['day']);
                 if($isDayValid) {
                   $this->set('currentDay', $_GET['day']);
+                  $previousDay = new DateTime($_GET['day']);
+                  $previousDay->modify('-1 day');
+                  $this->set('previousDay', $previousDay->format('d-m-Y'));
+                  $nextDay = new DateTime($_GET['day']);
+                  $nextDay->modify('+1 day');
+                  $this->set('nextDay', $nextDay->format('d-m-Y'));
                 } else {
                   $_SESSION['error'] = 'Not a valid day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
