@@ -139,6 +139,8 @@ class UsersController extends Controller {
             if (password_verify($_POST['password'], $existing['password'])) {
               $_SESSION['user'] = $existing;
               $_SESSION['info'] = 'Logged In';
+              header('Location: index.php?page=overview');
+              exit();
             } else {
               $_SESSION['error'] = 'Unknown username / password';
               header('Location: index.php?page=login');

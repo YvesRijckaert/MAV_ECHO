@@ -31,18 +31,29 @@ class PostDAO extends DAO {
   public function insertDailyPost($data) {
     $errors = $this->validate($data);
     if (empty($errors)) {
-      $sql = "INSERT INTO `daily_posts` (`user_id`, `date`, `short_memory`, `happiness_ratio`) VALUES (:user_id, :date, :short_memory, :happiness_ratio)";
+      $sql = "INSERT INTO `daily_posts` (`user_id`, `date`, `short_memory`, `feelings`) VALUES (:user_id, :date, :short_memory, :feelings)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':user_id', $data['user_id']);
       $stmt->bindValue(':date', $data['date']);
       $stmt->bindValue(':short_memory', $data['short_memory']);
-      $stmt->bindValue(':happiness_ratio', $data['happiness_ratio']);
+      $stmt->bindValue(':feelings', $data['feelings']);
       if($stmt->execute()) {
         $insertedId = $this->pdo->lastInsertId();
         return $this->selectById($insertedId);
       }
     }
     return false;
+  }
+
+  public function updateDailyPost($data) {
+    $sql = "UPDATE `daily_posts` SET `short_memory` = :short_memory, `feelings` = :feelings  WHERE `post_id` = :post_id AND `user_id` = :user_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':post_id', $data['post_id']);
+    $stmt->bindValue(':short_memory', $data['short_memory']);
+    $stmt->bindValue(':feelings', $data['feelings']);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
   public function validate($data) {
@@ -55,9 +66,6 @@ class PostDAO extends DAO {
     }
     if (empty($data['short_memory'])) {
       $errors['short_memory'] = 'please enter the short memory';
-    }
-    if (empty($data['happiness_ratio'])) {
-      $errors['happiness_ratio'] = 'please choose a happiness ratio';
     }
     return $errors;
   }

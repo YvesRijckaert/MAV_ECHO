@@ -14,11 +14,14 @@ class PostsController extends Controller {
     }
 
     public function overview() {
-      if(!empty($_SESSION['user'])) {
-        $posts = $this->postDAO->selectAll();
-        $this->set('posts', $posts);
-      } else {
+      if(empty($_SESSION['user'])) {
         header('Location: index.php');
+      } else {
+        $alreadyPostedToday = $this->postDAO->checkDate(array(
+          'user_id' => $_SESSION['user']['user_id'],
+          'current_date' => date("Y-m-d")
+        ));
+        $this->set('alreadyPostedToday', $alreadyPostedToday);
       }
       $this->set('title', 'Overview');
       $this->set('currentPage', 'overview');
@@ -27,59 +30,56 @@ class PostsController extends Controller {
     public function add() {
       if(empty($_SESSION['user'])) {
         header('Location: index.php');
-      }
-      $alreadyPostedToday = $this->postDAO->checkDate(array(
-        'user_id' => $_SESSION['user']['user_id'],
-        'current_date' => date("Y-m-d")
-      ));
-      if(!empty($alreadyPostedToday)){
-        $fulfilled_habits = $this->habitDAO->selectAllFulfilledHabits(array(
-          'user_id' => $_SESSION['user']['user_id'],
-          'post_id' => $alreadyPostedToday['post_id'],
-        ));
-        $all_habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
-        function arrayRecursiveDiff($aArray1, $aArray2) {
-          $aReturn = array();
-          foreach ($aArray1 as $mKey => $mValue) {
-            if (array_key_exists($mKey, $aArray2)) {
-              if (is_array($mValue)) {
-                $aRecursiveDiff = arrayRecursiveDiff($mValue, $aArray2[$mKey]);
-                if (count($aRecursiveDiff)) { $aReturn[$mKey] = $aRecursiveDiff; }
-              } else {
-                if ($mValue != $aArray2[$mKey]) {
-                  $aReturn[$mKey] = $mValue;
-                }
-              }
-            } else {
-              $aReturn[$mKey] = $mValue;
-            }
-          }
-          return $aReturn;
-        }
-        $unfulfilled_habits = arrayRecursiveDiff($all_habits, $fulfilled_habits);
-
-        //die();
-        //get unfulfilled_habits
-        //put fulfilled and unfulfilled habits in the same array
-        //make sure you can distinguish between them
-        $habits = [];
-
-        if(!empty($_POST['add-day'])) {
-          $errors = array();
-        }
       } else {
-        $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
-        if (!empty($_POST['add-day'])) {
-            $errors = array();
-            if (empty($_POST['short-memory'])) {
+          $alreadyPostedToday = $this->postDAO->checkDate(array(
+            'user_id' => $_SESSION['user']['user_id'],
+            'current_date' => date("Y-m-d")
+          ));
+          if (!empty($alreadyPostedToday)) {
+            $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+            $fulfilled_habits = $this->habitDAO->selectAllFulfilledHabits(array(
+              'user_id' => $_SESSION['user']['user_id'],
+              'post_id' => $alreadyPostedToday['post_id'],
+            ));
+            $fulfilled_habits_ids = array_column($fulfilled_habits, 'habit_id');
+            $short_memory = $alreadyPostedToday['short_memory'];
+            $feelings = $alreadyPostedToday['feelings'];
+            $this->set('fulfilled_habits_ids', $fulfilled_habits_ids);
+            $this->set('short_memory', $short_memory);
+            $this->set('feelings', $feelings);
+
+            if (!empty($_POST['add-day'])) {
+              $errors = array();
+              if (empty($_POST['short-memory'])) {
                 $errors['short-memory'] = 'Please enter a short memory.';
-            }
-            if (empty($errors)) {
-              $insertedPost = $this->postDAO->insertDailyPost(array(
-                'user_id' => $_SESSION['user']['user_id'],
-                'date' => date("Y-m-d"),
-                'short_memory' => $_POST['short-memory'],
-                'happiness_ratio' => $_POST['happiness-ratio'],
+              }
+              if (empty($_POST['feelings'])) {
+                $errors['feelings'] = 'Please tell us how you are feeling.';
+              }
+              if (empty($errors)) {
+                switch ($_POST['feelings']) {
+                  case 'feeling-great':
+                    $feelingsRatio = 1;
+                    break;
+                  case 'feeling-okay':
+                    $feelingsRatio = 0;
+                    break;
+                  case 'feeling-bad':
+                    $feelingsRatio = -1;
+                    break;
+                  default:
+                    $feelingsRatio = 0;
+                    break;
+                }
+                $insertedPost = $this->postDAO->updateDailyPost(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'post_id' => $alreadyPostedToday['post_id'],
+                  'short_memory' => $_POST['short-memory'],
+                  'feelings' => $feelingsRatio,
+                ));
+                $this->habitDAO->deleteFulfilledHabits(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'post_id' => $alreadyPostedToday['post_id'],
                 ));
                 foreach ($_POST['habits'] as $chosenHabit) {
                   $fulfilled_habit = array_filter($habits, function ($var) use ($chosenHabit) {
@@ -87,19 +87,67 @@ class PostsController extends Controller {
                   });
                   $this->habitDAO->insertFulfilledHabit(array(
                     'user_id' => $_SESSION['user']['user_id'],
-                    'post_id' => $insertedPost['post_id'],
+                    'post_id' => $alreadyPostedToday['post_id'],
                     'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
                   ));
                 }
-              $_SESSION['info'] = 'Added your new day entry.';
-              header('Location: index.php?page=add');
-              exit();
-            } else {
-              $this->set('errors', $errors);
+                $_SESSION['info'] = 'Updated day.';
+                header('Location: index.php?page=add');
+                exit();
+              } else {
+                  $this->set('errors', $errors);
+                }
             }
-        }
+          } else {
+              $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+              if (!empty($_POST['add-day'])) {
+                $errors = array();
+                if (empty($_POST['short-memory'])) {
+                  $errors['short-memory'] = 'Please enter a short memory.';
+                }
+                if (empty($_POST['feelings'])) {
+                  $errors['feelings'] = 'Please tell us how you are feeling.';
+                }
+                if (empty($errors)) {
+                  switch ($_POST['feelings']) {
+                    case 'feeling-great':
+                      $feelingsRatio = 1;
+                      break;
+                    case 'feeling-okay':
+                      $feelingsRatio = 0;
+                      break;
+                    case 'feeling-bad':
+                      $feelingsRatio = -1;
+                      break;
+                    default:
+                      $feelingsRatio = 0;
+                      break;
+                  }
+                  $insertedPost = $this->postDAO->insertDailyPost(array(
+                    'user_id' => $_SESSION['user']['user_id'],
+                    'date' => date("Y-m-d"),
+                    'short_memory' => $_POST['short-memory'],
+                    'feelings' => $feelingsRatio,
+                  ));
+                  foreach ($_POST['habits'] as $chosenHabit) {
+                    $fulfilled_habit = array_filter($habits, function ($var) use ($chosenHabit) {
+                      return ($var['habit_name'] === $chosenHabit);
+                    });
+                    $this->habitDAO->insertFulfilledHabit(array(
+                      'user_id' => $_SESSION['user']['user_id'],
+                      'post_id' => $insertedPost['post_id'],
+                      'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
+                    ));
+                  }
+                  $_SESSION['info'] = 'Added new day.';
+                  header('Location: index.php?page=add');
+                  exit();
+                } else {
+                    $this->set('errors', $errors);
+                }
+              }
+          }
       }
-
       $this->set('alreadyPostedToday', $alreadyPostedToday);
       $this->set('habits', $habits);
       $this->set('title', 'Add day');

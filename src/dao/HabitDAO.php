@@ -29,4 +29,12 @@ class HabitDAO extends DAO {
     $stmt->bindValue(':habit_id', $data['habit_id']);
     $stmt->execute();
   }
+
+  public function deleteFulfilledHabits($data) {
+    $sql = "DELETE FROM `fulfilled_habits` WHERE `user_id` = :user_id AND `post_id` = :post_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':post_id', $data['post_id']);
+    $stmt->execute();
+  }
 }

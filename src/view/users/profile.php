@@ -15,7 +15,6 @@
 
 <?php if ($currentCategory == 'information') : ?>
   <section>
-    <p>Information page</p>
     <form class="update-form" method="post">
       <label>
         <span class="form-label">Email address</span>
@@ -40,7 +39,6 @@
 
 <?php if ($currentCategory == 'customize'): ?>
   <section>
-    <p>Customize page</p>
   </section>
 <?php endif; ?>
 

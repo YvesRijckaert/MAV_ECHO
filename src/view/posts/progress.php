@@ -18,18 +18,15 @@
 
 <?php if ($currentCategory == 'statistics'): ?>
   <section>
-    <p>Statistics page</p>
   </section>
 <?php endif; ?>
 
 <?php if ($currentCategory == 'achievements'): ?>
   <section>
-    <p>Achievements page</p>
   </section>
 <?php endif; ?>
 
 <?php if ($currentCategory == 'goals'): ?>
   <section>
-    <p>Goals page</p>
   </section>
 <?php endif; ?>
