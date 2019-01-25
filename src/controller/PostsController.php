@@ -22,6 +22,40 @@ class PostsController extends Controller {
           'current_date' => date("Y-m-d")
         ));
         $this->set('alreadyPostedToday', $alreadyPostedToday);
+        if (!empty($_GET['view'])) {
+          switch ($_GET['view']) {
+            case 'day':
+              if(!empty($_GET['day'])) {
+                $this->set('view', 'day');
+                function validateDate($date, $format = 'd-m-Y') {
+                  $d = DateTime::createFromFormat($format, $date);
+                  return $d && $d->format($format) === $date;
+                }
+                $isDayValid = validateDate($_GET['day']);
+                if($isDayValid) {
+                  $this->set('currentDay', $_GET['day']);
+                } else {
+                  $_SESSION['error'] = 'Not a valid day.';
+                  header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                  exit();
+                }
+              } else {
+                header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                exit();
+              }
+              break;
+            case 'month':
+              $this->set('view', 'month');
+              break;
+            default:
+              header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+              exit();
+            break;
+          }
+        } else {
+          header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+          exit();
+        }
       }
       $this->set('title', 'Overview');
       $this->set('currentPage', 'overview');

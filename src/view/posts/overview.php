@@ -1,14 +1,27 @@
 <!-- DAY VIEW -->
-<!-- show all the days -->
+<?php if($view == 'day') : ?>
+<!-- show all the days in navigation -->
+<section>
+  <header>
+    <a href="">←</a>
+    <p><?php echo $currentDay; ?></p>
+    <a href="">→</a>
+  </header>
+</section>
 <!-- check if current selected day has an entry in the database -->
 <!-- if yes: show the daily post for that day -->
 <!-- if no: show static HTML: 'no entry for this day' -->
+<?php endif; ?>
+
 
 <!-- MONTH VIEW -->
+<?php if($view == 'month') : ?>
 <!-- show calendar -->
 <!-- highlight current day in calendar -->
 <!-- show all the habits as radio buttons  -->
 <!-- highlight chosen habit in calendar if that habit exists for that daily post entry  -->
+<?php endif; ?>
+
 
 <!-- check if already made a day entry today -->
 <!-- if yes: change day button -->
