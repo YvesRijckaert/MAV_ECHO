@@ -3,13 +3,16 @@
 require_once __DIR__ . '/Controller.php';
 
 require_once __DIR__ . '/../dao/UserDAO.php';
+require_once __DIR__ . '/../dao/HabitDAO.php';
 
 class UsersController extends Controller {
 
   private $userDAO;
+  private $habitDAO;
 
   function __construct() {
     $this->userDAO = new UserDAO();
+    $this->habitDAO = new HabitDAO();
   }
 
   public function profile() {
@@ -103,7 +106,7 @@ class UsersController extends Controller {
               //HIER BEREKENEN WELKE DEFAULT HABITS ER MOETEN ZIJN BIJ WELKE GEKOZEN LIFEGOAL?
               $defaultHabits = array('meditate', 'hiking', 'reading', 'listen to music', 'deepen your conversations');
               foreach ($defaultHabits as $defaultHabit) {
-                $this->userDAO->insertHabits(array(
+                $this->habitDAO->insertDefaultHabits(array(
                   'user_id' => $inserteduser['user_id'],
                   'habit' => $defaultHabit
                 ));

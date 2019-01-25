@@ -33,13 +33,29 @@ class PostsController extends Controller {
                 }
                 $isDayValid = validateDate($_GET['day']);
                 if($isDayValid) {
-                  $this->set('currentDay', $_GET['day']);
+                  $enteredDate = new DateTime($_GET['day']);
+                  $dateRegistered = new DateTime($_SESSION['user']['date_joined']);
+                  if($dateRegistered->format('d-m-Y') > $enteredDate->format('d-m-Y')) {
+                    $_SESSION['error'] = 'You were not a user back then.';
+                    header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                    exit();
+                  }
+                  if(date("d-m-Y") < $enteredDate->format('d-m-Y')) {
+                    $_SESSION['error'] = 'This day has yet to come.';
+                    header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                    exit();
+                  }
+                  $this->set('currentDay', $enteredDate->format('d-m-Y'));
                   $previousDay = new DateTime($_GET['day']);
                   $previousDay->modify('-1 day');
-                  $this->set('previousDay', $previousDay->format('d-m-Y'));
                   $nextDay = new DateTime($_GET['day']);
                   $nextDay->modify('+1 day');
-                  $this->set('nextDay', $nextDay->format('d-m-Y'));
+                  if($dateRegistered->format('d-m-Y') !== $_GET['day']){
+                    $this->set('previousDay', $previousDay->format('d-m-Y'));
+                  }
+                  if (date("d-m-Y") !== $_GET['day']) {
+                    $this->set('nextDay', $nextDay->format('d-m-Y'));
+                  }
                 } else {
                   $_SESSION['error'] = 'Not a valid day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));

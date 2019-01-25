@@ -22,27 +22,20 @@ class UserDAO extends DAO {
   public function insert($data) {
     $errors = $this->validate($data);
     if (empty($errors)) {
-      $sql = "INSERT INTO `users` (`email`, `password`, `nickname`, `birthdate`, `lifegoal`) VALUES (:email, :password, :nickname, :birthdate, :lifegoal)";
+      $sql = "INSERT INTO `users` (`email`, `password`, `nickname`, `birthdate`, `lifegoal`, `date_joined`) VALUES (:email, :password, :nickname, :birthdate, :lifegoal, :date_joined)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':email', $data['email']);
       $stmt->bindValue(':password', $data['password']);
       $stmt->bindValue(':nickname', $data['nickname']);
       $stmt->bindValue(':birthdate', $data['birthdate']);
       $stmt->bindValue(':lifegoal', $data['lifegoal']);
+      $stmt->bindValue(':date_joined', date("Y-m-d"));
       if($stmt->execute()) {
         $insertedId = $this->pdo->lastInsertId();
         return $this->selectById($insertedId);
       }
     }
     return false;
-  }
-
-  public function insertHabits($data) {
-    $sql = "INSERT INTO `habits` (`user_id`, `habit_name`) VALUES (:user_id, :habit)";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':habit', $data['habit']);
-    $stmt->execute();
   }
 
   public function validate($data) {

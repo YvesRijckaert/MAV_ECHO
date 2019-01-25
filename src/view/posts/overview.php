@@ -3,9 +3,9 @@
 <!-- show all the days in navigation -->
 <section>
   <header>
-    <a href="index.php?page=overview&view=day&day=<?php echo $previousDay ?>">←</a>
+    <a href="index.php?page=overview&view=day&day=<?php if(isset($previousDay)) echo $previousDay; ?>">←</a>
     <p><?php echo $currentDay; ?></p>
-    <a href="index.php?page=overview&view=day&day=<?php echo $nextDay ?>">→</a>
+    <a href="index.php?page=overview&view=day&day=<?php if(isset($nextDay)) echo $nextDay; ?>">→</a>
   </header>
 </section>
 <!-- check if current selected day has an entry in the database -->
