@@ -1,11 +1,28 @@
+<section>
+  <nav>
+    <ul>
+      <li class="nav-item <?php if($view === 'day') { echo 'nav-item-active';} ?>">
+        <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">Day</a>
+      </li>
+      <li class="nav-item <?php if($view === 'month') { echo 'nav-item-active';} ?>">
+        <a href="index.php?page=overview&view=month">Month</a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
 <!-- DAY VIEW -->
 <?php if($view == 'day') : ?>
 <!-- show all the days in navigation -->
 <section>
   <header>
-    <a href="index.php?page=overview&view=day&day=<?php if(isset($previousDay)) echo $previousDay; ?>">←</a>
+    <?php if(isset($previousDay)):?>
+    <a href="index.php?page=overview&view=day&day=<?php echo $previousDay; ?>">←</a>
+    <?php endif; ?>
     <p><?php echo $currentDay; ?></p>
+    <?php if(isset($nextDay)):?>
     <a href="index.php?page=overview&view=day&day=<?php if(isset($nextDay)) echo $nextDay; ?>">→</a>
+    <?php endif; ?>
   </header>
 </section>
 <!-- check if current selected day has an entry in the database -->

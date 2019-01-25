@@ -9,8 +9,6 @@
       </li>
     </ul>
   </nav>
-
-
 </section>
 
 <?php if ($currentCategory == 'information') : ?>

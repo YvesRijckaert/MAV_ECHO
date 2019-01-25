@@ -28,7 +28,7 @@
       <nav>
         <ul>
           <li class="nav-item <?php if($currentPage === 'overview') { echo 'nav-item-active';} ?>">
-            <a href="index.php?page=overview">Overview</a>
+            <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">Overview</a>
           </li>
           <li class="nav-item <?php if($currentPage === 'progress') { echo 'nav-item-active';} ?>">
             <a href="index.php?page=progress&category=statistics">Progress</a>
