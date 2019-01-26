@@ -96,3 +96,9 @@ nav ul li, .progress-header-nav li {
   color: red;
   font-weight: bold;
 }
+
+/* calendar */
+
+.today_date {
+  color: blue;
+}

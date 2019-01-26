@@ -80,8 +80,10 @@ class PostsController extends Controller {
               }
               break;
             case 'month':
+              $activeHabits = $this->habitDAO->selectAllActiveHabits($_SESSION['user']['user_id']);
+              $this->set('activeHabits', $activeHabits);
               function build_calendar($month,$year, $today_date) {
-                $daysOfWeek = array('S','M','T','W','T','F','S');
+                $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
                 $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
                 $numberDays = date('t',$firstDayOfMonth);
                 $dateComponents = getdate($firstDayOfMonth);
@@ -107,7 +109,7 @@ class PostsController extends Controller {
                   $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
                   $date = "$year-$month-$currentDayRel";
                   if($currentDayRel == $today_date ) {
-                    $calendar .= "<td class='day' id='today_date ' rel='$date'><b>$currentDay</b></td>";
+                    $calendar .= "<td class='day today_date' rel='$date'><b>$currentDay</b></td>";
                   } else {
                     $calendar .= "<td class='day' rel='$date'>$currentDay</td>";
                   }

@@ -20,6 +20,14 @@ class HabitDAO extends DAO {
     $stmt->execute();
   }
 
+  public function selectAllActiveHabits($user_id) {
+    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $user_id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   public function selectAllFulfilledHabits($data) {
     $sql = "SELECT * FROM `fulfilled_habits` INNER JOIN `habits` ON fulfilled_habits.habit_id = habits.habit_id WHERE fulfilled_habits.user_id = :user_id AND fulfilled_habits.post_id = :post_id";
     $stmt = $this->pdo->prepare($sql);

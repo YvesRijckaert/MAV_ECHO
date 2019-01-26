@@ -53,8 +53,15 @@
 <?php if($view == 'month') : ?>
 <!-- show calendar -->
 <?php echo $calendar ?>
-<!-- highlight current day in calendar -->
-<!-- show all the habits as radio buttons  -->
+<!-- show all the active habits as radio buttons  -->
+<form>
+  <?php foreach($activeHabits as $habit): ?>
+    <label for="<?php echo $habit['habit_id'] ?>">
+      <span class="form-label"><?php echo $habit['habit_name'] ?></span>
+      <input type="radio" id="<?php echo $habit['habit_id'] ?>" name="chosenHabit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
+    </label>
+  <?php endforeach; ?>
+</form>
 <!-- highlight chosen habit in calendar if that habit exists for that daily post entry  -->
 <?php endif; ?>
 
