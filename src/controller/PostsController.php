@@ -123,9 +123,9 @@ class PostsController extends Controller {
                   $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
                   $date = "$year-$month-$currentDayRel";
                   if($currentDayRel == $today_date ) {
-                    $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=\">$currentDay</a></td>";
+                    $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                   } else {
-                    $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . $currentDay . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                    $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                   }
                   $currentDay++;
                   $dayOfWeek++;
