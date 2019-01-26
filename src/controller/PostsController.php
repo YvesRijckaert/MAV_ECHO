@@ -142,8 +142,14 @@ class PostsController extends Controller {
                   $today_date = date("d");
                   $today_date = ltrim($today_date, '0');
                   $currentMonth = $enteredDate->format('m-Y');
+                  $previousMonth = new DateTime('01-' . $_GET['month']);
+                  $previousMonth->modify('-1 month');
+                  $nextMonth = new DateTime('01-' . $_GET['month']);
+                  $nextMonth->modify('+1 month');
                   $this->set('calendar', build_calendar($month,$year, $today_date));
                   $this->set('currentMonth', $currentMonth);
+                  $this->set('previousMonth', $previousMonth->format('m-Y'));
+                  $this->set('nextMonth', $nextMonth->format('m-Y'));
 
                   //show calendar with fulfilled habits
                   if (!empty($_POST['show-habit'])) {
