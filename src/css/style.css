@@ -100,5 +100,9 @@ nav ul li, .progress-header-nav li {
 /* calendar */
 
 .today_date {
-  color: blue;
+  border: .5rem solid black;
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
+  display: inline;
 }

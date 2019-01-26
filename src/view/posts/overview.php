@@ -54,13 +54,15 @@
 <!-- show calendar -->
 <?php echo $calendar ?>
 <!-- show all the active habits as radio buttons  -->
-<form>
+<form method="post">
   <?php foreach($activeHabits as $habit): ?>
     <label for="<?php echo $habit['habit_id'] ?>">
       <span class="form-label"><?php echo $habit['habit_name'] ?></span>
-      <input type="radio" id="<?php echo $habit['habit_id'] ?>" name="chosenHabit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
+      <input type="radio" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
     </label>
   <?php endforeach; ?>
+  <?php if(!empty($errors['chosen_habit'])) echo '<span class="error">' . $errors['chosen_habit'] . '</span>';?>
+  <input type="submit" name="show-habit" value="save" />
 </form>
 <!-- highlight chosen habit in calendar if that habit exists for that daily post entry  -->
 <?php endif; ?>

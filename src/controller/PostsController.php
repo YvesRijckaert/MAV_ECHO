@@ -80,8 +80,22 @@ class PostsController extends Controller {
               }
               break;
             case 'month':
+              //show habits
               $activeHabits = $this->habitDAO->selectAllActiveHabits($_SESSION['user']['user_id']);
               $this->set('activeHabits', $activeHabits);
+              if (!empty($_POST['show-habit'])) {
+                $errors = array();
+                  if (empty($_POST['chosen_habit'])) {
+                    $errors['chosen_habit'] = 'Please choose a habit.';
+                  }
+                  if(empty($errors)) {
+                    var_dump($_POST['chosen_habit']);
+                    //get the habit that was chosen
+                    //get the days of the specific month
+                  } else {
+                    $this->set('errors', $errors);
+                  }
+              }
               function build_calendar($month,$year, $today_date) {
                 $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
                 $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
@@ -109,9 +123,9 @@ class PostsController extends Controller {
                   $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
                   $date = "$year-$month-$currentDayRel";
                   if($currentDayRel == $today_date ) {
-                    $calendar .= "<td class='day today_date' rel='$date'><b>$currentDay</b></td>";
+                    $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=\">$currentDay</a></td>";
                   } else {
-                    $calendar .= "<td class='day' rel='$date'>$currentDay</td>";
+                    $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . $currentDay . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                   }
                   $currentDay++;
                   $dayOfWeek++;
@@ -129,7 +143,6 @@ class PostsController extends Controller {
               $year = $dateComponents['year'];
               $today_date = date("d");
               $today_date = ltrim($today_date, '0');
-
               $this->set('calendar', build_calendar($month,$year, $today_date));
               $this->set('view', 'month');
               break;
