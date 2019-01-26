@@ -45,7 +45,7 @@ class PostsController extends Controller {
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
                   }
-                  $this->set('currentDay', $enteredDate->format('d-m-Y'));
+                  $this->set('currentDay', $enteredDate->format('l d F Y'));
                   $previousDay = new DateTime($_GET['day']);
                   $previousDay->modify('-1 day');
                   $nextDay = new DateTime($_GET['day']);
@@ -101,7 +101,6 @@ class PostsController extends Controller {
                     $monthName = $dateComponents['month'];
                     $dayOfWeek = $dateComponents['wday'];
                     $calendar = "<table class='calendar'>";
-                    $calendar .= "<caption>$monthName $year</caption>";
                     $calendar .= "<tr>";
                     foreach($daysOfWeek as $day) {
                         $calendar .= "<th class='header'>$day</th>";
@@ -141,7 +140,7 @@ class PostsController extends Controller {
                   $year = $enteredDate->format('Y');
                   $today_date = date("d");
                   $today_date = ltrim($today_date, '0');
-                  $currentMonth = $enteredDate->format('m-Y');
+                  $currentMonth = $enteredDate->format('F Y');
                   $previousMonth = new DateTime('01-' . $_GET['month']);
                   $previousMonth->modify('-1 month');
                   $nextMonth = new DateTime('01-' . $_GET['month']);
