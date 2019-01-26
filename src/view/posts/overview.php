@@ -52,6 +52,7 @@
 <!-- MONTH VIEW -->
 <?php if($view == 'month') : ?>
 <!-- show calendar -->
+<?php echo $calendar ?>
 <!-- highlight current day in calendar -->
 <!-- show all the habits as radio buttons  -->
 <!-- highlight chosen habit in calendar if that habit exists for that daily post entry  -->
