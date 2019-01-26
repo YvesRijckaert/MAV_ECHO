@@ -28,6 +28,15 @@ class PostDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function getPostOfDay($data) {
+    $sql = "SELECT * FROM `daily_posts` WHERE `user_id` = :user_id AND `date` = :date";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':date', $data['date']);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function insertDailyPost($data) {
     $errors = $this->validate($data);
     if (empty($errors)) {

@@ -25,9 +25,29 @@
     <?php endif; ?>
   </header>
 </section>
-<!-- check if current selected day has an entry in the database -->
-<!-- if yes: show the daily post for that day -->
-<!-- if no: show static HTML: 'no entry for this day' -->
+<section>
+  <?php if(!empty($postOfEnteredDay)): ?>
+  <dl>
+    <dt>Short memory:</dt>
+    <dd><?php echo $postOfEnteredDay['short_memory'] ?></dd>
+    <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
+    <dt>Fulfilled habits:</dt>
+    <dd>
+      <ul>
+        <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
+        <li><?php echo $habit['habit_name'] ?></li>
+        <?php endforeach; ?>
+      </ul>
+    </dd>
+    <?php endif; ?>
+  </dl>
+  <?php else: ?>
+  <!-- if no: show static HTML: 'no entry for this day' -->
+  <p class="error">Nothing available for this day.</p>
+  <?php endif; ?>
+</section>
+
+<!-- show number of days that you've lived -->
 <?php endif; ?>
 
 

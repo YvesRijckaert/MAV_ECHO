@@ -56,6 +56,16 @@ class PostsController extends Controller {
                   if (date("d-m-Y") !== $_GET['day']) {
                     $this->set('nextDay', $nextDay->format('d-m-Y'));
                   }
+                  $postOfEnteredDay = $this->postDAO->getPostOfDay(array(
+                    'user_id' => $_SESSION['user']['user_id'],
+                    'date' => $enteredDate->format('Y-m-d'),
+                  ));
+                  $fulfilledHabitsOfEnteredDay = $this->habitDAO->getFulfilledHabitsOfDay(array(
+                    'user_id' => $_SESSION['user']['user_id'],
+                    'date' => $enteredDate->format('Y-m-d'),
+                  ));
+                  $this->set('postOfEnteredDay', $postOfEnteredDay);
+                  $this->set('fulfilledHabitsOfEnteredDay', $fulfilledHabitsOfEnteredDay);
                 } else {
                   $_SESSION['error'] = 'Not a valid day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
