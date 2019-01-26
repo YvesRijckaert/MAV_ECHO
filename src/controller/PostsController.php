@@ -64,8 +64,11 @@ class PostsController extends Controller {
                     'user_id' => $_SESSION['user']['user_id'],
                     'date' => $enteredDate->format('Y-m-d'),
                   ));
+                  $birthDate = new DateTime($_SESSION['user']['birthdate']);
+                  $livedDaysAmount = $enteredDate->diff($birthDate)->format("%a");
                   $this->set('postOfEnteredDay', $postOfEnteredDay);
                   $this->set('fulfilledHabitsOfEnteredDay', $fulfilledHabitsOfEnteredDay);
+                  $this->set('livedDaysAmount', $livedDaysAmount);
                 } else {
                   $_SESSION['error'] = 'Not a valid day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));

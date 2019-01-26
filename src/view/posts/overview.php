@@ -13,7 +13,6 @@
 
 <!-- DAY VIEW -->
 <?php if($view == 'day') : ?>
-<!-- show all the days in navigation -->
 <section>
   <header>
     <?php if(isset($previousDay)):?>
@@ -40,14 +39,13 @@
       </ul>
     </dd>
     <?php endif; ?>
+    <dd>Number of days that you've lived:</dd>
+    <dt><?php echo $livedDaysAmount ?></dt>
   </dl>
   <?php else: ?>
-  <!-- if no: show static HTML: 'no entry for this day' -->
   <p class="error">Nothing available for this day.</p>
   <?php endif; ?>
 </section>
-
-<!-- show number of days that you've lived -->
 <?php endif; ?>
 
 
