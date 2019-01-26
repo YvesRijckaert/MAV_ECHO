@@ -37,7 +37,7 @@ class HabitDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function getFulfilledHabitsOfDay($data) {
+  public function getAllFulfilledHabitsOfDay($data) {
     $sql = "SELECT * FROM `fulfilled_habits` INNER JOIN `daily_posts` ON fulfilled_habits.post_id = daily_posts.post_id AND daily_posts.date = :date INNER JOIN `habits` ON fulfilled_habits.habit_id = habits.habit_id WHERE fulfilled_habits.user_id = :user_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $data['user_id']);

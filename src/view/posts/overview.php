@@ -5,7 +5,7 @@
         <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">Day</a>
       </li>
       <li class="nav-item <?php if($view === 'month') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=overview&view=month">Month</a>
+        <a href="index.php?page=overview&view=month&month=<?php echo date("m-Y")?>">Month</a>
       </li>
     </ul>
   </nav>
@@ -20,7 +20,7 @@
     <?php endif; ?>
     <p><?php echo $currentDay; ?></p>
     <?php if(isset($nextDay)):?>
-    <a href="index.php?page=overview&view=day&day=<?php if(isset($nextDay)) echo $nextDay; ?>">→</a>
+    <a href="index.php?page=overview&view=day&day=<?php echo $nextDay; ?>">→</a>
     <?php endif; ?>
   </header>
 </section>
@@ -51,6 +51,17 @@
 
 <!-- MONTH VIEW -->
 <?php if($view == 'month') : ?>
+<section>
+  <header>
+    <?php if(isset($previousMonth)):?>
+    <a href="index.php?page=overview&view=month&month=<?php echo $previousMonth; ?>">←</a>
+    <?php endif; ?>
+    <p><?php echo $currentMonth; ?></p>
+    <?php if(isset($nextMonth)):?>
+    <a href="index.php?page=overview&view=month&month=<?php echo $nextMonth; ?>">→</a>
+    <?php endif; ?>
+  </header>
+</section>
 <!-- show calendar -->
 <?php echo $calendar ?>
 <!-- show all the active habits as radio buttons  -->
@@ -62,7 +73,7 @@
     </label>
   <?php endforeach; ?>
   <?php if(!empty($errors['chosen_habit'])) echo '<span class="error">' . $errors['chosen_habit'] . '</span>';?>
-  <input type="submit" name="show-habit" value="save" />
+  <input type="submit" name="show-habit" value="submit" />
 </form>
 <!-- highlight chosen habit in calendar if that habit exists for that daily post entry  -->
 <?php endif; ?>
