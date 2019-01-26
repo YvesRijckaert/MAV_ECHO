@@ -92,64 +92,6 @@ class PostsController extends Controller {
                   $activeHabits = $this->habitDAO->selectAllActiveHabits($_SESSION['user']['user_id']);
                   $this->set('activeHabits', $activeHabits);
 
-                  //show calendar
-                  function build_calendar($month,$year, $today_date) {
-                    $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-                    $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
-                    $numberDays = date('t',$firstDayOfMonth);
-                    $dateComponents = getdate($firstDayOfMonth);
-                    $monthName = $dateComponents['month'];
-                    $dayOfWeek = $dateComponents['wday'];
-                    $calendar = "<table class='calendar'>";
-                    $calendar .= "<tr>";
-                    foreach($daysOfWeek as $day) {
-                        $calendar .= "<th class='header'>$day</th>";
-                    }
-                    $currentDay = 1;
-                    $calendar .= "</tr><tr>";
-                    if ($dayOfWeek > 0) {
-                        $calendar .= "<td colspan='$dayOfWeek'>&nbsp;</td>";
-                    }
-                    $month = str_pad($month, 2, "0", STR_PAD_LEFT);
-                    while ($currentDay <= $numberDays) {
-                      if ($dayOfWeek == 7) {
-                          $dayOfWeek = 0;
-                          $calendar .= "</tr><tr>";
-                      }
-                      $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
-                      $date = "$year-$month-$currentDayRel";
-                      if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
-                        $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
-                      } else {
-                        $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
-                      }
-                      $currentDay++;
-                      $dayOfWeek++;
-                    }
-                    if ($dayOfWeek != 7) {
-                        $remainingDays = 7 - $dayOfWeek;
-                        $calendar .= "<td colspan='$remainingDays'>&nbsp;</td>";
-                    }
-                    $calendar .= "</tr>";
-                    $calendar .= "</table>";
-                    return $calendar;
-                  }
-
-                  $enteredDate = new DateTime('01-' . $_GET['month']);
-                  $month = $enteredDate->format('m');
-                  $year = $enteredDate->format('Y');
-                  $today_date = date("d");
-                  $today_date = ltrim($today_date, '0');
-                  $currentMonth = $enteredDate->format('F Y');
-                  $previousMonth = new DateTime('01-' . $_GET['month']);
-                  $previousMonth->modify('-1 month');
-                  $nextMonth = new DateTime('01-' . $_GET['month']);
-                  $nextMonth->modify('+1 month');
-                  $this->set('calendar', build_calendar($month,$year, $today_date));
-                  $this->set('currentMonth', $currentMonth);
-                  $this->set('previousMonth', $previousMonth->format('m-Y'));
-                  $this->set('nextMonth', $nextMonth->format('m-Y'));
-
                   //show calendar with fulfilled habits
                   if (!empty($_POST['show-habit'])) {
                     $errors = array();
@@ -157,9 +99,76 @@ class PostsController extends Controller {
                         $errors['chosen_habit'] = 'Please choose a habit.';
                       }
                       if(empty($errors)) {
-                        var_dump($_POST['chosen_habit']);
-                        //get the habit that was chosen
-                        //get the days of the specific month
+                        //show calendar
+                        function build_calendar($month,$year, $today_date, $fulfilled_habit) {
+                          $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+                          $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
+                          $numberDays = date('t',$firstDayOfMonth);
+                          $dateComponents = getdate($firstDayOfMonth);
+                          $monthName = $dateComponents['month'];
+                          $dayOfWeek = $dateComponents['wday'];
+                          $calendar = "<table class='calendar'>";
+                          $calendar .= "<tr>";
+                          foreach($daysOfWeek as $day) {
+                              $calendar .= "<th class='header'>$day</th>";
+                          }
+                          $currentDay = 1;
+                          $calendar .= "</tr><tr>";
+                          if ($dayOfWeek > 0) {
+                              $calendar .= "<td colspan='$dayOfWeek'>&nbsp;</td>";
+                          }
+                          $month = str_pad($month, 2, "0", STR_PAD_LEFT);
+                          while ($currentDay <= $numberDays) {
+                            if ($dayOfWeek == 7) {
+                                $dayOfWeek = 0;
+                                $calendar .= "</tr><tr>";
+                            }
+                            $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
+                            $date = "$year-$month-$currentDayRel";
+                            $currentDate = new DateTime($date);
+                            // $habit_colour = $fulfilled_habit['habit_colour'];
+                            //check if fulfilled habit exists on $currentDate
+                            if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
+                              $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                            } else {
+                              $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                            }
+                            $currentDay++;
+                            $dayOfWeek++;
+                          }
+                          if ($dayOfWeek != 7) {
+                              $remainingDays = 7 - $dayOfWeek;
+                              $calendar .= "<td colspan='$remainingDays'>&nbsp;</td>";
+                          }
+                          $calendar .= "</tr>";
+                          $calendar .= "</table>";
+                          return $calendar;
+                        }
+                        $enteredDate = new DateTime('01-' . $_GET['month']);
+                        $month = $enteredDate->format('m');
+                        $year = $enteredDate->format('Y');
+                        $today_date = date("d");
+                        $today_date = ltrim($today_date, '0');
+                        $currentMonth = $enteredDate->format('F Y');
+                        $previousMonth = new DateTime('01-' . $_GET['month']);
+                        $previousMonth->modify('-1 month');
+                        $nextMonth = new DateTime('01-' . $_GET['month']);
+                        $nextMonth->modify('+1 month');
+                        $chosenHabit = $_POST['chosen_habit'];
+                        $fulfilled_habit = array_filter($activeHabits, function ($var) use ($chosenHabit) {
+                          return ($var['habit_name'] === $chosenHabit);
+                        });
+                        function arrayFlatten(array $array) {
+                          $flatten = array();
+                          array_walk_recursive($array, function($value) use(&$flatten) {
+                              $flatten[] = $value;
+                          });
+                          return $flatten;
+                        }
+                        $this->set('calendar', build_calendar($month,$year, $today_date, arrayFlatten($fulfilled_habit)));
+                        $this->set('currentMonth', $currentMonth);
+                        $this->set('previousMonth', $previousMonth->format('m-Y'));
+                        $this->set('nextMonth', $nextMonth->format('m-Y'));
                       } else {
                         $this->set('errors', $errors);
                       }
