@@ -128,15 +128,24 @@ class PostsController extends Controller {
                             $dateTime = new DateTime($date);
                             $currentDate = new DateTime($date);
                             $habit_id = $fulfilled_habit['habit_id'];
-                            $hasFulfilledHabit = $class->habitDAO->checkIfDateHasFulfilledHabit(array(
+                            $habit_colour= $fulfilled_habit['habit_colour'];
+                            $hasFulfilledHabit = $class->habitDAO->getSpecificFulfilledHabitsOfDay(array(
                               'user_id' => $_SESSION['user']['user_id'],
                               'habit_id' => $habit_id,
                               'date' => $dateTime->format('Y-m-d')
                             ));
-                            if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
-                              $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
-                            } else {
-                              $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                            if(empty($hasFulfilledHabit)) {
+                              if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
+                                $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              } else {
+                                $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              }
+                            }else {
+                              if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
+                                $calendar .= "<td class='day today_date' rel='$date' style='background-color: $habit_colour'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              } else {
+                                $calendar .= "<td class='day' rel='$date' style='background-color: $habit_colour'> <a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              }
                             }
                             $currentDay++;
                             $dayOfWeek++;

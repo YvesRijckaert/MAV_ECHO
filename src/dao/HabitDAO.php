@@ -46,12 +46,12 @@ class HabitDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function checkIfDateHasFulfilledHabit($data) {
-    $sql = "SELECT EXISTS(SELECT * FROM `fulfilled_habits` INNER JOIN `habits` ON fulfilled_habits.habit_id = habits.habit_id INNER JOIN `daily_posts` ON fulfilled_habits.date = daily_posts.date WHERE fulfilled_habits.user_id = :user_id)";
+  public function getSpecificFulfilledHabitsOfDay($data) {
+    $sql = "SELECT * FROM `fulfilled_habits` INNER JOIN `daily_posts` ON fulfilled_habits.post_id = daily_posts.post_id AND daily_posts.date = :date INNER JOIN `habits` ON fulfilled_habits.habit_id = habits.habit_id WHERE fulfilled_habits.user_id = :user_id AND fulfilled_habits.habit_id = :habit_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':habit_id', $data['habit_id']);
     $stmt->bindValue(':date', $data['date']);
+    $stmt->bindValue(':habit_id', $data['habit_id']);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
