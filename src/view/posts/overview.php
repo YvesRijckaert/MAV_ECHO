@@ -1,3 +1,4 @@
+<!-- NAVIGATION -->
 <section>
   <nav>
     <ul>
@@ -10,6 +11,7 @@
     </ul>
   </nav>
 </section>
+
 
 <!-- DAY VIEW -->
 <?php if($view == 'day') : ?>
@@ -54,35 +56,32 @@
 <section>
   <header>
     <?php if(isset($previousMonth)):?>
-    <a href="index.php?page=overview&view=month&month=<?php echo $previousMonth; ?>">←</a>
+    <a href="index.php?page=overview&view=month&month=<?php echo $previousMonth . '&chosen_habit=' . $firstActiveHabit; ?>">←</a>
     <?php endif; ?>
-    <p><?php echo $currentMonth; ?></p>
+    <p><?php echo $enteredDate->format('F Y'); ?></p>
     <?php if(isset($nextMonth)):?>
-    <a href="index.php?page=overview&view=month&month=<?php echo $nextMonth; ?>">→</a>
+    <a href="index.php?page=overview&view=month&month=<?php echo $nextMonth . '&chosen_habit=' . $firstActiveHabit; ?>">→</a>
     <?php endif; ?>
   </header>
 </section>
-<!-- show calendar -->
 <?php echo $calendar ?>
-<!-- show all the active habits as radio buttons  -->
-<form method="post">
+<form method="get" class="calendar-habits-form">
   <?php foreach($activeHabits as $habit): ?>
     <label for="<?php echo $habit['habit_id'] ?>">
       <span class="form-label"><?php echo $habit['habit_name'] ?></span>
-      <input type="radio" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
+      <input type="radio" class="calendar-habits-button" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
     </label>
   <?php endforeach; ?>
-  <?php if(!empty($errors['chosen_habit'])) echo '<span class="error">' . $errors['chosen_habit'] . '</span>';?>
-  <input type="submit" name="show-habit" value="submit" />
+  <input type="hidden" name="page" value="overview" />
+  <input type="hidden" name="view" value="month" />
+  <input type="hidden" name="month" value="<?php echo $enteredDate->format('m-Y'); ?>" />
+  <input type="submit" value="submit" class="calendar-habits-submit" />
 </form>
 <p><?php if(!empty($chosenHabit)) echo $chosenHabit; ?></p>
 <p><?php if(!empty($chosenHabit)) echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; ?></p>
 <?php endif; ?>
 
 
-<!-- check if already made a day entry today -->
-<!-- if yes: change day button -->
-<!-- if no: add new day button -->
 <?php if(empty($alreadyPostedToday)): ?>
   <a href="index.php?page=add">Add new day</a>
 <?php else: ?>

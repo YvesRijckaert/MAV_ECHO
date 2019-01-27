@@ -1,49 +1,26 @@
 // {
-//   const $main = document.querySelector('main');
-
-//   const loadPage = url => {
-//     return fetch(url, {
-//       method: 'GET'
-//     }).then(res => res.text());
-//   };
-
-//   const changePage = () => {
-//     const url = window.location.href;
-
-//     loadPage(url).then(responseText => {
-//       const wrapper = document.createElement('section');
-//       wrapper.innerHTML = responseText;
-
-//       const oldContent = document.querySelector('.progress-header');
-//       const newContent = wrapper.querySelector('.progress-header');
-
-//       $main.appendChild(newContent);
-//       animate(oldContent, newContent);
-//     });
-//   };
-
-//   const animate = (oldContent, newContent) => {
-//     oldContent.parentNode.removeChild(oldContent);
+//   const handleCategoryChange = e => {
+//     const category = e.currentTarget.value;
+//     fetch(`index.php?page=overview&view=month&month=01-2019$habit=${category}`, {
+//       headers: new Headers({
+//         Accept: `application/json`
+//       })
+//     })
+//       .then(r => r.json())
+//       .then(data => console.log(data));
 //   };
 
 //   const init = () => {
-//     document.addEventListener('click', e => {
-//       let el = e.target;
+//     const categorySubmit = document.querySelector(`.calendar-habits-submit`);
+//     if (categorySubmit) {
+//       categorySubmit.remove();
+//     }
 
-//       while (el && !el.href) {
-//         el = el.parentNode;
-//       }
-
-//       if (el) {
-//         e.preventDefault();
-//         history.pushState(null, null, el.href);
-//         changePage();
-
-//         return;
-//       }
-//     });
-//     window.addEventListener('popstate', changePage);
+//     document
+//       .querySelectorAll(`.calendar-habits-button`)
+//       .forEach(category =>
+//         category.addEventListener(`change`, handleCategoryChange)
+//       );
 //   };
-
 //   init();
 // }
