@@ -177,8 +177,16 @@ class PostsController extends Controller {
                       $fulfilled_habit = array_filter($activeHabits, function ($var) use ($chosenHabit) {
                         return ($var['habit_name'] === $chosenHabit);
                       });
-                      $this->set('calendar', build_calendar($month,$year, $today_date, call_user_func_array('array_merge', $fulfilled_habit), $this));
+                      $calendar = build_calendar($month,$year, $today_date, call_user_func_array('array_merge', $fulfilled_habit), $this);
+                      $this->set('calendar', $calendar);
                       $this->set('chosenHabit', $chosenHabit);
+
+                      //AJAX
+                      if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+                        header('Content-Type: application/json');
+                        echo json_encode($calendar);
+                        exit();
+                      }
                     } else {
                       $_SESSION['error'] = 'Habit does not exist.';
                       header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);

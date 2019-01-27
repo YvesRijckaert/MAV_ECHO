@@ -64,7 +64,9 @@
     <?php endif; ?>
   </header>
 </section>
-<?php echo $calendar ?>
+<section class="calendar-section">
+  <?php echo $calendar ?>
+</section>
 <form method="get" class="calendar-habits-form">
   <?php foreach($activeHabits as $habit): ?>
     <label for="<?php echo $habit['habit_id'] ?>">
