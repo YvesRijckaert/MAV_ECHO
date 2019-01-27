@@ -25,6 +25,9 @@ class UsersController extends Controller {
           case 'customize':
             $this->set('currentCategory', 'customize');
             break;
+          case 'links':
+            $this->set('currentCategory', 'links');
+            break;
           default:
             header('Location: index.php?page=profile&category=information');
             break;
