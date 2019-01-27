@@ -110,6 +110,9 @@ class PostsController extends Controller {
                         $calendar .= "<td colspan='$dayOfWeek'>&nbsp;</td>";
                     }
                     $month = str_pad($month, 2, "0", STR_PAD_LEFT);
+
+                    $totalDaysOfFulfilledHabit = 0;
+
                     while ($currentDay <= $numberDays) {
                       if ($dayOfWeek == 7) {
                           $dayOfWeek = 0;
@@ -133,6 +136,7 @@ class PostsController extends Controller {
                           $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                         }
                       }else {
+                        $totalDaysOfFulfilledHabit++;
                         if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
                           $calendar .= "<td class='day today_date' rel='$date' style='background-color: $habit_colour; color: white'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                         } else {
@@ -146,11 +150,11 @@ class PostsController extends Controller {
                         $remainingDays = 7 - $dayOfWeek;
                         $calendar .= "<td colspan='$remainingDays'>&nbsp;</td>";
                     }
+                    $class->set('totalDaysOfFulfilledHabit', $totalDaysOfFulfilledHabit);
                     $calendar .= "</tr>";
                     $calendar .= "</table>";
                     return $calendar;
                   }
-
                   $enteredDate = new DateTime('01-' . $_GET['month']);
                   $month = $enteredDate->format('m');
                   $year = $enteredDate->format('Y');
@@ -164,8 +168,8 @@ class PostsController extends Controller {
                   $this->set('currentMonth', $currentMonth);
                   $this->set('previousMonth', $previousMonth->format('m-Y'));
                   $this->set('nextMonth', $nextMonth->format('m-Y'));
-
                   //show calendar with fulfilled habits
+
                   if (!empty($_POST['show-habit'])) {
                     $errors = array();
                       if (empty($_POST['chosen_habit'])) {
@@ -178,6 +182,7 @@ class PostsController extends Controller {
                           return ($var['habit_name'] === $chosenHabit);
                         });
                         $this->set('calendar', build_calendar($month,$year, $today_date, call_user_func_array('array_merge', $fulfilled_habit), $this));
+                        $this->set('chosenHabit', $chosenHabit);
                       } else {
                         $this->set('errors', $errors);
                       }
@@ -185,7 +190,7 @@ class PostsController extends Controller {
                     $this->set('calendar', build_calendar($month,$year, $today_date, NULL, $this));
                   }
                 } else {
-                  $_SESSION['error'] = 'Not a valid month.';
+                  $_SESSION['error'] = 'Not a valid date.';
                   header('Location: index.php?page=overview&view=month&month=' . date("m-Y"));
                   exit();
                 }

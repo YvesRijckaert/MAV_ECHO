@@ -75,7 +75,8 @@
   <?php if(!empty($errors['chosen_habit'])) echo '<span class="error">' . $errors['chosen_habit'] . '</span>';?>
   <input type="submit" name="show-habit" value="submit" />
 </form>
-<!-- highlight chosen habit in calendar if that habit exists for that daily post entry  -->
+<p><?php if(!empty($chosenHabit)) echo $chosenHabit; ?></p>
+<p><?php if(!empty($chosenHabit)) echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; ?></p>
 <?php endif; ?>
 
 
