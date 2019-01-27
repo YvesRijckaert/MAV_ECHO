@@ -69,7 +69,7 @@
   <?php foreach($activeHabits as $habit): ?>
     <label for="<?php echo $habit['habit_id'] ?>">
       <span class="form-label"><?php echo $habit['habit_name'] ?></span>
-      <input type="radio" class="calendar-habits-button" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
+      <input type="radio" class="calendar-habits-button" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if($_GET['chosen_habit'] == $habit['habit_name']) echo 'checked'; ?> />
     </label>
   <?php endforeach; ?>
   <input type="hidden" name="page" value="overview" />

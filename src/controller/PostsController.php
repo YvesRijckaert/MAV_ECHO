@@ -94,6 +94,9 @@ class PostsController extends Controller {
                 $isMonthValid = validateDate($_GET['month']);
                 if($isMonthValid) {
                   if (!empty($_GET['chosen_habit'])) {
+                    //CHECK IF CHOSEN HABIT FROM GET URL EXISTS
+                    //IF NOT REDIRECT TO FIRST ACTIVE HABIT
+
                     function build_calendar($month,$year, $today_date, $fulfilled_habit, $class) {
                       $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
                       $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
