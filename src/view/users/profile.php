@@ -1,7 +1,7 @@
 <section>
   <nav>
     <ul>
-      <li class="nav-item <?php if($currentCategory === 'information') { echo 'nav-item-active';} ?>">
+      <li class="nav-item <?php if($currentCategory === 'info') { echo 'nav-item-active';} ?>">
         <a href="index.php?page=profile&category=info">Info</a>
       </li>
       <li class="nav-item <?php if($currentCategory === 'customize') { echo 'nav-item-active';} ?>">

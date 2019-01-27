@@ -20,7 +20,7 @@ class UsersController extends Controller {
       if (!empty($_GET['category'])) {
         switch ($_GET['category']) {
           case 'information':
-            $this->set('currentCategory', 'information');
+            $this->set('currentCategory', 'info');
             break;
           case 'customize':
             $this->set('currentCategory', 'customize');
