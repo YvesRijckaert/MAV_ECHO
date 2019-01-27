@@ -23,6 +23,11 @@ class PostsController extends Controller {
         ));
         $this->set('alreadyPostedToday', $alreadyPostedToday);
         if (!empty($_GET['view'])) {
+          $activeHabits = $this->habitDAO->selectAllActiveHabits($_SESSION['user']['user_id']);
+          $firstActiveHabit = $activeHabits[0]['habit_name'];
+          $this->set('activeHabits', $activeHabits);
+          $this->set('firstActiveHabit', $firstActiveHabit);
+
           switch ($_GET['view']) {
             case 'day':
               $this->set('view', 'day');
@@ -75,21 +80,14 @@ class PostsController extends Controller {
                   exit();
                 }
               } else {
+                $_SESSION['error'] = 'You have to choose a date.';
                 header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                 exit();
               }
               break;
             case 'month':
               $this->set('view', 'month');
-
               //TODO: WHAT IF THERE ARE NO ACIVE HABITS!
-
-
-              $activeHabits = $this->habitDAO->selectAllActiveHabits($_SESSION['user']['user_id']);
-              $firstActiveHabit = $activeHabits[0]['habit_name'];
-              $this->set('activeHabits', $activeHabits);
-              $this->set('firstActiveHabit', $firstActiveHabit);
-
               if(!empty($_GET['month'])) {
                 function validateDate($date, $format = 'm-Y') {
                   $d = DateTime::createFromFormat($format, $date);
@@ -182,10 +180,12 @@ class PostsController extends Controller {
                       $this->set('calendar', build_calendar($month,$year, $today_date, call_user_func_array('array_merge', $fulfilled_habit), $this));
                       $this->set('chosenHabit', $chosenHabit);
                     } else {
+                      $_SESSION['error'] = 'Habit does not exist.';
                       header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);
                       exit();
                     }
                   } else {
+                    $_SESSION['error'] = 'You have to choose a habit.';
                     header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);
                     exit();
                   }
@@ -195,6 +195,7 @@ class PostsController extends Controller {
                   exit();
                 }
               } else {
+                $_SESSION['error'] = 'You have to choose a date.';
                 header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);
                 exit();
               }

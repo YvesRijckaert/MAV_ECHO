@@ -6,7 +6,7 @@
         <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">Day</a>
       </li>
       <li class="nav-item <?php if($view === 'month') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=overview&view=month&month=<?php echo date("m-Y")?>">Month</a>
+        <a href="index.php?page=overview&view=month&month=<?php echo date("m-Y")?>&chosen_habit=<?php echo $firstActiveHabit ?>">Month</a>
       </li>
     </ul>
   </nav>
