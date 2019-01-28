@@ -17,7 +17,7 @@ $routes = array(
     'action' => 'add'
   ),
   'progress' => array(
-    'controller' => 'Posts',
+    'controller' => 'Progress',
     'action' => 'progress'
   ),
   'profile' => array(
