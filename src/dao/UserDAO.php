@@ -38,6 +38,15 @@ class UserDAO extends DAO {
     return false;
   }
 
+  public function update($data) {
+    $sql = "UPDATE `users` SET `email` = :email, `nickname` = :nickname, `birthdate` = :birthdate WHERE `user_id` = :user_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':email', $data['email']);
+    $stmt->bindValue(':nickname', $data['nickname']);
+    $stmt->bindValue(':birthdate', $data['birthdate']);
+  }
+
   public function validate($data) {
     $errors = array();
     if (empty($data['email'])) {

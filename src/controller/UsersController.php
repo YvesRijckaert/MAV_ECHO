@@ -20,6 +20,32 @@ class UsersController extends Controller {
       if (!empty($_GET['category'])) {
         switch ($_GET['category']) {
           case 'information':
+            if (!empty($_POST['update-profile'])) {
+              $errors = array();
+              if (empty($_POST['email'])) {
+                $errors['email'] = 'Please enter your email';
+              }
+              if (empty($_POST['nickname'])) {
+                $errors['email'] = 'Please enter a nickname';
+              }
+              if (empty($_POST['birthdate'])) {
+                $errors['birthdate'] = 'Please enter your birthdate.';
+              }
+              if(empty($errors)) {
+                $this->userDAO->update(array(
+                  'email' => $_POST['email'],
+                  'nickname' => $_POST['nickname'],
+                  'birthdate' => $_POST['birthdate'],
+                  'user_id' => $_SESSION['user']['user_id']
+                ));
+                $_SESSION['user']['email'] = $_POST['email'];
+                $_SESSION['user']['nickname'] = $_POST['nickname'];
+                $_SESSION['user']['birthdate'] = $_POST['birthdate'];
+                $_SESSION['info'] = 'Successfully updated profile.';
+                header('Location: index.php?page=profile&category=information');
+                exit();
+              }
+            }
             $this->set('currentCategory', 'info');
             break;
           case 'customize':
@@ -79,7 +105,7 @@ class UsersController extends Controller {
       if (!empty($_POST['register2'])){
         $errors = array();
           if (empty($_POST['nickname'])) {
-            $errors['nickname'] = 'Please enter your nickname.';
+            $errors['nickname'] = 'Please enter a nickname.';
           }
           if (empty($_POST['birthdate'])) {
             $errors['birthdate'] = 'Please enter your birthdate.';

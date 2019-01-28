@@ -20,20 +20,19 @@
       <label>
         <span class="form-label">Email address</span>
         <input type="email" name="email" class="form-input" value="<?php echo $_SESSION['user']['email'];?>" />
-      </label>
-      <label>
-        <span class="form-label">Password</span>
-        <input type="password" name="password" class="form-input" value="password" />
+        <?php if(!empty($errors['email'])) echo '<span class="error">' . $errors['email'] . '</span>';?>
       </label>
       <label>
         <span class="form-label">Name</span>
         <input type="text" name="nickname" class="form-input" value="<?php echo $_SESSION['user']['nickname'];?>" />
+        <?php if(!empty($errors['nickname'])) echo '<span class="error">' . $errors['nickname'] . '</span>';?>
       </label>
       <label>
         <span class="form-label">Birthdate</span>
         <input type="date" name="birthdate" class="form-input" value="<?php echo $_SESSION['user']['birthdate'];?>" />
+        <?php if(!empty($errors['birthdate'])) echo '<span class="error">' . $errors['birthdate'] . '</span>';?>
       </label>
-      <input type="submit" name="update" value="save" />
+      <input type="submit" name="update-profile" value="save" />
     </form>
   </section>
 <?php endif; ?>
