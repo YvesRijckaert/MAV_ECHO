@@ -26,15 +26,27 @@ class ProgressController extends Controller {
               $this->set('currentCategory', 'achievements');
               break;
             case 'goals':
-            //get goals in progress
-              $allGoals = $this->goalDAO->getAllGoals(array(
-                'user_id' => $_SESSION['user']['user_id'],
-                'current_date' => date("Y-m-d")
-              ));
-              $inProgressGoals = '';
-              $completedGoals = '';
-              $this->set('inProgressGoals', $inProgressGoals);
-              $this->set('completedGoals', $completedGoals);
+              if(!empty($_GET['goals-type'])) {
+                $allGoals = $this->goalDAO->selectAllGoals($_SESSION['user']['user_id']);
+                switch ($_GET['goals-type']) {
+                  case 'in-progress':
+                    $inProgressGoals = '';
+                    $this->set('inProgressGoals', $inProgressGoals);
+                    break;
+                  case 'completed':
+                    $completedGoals = '';
+                    $this->set('completedGoals', $completedGoals);
+                    break;
+                  default:
+                    header('Location: index.php?page=progress&category=goals&goals-type=in-progress');
+                    exit();
+                    break;
+                }
+              } else {
+                header('Location: index.php?page=progress&category=goals&goals-type=in-progress');
+                exit();
+              }
+
               $this->set('currentCategory', 'goals');
               break;
             default:

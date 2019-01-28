@@ -8,7 +8,7 @@
         <a href="index.php?page=progress&category=achievements" class="progress-category">Achievements</a>
       </li>
       <li class="nav-item <?php if($currentCategory === 'goals') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=progress&category=goals" class="progress-category">Goals</a>
+        <a href="index.php?page=progress&category=goals&goals-type=in-progress" class="progress-category">Goals</a>
       </li>
       <li class="progress-indicator"></li>
     </ul>
@@ -31,11 +31,11 @@
     <form method="get" class="calendar-habits-form">
       <label for="in-progress">
         <span class="form-label">in progress</span>
-        <input type="radio" id="in-progress" name="goals-type" value="in-progress" />
+        <input type="radio" id="in-progress" name="goals-type" value="in-progress" <?php if($_GET['goals-type'] === 'in-progress') echo 'checked' ?> />
       </label>
       <label for="completed">
         <span class="form-label">completed</span>
-        <input type="radio" id="completed" name="goals-type" value="completed" />
+        <input type="radio" id="completed" name="goals-type" value="completed" <?php if($_GET['goals-type'] === 'completed') echo 'checked' ?> />
       </label>
       <input type="hidden" name="page" value="progress" />
       <input type="hidden" name="category" value="goals" />
