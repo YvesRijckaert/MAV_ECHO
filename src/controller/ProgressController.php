@@ -21,7 +21,9 @@ class ProgressController extends Controller {
           $this->set('currentCategory', 'achievements');
           break;
         case 'goals':
-        //get goals
+        //get goals in progress
+
+        //get goals completed
           $this->set('currentCategory', 'goals');
           break;
         default:
