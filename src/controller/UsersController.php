@@ -61,13 +61,11 @@ class UsersController extends Controller {
       } else {
         header('Location: index.php?page=profile&category=information');
       }
-      if (!empty($_POST['update'])) {
-        //handle update information
-      }
     } else {
+      $_SESSION['error'] = 'You have to be signed in.';
       header('Location: index.php');
+      exit();
     }
-
     $this->set('title', 'Profile');
     $this->set('currentPage', 'profile');
   }

@@ -15,7 +15,9 @@ class PostsController extends Controller {
 
     public function overview() {
       if(empty($_SESSION['user'])) {
+        $_SESSION['error'] = 'You have to be signed in.';
         header('Location: index.php');
+        exit();
       } else {
         $alreadyPostedToday = $this->postDAO->checkDate(array(
           'user_id' => $_SESSION['user']['user_id'],
@@ -224,7 +226,9 @@ class PostsController extends Controller {
 
     public function add() {
       if(empty($_SESSION['user'])) {
+        $_SESSION['error'] = 'You have to be signed in.';
         header('Location: index.php');
+        exit();
       } else {
           $alreadyPostedToday = $this->postDAO->checkDate(array(
             'user_id' => $_SESSION['user']['user_id'],
@@ -350,7 +354,11 @@ class PostsController extends Controller {
     }
 
     public function progress() {
-      if(!empty($_SESSION['user'])) {
+      if (empty($_SESSION['user'])) {
+        $_SESSION['error'] = 'You have to be signed in.';
+        header('Location: index.php');
+        exit();
+      } else {
         if(!empty($_GET['category'])) {
           switch ($_GET['category']) {
             case 'statistics':
@@ -369,8 +377,6 @@ class PostsController extends Controller {
         } else {
           header('Location: index.php?page=progress&category=statistics');
         }
-      } else {
-        header('Location: index.php');
       }
       $this->set('title', 'Progress');
       $this->set('currentPage', 'progress');
