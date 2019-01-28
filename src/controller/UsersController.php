@@ -19,7 +19,7 @@ class UsersController extends Controller {
     if (!empty($_SESSION['user'])) {
       if (!empty($_GET['category'])) {
         switch ($_GET['category']) {
-          case 'information':
+          case 'info':
             if (!empty($_POST['update-profile'])) {
               $errors = array();
               if (empty($_POST['email'])) {
@@ -42,24 +42,26 @@ class UsersController extends Controller {
                 $_SESSION['user']['nickname'] = $_POST['nickname'];
                 $_SESSION['user']['birthdate'] = $_POST['birthdate'];
                 $_SESSION['info'] = 'Successfully updated profile.';
-                header('Location: index.php?page=profile&category=information');
+                header('Location: index.php?page=profile&category=info');
                 exit();
               }
             }
             $this->set('currentCategory', 'info');
             break;
           case 'customize':
+            $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+            $this->set('habits', $habits);
             $this->set('currentCategory', 'customize');
             break;
           case 'links':
             $this->set('currentCategory', 'links');
             break;
           default:
-            header('Location: index.php?page=profile&category=information');
+            header('Location: index.php?page=profile&category=info');
             break;
         }
       } else {
-        header('Location: index.php?page=profile&category=information');
+        header('Location: index.php?page=profile&category=info');
       }
     } else {
       $_SESSION['error'] = 'You have to be signed in.';

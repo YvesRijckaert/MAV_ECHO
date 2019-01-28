@@ -15,7 +15,6 @@
   </nav>
 </section>
 
-
 <?php if ($currentCategory == 'statistics'): ?>
   <section>
   </section>

@@ -45,6 +45,7 @@ class UserDAO extends DAO {
     $stmt->bindValue(':email', $data['email']);
     $stmt->bindValue(':nickname', $data['nickname']);
     $stmt->bindValue(':birthdate', $data['birthdate']);
+    $stmt->execute();
   }
 
   public function validate($data) {
