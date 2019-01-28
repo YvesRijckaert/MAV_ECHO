@@ -39,6 +39,17 @@
 
 <?php if ($currentCategory == 'customize'): ?>
   <section>
+    <article>
+      <h1>Habits</h1>
+      <ul>
+      <?php foreach ($habits as $habit) {
+        echo '<li style="background-color:' . $habit['habit_colour'] .'">' . $habit['habit_name'] . '</li>';
+      } ?>
+      </ul>
+    </article>
+    <article>
+      <h1>Goals</h1>
+    </article>
   </section>
 <?php endif; ?>
 

@@ -12,16 +12,8 @@ class HabitDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function insertDefaultHabits($data) {
-    $sql = "INSERT INTO `habits` (`user_id`, `habit_name`) VALUES (:user_id, :habit)";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':habit', $data['habit']);
-    $stmt->execute();
-  }
-
   public function selectAllActiveHabits($user_id) {
-    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id";
+    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `active` = TRUE";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $user_id);
     $stmt->execute();
@@ -54,6 +46,14 @@ class HabitDAO extends DAO {
     $stmt->bindValue(':habit_id', $data['habit_id']);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function insertDefaultHabits($data) {
+    $sql = "INSERT INTO `habits` (`user_id`, `habit_name`) VALUES (:user_id, :habit)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit', $data['habit']);
+    $stmt->execute();
   }
 
   public function insertFulfilledHabit($data) {
