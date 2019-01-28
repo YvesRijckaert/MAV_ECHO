@@ -7,6 +7,7 @@ require_once __DIR__ . '/../dao/HabitDAO.php';
 class PostsController extends Controller {
 
     private $postDAO;
+    public $habitDAO;
 
     function __construct() {
         $this->postDAO = new PostDAO();
