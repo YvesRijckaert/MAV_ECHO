@@ -49,7 +49,7 @@ class UsersController extends Controller {
             $this->set('currentCategory', 'info');
             break;
           case 'customize':
-            $colours = array('red', 'orange', 'green', 'blue', 'purple');
+            $this->set('currentStep', 1);
             $activeHabits = $this->habitDAO->selectAllActiveHabits(array(
               'user_id' => $_SESSION['user']['user_id'],
               'active' => TRUE
@@ -58,16 +58,10 @@ class UsersController extends Controller {
               'user_id' => $_SESSION['user']['user_id'],
               'active' => FALSE
             ));
-            function super_unique($array,$key) {
-              $temp_array = [];
-              foreach ($array as &$v) {
-                if (!isset($temp_array[$v[$key]]))
-                $temp_array[$v[$key]] =& $v;
-              }
-              $array = array_values($temp_array);
-              return $array;
-            }
+            $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
+            $allPossibleHabitIcons = $this->habitDAO->selectAllPossibleHabitIcons();
             if (isset($_GET['add'])) {
+              $colours = array('red', 'orange', 'green', 'blue', 'purple');
               if (!in_array($_GET['add'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
                 header('Location: index.php?page=profile&category=customize');
@@ -82,7 +76,7 @@ class UsersController extends Controller {
                   header('Location: index.php?page=profile&category=customize');
                   exit();
                 } else {
-                  //go to next page to add new habit
+                  $this->set('currentStep', 'add-habit-2');
                 }
               }
             }
@@ -95,8 +89,19 @@ class UsersController extends Controller {
               header('Location: index.php?page=profile&category=customize');
               exit();
             }
+            function super_unique($array,$key) {
+              $temp_array = [];
+              foreach ($array as &$v) {
+                if (!isset($temp_array[$v[$key]]))
+                $temp_array[$v[$key]] =& $v;
+              }
+              $array = array_values($temp_array);
+              return $array;
+            }
             $this->set('activeHabits', $activeHabits);
             $this->set('nonActiveHabits', super_unique($nonActiveHabits,'habit_colour_name'));
+            $this->set('allPossibleHabits', $allPossibleHabits);
+            $this->set('allPossibleHabitIcons', $allPossibleHabitIcons);
             $this->set('currentCategory', 'customize');
             break;
           case 'links':

@@ -38,6 +38,7 @@
 <?php endif; ?>
 
 <?php if ($currentCategory == 'customize'): ?>
+  <?php if ($currentStep === 1): ?>
   <section>
     <article>
       <h1>Habits</h1>
@@ -54,6 +55,12 @@
       <h1>Goals</h1>
     </article>
   </section>
+  <?php endif; ?>
+
+  <?php if ($currentStep === 'add-habit-2'): ?>
+    <h1>Add habit</h1>
+  <?php endif; ?>
+
 <?php endif; ?>
 
 <?php if ($currentCategory == 'links'): ?>
