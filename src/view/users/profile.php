@@ -42,16 +42,11 @@
     <article>
       <h1>Habits</h1>
       <ul>
-      <?php foreach ($colours as $colour) {
-        ${'notEchoedYet'.$colour} = true;
-      } ?>
-      <?php foreach ($habits as $habit => $currentHabit) {
-        if ($currentHabit['active']) {
-            echo '<li style="background-color:' . $currentHabit['habit_colour'] .'"><span>' . $currentHabit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete=' . $currentHabit['habit_id']  .'">delete</a>' . '</li>';
-        } elseif(${'notEchoedYet'.$currentHabit['habit_colour_name']}) {
-          echo '<a href="index.php?page=profile&category=customize&add=' . $currentHabit['habit_colour_name']  .'" style="background-color:' .  $currentHabit['habit_colour'] .'">add habit</a>';
-          ${'notEchoedYet'.$currentHabit['habit_colour_name']} = false;
-        }
+      <?php foreach ($activeHabits as $activeHabit) {
+            echo '<li style="background-color:' . $activeHabit['habit_colour'] .'"><span>' . $activeHabit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete=' . $activeHabit['habit_id']  .'">delete</a>' . '</li>';
+      }
+      foreach($nonActiveHabits as $nonActiveHabit) {
+          echo '<a href="index.php?page=profile&category=customize&add=' . $nonActiveHabit['habit_colour_name']  .'" style="background-color:' .  $nonActiveHabit['habit_colour'] .'">add habit</a>';
       } ?>
       </ul>
     </article>

@@ -12,10 +12,11 @@ class HabitDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function selectAllActiveHabits($user_id) {
-    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `active` = TRUE";
+  public function selectAllActiveHabits($data) {
+    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `active` = :active";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $user_id);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':active', $data['active']);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }

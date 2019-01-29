@@ -50,7 +50,23 @@ class UsersController extends Controller {
             break;
           case 'customize':
             $colours = array('red', 'orange', 'green', 'blue', 'purple');
-            $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+            $activeHabits = $this->habitDAO->selectAllActiveHabits(array(
+              'user_id' => $_SESSION['user']['user_id'],
+              'active' => TRUE
+            ));
+            $nonActiveHabits = $this->habitDAO->selectAllActiveHabits(array(
+              'user_id' => $_SESSION['user']['user_id'],
+              'active' => FALSE
+            ));
+            function super_unique($array,$key) {
+              $temp_array = [];
+              foreach ($array as &$v) {
+                if (!isset($temp_array[$v[$key]]))
+                $temp_array[$v[$key]] =& $v;
+              }
+              $array = array_values($temp_array);
+              return $array;
+            }
             if (isset($_GET['add'])) {
               if (!in_array($_GET['add'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
@@ -79,8 +95,8 @@ class UsersController extends Controller {
               header('Location: index.php?page=profile&category=customize');
               exit();
             }
-            $this->set('colours', $colours);
-            $this->set('habits', $habits);
+            $this->set('activeHabits', $activeHabits);
+            $this->set('nonActiveHabits', super_unique($nonActiveHabits,'habit_colour_name'));
             $this->set('currentCategory', 'customize');
             break;
           case 'links':
