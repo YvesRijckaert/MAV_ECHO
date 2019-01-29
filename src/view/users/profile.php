@@ -59,6 +59,18 @@
 
   <?php if ($currentStep === 'add-habit-2'): ?>
     <h1>Add habit</h1>
+    <p>Choose or write down a new habit.</p>
+    <form method="post">
+      <?php if(!empty($errors['add-habit'])) echo '<span class="error">' . $errors['add-habit'] . '</span>';?>
+      <?php foreach($allPossibleHabits as $habit): ?>
+        <label for="<?php echo $habit['habit_name'] ?>">
+          <span class="form-label"><?php echo $habit['habit_name'] ?></span>
+          <input type="radio" id="<?php echo $habit['habit_name'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
+        </label>
+      <?php endforeach; ?>
+      <input type="text" placeholder="write down a habit" />
+      <input type="submit" name="add-habit-1" value="submit" />
+    </form>
   <?php endif; ?>
 
 <?php endif; ?>

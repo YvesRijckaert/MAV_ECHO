@@ -89,6 +89,9 @@ class UsersController extends Controller {
               header('Location: index.php?page=profile&category=customize');
               exit();
             }
+            if(!empty($_POST['add-habit-1'])) {
+
+            }
             function super_unique($array,$key) {
               $temp_array = [];
               foreach ($array as &$v) {
