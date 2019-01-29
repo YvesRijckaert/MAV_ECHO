@@ -42,8 +42,12 @@
     <article>
       <h1>Habits</h1>
       <ul>
-      <?php foreach ($habits as $habit) {
-        echo '<li style="background-color:' . $habit['habit_colour'] .'">' . $habit['habit_name'] . '</li>';
+      <?php foreach ($habits as $habit => $currentHabit) {
+        if ($currentHabit['active']) {
+            echo '<li style="background-color:' . $currentHabit['habit_colour'] .'"><span>' . $currentHabit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete=' . $currentHabit['habit_id']  .'">delete</a>' . '</li>';
+        } else {
+          echo '<a href="index.php?page=profile&category=customize&add=' . $currentHabit['habit_colour_name']  .'" style="background-color:' .  $currentHabit['habit_colour'] .'">add habit</a>';
+        }
       } ?>
       </ul>
     </article>

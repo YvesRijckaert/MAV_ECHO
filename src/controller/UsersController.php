@@ -49,7 +49,32 @@ class UsersController extends Controller {
             $this->set('currentCategory', 'info');
             break;
           case 'customize':
+            $colours = array('red', 'orange', 'green', 'blue', 'purple');
             $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+            if (isset($_GET['add'])) {
+              if (!in_array($_GET['add'], $colours)) {
+                $_SESSION['error'] = 'This habit category does not exist.';
+                header('Location: index.php?page=profile&category=customize');
+                exit();
+              } else {
+                //check if colour name already has an active habit if so error and redirect
+                $habitsForColour = $this->habitDAO->checkIfColourHasActiveHabits(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'habit_colour_name' =>  $_GET['add']
+                ));
+                var_dump($habitsForColour);
+                die();
+              }
+            }
+            if (isset($_GET['delete'])) {
+              $this->habitDAO->deactivateHabit(array(
+                'user_id' => $_SESSION['user']['user_id'],
+                'habit_id' =>  $_GET['delete']
+              ));
+              $_SESSION['info'] = 'Habit successfully deleted.';
+              header('Location: index.php?page=profile&category=customize');
+              exit();
+            }
             $this->set('habits', $habits);
             $this->set('currentCategory', 'customize');
             break;
