@@ -57,13 +57,17 @@ class UsersController extends Controller {
                 header('Location: index.php?page=profile&category=customize');
                 exit();
               } else {
-                //check if colour name already has an active habit if so error and redirect
                 $habitsForColour = $this->habitDAO->checkIfColourHasActiveHabits(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'habit_colour_name' =>  $_GET['add']
                 ));
-                var_dump($habitsForColour);
-                die();
+                if(in_array(1, array_column($habitsForColour, 'active'))) {
+                  $_SESSION['error'] = 'This habit category already has an active habit.';
+                  header('Location: index.php?page=profile&category=customize');
+                  exit();
+                } else {
+                  //go to next page to add new habit
+                }
               }
             }
             if (isset($_GET['delete'])) {
@@ -75,6 +79,7 @@ class UsersController extends Controller {
               header('Location: index.php?page=profile&category=customize');
               exit();
             }
+            $this->set('colours', $colours);
             $this->set('habits', $habits);
             $this->set('currentCategory', 'customize');
             break;

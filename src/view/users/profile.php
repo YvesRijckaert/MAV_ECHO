@@ -42,11 +42,15 @@
     <article>
       <h1>Habits</h1>
       <ul>
+      <?php foreach ($colours as $colour) {
+        ${'notEchoedYet'.$colour} = true;
+      } ?>
       <?php foreach ($habits as $habit => $currentHabit) {
         if ($currentHabit['active']) {
             echo '<li style="background-color:' . $currentHabit['habit_colour'] .'"><span>' . $currentHabit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete=' . $currentHabit['habit_id']  .'">delete</a>' . '</li>';
-        } else {
+        } elseif(${'notEchoedYet'.$currentHabit['habit_colour_name']}) {
           echo '<a href="index.php?page=profile&category=customize&add=' . $currentHabit['habit_colour_name']  .'" style="background-color:' .  $currentHabit['habit_colour'] .'">add habit</a>';
+          ${'notEchoedYet'.$currentHabit['habit_colour_name']} = false;
         }
       } ?>
       </ul>
