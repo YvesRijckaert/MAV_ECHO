@@ -81,14 +81,6 @@ class HabitDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function insertDefaultHabits($data) {
-    $sql = "INSERT INTO `habits` (`user_id`, `habit_name`) VALUES (:user_id, :habit)";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':habit', $data['habit']);
-    $stmt->execute();
-  }
-
   public function insertNewHabit($data) {
     $sql = "INSERT INTO `habits` (`user_id`, `habit_name`, `habit_colour_name`, `habit_colour`, `habit_icon`, `active`) VALUES (:user_id, :habit_name, :habit_colour_name, :habit_colour, :habit_icon, 1)";
     $stmt = $this->pdo->prepare($sql);
