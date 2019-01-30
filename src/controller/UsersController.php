@@ -61,6 +61,13 @@ class UsersController extends Controller {
             $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
             if (isset($_GET['add'])) {
               $colours = array('red', 'orange', 'green', 'blue', 'purple');
+
+              //TODO: 
+              //foreach color
+              //get all the habits with active = 1
+              //if empty
+              //show link
+
               if (!in_array($_GET['add'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
                 header('Location: index.php?page=profile&category=customize');
@@ -264,8 +271,8 @@ class UsersController extends Controller {
               
               foreach ($defaultHabits as $defaultHabit) {
                 $this->habitDAO->insertNewHabit(array(
-                  'user_id' => $_SESSION['user']['user_id'],
-                  'habit_name' => $defaultHabit['habit-name'],
+                  'user_id' => $inserteduser['user_id'],
+                  'habit_name' => $defaultHabit['habit_name'],
                   'habit_colour_name' => $defaultHabit['habit_colour_name'],
                   'habit_colour' => $defaultHabit['habit_colour'],
                   'habit_icon' => $defaultHabit['habit_icon'],

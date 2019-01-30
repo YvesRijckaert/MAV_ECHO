@@ -93,7 +93,9 @@ class PostsController extends Controller {
               break;
             case 'month':
               $this->set('view', 'month');
+              
               //TODO: WHAT IF THERE ARE NO ACIVE HABITS!
+
               if(!empty($_GET['month'])) {
                 function validateDate($date, $format = 'm-Y') {
                   $d = DateTime::createFromFormat($format, $date);
