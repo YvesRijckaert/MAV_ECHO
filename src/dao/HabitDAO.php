@@ -13,15 +13,16 @@ class HabitDAO extends DAO {
   }
 
   public function selectAllPossibleHabits() {
-    $sql = "SELECT `habit_name` FROM `data`";
+    $sql = "SELECT * FROM `data_habit_name`";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function selectAllPossibleHabitIcons() {
-    $sql = "SELECT `habit_icon` FROM `data`";
+  public function selectAllPossibleHabitIcons($colour) {
+    $sql = "SELECT * FROM `data_habit_icon` WHERE `habit_colour_name` = :colour";
     $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':colour', $colour);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }

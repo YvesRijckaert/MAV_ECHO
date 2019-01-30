@@ -38,7 +38,8 @@
 <?php endif; ?>
 
 <?php if ($currentCategory == 'customize'): ?>
-  <?php if ($currentStep === 1): ?>
+
+ <?php if ($currentStep === 1): ?>
   <section>
     <article>
       <h1>Habits</h1>
@@ -57,19 +58,38 @@
   </section>
   <?php endif; ?>
 
-  <?php if ($currentStep === 'add-habit-2'): ?>
+  <?php if ($currentStep === 'add-habit-1'): ?>
     <h1>Add habit</h1>
     <p>Choose or write down a new habit.</p>
     <form method="post">
       <?php if(!empty($errors['add-habit'])) echo '<span class="error">' . $errors['add-habit'] . '</span>';?>
+      <label for="neither">
+          <span class="form-label">Write down my own habit</span>
+          <input type="radio" id="neither" name="chosen_habit" value="neither" class="form-input" checked />
+      </label>
+      <input type="text" name="custom_habit" placeholder="write down a habit" />
       <?php foreach($allPossibleHabits as $habit): ?>
         <label for="<?php echo $habit['habit_name'] ?>">
           <span class="form-label"><?php echo $habit['habit_name'] ?></span>
           <input type="radio" id="<?php echo $habit['habit_name'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
         </label>
       <?php endforeach; ?>
-      <input type="text" placeholder="write down a habit" />
       <input type="submit" name="add-habit-1" value="submit" />
+    </form>
+  <?php endif; ?>
+
+  <?php if ($currentStep === 'add-habit-2'): ?>
+    <h1>Add habit</h1>
+    <p>Choose a shape.</p>
+    <form method="post">
+      <?php if(!empty($errors['add-habit-icon'])) echo '<span class="error">' . $errors['add-habit-icon'] . '</span>';?>
+      <?php foreach($allPossibleHabitIcons as $icon): ?>
+        <label for="<?php echo $icon['data_habit_icon_id'] ?>">
+          <span class="form-label"><?php echo $icon['habit_icon'] ?></span>
+          <input type="radio" id="<?php echo $icon['data_habit_icon_id'] ?>" name="chosen_habit_icon" value="<?php echo $icon['data_habit_icon_id'] ?>" class="form-input" />
+        </label>
+      <?php endforeach; ?>
+      <input type="submit" name="add-habit-2" value="submit" />
     </form>
   <?php endif; ?>
 

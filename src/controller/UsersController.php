@@ -59,7 +59,7 @@ class UsersController extends Controller {
               'active' => FALSE
             ));
             $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
-            $allPossibleHabitIcons = $this->habitDAO->selectAllPossibleHabitIcons();
+            $allPossibleHabitIcons = array();
             if (isset($_GET['add'])) {
               $colours = array('red', 'orange', 'green', 'blue', 'purple');
               if (!in_array($_GET['add'], $colours)) {
@@ -76,7 +76,7 @@ class UsersController extends Controller {
                   header('Location: index.php?page=profile&category=customize');
                   exit();
                 } else {
-                  $this->set('currentStep', 'add-habit-2');
+                  $this->set('currentStep', 'add-habit-1');
                 }
               }
             }
@@ -90,7 +90,38 @@ class UsersController extends Controller {
               exit();
             }
             if(!empty($_POST['add-habit-1'])) {
-
+              $errors = array();
+              if ($_POST['chosen_habit'] == 'neither' && empty($_POST['custom_habit'])) {
+                $errors['add-habit'] = 'Please choose or write down a habit.';
+              }
+              if(empty($errors)) {
+                if(!empty($_POST['custom_habit'])) {
+                  $habitName = $_POST['custom_habit'];
+                }
+                if($_POST['chosen_habit'] != 'neither') {
+                  $habitName = $_POST['chosen_habit'];
+                }
+                $_SESSION['add-habit-colour-name'] = $_GET['add'];
+                $_SESSION['add-habit-name'] = $habitName;
+                $allPossibleHabitIcons = $this->habitDAO->selectAllPossibleHabitIcons($_GET['add']);
+                $this->set('currentStep', 'add-habit-2');
+              } else {
+                  $this->set('errors', $errors);
+              }
+            }
+            if(!empty($_POST['add-habit-2'])) {
+              $errors = array();
+              if(empty($_POST['chosen_habit_icon'])){
+                $errors['add-habit-icon'] = 'Please choose a shape.';
+              }
+              if(empty($errors)) {
+                $this->habitDAO->insertNewHabit(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'habit_name' => $_SESSION['add-habit-name'],
+                  'habit_colour_name' => $_SESSION['add-habit-colour-name']
+                ));
+              }
+              $this->set('errors', $errors);
             }
             function super_unique($array,$key) {
               $temp_array = [];
