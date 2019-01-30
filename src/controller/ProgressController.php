@@ -46,7 +46,6 @@ class ProgressController extends Controller {
                 header('Location: index.php?page=progress&category=goals&goals-type=in-progress');
                 exit();
               }
-
               $this->set('currentCategory', 'goals');
               break;
             default:

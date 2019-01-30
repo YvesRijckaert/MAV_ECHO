@@ -97,12 +97,14 @@ class PostsController extends Controller {
               //TODO: WHAT IF THERE ARE NO ACIVE HABITS!
 
               if(!empty($_GET['month'])) {
-                function validateDate($date, $format = 'm-Y') {
-                  $d = DateTime::createFromFormat($format, $date);
-                  return $d && $d->format($format) === $date;
-                }
-                $isMonthValid = validateDate($_GET['month']);
-                if($isMonthValid) {
+                $date = DateTime::createFromFormat('m-Y', $_GET['month']);
+                $date_errors = DateTime::getLastErrors();
+
+                if ($date_errors['warning_count'] + $date_errors['error_count'] > 0) {
+                  $_SESSION['error'] = 'Not a valid date.';
+                  header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);
+                  exit();
+                } else {
                   if (!empty($_GET['chosen_habit'])) {
                     if(in_array($_GET['chosen_habit'], array_column($activeHabits, 'habit_name'))){
                       function build_calendar($month,$year, $today_date, $fulfilled_habit, $class) {
@@ -205,10 +207,6 @@ class PostsController extends Controller {
                     header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);
                     exit();
                   }
-                } else {
-                  $_SESSION['error'] = 'Not a valid date.';
-                  header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);
-                  exit();
                 }
               } else {
                 $_SESSION['error'] = 'You have to choose a date.';
