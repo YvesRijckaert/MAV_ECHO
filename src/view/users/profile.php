@@ -69,9 +69,9 @@
       </label>
       <input type="text" name="custom_habit" placeholder="write down a habit" />
       <?php foreach($allPossibleHabits as $habit): ?>
-        <label for="<?php echo $habit['habit_name'] ?>">
+        <label for="<?php echo $habit['data_habit_name_id'] ?>">
           <span class="form-label"><?php echo $habit['habit_name'] ?></span>
-          <input type="radio" id="<?php echo $habit['habit_name'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" />
+          <input type="radio" id="<?php echo $habit['data_habit_name_id'] ?>" name="chosen_habit" value="<?php echo $habit['data_habit_name_id'] ?>" class="form-input" />
         </label>
       <?php endforeach; ?>
       <input type="submit" name="add-habit-1" value="submit" />

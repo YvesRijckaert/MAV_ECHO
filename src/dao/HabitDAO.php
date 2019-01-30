@@ -27,6 +27,14 @@ class HabitDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function selectHabitIcon($habit_icon_id) {
+    $sql = "SELECT * FROM `data_habit_icon` WHERE `data_habit_icon_id` = :habit_icon_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':habit_icon_id', $habit_icon_id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function selectAllActiveHabits($data) {
     $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `active` = :active";
     $stmt = $this->pdo->prepare($sql);
@@ -78,6 +86,17 @@ class HabitDAO extends DAO {
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $data['user_id']);
     $stmt->bindValue(':habit', $data['habit']);
+    $stmt->execute();
+  }
+
+  public function insertNewHabit($data) {
+    $sql = "INSERT INTO `habits` (`user_id`, `habit_name`, `habit_colour_name`, `habit_colour`, `habit_icon`, `active`) VALUES (:user_id, :habit_name, :habit_colour_name, :habit_colour, :habit_icon, 1)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit_name', $data['habit_name']);
+    $stmt->bindValue(':habit_colour_name', $data['habit_colour_name']);
+    $stmt->bindValue(':habit_colour', $data['habit_colour']);
+    $stmt->bindValue(':habit_icon', $data['habit_icon']);
     $stmt->execute();
   }
 
