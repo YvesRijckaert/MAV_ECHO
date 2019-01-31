@@ -59,15 +59,16 @@ class UsersController extends Controller {
               'active' => FALSE
             ));
             $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
-            if (isset($_GET['add'])) {
-              $colours = array('red', 'orange', 'green', 'blue', 'purple');
+            $colours = array('red', 'orange', 'green', 'blue', 'purple');
 
-              //TODO: 
-              //foreach color
+            //TODO:
+            //foreach color
+            // foreach ($colours as $colour) {
               //get all the habits with active = 1
               //if empty
               //show link
-
+            // }
+            if (isset($_GET['add'])) {
               if (!in_array($_GET['add'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
                 header('Location: index.php?page=profile&category=customize');
@@ -85,15 +86,6 @@ class UsersController extends Controller {
                   $this->set('currentStep', 'add-habit-1');
                 }
               }
-            }
-            if (isset($_GET['delete'])) {
-              $this->habitDAO->deactivateHabit(array(
-                'user_id' => $_SESSION['user']['user_id'],
-                'habit_id' =>  $_GET['delete']
-              ));
-              $_SESSION['info'] = 'Habit successfully deleted.';
-              header('Location: index.php?page=profile&category=customize');
-              exit();
             }
             if(!empty($_POST['add-habit-1'])) {
               $errors = array();
@@ -141,6 +133,25 @@ class UsersController extends Controller {
                 }
               }
               $this->set('errors', $errors);
+            }
+            if (isset($_GET['delete'])) {
+              $habit = $this->habitDAO->selectOne(array(
+                'user_id' => $_SESSION['user']['user_id'],
+                'habit_id' => $_GET['delete']
+              ));
+              if (!empty($habit)) {
+                $this->habitDAO->deactivateHabit(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'habit_id' =>  $_GET['delete']
+                ));
+                $_SESSION['info'] = 'Habit successfully deleted.';
+                header('Location: index.php?page=profile&category=customize');
+                exit();
+              } else {
+                $_SESSION['error'] = 'Habit does not exist.';
+                header('Location: index.php?page=profile&category=customize');
+                exit();
+              }
             }
             function super_unique($array,$key) {
               $temp_array = [];
@@ -268,7 +279,7 @@ class UsersController extends Controller {
                   'habit_colour' => '#9278fd'
                 )
               );
-              
+
               foreach ($defaultHabits as $defaultHabit) {
                 $this->habitDAO->insertNewHabit(array(
                   'user_id' => $inserteduser['user_id'],
