@@ -38,12 +38,13 @@ class PostsController extends Controller {
             case 'day':
               $this->set('view', 'day');
               if(!empty($_GET['day'])) {
-                function validateDate($date, $format = 'd-m-Y') {
-                  $d = DateTime::createFromFormat($format, $date);
-                  return $d && $d->format($format) === $date;
-                }
-                $isDayValid = validateDate($_GET['day']);
-                if($isDayValid) {
+                $date = DateTime::createFromFormat('d-m-Y', $_GET['day']);
+                $date_errors = DateTime::getLastErrors();
+                if ($date_errors['warning_count'] + $date_errors['error_count'] > 0) {
+                  $_SESSION['error'] = 'Not a valid day.';
+                  header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                  exit();
+                } else {
                   $enteredDate = new DateTime($_GET['day']);
                   $dateRegistered = new DateTime($_SESSION['user']['date_joined']);
                   if($dateRegistered > $enteredDate) {
@@ -80,10 +81,6 @@ class PostsController extends Controller {
                   $this->set('postOfEnteredDay', $postOfEnteredDay);
                   $this->set('fulfilledHabitsOfEnteredDay', $fulfilledHabitsOfEnteredDay);
                   $this->set('livedDaysAmount', $livedDaysAmount);
-                } else {
-                  $_SESSION['error'] = 'Not a valid day.';
-                  header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
-                  exit();
                 }
               } else {
                 $_SESSION['error'] = 'You have to choose a date.';
@@ -93,13 +90,12 @@ class PostsController extends Controller {
               break;
             case 'month':
               $this->set('view', 'month');
-              
+
               //TODO: WHAT IF THERE ARE NO ACIVE HABITS!
 
               if(!empty($_GET['month'])) {
                 $date = DateTime::createFromFormat('m-Y', $_GET['month']);
                 $date_errors = DateTime::getLastErrors();
-
                 if ($date_errors['warning_count'] + $date_errors['error_count'] > 0) {
                   $_SESSION['error'] = 'Not a valid date.';
                   header('Location: index.php?page=overview&view=month&month=' . date("m-Y") . '&chosen_habit=' . $firstActiveHabit);
