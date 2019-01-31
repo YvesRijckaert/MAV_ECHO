@@ -60,7 +60,6 @@ class UsersController extends Controller {
             ));
             $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
             $colours = array('red', 'orange', 'green', 'blue', 'purple');
-
             //TODO:
             //foreach color
             // foreach ($colours as $colour) {
@@ -68,15 +67,15 @@ class UsersController extends Controller {
               //if empty
               //show link
             // }
-            if (isset($_GET['add'])) {
-              if (!in_array($_GET['add'], $colours)) {
+            if (isset($_GET['add-habit'])) {
+              if (!in_array($_GET['add-habit'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
                 header('Location: index.php?page=profile&category=customize');
                 exit();
               } else {
                 $habitsForColour = $this->habitDAO->checkIfColourHasActiveHabits(array(
                   'user_id' => $_SESSION['user']['user_id'],
-                  'habit_colour_name' =>  $_GET['add']
+                  'habit_colour_name' =>  $_GET['add-habit']
                 ));
                 if(in_array(1, array_column($habitsForColour, 'active'))) {
                   $_SESSION['error'] = 'This habit category already has an active habit.';
@@ -99,9 +98,9 @@ class UsersController extends Controller {
                 if($_POST['chosen_habit'] != 'neither') {
                   $habitName = $allPossibleHabits[$_POST['chosen_habit'] - 1]['habit_name'];
                 }
-                $_SESSION['add-habit-colour-name'] = $_GET['add'];
+                $_SESSION['add-habit-colour-name'] = $_GET['add-habit'];
                 $_SESSION['add-habit-name'] = $habitName;
-                $allPossibleHabitIcons = $this->habitDAO->selectAllPossibleHabitIcons($_GET['add']);
+                $allPossibleHabitIcons = $this->habitDAO->selectAllPossibleHabitIcons($_GET['add-habit']);
                 $this->set('allPossibleHabitIcons', $allPossibleHabitIcons);
                 $this->set('currentStep', 'add-habit-2');
               } else {
@@ -134,15 +133,15 @@ class UsersController extends Controller {
               }
               $this->set('errors', $errors);
             }
-            if (isset($_GET['delete'])) {
+            if (isset($_GET['delete-habit'])) {
               $habit = $this->habitDAO->selectOne(array(
                 'user_id' => $_SESSION['user']['user_id'],
-                'habit_id' => $_GET['delete']
+                'habit_id' => $_GET['delete-habit']
               ));
               if (!empty($habit)) {
                 $this->habitDAO->deactivateHabit(array(
                   'user_id' => $_SESSION['user']['user_id'],
-                  'habit_id' =>  $_GET['delete']
+                  'habit_id' =>  $_GET['delete-habit']
                 ));
                 $_SESSION['info'] = 'Habit successfully deleted.';
                 header('Location: index.php?page=profile&category=customize');
@@ -152,6 +151,13 @@ class UsersController extends Controller {
                 header('Location: index.php?page=profile&category=customize');
                 exit();
               }
+            }
+            if (isset($_GET['add-goal'])) {
+              //TODO: check if habit that's linked to goal exists
+              $this->set('currentStep', 'add-goal-1');
+            }
+            if(!empty($_POST['add-goal-1'])) {
+              //
             }
             function super_unique($array,$key) {
               $temp_array = [];
