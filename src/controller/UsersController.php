@@ -108,7 +108,6 @@ class UsersController extends Controller {
                 }
               }
             }
-
             foreach ($currentHabits as $key => $habit) {
               if($habit['active']) {
                 $currentGoals[$key] = $this->goalDAO->selectAllGoalsFromHabit(array(
@@ -121,6 +120,7 @@ class UsersController extends Controller {
                 ));
               }
             }
+
             if (isset($_GET['add-habit'])) {
               if (!in_array($_GET['add-habit'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
@@ -140,6 +140,7 @@ class UsersController extends Controller {
                 }
               }
             }
+
             if(!empty($_POST['add-habit-1'])) {
               $errors = array();
               if ($_POST['chosen_habit'] == 'neither' && empty($_POST['custom_habit'])) {
@@ -161,6 +162,7 @@ class UsersController extends Controller {
                   $this->set('errors', $errors);
               }
             }
+
             if(!empty($_POST['add-habit-2'])) {
               $errors = array();
               if(empty($_POST['chosen_habit_icon'])){
@@ -187,6 +189,7 @@ class UsersController extends Controller {
               }
               $this->set('errors', $errors);
             }
+
             if (isset($_GET['delete-habit'])) {
               $habit = $this->habitDAO->selectOne(array(
                 'user_id' => $_SESSION['user']['user_id'],
@@ -208,7 +211,32 @@ class UsersController extends Controller {
             }
 
             if (isset($_GET['add-goal'])) {
+              $habit = $_GET['add-goal'];
+              $this->set('habit', $habit);
+              //TODO: check if habit exists in database for that user
+              //TODO: check if habit already has a goal
+              $this->set('currentStep', 'add-goal-1');
+              if(isset($_GET['goal-type'])) {
+                switch ($_GET['goal-type']) {
+                  case 'repetitive':
+                    $this->set('currentStep', 'add-goal-repetitive-1');
+                    break;
+                  case 'streak':
+                    $this->set('currentStep', 'add-goal-streak-1');
+                    break;
+                  case 'total':
+                    $this->set('currentStep', 'add-goal-total-1');
+                    break;
+                  default:
+                    $_SESSION['error'] = 'Goal category does not exist.';
+                    header('Location: index.php?page=profile&category=customize');
+                    exit();
+                    break;
+                }
+              }
+
             }
+
             if (isset($_GET['delete-goal'])) {
               if(isset($_GET['goal-category'])) {
                 switch ($_GET['goal-category']) {
@@ -281,6 +309,7 @@ class UsersController extends Controller {
                 exit();
               }
             }
+
 
 
             $this->set('currentHabits', $currentHabits);

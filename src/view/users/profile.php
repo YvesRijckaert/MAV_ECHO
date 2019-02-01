@@ -116,37 +116,177 @@
     <p>Choose a goal type.</p>
     <ul>
       <li>
-        <a href="index.php?page=profile&category=customize&add-goal=habitName&goal-type=repetitive">Repetitive</a>
-        <p>e.g. habitName, every <strong>thursday</strong> of <strong>june</strong>.</p>
+        <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=repetitive">Repetitive</a>
+        <p>e.g. <?php echo $habit ?>, every <strong>thursday</strong> of <strong>june</strong>.</p>
       </li>
       <li>
-        <a href="index.php?page=profile&category=customize&add-goal=habitName&goal-type=streak">Streak</a>
-        <p>e.g. habitName, <strong>10 days</strong> in a row.</p>
+        <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=streak">Streak</a>
+        <p>e.g. <?php echo $habit ?>, <strong>10 days</strong> in a row.</p>
       </li>
       <li>
-        <a href="index.php?page=profile&category=customize&add-goal=habitName&goal-type=total">Total</a>
-        <p>e.g. habitName, <strong>20 days</strong> in <strong>2019</strong>.</p>
+        <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=total">Total</a>
+        <p>e.g. <?php echo $habit ?>, <strong>20 days</strong> in <strong>january</strong>.</p>
       </li>
     </ul>
   <?php endif; ?>
 
-  <?php if ($currentStep === 'add-goal-streak'): ?>
+  <?php if ($currentStep === 'add-goal-repetitive-1'): ?>
     <h1>Add goal</h1>
     <p>Edit the goal.</p>
-    <div class="well">
-      <label class="input-stepper">
-        <div>
-          <a href="#0" role="button" id="step-decrement" class="btn btn-default" aria-label="remove 1" aria-labelledby="step-decrement label-text">
-            <i aria-hidden="true" class="icon icon-minus"></i>
-          </a>
-          <input disabled type="text" class="text-strong form-control input-number text-center" value="1" aria-live="polite" tabindex="-1" aria-labelledby="label-text">
-          <a href="#0" role="button" id="step-increment" class="btn btn-default" aria-label="add 1" aria-labelledby="step-increment label-text">
-            <i aria-hidden="true" class="icon icon-plus"></i>
-          </a>
-        </div>
-      </label>
-    </div>
-</div>
+    <p><?php echo $habit ?>, every thursday of june.</p>
+    <form method="post">
+      <fieldset>
+        <legend>Choose your day.</legend>
+        <input type="radio" id="monday" name="chosen_repetitive_goal_day" value="monday" checked />
+        <label for="monday">
+          <span class="form-label">monday</span>
+        </label>
+        <input type="radio" id="tuesday" name="chosen_repetitive_goal_day" value="tuesday" />
+        <label for="tuesday">
+          <span class="form-label">tuesday</span>
+        </label>
+        <input type="radio" id="wednesday" name="chosen_repetitive_goal_day" value="wednesday" />
+        <label for="wednesday">
+          <span class="form-label">wednesday</span>
+        </label>
+        <input type="radio" id="thursday" name="chosen_repetitive_goal_day" value="thursday" />
+        <label for="thursday">
+          <span class="form-label">thursday</span>
+        </label>
+        <input type="radio" id="friday" name="chosen_repetitive_goal_day" value="friday" />
+        <label for="friday">
+          <span class="form-label">friday</span>
+        </label>
+        <input type="radio" id="saturday" name="chosen_repetitive_goal_day" value="saturday" />
+        <label for="saturday">
+          <span class="form-label">saturday</span>
+        </label>
+        <input type="radio" id="sunday" name="chosen_repetitive_goal_day" value="sunday" />
+        <label for="sunday">
+          <span class="form-label">sunday</span>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Choose your month.</legend>
+        <input type="radio" id="january" name="chosen_repetitive_goal_month" value="january" checked />
+        <label for="january">
+          <span class="form-label">january</span>
+        </label>
+        <input type="radio" id="february" name="chosen_repetitive_goal_month" value="february" />
+        <label for="february">
+          <span class="form-label">february</span>
+        </label>
+        <input type="radio" id="march" name="chosen_repetitive_goal_month" value="march" />
+        <label for="march">
+          <span class="form-label">march</span>
+        </label>
+        <input type="radio" id="april" name="chosen_repetitive_goal_month" value="april" />
+        <label for="april">
+          <span class="form-label">april</span>
+        </label>
+        <input type="radio" id="may" name="chosen_repetitive_goal_month" value="may" />
+        <label for="may">
+          <span class="form-label">may</span>
+        </label>
+        <input type="radio" id="june" name="chosen_repetitive_goal_month" value="june" />
+        <label for="june">
+          <span class="form-label">june</span>
+        </label>
+        <input type="radio" id="july" name="chosen_repetitive_goal_month" value="july" />
+        <label for="july">
+          <span class="form-label">july</span>
+        </label>
+        <input type="radio" id="august" name="chosen_repetitive_goal_month" value="august" />
+        <label for="august">
+          <span class="form-label">august</span>
+        </label>
+        <input type="radio" id="september" name="chosen_repetitive_goal_month" value="september" />
+        <label for="september">
+          <span class="form-label">september</span>
+        </label>
+        <input type="radio" id="october" name="chosen_repetitive_goal_month" value="october" />
+        <label for="october">
+          <span class="form-label">october</span>
+        </label>
+        <input type="radio" id="november" name="chosen_repetitive_goal_month" value="november" />
+        <label for="november">
+          <span class="form-label">november</span>
+        </label>
+        <input type="radio" id="december" name="chosen_repetitive_goal_month" value="december" />
+        <label for="december">
+          <span class="form-label">december</span>
+        </label>
+      </fieldset>
+    </form>
+  <?php endif; ?>
+
+  <?php if ($currentStep === 'add-goal-streak-1'): ?>
+    <h1>Add goal</h1>
+    <p>Edit the goal.</p>
+    <p><?php echo $habit ?>, 10 days in a row.</p>
+    <form method="post">
+      <input type="number" />
+    </form>
+  <?php endif; ?>
+
+  <?php if ($currentStep === 'add-goal-total-1'): ?>
+    <h1>Add goal</h1>
+    <p>Edit the goal.</p>
+    <p><?php echo $habit ?>, 10 days in january.</p>
+    <form method="post">
+      <input type="number" />
+      <fieldset>
+        <legend>Choose your month.</legend>
+        <input type="radio" id="january" name="chosen_repetitive_goal_month" value="january" checked />
+        <label for="january">
+          <span class="form-label">january</span>
+        </label>
+        <input type="radio" id="february" name="chosen_repetitive_goal_month" value="february" />
+        <label for="february">
+          <span class="form-label">february</span>
+        </label>
+        <input type="radio" id="march" name="chosen_repetitive_goal_month" value="march" />
+        <label for="march">
+          <span class="form-label">march</span>
+        </label>
+        <input type="radio" id="april" name="chosen_repetitive_goal_month" value="april" />
+        <label for="april">
+          <span class="form-label">april</span>
+        </label>
+        <input type="radio" id="may" name="chosen_repetitive_goal_month" value="may" />
+        <label for="may">
+          <span class="form-label">may</span>
+        </label>
+        <input type="radio" id="june" name="chosen_repetitive_goal_month" value="june" />
+        <label for="june">
+          <span class="form-label">june</span>
+        </label>
+        <input type="radio" id="july" name="chosen_repetitive_goal_month" value="july" />
+        <label for="july">
+          <span class="form-label">july</span>
+        </label>
+        <input type="radio" id="august" name="chosen_repetitive_goal_month" value="august" />
+        <label for="august">
+          <span class="form-label">august</span>
+        </label>
+        <input type="radio" id="september" name="chosen_repetitive_goal_month" value="september" />
+        <label for="september">
+          <span class="form-label">september</span>
+        </label>
+        <input type="radio" id="october" name="chosen_repetitive_goal_month" value="october" />
+        <label for="october">
+          <span class="form-label">october</span>
+        </label>
+        <input type="radio" id="november" name="chosen_repetitive_goal_month" value="november" />
+        <label for="november">
+          <span class="form-label">november</span>
+        </label>
+        <input type="radio" id="december" name="chosen_repetitive_goal_month" value="december" />
+        <label for="december">
+          <span class="form-label">december</span>
+        </label>
+      </fieldset>
+    </form>
   <?php endif; ?>
 
 <?php endif; ?>
