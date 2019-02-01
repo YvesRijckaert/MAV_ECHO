@@ -62,17 +62,17 @@
       <?php
         if (!empty($completedGoals['repetitive'])) {
           foreach ($completedGoals['repetitive'] as $goal) {
-            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>every ' . $goal['day'] .' of ' . $goal['month'] .'</span></li>';
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>Completed</span><span>every ' . $goal['day'] .' of ' . $goal['month'] .'</span></li>';
           }
         }
         if (!empty($completedGoals['streaks'])) {
           foreach ($completedGoals['streaks'] as $goal) {
-            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</span></li>';
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>Completed</span><span>' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</span></li>';
           }
         }
         if (!empty($completedGoals['total_amount'])) {
           foreach ($completedGoals['total_amount'] as $goal) {
-            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</span></li>';
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>Completed</span><span>' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</span></li>';
           }
         }
         if (empty($completedGoals['repetitive']) && empty($completedGoals['streaks']) && empty($completedGoals['total_amount'])) {
