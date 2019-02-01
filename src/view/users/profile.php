@@ -48,7 +48,7 @@
         if ($habit['active']) {
             echo '<li style="background-color:' . $habit['habit_colour'] .'"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'">delete</a>' . '</li>';
         } else {
-          echo '<a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'" style="background-color:' .  $habit['habit_colour'] .'">add habit</a>';
+          echo '<li><a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'" style="background-color:' .  $habit['habit_colour'] .'">add habit</a></li>';
         }
       }
       ?>
@@ -56,13 +56,18 @@
     </article>
     <article>
       <h1>Goals</h1>
-      <?php foreach ($currentGoals as $goal) {
-        if ($habitHasGoal) {
-            echo '<li style="background-color:' . $goal['habit_colour'] .'"><span>' . $goal['goal_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $goal['goal_id']  .'">delete</a>' . '</li>';
-        } else {
-          echo '<a href="index.php?page=profile&category=customize&add-goal=' . $goal['habit_colour_name']  .'" style="background-color:' .  $goal['habit_colour'] .'">add habit</a>';
+      <?php
+        foreach ($currentGoals as $goal ) {
+          if(is_array($goal['repetitive'])) {
+            echo '<li><span>' . $goal['repetitive']['habit_name'] . ', every ' . $goal['repetitive']['day'] . ' of ' . $goal['repetitive']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-goal=' . $goal['repetitive']['repetitive_id']  .'"> delete</a>' . '</li>';
+          } else if(is_array($goal['streaks'])) {
+            echo '<li><span>' . $goal['streaks']['habit_name'] . ', ' . $goal['streaks']['time_amount'] . ' ' . $goal['streaks']['time_type'] . ' in a row' . '</span>' . '<a href="index.php?page=profile&category=customize&delete-goal=' . $goal['streaks']['streak_id']  .'"> delete</a>' . '</li>';
+          } else if(is_array($goal['total_amount'])) {
+            echo '<li><span>' . $goal['total_amount']['habit_name'] . ', ' . $goal['total_amount']['days_amount'] . ' in' . $goal['total_amount']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-goal=' . $goal['total_amount']['total_amount_id']  .'"> delete</a>' . '</li>';
+          } else {
+            echo '<li>add goal</li>';
+          }
         }
-      }
       ?>
     </article>
   </section>

@@ -54,10 +54,7 @@ class UsersController extends Controller {
           case 'customize':
             $this->set('currentStep', 1);
             $currentHabits = array();
-            $allGoals = $this->goalDAO->selectAllGoalsWithColour(array(
-              'user_id' => $_SESSION['user']['user_id'],
-              'completed' => FALSE
-            ));
+            $currentGoals = array();
             $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
             $colours = array('red', 'orange', 'green', 'blue', 'purple');
             foreach ($colours as $key => $colour) {
@@ -109,9 +106,14 @@ class UsersController extends Controller {
                     exit();
                     break;
                 }
+              } else {
+                $currentGoals[$key] = $this->goalDAO->selectAllGoalsFromHabit(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'completed' => FALSE,
+                  'habit_id' => $currentHabits[$key]['habit_id']
+                ));
               }
             }
-
             if (isset($_GET['add-habit'])) {
               if (!in_array($_GET['add-habit'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
@@ -198,25 +200,10 @@ class UsersController extends Controller {
               }
             }
             if (isset($_GET['add-goal'])) {
-              //TODO: check if habit that's linked to goal exists
-
-              if(isset($_GET['goal-type'])) {
-                switch ($_GET['goal-type']) {
-                  case 'repetitive':
-                    # code...
-                    break;
-                  case 'streak':
-                    # code...
-                    break;
-                  case 'total':
-                    # code...
-                    break;
-                  default:
-                    # code...
-                    break;
-                }
-              }
             }
+
+            // var_dump($currentGoals);
+            // die();
 
             $this->set('currentHabits', $currentHabits);
             $this->set('currentGoals', $currentGoals);
