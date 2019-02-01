@@ -44,13 +44,14 @@
     <article>
       <h1>Habits</h1>
       <ul>
-      <?php foreach ($currentHabits as $habit) {
+      <?php foreach ($currentHabits as $habit): {
         if ($habit['active']) {
             echo '<li style="background-color:' . $habit['habit_colour'] .'"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'"> delete</a>' . '</li>';
         } else {
           echo '<li><a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'" style="background-color:' .  $habit['habit_colour'] .'">add habit</a></li>';
         }
       };
+      endforeach;
       ?>
       </ul>
     </article>
@@ -58,7 +59,7 @@
       <h1>Goals</h1>
       <ul>
         <?php
-          foreach ($currentGoals as $goal ) {
+          foreach ($currentGoals as $goal ): {
             if(!isset($goal['repetitive']['no-goal'])) {
               echo '<li style="background-color: ' . $goal['repetitive']['habit_colour'] . '"><span>' . $goal['repetitive']['habit_name'] . ', every ' . $goal['repetitive']['day'] . ' of ' . $goal['repetitive']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=repetitive&delete-goal=' . $goal['repetitive']['repetitive_id']  .'"> delete</a>' . '</li>';
             } else if(!isset($goal['streaks']['no-goal'])) {
@@ -69,7 +70,8 @@
             if(isset($goal['repetitive']['no-goal']) && isset($goal['streaks']['no-goal']) && isset($goal['total_amount']['no-goal'])) {
               echo '<li style="background-color: ' . $goal['repetitive']['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-goal=' . $goal['repetitive']['habit_name']  .'">Add goal for ' . $goal['repetitive']['habit_name'] . '</a></li>';
             }
-          }
+          };
+          endforeach;
         ?>
       </ul>
     </article>

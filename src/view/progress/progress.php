@@ -31,4 +31,13 @@
     <a href="index.php?page=progress&category=goals&goals-type=completed" class="<?php if($goalsCategory === 'completed') { echo 'nav-item-active';} ?>">Completed</a>
     <a href="index.php?page=profile&category=customize">Edit</a>
   </section>
+
+  <?php if($goalsCategory === 'completed'): ?>
+  <p>test</p>
+  <?php endif; ?>
+
+  <?php if($goalsCategory === 'completed'): ?>
+  <p>test</p>
+  <?php endif; ?>
+
 <?php endif; ?>
