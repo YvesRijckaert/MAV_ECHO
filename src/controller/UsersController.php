@@ -107,7 +107,7 @@ class UsersController extends Controller {
                     break;
                 }
               } else {
-                $currentGoals[$key] = $this->goalDAO->selectAllGoalsFromHabit(array(
+                $currentGoals[$colour] = $this->goalDAO->selectAllGoalsFromHabit(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'completed' => FALSE,
                   'habit_id' => $currentHabits[$key]['habit_id']
@@ -202,8 +202,8 @@ class UsersController extends Controller {
             if (isset($_GET['add-goal'])) {
             }
 
-            // var_dump($currentGoals);
-            // die();
+            var_dump($currentGoals);
+            die();
 
             $this->set('currentHabits', $currentHabits);
             $this->set('currentGoals', $currentGoals);
