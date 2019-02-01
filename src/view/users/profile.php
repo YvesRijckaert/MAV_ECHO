@@ -39,17 +39,19 @@
 
 <?php if ($currentCategory == 'customize'): ?>
 
- <?php if ($currentStep === 1): ?>
+  <?php if ($currentStep === 1): ?>
   <section>
     <article>
       <h1>Habits</h1>
       <ul>
-      <?php foreach ($activeHabits as $activeHabit) {
-            echo '<li style="background-color:' . $activeHabit['habit_colour'] .'"><span>' . $activeHabit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $activeHabit['habit_id']  .'">delete</a>' . '</li>';
+      <?php foreach ($currentHabits as $habit) {
+        if ($habit['active'] === 1) {
+            echo '<li style="background-color:' . $habit['habit_colour'] .'"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'">delete</a>' . '</li>';
+        } else {
+          echo '<a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'" style="background-color:' .  $habit['habit_colour'] .'">add habit</a>';
+        }
       }
-      foreach($nonActiveHabits as $nonActiveHabit) {
-          echo '<a href="index.php?page=profile&category=customize&add-habit=' . $nonActiveHabit['habit_colour_name']  .'" style="background-color:' .  $nonActiveHabit['habit_colour'] .'">add habit</a>';
-      } ?>
+      ?>
       </ul>
     </article>
     <article>
@@ -65,7 +67,7 @@
       <?php if(!empty($errors['add-habit'])) echo '<span class="error">' . $errors['add-habit'] . '</span>';?>
       <input type="radio" id="neither" name="chosen_habit" value="neither" class="form-input" checked />
       <label for="neither">
-          <span class="form-label">Write down my own habit</span>
+        <span class="form-label">Write down my own habit</span>
       </label>
       <input type="text" name="custom_habit" placeholder="write down a habit" />
       <?php foreach($allPossibleHabits as $habit): ?>
@@ -94,23 +96,41 @@
   <?php endif; ?>
 
   <?php if ($currentStep === 'add-goal-1'): ?>
-    <h1>Add habit</h1>
-    <p>Choose or write down a new habit.</p>
-    <form method="post">
-      <?php if(!empty($errors['add-habit'])) echo '<span class="error">' . $errors['add-habit'] . '</span>';?>
-      <label for="neither">
-          <span class="form-label">Write down my own habit</span>
-          <input type="radio" id="neither" name="chosen_habit" value="neither" class="form-input" checked />
+    <h1>Add goal</h1>
+    <p>Choose a goal type.</p>
+    <ul>
+      <li>
+        <a href="index.php?page=profile&category=customize&add-goal=habitName&goal-type=repetitive">Repetitive</a>
+        <p>e.g. habitName, every <strong>thursday</strong> of <strong>june</strong>.</p>
+      </li>
+      <li>
+        <a href="index.php?page=profile&category=customize&add-goal=habitName&goal-type=streak">Streak</a>
+        <p>e.g. habitName, <strong>10 days</strong> in a row.</p>
+      </li>
+      <li>
+        <a href="index.php?page=profile&category=customize&add-goal=habitName&goal-type=total">Total</a>
+        <p>e.g. habitName, <strong>20 days</strong> in <strong>2019</strong>.</p>
+      </li>
+    </ul>
+  <?php endif; ?>
+
+  <?php if ($currentStep === 'add-goal-streak'): ?>
+    <h1>Add goal</h1>
+    <p>Edit the goal.</p>
+    <div class="well">
+      <label class="input-stepper">
+        <div>
+          <a href="#0" role="button" id="step-decrement" class="btn btn-default" aria-label="remove 1" aria-labelledby="step-decrement label-text">
+            <i aria-hidden="true" class="icon icon-minus"></i>
+          </a>
+          <input disabled type="text" class="text-strong form-control input-number text-center" value="1" aria-live="polite" tabindex="-1" aria-labelledby="label-text">
+          <a href="#0" role="button" id="step-increment" class="btn btn-default" aria-label="add 1" aria-labelledby="step-increment label-text">
+            <i aria-hidden="true" class="icon icon-plus"></i>
+          </a>
+        </div>
       </label>
-      <input type="text" name="custom_habit" placeholder="write down a habit" />
-      <?php foreach($allPossibleHabits as $habit): ?>
-        <label for="<?php echo $habit['data_habit_name_id'] ?>">
-          <span class="form-label"><?php echo $habit['habit_name'] ?></span>
-          <input type="radio" id="<?php echo $habit['data_habit_name_id'] ?>" name="chosen_habit" value="<?php echo $habit['data_habit_name_id'] ?>" class="form-input" />
-        </label>
-      <?php endforeach; ?>
-      <input type="submit" name="add-habit-1" value="submit" />
-    </form>
+    </div>
+</div>
   <?php endif; ?>
 
 <?php endif; ?>

@@ -50,23 +50,60 @@ class UsersController extends Controller {
             break;
           case 'customize':
             $this->set('currentStep', 1);
-            $activeHabits = $this->habitDAO->selectAllActiveHabits(array(
-              'user_id' => $_SESSION['user']['user_id'],
-              'active' => TRUE
-            ));
-            $nonActiveHabits = $this->habitDAO->selectAllActiveHabits(array(
-              'user_id' => $_SESSION['user']['user_id'],
-              'active' => FALSE
-            ));
+            $currentHabits = array();
             $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
             $colours = array('red', 'orange', 'green', 'blue', 'purple');
-            //TODO:
-            //foreach color
-            // foreach ($colours as $colour) {
-              //get all the habits with active = 1
-              //if empty
-              //show link
-            // }
+            foreach ($colours as $key => $colour) {
+              $currentHabits[$key] = $this->habitDAO->selectAllActiveHabitsWithColour(array(
+                'user_id' => $_SESSION['user']['user_id'],
+                'active' => TRUE,
+                'habit_colour_name' => $colour
+              ));
+              if($currentHabits[$key] == false) {
+                switch ($colour) {
+                  case 'red':
+                    $currentHabits[$key] = array(
+                      'habit_colour_name' => 'red',
+                      'habit_colour' => '#fe5455',
+                      'active' => 0
+                    );
+                    break;
+                  case 'orange':
+                    $currentHabits[$key] = array(
+                      'habit_colour_name' => 'orange',
+                      'habit_colour' => '#fab81b',
+                      'active' => 0
+                    );
+                    break;
+                  case 'green':
+                    $currentHabits[$key] = array(
+                      'habit_colour_name' => 'green',
+                      'habit_colour' => '#00d28b',
+                      'active' => 0
+                    );
+                    break;
+                  case 'blue':
+                    $currentHabits[$key] = array(
+                      'habit_colour_name' => 'blue',
+                      'habit_colour' => '#4285ff',
+                      'active' => 0
+                    );
+                    break;
+                  case 'purple':
+                    $currentHabits[$key] = array(
+                      'habit_colour_name' => 'purple',
+                      'habit_colour' => '#9278fd',
+                      'active' => 0
+                    );
+                    break;
+                  default:
+                    $_SESSION['error'] = 'This habit category does not exist.';
+                    header('Location: index.php?page=profile&category=customize');
+                    exit();
+                    break;
+                }
+              }
+            }
             if (isset($_GET['add-habit'])) {
               if (!in_array($_GET['add-habit'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
@@ -154,22 +191,26 @@ class UsersController extends Controller {
             }
             if (isset($_GET['add-goal'])) {
               //TODO: check if habit that's linked to goal exists
-              $this->set('currentStep', 'add-goal-1');
-            }
-            if(!empty($_POST['add-goal-1'])) {
-              //
-            }
-            function super_unique($array,$key) {
-              $temp_array = [];
-              foreach ($array as &$v) {
-                if (!isset($temp_array[$v[$key]]))
-                $temp_array[$v[$key]] =& $v;
+
+              if(isset($_GET['goal-type'])) {
+                switch ($_GET['goal-type']) {
+                  case 'repetitive':
+                    # code...
+                    break;
+                  case 'streak':
+                    # code...
+                    break;
+                  case 'total':
+                    # code...
+                    break;
+                  default:
+                    # code...
+                    break;
+                }
               }
-              $array = array_values($temp_array);
-              return $array;
             }
-            $this->set('activeHabits', $activeHabits);
-            $this->set('nonActiveHabits', super_unique($nonActiveHabits,'habit_colour_name'));
+
+            $this->set('currentHabits', $currentHabits);
             $this->set('allPossibleHabits', $allPossibleHabits);
             $this->set('currentCategory', 'customize');
             break;

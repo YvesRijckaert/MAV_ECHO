@@ -28,7 +28,7 @@ class PostsController extends Controller {
         if (!empty($_GET['view'])) {
           $activeHabits = $this->habitDAO->selectAllActiveHabits(array(
             'user_id' => $_SESSION['user']['user_id'],
-            'active' => TRUE
+            'active' => TRUE,
           ));
           $firstActiveHabit = $activeHabits[0]['habit_name'];
           $this->set('activeHabits', $activeHabits);
