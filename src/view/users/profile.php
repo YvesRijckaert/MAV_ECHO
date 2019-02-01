@@ -46,7 +46,7 @@
       <ul>
       <?php foreach ($currentHabits as $habit) {
         if ($habit['active']) {
-            echo '<li style="background-color:' . $habit['habit_colour'] .'"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'">delete</a>' . '</li>';
+            echo '<li style="background-color:' . $habit['habit_colour'] .'"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'"> delete</a>' . '</li>';
         } else {
           echo '<li><a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'" style="background-color:' .  $habit['habit_colour'] .'">add habit</a></li>';
         }
