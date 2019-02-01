@@ -32,12 +32,54 @@
     <a href="index.php?page=profile&category=customize">Edit</a>
   </section>
 
-  <?php if($goalsCategory === 'completed'): ?>
-  <p>test</p>
+  <?php if($goalsCategory === 'in-progress'): ?>
+    <ul>
+      <?php
+        if (!empty($inProgressGoals['repetitive'])) {
+          foreach ($inProgressGoals['repetitive'] as $goal) {
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>every ' . $goal['day'] .' of ' . $goal['month'] .'</span></li>';
+          }
+        }
+        if (!empty($inProgressGoals['streaks'])) {
+          foreach ($inProgressGoals['streaks'] as $goal) {
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</span></li>';
+          }
+        }
+        if (!empty($inProgressGoals['total_amount'])) {
+          foreach ($inProgressGoals['total_amount'] as $goal) {
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</span></li>';
+          }
+        }
+        if (empty($inProgressGoals['repetitive']) && empty($inProgressGoals['streaks']) && empty($inProgressGoals['total_amount'])) {
+          echo '<p>No goals currently in progress.</p>';
+        }
+      ?>
+    </ul>
   <?php endif; ?>
 
   <?php if($goalsCategory === 'completed'): ?>
-  <p>test</p>
+    <ul>
+      <?php
+        if (!empty($completedGoals['repetitive'])) {
+          foreach ($completedGoals['repetitive'] as $goal) {
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>every ' . $goal['day'] .' of ' . $goal['month'] .'</span></li>';
+          }
+        }
+        if (!empty($completedGoals['streaks'])) {
+          foreach ($completedGoals['streaks'] as $goal) {
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</span></li>';
+          }
+        }
+        if (!empty($completedGoals['total_amount'])) {
+          foreach ($completedGoals['total_amount'] as $goal) {
+            echo '<li style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</span></li>';
+          }
+        }
+        if (empty($completedGoals['repetitive']) && empty($completedGoals['streaks']) && empty($completedGoals['total_amount'])) {
+          echo '<p>No completed goals yet.</p>';
+        }
+      ?>
+    </ul>
   <?php endif; ?>
 
 <?php endif; ?>

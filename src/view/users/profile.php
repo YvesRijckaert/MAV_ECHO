@@ -65,7 +65,7 @@
             } else if(!isset($goal['streaks']['no-goal'])) {
               echo '<li style="background-color: ' . $goal['streaks']['habit_colour'] . '"><span>' . $goal['streaks']['habit_name'] . ', ' . $goal['streaks']['time_amount'] . ' ' . $goal['streaks']['time_type'] . ' in a row' . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=streaks&delete-goal=' . $goal['streaks']['streak_id']  .'"> delete</a>' . '</li>';
             } else if(!isset($goal['total_amount']['no-goal'])) {
-              echo '<li style="background-color: ' . $goal['total_amount']['habit_colour'] . '"><span>' . $goal['total_amount']['habit_name'] . ', ' . $goal['total_amount']['days_amount'] . ' in' . $goal['total_amount']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=total-amount&delete-goal=' . $goal['total_amount']['total_amount_id']  .'"> delete</a>' . '</li>';
+              echo '<li style="background-color: ' . $goal['total_amount']['habit_colour'] . '"><span>' . $goal['total_amount']['habit_name'] . ', ' . $goal['total_amount']['days_amount'] . ' days in ' . $goal['total_amount']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=total-amount&delete-goal=' . $goal['total_amount']['total_amount_id']  .'"> delete</a>' . '</li>';
             }
             if(isset($goal['repetitive']['no-goal']) && isset($goal['streaks']['no-goal']) && isset($goal['total_amount']['no-goal'])) {
               echo '<li style="background-color: ' . $goal['repetitive']['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-goal=' . $goal['repetitive']['habit_name']  .'">Add goal for ' . $goal['repetitive']['habit_name'] . '</a></li>';

@@ -34,8 +34,6 @@ class ProgressController extends Controller {
                       'completed' => FALSE,
                       'active' => TRUE
                     ));
-                    var_dump($inProgressGoals);
-                    die();
                     $this->set('goalsCategory', 'in-progress');
                     $this->set('inProgressGoals', $inProgressGoals);
                     break;
