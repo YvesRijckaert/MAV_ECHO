@@ -27,14 +27,16 @@ class ProgressController extends Controller {
               break;
             case 'goals':
               if(!empty($_GET['goals-type'])) {
-                $allGoals = $this->goalDAO->selectAllGoals($_SESSION['user']['user_id']);
+
                 switch ($_GET['goals-type']) {
                   case 'in-progress':
                     $inProgressGoals = '';
+                    $this->set('goalsCategory', 'in-progress');
                     $this->set('inProgressGoals', $inProgressGoals);
                     break;
                   case 'completed':
                     $completedGoals = '';
+                    $this->set('goalsCategory', 'completed');
                     $this->set('completedGoals', $completedGoals);
                     break;
                   default:

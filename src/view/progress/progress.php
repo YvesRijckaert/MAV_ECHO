@@ -27,19 +27,8 @@
 
 <?php if ($currentCategory == 'goals'): ?>
   <section>
-    <form method="get" class="calendar-habits-form">
-      <input type="radio" id="in-progress" name="goals-type" value="in-progress" <?php if($_GET['goals-type'] === 'in-progress') echo 'checked' ?> />
-      <label for="in-progress">
-        <span class="form-label">in progress</span>
-      </label>
-      <input type="radio" id="completed" name="goals-type" value="completed" <?php if($_GET['goals-type'] === 'completed') echo 'checked' ?> />
-      <label for="completed">
-        <span class="form-label">completed</span>
-      </label>
-      <input type="hidden" name="page" value="progress" />
-      <input type="hidden" name="category" value="goals" />
-      <input type="submit" value="submit" />
-    </form>
+    <a href="index.php?page=progress&category=goals&goals-type=in-progress" class="<?php if($goalsCategory === 'in-progress') { echo 'nav-item-active';} ?>">In progress</a>
+    <a href="index.php?page=progress&category=goals&goals-type=completed" class="<?php if($goalsCategory === 'completed') { echo 'nav-item-active';} ?>">Completed</a>
     <a href="index.php?page=profile&category=customize">Edit</a>
   </section>
 <?php endif; ?>
