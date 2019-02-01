@@ -66,6 +66,13 @@ class GoalDAO extends DAO {
     $stmt1->bindValue(':active', $data['active']);
     $stmt1->execute();
     $goals['repetitive'] = $stmt1->fetch(PDO::FETCH_ASSOC);
+    if($goals['repetitive'] === false) {
+      $goals['repetitive'] = array(
+        'no-goal' => TRUE,
+        'habit_name' => $data['habit_name'],
+        'habit_colour' => $data['habit_colour']
+      );
+    }
 
     $sql2 = "SELECT * FROM `streaks` INNER JOIN `habits` ON streaks.habit_id = habits.habit_id AND habits.habit_id = :habit_id WHERE streaks.user_id = :user_id AND streaks.completed = :completed AND streaks.active = :active";
     $stmt2 = $this->pdo->prepare($sql2);
@@ -75,6 +82,13 @@ class GoalDAO extends DAO {
     $stmt2->bindValue(':active', $data['active']);
     $stmt2->execute();
     $goals['streaks'] = $stmt2->fetch(PDO::FETCH_ASSOC);
+    if($goals['streaks'] === false) {
+      $goals['streaks'] = array(
+        'no-goal' => TRUE,
+        'habit_name' => $data['habit_name'],
+        'habit_colour' => $data['habit_colour']
+      );
+    }
 
     $sql3 = "SELECT * FROM `total_amount` INNER JOIN `habits` ON total_amount.habit_id = habits.habit_id AND habits.habit_id = :habit_id WHERE total_amount.user_id = :user_id AND total_amount.completed = :completed AND total_amount.active = :active";
     $stmt3 = $this->pdo->prepare($sql3);
@@ -84,6 +98,13 @@ class GoalDAO extends DAO {
     $stmt3->bindValue(':active', $data['active']);
     $stmt3->execute();
     $goals['total_amount'] = $stmt3->fetch(PDO::FETCH_ASSOC);
+    if($goals['total_amount'] === false) {
+      $goals['total_amount'] = array(
+        'no-goal' => TRUE,
+        'habit_name' => $data['habit_name'],
+        'habit_colour' => $data['habit_colour']
+      );
+    }
 
     return $goals;
   }

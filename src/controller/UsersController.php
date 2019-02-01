@@ -106,12 +106,18 @@ class UsersController extends Controller {
                     exit();
                     break;
                 }
-              } else {
-                $currentGoals[$colour] = $this->goalDAO->selectAllGoalsFromHabit(array(
+              }
+            }
+
+            foreach ($currentHabits as $key => $habit) {
+              if($habit['active']) {
+                $currentGoals[$key] = $this->goalDAO->selectAllGoalsFromHabit(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'completed' => FALSE,
                   'active' => TRUE,
-                  'habit_id' => $currentHabits[$key]['habit_id']
+                  'habit_id' => $currentHabits[$key]['habit_id'],
+                  'habit_name' => $habit['habit_name'],
+                  'habit_colour' => $habit['habit_colour']
                 ));
               }
             }
@@ -275,6 +281,7 @@ class UsersController extends Controller {
                 exit();
               }
             }
+
 
             $this->set('currentHabits', $currentHabits);
             $this->set('currentGoals', $currentGoals);

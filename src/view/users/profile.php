@@ -58,14 +58,13 @@
       <h1>Goals</h1>
       <?php
         foreach ($currentGoals as $goal ) {
-          if(is_array($goal['repetitive'])) {
+          if(!isset($goal['repetitive']['no-goal'])) {
             echo '<li><span>' . $goal['repetitive']['habit_name'] . ', every ' . $goal['repetitive']['day'] . ' of ' . $goal['repetitive']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=repetitive&delete-goal=' . $goal['repetitive']['repetitive_id']  .'"> delete</a>' . '</li>';
-          } else if(is_array($goal['streaks'])) {
+          } else if(!isset($goal['streaks']['no-goal'])) {
             echo '<li><span>' . $goal['streaks']['habit_name'] . ', ' . $goal['streaks']['time_amount'] . ' ' . $goal['streaks']['time_type'] . ' in a row' . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=streaks&delete-goal=' . $goal['streaks']['streak_id']  .'"> delete</a>' . '</li>';
-          } else if(is_array($goal['total_amount'])) {
+          } else if(!isset($goal['total_amount']['no-goal'])) {
             echo '<li><span>' . $goal['total_amount']['habit_name'] . ', ' . $goal['total_amount']['days_amount'] . ' in' . $goal['total_amount']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=total-amount&delete-goal=' . $goal['total_amount']['total_amount_id']  .'"> delete</a>' . '</li>';
           } else {
-            //show habit that has no goals to it yet
             echo 'add goal';
           }
         }
