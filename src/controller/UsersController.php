@@ -110,6 +110,7 @@ class UsersController extends Controller {
                 $currentGoals[$colour] = $this->goalDAO->selectAllGoalsFromHabit(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'completed' => FALSE,
+                  'active' => TRUE,
                   'habit_id' => $currentHabits[$key]['habit_id']
                 ));
               }
@@ -199,11 +200,81 @@ class UsersController extends Controller {
                 exit();
               }
             }
+
             if (isset($_GET['add-goal'])) {
             }
-
-            var_dump($currentGoals);
-            die();
+            if (isset($_GET['delete-goal'])) {
+              if(isset($_GET['goal-category'])) {
+                switch ($_GET['goal-category']) {
+                  case 'repetitive':
+                    $repetitiveGoal = $this->goalDAO->selectRepetitiveGoal(array(
+                      'user_id' => $_SESSION['user']['user_id'],
+                      'repetitive_id' => $_GET['delete-goal']
+                    ));
+                    if (!empty($repetitiveGoal)) {
+                      $this->goalDAO->deactivateRepetitiveGoal(array(
+                        'user_id' => $_SESSION['user']['user_id'],
+                        'repetitive_id' =>  $_GET['delete-goal']
+                      ));
+                      $_SESSION['info'] = 'Goal successfully deleted.';
+                      header('Location: index.php?page=profile&category=customize');
+                      exit();
+                    } else {
+                      $_SESSION['error'] = 'Goal does not exist.';
+                      header('Location: index.php?page=profile&category=customize');
+                      exit();
+                    }
+                    break;
+                  case 'streaks':
+                    $streakGoal = $this->goalDAO->selectStreakGoal(array(
+                      'user_id' => $_SESSION['user']['user_id'],
+                      'streak_id' => $_GET['delete-goal']
+                    ));
+                    if (!empty($streakGoal)) {
+                      $this->goalDAO->deactivateStreakGoal(array(
+                        'user_id' => $_SESSION['user']['user_id'],
+                        'streak_id' =>  $_GET['delete-goal']
+                      ));
+                      $_SESSION['info'] = 'Goal successfully deleted.';
+                      header('Location: index.php?page=profile&category=customize');
+                      exit();
+                    } else {
+                      $_SESSION['error'] = 'Goal does not exist.';
+                      header('Location: index.php?page=profile&category=customize');
+                      exit();
+                    }
+                    break;
+                  case 'total_amount':
+                    $total_amountGoal = $this->goalDAO->selectTotalAmountGoal(array(
+                      'user_id' => $_SESSION['user']['user_id'],
+                      'total_amount_id' => $_GET['delete-goal']
+                    ));
+                    if (!empty($total_amountGoal)) {
+                      $this->goalDAO->deactivateTotalAmountGoal(array(
+                        'user_id' => $_SESSION['user']['user_id'],
+                        'total_amount_id' =>  $_GET['delete-goal']
+                      ));
+                      $_SESSION['info'] = 'Goal successfully deleted.';
+                      header('Location: index.php?page=profile&category=customize');
+                      exit();
+                    } else {
+                      $_SESSION['error'] = 'Goal does not exist.';
+                      header('Location: index.php?page=profile&category=customize');
+                      exit();
+                    }
+                    break;
+                  default:
+                    $_SESSION['error'] = 'Goal category does not exist.';
+                    header('Location: index.php?page=profile&category=customize');
+                    exit();
+                    break;
+                }
+              } else {
+                $_SESSION['error'] = 'Goal category is necessary.';
+                header('Location: index.php?page=profile&category=customize');
+                exit();
+              }
+            }
 
             $this->set('currentHabits', $currentHabits);
             $this->set('currentGoals', $currentGoals);

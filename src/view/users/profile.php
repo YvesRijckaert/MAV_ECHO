@@ -65,6 +65,7 @@
           } else if(is_array($goal['total_amount'])) {
             echo '<li><span>' . $goal['total_amount']['habit_name'] . ', ' . $goal['total_amount']['days_amount'] . ' in' . $goal['total_amount']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=total-amount&delete-goal=' . $goal['total_amount']['total_amount_id']  .'"> delete</a>' . '</li>';
           } else {
+            //show habit that has no goals to it yet
             echo 'add goal';
           }
         }
