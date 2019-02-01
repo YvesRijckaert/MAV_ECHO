@@ -4,15 +4,18 @@ require_once __DIR__ . '/Controller.php';
 
 require_once __DIR__ . '/../dao/UserDAO.php';
 require_once __DIR__ . '/../dao/HabitDAO.php';
+require_once __DIR__ . '/../dao/GoalDAO.php';
 
 class UsersController extends Controller {
 
   private $userDAO;
   private $habitDAO;
+  private $goalDAO;
 
   function __construct() {
     $this->userDAO = new UserDAO();
     $this->habitDAO = new HabitDAO();
+    $this->goalDAO = new GoalDAO();
   }
 
   public function profile() {
@@ -51,6 +54,10 @@ class UsersController extends Controller {
           case 'customize':
             $this->set('currentStep', 1);
             $currentHabits = array();
+            $allGoals = $this->goalDAO->selectAllGoalsWithColour(array(
+              'user_id' => $_SESSION['user']['user_id'],
+              'completed' => FALSE
+            ));
             $allPossibleHabits = $this->habitDAO->selectAllPossibleHabits();
             $colours = array('red', 'orange', 'green', 'blue', 'purple');
             foreach ($colours as $key => $colour) {
@@ -104,6 +111,7 @@ class UsersController extends Controller {
                 }
               }
             }
+
             if (isset($_GET['add-habit'])) {
               if (!in_array($_GET['add-habit'], $colours)) {
                 $_SESSION['error'] = 'This habit category does not exist.';
@@ -211,6 +219,7 @@ class UsersController extends Controller {
             }
 
             $this->set('currentHabits', $currentHabits);
+            $this->set('currentGoals', $currentGoals);
             $this->set('allPossibleHabits', $allPossibleHabits);
             $this->set('currentCategory', 'customize');
             break;

@@ -45,7 +45,7 @@
       <h1>Habits</h1>
       <ul>
       <?php foreach ($currentHabits as $habit) {
-        if ($habit['active'] === 1) {
+        if ($habit['active']) {
             echo '<li style="background-color:' . $habit['habit_colour'] .'"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'">delete</a>' . '</li>';
         } else {
           echo '<a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'" style="background-color:' .  $habit['habit_colour'] .'">add habit</a>';
@@ -56,6 +56,14 @@
     </article>
     <article>
       <h1>Goals</h1>
+      <?php foreach ($currentGoals as $goal) {
+        if ($habitHasGoal) {
+            echo '<li style="background-color:' . $goal['habit_colour'] .'"><span>' . $goal['goal_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $goal['goal_id']  .'">delete</a>' . '</li>';
+        } else {
+          echo '<a href="index.php?page=profile&category=customize&add-goal=' . $goal['habit_colour_name']  .'" style="background-color:' .  $goal['habit_colour'] .'">add habit</a>';
+        }
+      }
+      ?>
     </article>
   </section>
   <?php endif; ?>
