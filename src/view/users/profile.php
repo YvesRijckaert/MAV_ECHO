@@ -132,7 +132,7 @@
     </ul>
   <?php endif; ?>
 
-  <?php if ($currentStep === 'add-goal-repetitive-1'): ?>
+  <?php if ($currentStep === 'add-goal-repetitive'): ?>
     <h1>Add goal</h1>
     <p>Edit the goal.</p>
     <p><?php echo $habit ?>, every thursday of june.</p>
@@ -219,19 +219,21 @@
           <span class="form-label">december</span>
         </label>
       </fieldset>
+      <input type="submit" name="add_repetitive_goal" value="submit">
     </form>
   <?php endif; ?>
 
-  <?php if ($currentStep === 'add-goal-streak-1'): ?>
+  <?php if ($currentStep === 'add-goal-streak'): ?>
     <h1>Add goal</h1>
     <p>Edit the goal.</p>
     <p><?php echo $habit ?>, 10 days in a row.</p>
     <form method="post">
       <input type="number" />
+      <input type="submit" name="add_streak_goal" value="submit">
     </form>
   <?php endif; ?>
 
-  <?php if ($currentStep === 'add-goal-total-1'): ?>
+  <?php if ($currentStep === 'add-goal-total'): ?>
     <h1>Add goal</h1>
     <p>Edit the goal.</p>
     <p><?php echo $habit ?>, 10 days in january.</p>
@@ -288,6 +290,7 @@
           <span class="form-label">december</span>
         </label>
       </fieldset>
+      <input type="submit" name="add_total_goal" value="submit">
     </form>
   <?php endif; ?>
 

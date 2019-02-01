@@ -219,13 +219,13 @@ class UsersController extends Controller {
               if(isset($_GET['goal-type'])) {
                 switch ($_GET['goal-type']) {
                   case 'repetitive':
-                    $this->set('currentStep', 'add-goal-repetitive-1');
+                    $this->set('currentStep', 'add-goal-repetitive');
                     break;
                   case 'streak':
-                    $this->set('currentStep', 'add-goal-streak-1');
+                    $this->set('currentStep', 'add-goal-streak');
                     break;
                   case 'total':
-                    $this->set('currentStep', 'add-goal-total-1');
+                    $this->set('currentStep', 'add-goal-total');
                     break;
                   default:
                     $_SESSION['error'] = 'Goal category does not exist.';
@@ -309,9 +309,6 @@ class UsersController extends Controller {
                 exit();
               }
             }
-
-
-
             $this->set('currentHabits', $currentHabits);
             $this->set('currentGoals', $currentGoals);
             $this->set('allPossibleHabits', $allPossibleHabits);
