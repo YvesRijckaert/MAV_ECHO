@@ -217,26 +217,38 @@ class UsersController extends Controller {
                 'habit_name' => $habit,
               ));
               if (!empty($doesHabitExist)) {
-                $this->set('habit', $habit);
-                //TODO: check if habit already has a goal
-                $this->set('currentStep', 'add-goal-1');
-                if (isset($_GET['goal-type'])) {
-                  switch ($_GET['goal-type']) {
-                    case 'repetitive':
-                      $this->set('currentStep', 'add-goal-repetitive');
-                      break;
-                    case 'streak':
-                      $this->set('currentStep', 'add-goal-streak');
-                      break;
-                    case 'total':
-                      $this->set('currentStep', 'add-goal-total');
-                      break;
-                    default:
-                      $_SESSION['error'] = 'Goal category does not exist.';
-                      header('Location: index.php?page=profile&category=customize');
-                      exit();
-                      break;
+                //TODO: check if habit already has a goal that is uncompleted and unactive
+                $doesHabitAlreadyHaveGoal = $this->goalDAO->checkIfHabitAlreadyHasGoal(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'habit_id' => $doesHabitExist['habit_id'],
+                  'active' => TRUE,
+                  'completed' => FALSE
+                ));
+                if($doesHabitAlreadyHaveGoal['repetitive'] === false && $doesHabitAlreadyHaveGoal['streaks'] === false && $doesHabitAlreadyHaveGoal['total_amount'] === false) {
+                  $this->set('habit', $habit);
+                  $this->set('currentStep', 'add-goal-1');
+                  if (isset($_GET['goal-type'])) {
+                    switch ($_GET['goal-type']) {
+                      case 'repetitive':
+                        $this->set('currentStep', 'add-goal-repetitive');
+                        break;
+                      case 'streak':
+                        $this->set('currentStep', 'add-goal-streak');
+                        break;
+                      case 'total':
+                        $this->set('currentStep', 'add-goal-total');
+                        break;
+                      default:
+                        $_SESSION['error'] = 'Goal category does not exist.';
+                        header('Location: index.php?page=profile&category=customize');
+                        exit();
+                        break;
+                    }
                   }
+                } else {
+                  $_SESSION['error'] = 'Habit already has a goal.';
+                  header('Location: index.php?page=profile&category=customize');
+                  exit();
                 }
               } else {
                 $_SESSION['error'] = 'Habit does not exist.';
