@@ -52,7 +52,7 @@ class PostsController extends Controller {
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
                   }
-                  if(date("d-m-Y") < $enteredDate->format('d-m-Y')) {
+                  if(strtotime($enteredDate->format('d-m-Y')) > strtotime('now')) {
                     $_SESSION['error'] = 'This day has yet to come.';
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
