@@ -5,13 +5,13 @@
       <div class="input-container text">
         <label>
           <span class="form-label hidden">Email:</span>
-          <input type="email" autocomplete="on" name="email" placeholder="email" class="form-input" />
+          <input type="email" autocomplete="on" name="email" placeholder="email" class="form-input" required />
         </label>
       </div>
       <div class="input-container text">
         <label>
           <span class="form-label hidden">Password:</span>
-          <input type="password" autocomplete="on" name="password" placeholder="password" class="form-input" />
+          <input type="password" autocomplete="on" name="password" placeholder="password" class="form-input" required />
         </label>
       </div>
       <div class="input-container submit">

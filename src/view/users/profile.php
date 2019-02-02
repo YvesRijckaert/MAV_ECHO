@@ -19,17 +19,17 @@
     <form class="update-form" method="post">
       <label>
         <span class="form-label">Email address</span>
-        <input type="email" name="email" class="form-input" value="<?php echo $_SESSION['user']['email'];?>" />
+        <input type="email" name="email" class="form-input" value="<?php echo $_SESSION['user']['email'];?>" required />
         <?php if(!empty($errors['email'])) echo '<span class="error">' . $errors['email'] . '</span>';?>
       </label>
       <label>
         <span class="form-label">Name</span>
-        <input type="text" name="nickname" class="form-input" value="<?php echo $_SESSION['user']['nickname'];?>" />
+        <input type="text" name="nickname" class="form-input" value="<?php echo $_SESSION['user']['nickname'];?>" required />
         <?php if(!empty($errors['nickname'])) echo '<span class="error">' . $errors['nickname'] . '</span>';?>
       </label>
       <label>
         <span class="form-label">Birthdate</span>
-        <input type="date" name="birthdate" class="form-input" value="<?php echo $_SESSION['user']['birthdate'];?>" />
+        <input type="date" name="birthdate" class="form-input" value="<?php echo $_SESSION['user']['birthdate'];?>" required />
         <?php if(!empty($errors['birthdate'])) echo '<span class="error">' . $errors['birthdate'] . '</span>';?>
       </label>
       <input type="submit" name="update-profile" value="save" />
