@@ -12,7 +12,6 @@
   </nav>
 </section>
 
-
 <!-- DAY VIEW -->
 <?php if($view == 'day') : ?>
 <section>
@@ -50,7 +49,6 @@
 </section>
 <?php endif; ?>
 
-
 <!-- MONTH VIEW -->
 <?php if($view == 'month') : ?>
 <section>
@@ -82,7 +80,6 @@
 <p><?php if(!empty($chosenHabit)) echo $chosenHabit; ?></p>
 <p><?php if(!empty($chosenHabit)) echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; ?></p>
 <?php endif; ?>
-
 
 <?php if(empty($alreadyPostedToday)): ?>
   <a href="index.php?page=add">Add new day</a>

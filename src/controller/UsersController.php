@@ -211,21 +211,22 @@ class UsersController extends Controller {
             }
 
             if (isset($_GET['add-goal'])) {
+              $this->set('currentStep', 'add-goal-1');
               $habit = $_GET['add-goal'];
               $doesHabitExist = $this->habitDAO->selectOneHabitName(array(
                 'user_id' => $_SESSION['user']['user_id'],
                 'habit_name' => $habit,
               ));
               if (!empty($doesHabitExist)) {
+                $habitId = $doesHabitExist['habit_id'];
                 $doesHabitAlreadyHaveGoal = $this->goalDAO->checkIfHabitAlreadyHasGoal(array(
                   'user_id' => $_SESSION['user']['user_id'],
-                  'habit_id' => $doesHabitExist['habit_id'],
+                  'habit_id' => $habitId,
                   'active' => TRUE,
                   'completed' => FALSE
                 ));
                 if($doesHabitAlreadyHaveGoal['repetitive'] === false && $doesHabitAlreadyHaveGoal['streaks'] === false && $doesHabitAlreadyHaveGoal['total_amount'] === false) {
                   $this->set('habit', $habit);
-                  $this->set('currentStep', 'add-goal-1');
                   if (isset($_GET['goal-type'])) {
                     switch ($_GET['goal-type']) {
                       case 'repetitive':
@@ -254,7 +255,7 @@ class UsersController extends Controller {
                           if(empty($_POST['chosen_streak_goal_number'])) {
                             $errors['chosen_streak_goal_number'] = 'Please choose a number.';
                           } else {
-                            if($_POST['chosen_streak_goal_number'] < 0) {
+                            if($_POST['chosen_streak_goal_number'] < 1) {
                               $errors['chosen_streak_goal_number'] = 'Number is too small.';
                             }
                             if ($_POST['chosen_streak_goal_number'] > 30) {
@@ -263,7 +264,14 @@ class UsersController extends Controller {
                           }
                           if(empty($errors)) {
                             $number = $_POST['chosen_streak_goal_number'];
-                            //POST TO DATABASE
+                            $this->goalDAO->insertStreakGoal(array(
+                              'user_id' => $_SESSION['user']['user_id'],
+                              'habit_id' => $habitId,
+                              'time_amount' => $number,
+                              'time_type' => 'days',
+                              'completed' => 0,
+                              'active' => 1
+                            ));
                           } else {
                             $this->set('errors', $errors);
                           }

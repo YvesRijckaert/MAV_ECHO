@@ -159,4 +159,17 @@ class GoalDAO extends DAO {
     $goals['total_amount'] = $stmt3->fetch(PDO::FETCH_ASSOC);
     return $goals;
   }
+
+  public function insertStreakGoal($data) {
+    $sql = "INSERT INTO `streaks` (`user_id`, `habit_id`, `time_amount`, `time_type`, `completed`, `active`) VALUES (:user_id, :habit_id, :time_amount, :time_type, :completed, :active)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit_id', $data['habit_id']);
+    $stmt->bindValue(':time_amount', $data['time_amount']);
+    $stmt->bindValue(':time_type', $data['time_type']);
+    $stmt->bindValue(':completed', $data['completed']);
+    $stmt->bindValue(':active', $data['active']);
+    $stmt->execute();
+  }
+
 }
