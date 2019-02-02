@@ -21,6 +21,15 @@ class HabitDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function selectOneHabitName($data) {
+    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `habit_name` = :habit_name ";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit_name', $data['habit_name']);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function selectAllPossibleHabits() {
     $sql = "SELECT * FROM `data_habit_name`";
     $stmt = $this->pdo->prepare($sql);

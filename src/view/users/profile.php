@@ -228,7 +228,10 @@
     <p>Edit the goal.</p>
     <p><?php echo $habit ?>, 10 days in a row.</p>
     <form method="post">
-      <input type="number" />
+      <fieldset>
+        <legend>Choose amount of days</legend>
+        <input type="number" />
+      </fieldset>
       <input type="submit" name="add_streak_goal" value="submit">
     </form>
   <?php endif; ?>
@@ -238,7 +241,10 @@
     <p>Edit the goal.</p>
     <p><?php echo $habit ?>, 10 days in january.</p>
     <form method="post">
-      <input type="number" />
+      <fieldset>
+        <legend>Choose amount of days</legend>
+        <input type="number" />
+      </fieldset>
       <fieldset>
         <legend>Choose your month.</legend>
         <input type="radio" id="january" name="chosen_repetitive_goal_month" value="january" checked />
