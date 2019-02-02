@@ -176,7 +176,7 @@ class UsersController extends Controller {
                     'habit_name' => $_SESSION['add-habit-name'],
                     'habit_colour_name' => $habit_icon['habit_colour_name'],
                     'habit_colour' => $habit_icon['habit_colour'],
-                    'habit_icon' => $habit_icon['habit_icon'],
+                    'habit_icon' => $habit_icon['data_habit_icon_id'],
                   ));
                   $_SESSION['info'] = 'Added your new habit.';
                   header('Location: index.php?page=profile&category=customize');
@@ -504,31 +504,31 @@ class UsersController extends Controller {
               $defaultHabits = array(
                 array(
                   'habit_name' => 'no smoking',
-                  'habit_icon' => '<svg width="40px" height="40px" viewBox="0 0 40 40"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-54.000000, -229.000000)" fill="#fe5455"><polygon points="54 229 94 269 54 269"></polygon></g></g></svg>',
+                  'habit_icon' => '1',
                   'habit_colour_name' => 'red',
                   'habit_colour' => '#fe5455'
                 ),
                 array(
                   'habit_name' => 'no alcohol',
-                  'habit_icon' => '<svg width="40px" height="40px" viewBox="0 0 40 40"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-293.000000, -160.000000)" fill="#fab81b"><path d="M320.132835,172.865565 C318.327894,171.089538 315.85143,169.993769 313.119003,169.993769 C307.596156,169.993769 303.119003,174.470365 303.119003,179.992526 C303.119003,182.724613 304.214908,185.200769 305.991156,187.005485 L293,199.995026 L293,160 L333,160 L320.132835,172.865565 Z"></path></g></g></svg>',
+                  'habit_icon' => '17',
                   'habit_colour_name' => 'orange',
                   'habit_colour' => '#fab81b'
                 ),
                 array(
                   'habit_name' => '5k running',
-                  'habit_icon' => '<svg width="40px" height="40px" viewBox="0 0 40 40"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-214.000000, -160.000000)" fill="#00d28b"><path d="M254,179.997513 L254,199.995026 L233.8,199.995026 L214,180.197488 L214,160 L234,160 L254,179.997513 Z"></path></g></g></svg>',
+                  'habit_icon' => '33',
                   'habit_colour_name' => 'green',
                   'habit_colour' => '#00d28b'
                 ),
                 array(
                   'habit_name' => 'meditate',
-                  'habit_icon' => '<svg width="40px" height="40px" viewBox="0 0 40 40"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-134.000000, -160.000000)" fill="#4285ff"><rect x="134" y="160" width="40" height="39.9950255" rx="19.9975128"></rect></g></g></svg>',
+                  'habit_icon' => '49',
                   'habit_colour_name' => 'blue',
                   'habit_colour' => '#4285ff'
                 ),
                 array(
                   'habit_name' => 'drink 1l water',
-                  'habit_icon' => '<svg width="40px" height="40px" viewBox="0 0 40 40"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-54.000000, -160.000000)" fill="#9278fd"><path d="M54,160 L94,160 L94,200 L54,200 L54,160 Z M64.5882353,169.411765 L64.5882353,189.411765 L84.5882353,189.411765 L84.5882353,169.411765 L64.5882353,169.411765 Z"></path></g></g></svg>',
+                  'habit_icon' => '65',
                   'habit_colour_name' => 'purple',
                   'habit_colour' => '#9278fd'
                 )
