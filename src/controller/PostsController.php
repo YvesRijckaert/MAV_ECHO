@@ -30,9 +30,11 @@ class PostsController extends Controller {
             'user_id' => $_SESSION['user']['user_id'],
             'active' => TRUE,
           ));
-          $firstActiveHabit = $activeHabits[0]['habit_name'];
+          if(!empty($activeHabits)){
+            $firstActiveHabit = $activeHabits[0]['habit_name'];
+            $this->set('firstActiveHabit', $firstActiveHabit);
+          }
           $this->set('activeHabits', $activeHabits);
-          $this->set('firstActiveHabit', $firstActiveHabit);
 
           switch ($_GET['view']) {
             case 'day':
@@ -90,9 +92,6 @@ class PostsController extends Controller {
               break;
             case 'month':
               $this->set('view', 'month');
-
-              //TODO: WHAT IF THERE ARE NO ACIVE HABITS!
-
               if(!empty($_GET['month'])) {
                 $date = DateTime::createFromFormat('m-Y', $_GET['month']);
                 $date_errors = DateTime::getLastErrors();
