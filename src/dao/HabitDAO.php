@@ -4,10 +4,11 @@ require_once( __DIR__ . '/DAO.php');
 
 class HabitDAO extends DAO {
 
-  public function selectAll($user_id) {
-    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id";
+  public function selectAllActiveHabits($data) {
+    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `active` = :active";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $user_id);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':active', $data['active']);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -51,15 +52,6 @@ class HabitDAO extends DAO {
     $stmt->bindValue(':habit_icon_id', $habit_icon_id);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
-  }
-
-  public function selectAllActiveHabits($data) {
-    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `active` = :active";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':active', $data['active']);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function selectAllActiveHabitsWithColour($data) {

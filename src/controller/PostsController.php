@@ -234,7 +234,10 @@ class PostsController extends Controller {
             'current_date' => date("Y-m-d")
           ));
           if (!empty($alreadyPostedToday)) {
-            $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+            $habits = $this->habitDAO->selectAllActiveHabits(array(
+              'user_id' => $_SESSION['user']['user_id'],
+              'active' => 1
+            ));
             $fulfilled_habits = $this->habitDAO->selectAllFulfilledHabits(array(
               'user_id' => $_SESSION['user']['user_id'],
               'post_id' => $alreadyPostedToday['post_id'],
