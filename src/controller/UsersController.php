@@ -217,7 +217,6 @@ class UsersController extends Controller {
                 'habit_name' => $habit,
               ));
               if (!empty($doesHabitExist)) {
-                //TODO: check if habit already has a goal that is uncompleted and unactive
                 $doesHabitAlreadyHaveGoal = $this->goalDAO->checkIfHabitAlreadyHasGoal(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'habit_id' => $doesHabitExist['habit_id'],
@@ -231,12 +230,70 @@ class UsersController extends Controller {
                     switch ($_GET['goal-type']) {
                       case 'repetitive':
                         $this->set('currentStep', 'add-goal-repetitive');
+                        if(!empty($_POST['add_repetitive_goal'])) {
+                          $errors = array();
+                          if(empty($_POST['chosen_repetitive_goal_day'])) {
+                            $errors['chosen_repetitive_goal_day'] = 'Please choose a day.';
+                          }
+                          if(empty($_POST['chosen_repetitive_goal_day'])) {
+                            $errors['chosen_repetitive_goal_month'] = 'Please choose a month.';
+                          }
+                          if(empty($errors)) {
+                            $day = $_POST['chosen_repetitive_goal_day'];
+                            $month = $_POST['chosen_repetitive_goal_month'];
+                            //POST TO DATABASE
+                          } else {
+                            $this->set('errors', $errors);
+                          }
+                        }
                         break;
                       case 'streak':
                         $this->set('currentStep', 'add-goal-streak');
+                        if(!empty($_POST['add_streak_goal'])) {
+                          $errors = array();
+                          if(empty($_POST['chosen_streak_goal_number'])) {
+                            $errors['chosen_streak_goal_number'] = 'Please choose a number.';
+                          } else {
+                            if($_POST['chosen_streak_goal_number'] < 0) {
+                              $errors['chosen_streak_goal_number'] = 'Number is too small.';
+                            }
+                            if ($_POST['chosen_streak_goal_number'] > 30) {
+                              $errors['chosen_streak_goal_number'] = 'Number is too big.';
+                            }
+                          }
+                          if(empty($errors)) {
+                            $number = $_POST['chosen_streak_goal_number'];
+                            //POST TO DATABASE
+                          } else {
+                            $this->set('errors', $errors);
+                          }
+                        }
                         break;
                       case 'total':
                         $this->set('currentStep', 'add-goal-total');
+                        if(!empty($_POST['add_total_goal'])) {
+                          $errors = array();
+                          if(empty($_POST['chosen_total_goal_number'])) {
+                            $errors['chosen_total_goal_number'] = 'Please choose a number.';
+                          } else {
+                            if($_POST['chosen_total_goal_number'] < 0) {
+                              $errors['chosen_total_goal_number'] = 'Number is too small.';
+                            }
+                            if ($_POST['chosen_total_goal_number'] > 30) {
+                              $errors['chosen_total_goal_number'] = 'Number is too big.';
+                            }
+                          }
+                          if(empty($_POST['chosen_total_goal_month'])) {
+                            $errors['chosen_total_goal_month'] = 'Please choose a month.';
+                          }
+                          if(empty($errors)) {
+                            $number = $_POST['chosen_total_goal_number'];
+                            $month = $_POST['chosen_total_goal_month'];
+                            //POST TO DATABASE
+                          } else {
+                            $this->set('errors', $errors);
+                          }
+                        }
                         break;
                       default:
                         $_SESSION['error'] = 'Goal category does not exist.';
