@@ -242,7 +242,17 @@ class UsersController extends Controller {
                           if(empty($errors)) {
                             $day = $_POST['chosen_repetitive_goal_day'];
                             $month = $_POST['chosen_repetitive_goal_month'];
-                            //POST TO DATABASE
+                            $this->goalDAO->insertRepetitiveGoal(array(
+                              'user_id' => $_SESSION['user']['user_id'],
+                              'habit_id' => $habitId,
+                              'day' => $day,
+                              'month' => $month,
+                              'completed' => 0,
+                              'active' => 1
+                            ));
+                            $_SESSION['info'] = 'Successfully added new goal.';
+                            header('Location: index.php?page=profile&category=customize');
+                            exit();
                           } else {
                             $this->set('errors', $errors);
                           }
@@ -272,6 +282,9 @@ class UsersController extends Controller {
                               'completed' => 0,
                               'active' => 1
                             ));
+                            $_SESSION['info'] = 'Successfully added new goal.';
+                            header('Location: index.php?page=profile&category=customize');
+                            exit();
                           } else {
                             $this->set('errors', $errors);
                           }
@@ -284,7 +297,7 @@ class UsersController extends Controller {
                           if(empty($_POST['chosen_total_goal_number'])) {
                             $errors['chosen_total_goal_number'] = 'Please choose a number.';
                           } else {
-                            if($_POST['chosen_total_goal_number'] < 0) {
+                            if($_POST['chosen_total_goal_number'] < 1) {
                               $errors['chosen_total_goal_number'] = 'Number is too small.';
                             }
                             if ($_POST['chosen_total_goal_number'] > 30) {
@@ -297,7 +310,17 @@ class UsersController extends Controller {
                           if(empty($errors)) {
                             $number = $_POST['chosen_total_goal_number'];
                             $month = $_POST['chosen_total_goal_month'];
-                            //POST TO DATABASE
+                            $this->goalDAO->insertTotalGoal(array(
+                              'user_id' => $_SESSION['user']['user_id'],
+                              'habit_id' => $habitId,
+                              'days_amount' => $number,
+                              'month' => $month,
+                              'completed' => 0,
+                              'active' => 1
+                            ));
+                            $_SESSION['info'] = 'Successfully added new goal.';
+                            header('Location: index.php?page=profile&category=customize');
+                            exit();
                           } else {
                             $this->set('errors', $errors);
                           }
@@ -478,7 +501,6 @@ class UsersController extends Controller {
               'lifegoal' => $_POST['lifegoal']
             ));
             if (!empty($inserteduser)) {
-              $defaultHabits = array('meditate', 'hiking', 'reading', 'listen to music', 'deepen your conversations');
               $defaultHabits = array(
                 array(
                   'habit_name' => 'no smoking',
@@ -511,7 +533,6 @@ class UsersController extends Controller {
                   'habit_colour' => '#9278fd'
                 )
               );
-
               foreach ($defaultHabits as $defaultHabit) {
                 $this->habitDAO->insertNewHabit(array(
                   'user_id' => $inserteduser['user_id'],

@@ -247,7 +247,7 @@
       <fieldset>
         <legend>Choose amount of days</legend>
         <?php if(!empty($errors['chosen_total_goal_number'])) echo '<span class="error">' . $errors['chosen_total_goal_number'] . '</span>';?>
-        <input type="number" name="chosen_total_goal_number" value="1" min="1" max="30" required />
+        <input type="number" name="chosen_total_goal_number" value="2" min="2" max="30" required />
       </fieldset>
       <fieldset>
         <legend>Choose your month.</legend>

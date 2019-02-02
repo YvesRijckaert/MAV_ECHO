@@ -160,6 +160,18 @@ class GoalDAO extends DAO {
     return $goals;
   }
 
+  public function insertRepetitiveGoal($data) {
+    $sql = "INSERT INTO `repetitive` (`user_id`, `habit_id`, `day`, `month`, `completed`, `active`) VALUES (:user_id, :habit_id, :day, :month, :completed, :active)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit_id', $data['habit_id']);
+    $stmt->bindValue(':day', $data['day']);
+    $stmt->bindValue(':month', $data['month']);
+    $stmt->bindValue(':completed', $data['completed']);
+    $stmt->bindValue(':active', $data['active']);
+    $stmt->execute();
+  }
+
   public function insertStreakGoal($data) {
     $sql = "INSERT INTO `streaks` (`user_id`, `habit_id`, `time_amount`, `time_type`, `completed`, `active`) VALUES (:user_id, :habit_id, :time_amount, :time_type, :completed, :active)";
     $stmt = $this->pdo->prepare($sql);
@@ -167,6 +179,18 @@ class GoalDAO extends DAO {
     $stmt->bindValue(':habit_id', $data['habit_id']);
     $stmt->bindValue(':time_amount', $data['time_amount']);
     $stmt->bindValue(':time_type', $data['time_type']);
+    $stmt->bindValue(':completed', $data['completed']);
+    $stmt->bindValue(':active', $data['active']);
+    $stmt->execute();
+  }
+
+  public function insertTotalGoal($data) {
+    $sql = "INSERT INTO `total_amount` (`user_id`, `habit_id`, `days_amount`, `month`, `completed`, `active`) VALUES (:user_id, :habit_id, :days_amount, :month, :completed, :active)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit_id', $data['habit_id']);
+    $stmt->bindValue(':days_amount', $data['days_amount']);
+    $stmt->bindValue(':month', $data['month']);
     $stmt->bindValue(':completed', $data['completed']);
     $stmt->bindValue(':active', $data['active']);
     $stmt->execute();
