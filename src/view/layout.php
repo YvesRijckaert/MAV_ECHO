@@ -91,7 +91,7 @@
         }
       ?>
     </header>
-    <main class="main">
+    <main class="main main-<?php echo $currentPage ?>">
     <?php echo $content; ?>
     </main>
     <?php echo $js; ?>

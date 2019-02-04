@@ -1,6 +1,7 @@
 @import 'normalize';
 @import 'reset';
 @import 'fonts';
+@import 'vars';
 @import 'messages';
 
 html {
@@ -30,12 +31,15 @@ a {
   margin: 2.5rem 6rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header-title-link {
   display: flex;
   flex-direction: column;
-  width: 4em;
+  width: 9.5rem;
+  line-height: .7;
+  font-size: 2.4rem;
 }
 
 .header-title-link span:first-child {
@@ -106,6 +110,10 @@ a {
 
 .active-category-goals .main-nav-item-achievements, .active-category-links .main-nav-item-customize {
   border-bottom-right-radius: 4rem;
+}
+
+.main-green-button {
+  background-color: var(--green);
 }
 
 /*

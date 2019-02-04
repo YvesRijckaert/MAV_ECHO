@@ -1,4 +1,3 @@
-<!-- NAVIGATION -->
 <nav class="main-nav">
   <ul class="main-nav-ul">
     <li class="main-nav-item main-nav-item-day <?php if($view === 'day') { echo 'main-nav-item-active';} ?>">
@@ -12,10 +11,8 @@
   </ul>
 </nav>
 
-<!-- DAY VIEW -->
 <?php if($view == 'day') : ?>
-<section>
-  <header>
+<section class="main-overview-day-nav">
     <?php if(isset($previousDay)):?>
     <a href="index.php?page=overview&view=day&day=<?php echo $previousDay; ?>">←</a>
     <?php endif; ?>
@@ -23,9 +20,10 @@
     <?php if(isset($nextDay)):?>
     <a href="index.php?page=overview&view=day&day=<?php echo $nextDay; ?>">→</a>
     <?php endif; ?>
-  </header>
+  </section>
+<section class="main-overview-day-collage">
 </section>
-<section>
+<section class="main-overview-day-info">
   <?php if(!empty($postOfEnteredDay)): ?>
   <dl>
     <dt>Short memory:</dt>
@@ -49,7 +47,6 @@
 </section>
 <?php endif; ?>
 
-<!-- MONTH VIEW -->
 <?php if($view == 'month') : ?>
 <section>
   <header>
@@ -82,7 +79,7 @@
 <?php endif; ?>
 
 <?php if(empty($alreadyPostedToday)): ?>
-  <a href="index.php?page=add">Add new day</a>
+  <a href="index.php?page=add" class="">Add new day</a>
 <?php else: ?>
-  <a href="index.php?page=add">Change your day</a>
+  <a href="index.php?page=add" class="main-green-button">Change your day</a>
 <?php endif; ?>
