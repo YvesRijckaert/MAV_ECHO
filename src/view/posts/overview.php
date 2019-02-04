@@ -62,7 +62,29 @@
     <?php endif; ?>
     <?php switch ($postOfEnteredDay['feelings']) {
       case -1:
-        # code...
+        echo'
+        <svg width="86px" height="86px" viewBox="0 0 86 86">
+          <title>Group 6</title>
+          <desc>Created with Sketch.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-1305.000000, -244.000000)">
+              <g transform="translate(1091.000000, 241.000000)">
+                  <g transform="translate(215.000000, 4.000000)">
+                    <circle id="Oval-Copy-2" stroke="#FE5455" stroke-width="1.196345" fill="#FF5257" cx="41.872075" cy="41.872075" r="41.872075"></circle>
+                    <g transform="translate(21.534210, 15.552485)">
+                      <g transform="translate(2.392690, 31.104970)">
+                        <rect id="path-1" x="0" y="0" width="38.28304" height="17.945175" rx="2.39269"></rect>
+                        <path d="M-1.0658141e-14,0 L38.28304,0 C38.28304,9.91084648 29.7130896,17.945175 19.14152,17.945175 C8.56995042,17.945175 -3.55271368e-15,9.91084648 -3.55271368e-15,0 Z" id="Combined-Shape" fill="#FFFFFF" mask="url(#mask-2)" transform="translate(19.141520, 8.972588) rotate(-180.000000) translate(-19.141520, -8.972588) "></path>
+                      </g>
+                      <text id="bad" font-family="CircularStd-Medium, Circular Std" font-size="23.9269" font-weight="400" fill="#FFFFFF">
+                        <tspan x="0" y="24">bad</tspan>
+                      </text>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+        </svg>';
         break;
       case 0:
         echo '
