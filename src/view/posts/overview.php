@@ -1,18 +1,16 @@
 <!-- NAVIGATION -->
-<section>
-  <nav>
-    <ul>
-      <li class="nav-item <?php if($view === 'day') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">Day</a>
-      </li>
-      <li class="nav-item <?php if($view === 'month') { echo 'nav-item-active';} ?>">
-      <?php if(!empty($activeHabits)): ?>
-        <a href="index.php?page=overview&view=month&month=<?php echo date("m-Y")?>&chosen_habit=<?php echo $firstActiveHabit ?>">Month</a>
-      <?php endif; ?>
-      </li>
-    </ul>
-  </nav>
-</section>
+<nav class="main-nav">
+  <ul class="main-nav-ul">
+    <li class="main-nav-item <?php if($view === 'day') { echo 'main-nav-item-active';} ?>">
+      <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>" class="main-nav-item-link">day</a>
+    </li>
+    <li class="main-nav-item <?php if($view === 'month') { echo 'main-nav-item-active';} ?>">
+    <?php if(!empty($activeHabits)): ?>
+      <a href="index.php?page=overview&view=month&month=<?php echo date("m-Y")?>&chosen_habit=<?php echo $firstActiveHabit ?>" class="main-nav-item-link">month</a>
+    <?php endif; ?>
+    </li>
+  </ul>
+</nav>
 
 <!-- DAY VIEW -->
 <?php if($view == 'day') : ?>

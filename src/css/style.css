@@ -24,6 +24,8 @@ a {
   text-decoration: none;
 }
 
+/* header */
+
 .header {
   margin: 2.5rem 6rem;
   display: flex;
@@ -42,8 +44,44 @@ a {
 
 .header-nav-ul {
   display: flex;
-  width: 40rem;
+  width: 45rem;
   justify-content: space-between;
+}
+
+.header-nav-item-link {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-item-link-icon {
+  margin-right: 2rem;
+}
+
+.header-nav-item-link:hover .header-nav-item-link-icon-group {
+  fill: #2b2b2b;
+}
+
+/* overview */
+
+.main-nav-ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-nav-item {
+  background-color: whitesmoke;
+  text-align: center;
+  width: 50%;
+  padding: 2rem;
+}
+
+.main-nav-item-active {
+  background-color: white;
+}
+
+.main-nav-item-active .main-nav-item-link {
+  padding-bottom: 1rem;
+  border-bottom: .2rem solid #2b2b2b;
 }
 
 /* input radio */
