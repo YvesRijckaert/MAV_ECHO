@@ -11,40 +11,105 @@
   </ul>
 </nav>
 
+<?php if(empty($alreadyPostedToday)): ?>
+  <a href="index.php?page=add" class="">Add new day</a>
+<?php else: ?>
+  <a href="index.php?page=add" class="main-green-button">Change your day</a>
+<?php endif; ?>
+
 <?php if($view == 'day') : ?>
-<section class="main-overview-day-nav">
-    <?php if(isset($previousDay)):?>
-    <a href="index.php?page=overview&view=day&day=<?php echo $previousDay; ?>">←</a>
-    <?php endif; ?>
-    <p><?php echo $currentDay; ?></p>
-    <?php if(isset($nextDay)):?>
-    <a href="index.php?page=overview&view=day&day=<?php echo $nextDay; ?>">→</a>
-    <?php endif; ?>
-  </section>
-<section class="main-overview-day-collage">
-</section>
-<section class="main-overview-day-info">
+  <p class="main-overview-day-date"><?php echo $currentDay; ?></p>
+  <?php if(isset($previousDay)):?>
+    <a href="index.php?page=overview&view=day&day=<?php echo $previousDay; ?>" class="main-overview-day-previous">
+      <svg width="13px" height="22px" viewBox="0 0 13 22">
+        <title>Link to previous day</title>
+        <desc>Icon for previous day link.</desc>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+          <g transform="translate(-167.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+            <g transform="translate(169.000000, 465.000000)">
+              <polyline transform="translate(5.000000, 10.000000) rotate(-180.000000) translate(-5.000000, -10.000000) " points="0 0 10 10 0 20"></polyline>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </a>
+  <?php endif; ?>
+  <?php if(isset($nextDay)):?>
+    <a href="index.php?page=overview&view=day&day=<?php echo $nextDay; ?>" class="main-overview-day-next">
+      <svg width="13px" height="22px" viewBox="0 0 13 22">
+        <title>Link to next day</title>
+        <desc>Icon for next day link.</desc>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+          <g transform="translate(-1261.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+            <g transform="translate(169.000000, 465.000000)">
+              <polyline points="1093 0 1103 10 1093 20"></polyline>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </a>
+  <?php endif; ?>
   <?php if(!empty($postOfEnteredDay)): ?>
-  <dl>
-    <dt>Short memory:</dt>
-    <dd><?php echo $postOfEnteredDay['short_memory'] ?></dd>
+    <section class="main-overview-day-collage">
+      <img src="../../assets/img/collage-test.png" alt="collage" class="test-img" />
+    </section>
     <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
-    <dt>Fulfilled habits:</dt>
-    <dd>
-      <ul>
+      <ul class="main-overview-day-habits">
         <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
         <li><?php echo $habit['habit_name'] ?></li>
         <?php endforeach; ?>
       </ul>
-    </dd>
     <?php endif; ?>
-    <dd>Number of days that you've lived:</dd>
-    <dt><?php echo $livedDaysAmount ?></dt>
-  </dl>
+    <?php switch ($postOfEnteredDay['feelings']) {
+      case -1:
+        # code...
+        break;
+      case 0:
+        echo '
+        <svg width="84px" height="84px" viewBox="0 0 84 84">
+          <title>Okay mood</title>
+          <desc>Icon for okay mood.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-1198.000000, -241.000000)">
+              <g transform="translate(1198.000000, 241.000000)">
+                <circle fill="#4285FF" cx="41.6499179" cy="41.6499179" r="41.6499179"></circle>
+                <rect fill="#FFFFFF" x="23.7999531" y="46.4099085" width="35.6999297" height="8.32998359" rx="4.16499179"></rect>
+                <text font-family="CircularStd-Medium, Circular Std" font-size="23.7999531" font-weight="400" fill="#ffffff">
+                  <tspan x="27.3699461" y="39.4699695">ok</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+        </svg>';
+        break;
+      case 1:
+        echo '
+        <svg width="86px" height="86px" viewBox="0 0 86 86">
+          <title>Good mood</title>
+          <desc>Icon for good mood.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-1090.000000, -243.000000)">
+              <g transform="translate(1091.000000, 244.000000)">
+                  <circle id="Oval" stroke="#00D28B" stroke-width="1.2" fill="#00D28B" cx="42" cy="42" r="42"></circle>
+                  <g transform="translate(28.800000, 46.800000)">
+                    <rect x="0" y="0" width="38.4" height="18" rx="2.4"></rect>
+                    <path d="M-3.55271368e-15,0 L38.4,0 C38.4,9.9411255 29.8038672,18 19.2,18 C8.5961328,18 -3.55271368e-15,9.9411255 -3.55271368e-15,0 Z" fill="#FFFFFF"></path>
+                  </g>
+                  <text font-family="CircularStd-Medium, Circular Std" font-size="24" font-weight="400" fill="#ffffff">
+                    <tspan x="12" y="39.6">great</tspan>
+                  </text>
+                </g>
+              </g>
+            </g>
+        </svg>';
+        break;
+      default:
+      echo '<p class="error">No feelings for this day.</p>';
+        break;
+    } ?>
   <?php else: ?>
-  <p class="error">Nothing available for this day.</p>
+    <p class="error">Nothing available for this day.</p>
   <?php endif; ?>
-</section>
 <?php endif; ?>
 
 <?php if($view == 'month') : ?>
@@ -76,10 +141,4 @@
 </form>
 <p><?php if(!empty($chosenHabit)) echo $chosenHabit; ?></p>
 <p><?php if(!empty($chosenHabit)) echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; ?></p>
-<?php endif; ?>
-
-<?php if(empty($alreadyPostedToday)): ?>
-  <a href="index.php?page=add" class="">Add new day</a>
-<?php else: ?>
-  <a href="index.php?page=add" class="main-green-button">Change your day</a>
 <?php endif; ?>
