@@ -54,10 +54,6 @@ input[type=radio] {
   position: absolute;
 }
 
-input[type=radio]:focus + label,  input[type=radio]:checked + label {
-  outline: rgba(77, 97, 171, .5) auto .3rem;
-}
-
 /* header */
 
 .header {
@@ -222,17 +218,45 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
   display: none;
 }
 
-.day-info-habits-list-item {
+.day-info-habits-list-item, .month-form-label {
   color: white;
   padding: 2rem 3rem;
   border-radius: 1.2rem;
+  font-weight: bold;
 }
 
-.day-info-habits-list-item:not(:last-child) {
+.day-info-habits-list-item:not(:last-child), .month-form-label:not(:last-child) {
   margin-bottom: 1rem;
 }
 
 /* calendar */
+
+.main-overview-month {
+  display: grid;
+  grid-template: 1fr 2fr 2fr / 1fr 1fr;
+  grid-template-areas:
+    'nav habits'
+    'calendar habits'
+    'calendar info';
+}
+
+.main-overview-month-previous {
+  grid-area: nav;
+}
+
+.main-overview-month-next {
+  grid-area: nav;
+  justify-self: flex-end;
+}
+
+.main-overview-month-date {
+  grid-area: nav;
+  justify-self: center;
+}
+
+.main-overview-month-calendar {
+  grid-area: calendar;
+}
 
 .month-calendar-row-today {
   border: .5rem solid black;
@@ -240,4 +264,69 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
   height: 1rem;
   width: 1rem;
   display: inline;
+}
+
+.main-overview-month-form {
+  grid-area: habits;
+  display: flex;
+  flex-direction: column;
+}
+
+.month-form-label-red {
+  color: var(--red);
+  border: .2rem solid var(--red);
+}
+
+input[type=radio]:focus + .month-form-label-red,  input[type=radio]:checked + .month-form-label-red {
+  color: white;
+  border: .2rem solid var(--red);
+  background-color: var(--red);
+}
+
+.month-form-label-orange {
+  color: var(--orange);
+  border: .2rem solid var(--orange);
+}
+
+input[type=radio]:focus + .month-form-label-orange,  input[type=radio]:checked + .month-form-label-orange {
+  color: white;
+  border: .2rem solid var(--orange);
+  background-color: var(--orange);
+}
+
+.month-form-label-green {
+  color: var(--green);
+  border: .2rem solid var(--green);
+}
+
+input[type=radio]:focus + .month-form-label-green,  input[type=radio]:checked + .month-form-label-green {
+  color: white;
+  border: .2rem solid var(--green);
+  background-color: var(--green);
+}
+
+.month-form-label-blue {
+  color: var(--blue);
+  border: .2rem solid var(--blue);
+}
+
+input[type=radio]:focus + .month-form-label-blue,  input[type=radio]:checked + .month-form-label-blue {
+  color: white;
+  border: .2rem solid var(--blue);
+  background-color: var(--blue);
+}
+
+.month-form-label-purple {
+  color: var(--purple);
+  border: .2rem solid var(--purple);
+}
+
+input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked + .month-form-label-purple {
+  color: white;
+  border: .2rem solid var(--purple);
+  background-color: var(--purple);
+}
+
+.main-overview-month-info {
+  grid-area: info;
 }

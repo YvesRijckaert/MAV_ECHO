@@ -235,7 +235,7 @@
     <form method="get" class="main-overview-month-form">
       <?php foreach($activeHabits as $habit): ?>
         <input type="radio" class="month-form-input" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" <?php if($_GET['chosen_habit'] == $habit['habit_name']) echo 'checked'; ?> required />
-        <label for="<?php echo $habit['habit_id'] ?>">
+        <label for="<?php echo $habit['habit_id'] ?>" class="month-form-label month-form-label-<?php echo $habit['habit_colour_name'] ?>">
           <span class="form-label"><?php echo $habit['habit_name'] ?></span>
         </label>
       <?php endforeach; ?>
