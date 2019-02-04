@@ -46,10 +46,6 @@
 <?php if($view == 'day') : ?>
   <section class="main-overview-day">
     <h2 class="main-overview-day-title hide">Day view</h2>
-    <p class="main-overview-day-date">
-      <span class="main-overview-day-date-span"><?php echo $currentDay; ?></span>
-      <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date"><?php echo $currentDate ?></time>
-    </p>
     <?php if(isset($previousDay)):?>
       <a href="index.php?page=overview&view=day&day=<?php echo $previousDay; ?>" class="main-overview-day-previous">
         <svg width="13px" height="22px" viewBox="0 0 13 22">
@@ -87,6 +83,10 @@
       </section>
       <section class="main-overview-day-info">
         <h3 class="day-info-title hide">Day view info</h3>
+        <p class="day-info-date">
+          <span class="day-info-date-span"><?php echo $currentDay; ?></span>
+          <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date"><?php echo $currentDate ?></time>
+        </p>
         <article class="day-info-habits">
           <h4 class="day-info-habits-title">Habits</h4>
           <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
@@ -189,7 +189,7 @@
       </section>
 
     <?php else: ?>
-      <p class="error">Nothing available for this day.</p>
+      <p class="main-overview-day-error error">Nothing available for <?php echo $currentDay . ' ' . $currentDate ?>.</p>
     <?php endif; ?>
   </section>
 <?php endif; ?>

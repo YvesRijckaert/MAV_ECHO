@@ -30,6 +30,5 @@
 }
 
 .error {
-  color: red;
-  font-weight: bold;
+  color: var(--red);
 }
