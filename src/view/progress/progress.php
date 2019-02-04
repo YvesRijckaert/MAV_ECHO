@@ -1,19 +1,17 @@
-<section class="progress-header">
-  <nav>
-    <ul class="progress-header-nav">
-      <li class="nav-item <?php if($currentCategory === 'statistics') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=progress&category=statistics" class="progress-category">Statistics</a>
-      </li>
-      <li class="nav-item <?php if($currentCategory === 'achievements') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=progress&category=achievements" class="progress-category">Achievements</a>
-      </li>
-      <li class="nav-item <?php if($currentCategory === 'goals') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=progress&category=goals&goals-type=in-progress" class="progress-category">Goals</a>
-      </li>
-      <li class="progress-indicator"></li>
-    </ul>
-  </nav>
-</section>
+<nav class="main-nav">
+  <ul class="main-nav-ul">
+    <li class="main-nav-item <?php if($currentCategory === 'statistics') { echo 'main-nav-item-active';} ?>">
+      <a href="index.php?page=progress&category=statistics" class="main-nav-item-link">stats</a>
+    </li>
+    <li class="main-nav-item <?php if($currentCategory === 'achievements') { echo 'main-nav-item-active';} ?>">
+      <a href="index.php?page=progress&category=achievements" class="main-nav-item-link">achievements</a>
+    </li>
+    <li class="main-nav-item <?php if($currentCategory === 'goals') { echo 'main-nav-item-active';} ?>">
+      <a href="index.php?page=progress&category=goals&goals-type=in-progress" class="main-nav-item-link">goals</a>
+    </li>
+    <li class="progress-indicator"></li>
+  </ul>
+</nav>
 
 <?php if ($currentCategory == 'statistics'): ?>
   <section>

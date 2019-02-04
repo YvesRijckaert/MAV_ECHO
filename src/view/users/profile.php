@@ -1,18 +1,16 @@
-<section>
-  <nav>
-    <ul>
-      <li class="nav-item <?php if($currentCategory === 'info') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=profile&category=info">Info</a>
-      </li>
-      <li class="nav-item <?php if($currentCategory === 'customize') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=profile&category=customize">Customize</a>
-      </li>
-      <li class="nav-item <?php if($currentCategory === 'links') { echo 'nav-item-active';} ?>">
-        <a href="index.php?page=profile&category=links">Links</a>
-      </li>
-    </ul>
-  </nav>
-</section>
+<nav class="main-nav">
+  <ul class="main-nav-ul">
+    <li class="main-nav-item <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
+      <a href="index.php?page=profile&category=info" class="main-nav-item-link">info</a>
+    </li>
+    <li class="main-nav-item <?php if($currentCategory === 'customize') { echo 'main-nav-item-active';} ?>">
+      <a href="index.php?page=profile&category=customize" class="main-nav-item-link">customize</a>
+    </li>
+    <li class="main-nav-item <?php if($currentCategory === 'links') { echo 'main-nav-item-active';} ?>">
+      <a href="index.php?page=profile&category=links" class="main-nav-item-link">links</a>
+    </li>
+  </ul>
+</nav>
 
 <?php if ($currentCategory == 'info') : ?>
   <section>

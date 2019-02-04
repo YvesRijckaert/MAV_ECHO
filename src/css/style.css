@@ -72,7 +72,7 @@ a {
   background-color: whitesmoke;
   text-align: center;
   width: 50%;
-  padding: 2rem;
+  padding: 2.5rem;
 }
 
 .main-nav-item-active {
@@ -85,11 +85,11 @@ a {
 }
 
 .main-nav-item-month:not(.main-nav-item-active) {
-  border-bottom-left-radius: 10rem;
+  border-bottom-left-radius: 4rem;
 }
 
 .main-nav-item-day:not(.main-nav-item-active) {
-  border-bottom-right-radius: 10rem;
+  border-bottom-right-radius: 4rem;
 }
 
 /* input radio */
