@@ -1,4 +1,5 @@
 <nav class="main-nav">
+  <h2 class="main-nav-title hide">Overview navigation</h2>
   <ul class="main-nav-ul">
     <li class="main-nav-item main-nav-item-day <?php if($view === 'day') { echo 'main-nav-item-active';} ?>">
       <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>" class="main-nav-item-link">day</a>
@@ -51,84 +52,96 @@
   <?php endif; ?>
   <?php if(!empty($postOfEnteredDay)): ?>
     <section class="main-overview-day-collage">
+      <h2 class="day-collage-title hide">Collage</h2>
       <img src="../../assets/img/collage-test.png" alt="collage" class="test-img" />
     </section>
-    <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
-      <ul class="main-overview-day-habits">
-        <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
-        <li><?php echo $habit['habit_name'] ?></li>
-        <?php endforeach; ?>
-      </ul>
-    <?php endif; ?>
-    <?php switch ($postOfEnteredDay['feelings']) {
-      case -1:
-        echo'
-        <svg width="86px" height="86px" viewBox="0 0 86 86">
-          <title>Group 6</title>
-          <desc>Created with Sketch.</desc>
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-1305.000000, -244.000000)">
-              <g transform="translate(1091.000000, 241.000000)">
-                  <g transform="translate(215.000000, 4.000000)">
-                    <circle id="Oval-Copy-2" stroke="#FE5455" stroke-width="1.196345" fill="#FF5257" cx="41.872075" cy="41.872075" r="41.872075"></circle>
-                    <g transform="translate(21.534210, 15.552485)">
-                      <g transform="translate(2.392690, 31.104970)">
-                        <rect id="path-1" x="0" y="0" width="38.28304" height="17.945175" rx="2.39269"></rect>
-                        <path d="M-1.0658141e-14,0 L38.28304,0 C38.28304,9.91084648 29.7130896,17.945175 19.14152,17.945175 C8.56995042,17.945175 -3.55271368e-15,9.91084648 -3.55271368e-15,0 Z" id="Combined-Shape" fill="#FFFFFF" mask="url(#mask-2)" transform="translate(19.141520, 8.972588) rotate(-180.000000) translate(-19.141520, -8.972588) "></path>
+    <section class="main-overview-day-info">
+      <h2 class="day-info-title hide">Info</h2>
+      <article class="day-info-habits">
+        <h3 class="day-info-habits-title">Habits</h3>
+        <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
+          <ul class="day-info-habits-list">
+            <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
+            <li><?php echo $habit['habit_name'] ?></li>
+            <?php endforeach; ?>
+          </ul>
+        <?php endif; ?>
+      </article>
+      <article class="day-info-mood">
+        <h3 class="day-info-mood-title">Mood</h3>
+        <?php switch ($postOfEnteredDay['feelings']) {
+          case -1:
+            echo'
+            <svg width="86px" height="86px" viewBox="0 0 86 86" class="day-info-mood-img">
+              <title>Group 6</title>
+              <desc>Created with Sketch.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-1305.000000, -244.000000)">
+                  <g transform="translate(1091.000000, 241.000000)">
+                      <g transform="translate(215.000000, 4.000000)">
+                        <circle id="Oval-Copy-2" stroke="#FE5455" stroke-width="1.196345" fill="#FF5257" cx="41.872075" cy="41.872075" r="41.872075"></circle>
+                        <g transform="translate(21.534210, 15.552485)">
+                          <g transform="translate(2.392690, 31.104970)">
+                            <rect id="path-1" x="0" y="0" width="38.28304" height="17.945175" rx="2.39269"></rect>
+                            <path d="M-1.0658141e-14,0 L38.28304,0 C38.28304,9.91084648 29.7130896,17.945175 19.14152,17.945175 C8.56995042,17.945175 -3.55271368e-15,9.91084648 -3.55271368e-15,0 Z" id="Combined-Shape" fill="#FFFFFF" mask="url(#mask-2)" transform="translate(19.141520, 8.972588) rotate(-180.000000) translate(-19.141520, -8.972588) "></path>
+                          </g>
+                          <text id="bad" font-family="CircularStd-Medium, Circular Std" font-size="23.9269" font-weight="400" fill="#FFFFFF">
+                            <tspan x="0" y="24">bad</tspan>
+                          </text>
+                        </g>
                       </g>
-                      <text id="bad" font-family="CircularStd-Medium, Circular Std" font-size="23.9269" font-weight="400" fill="#FFFFFF">
-                        <tspan x="0" y="24">bad</tspan>
+                    </g>
+                  </g>
+                </g>
+            </svg>';
+            break;
+          case 0:
+            echo '
+            <svg width="84px" height="84px" viewBox="0 0 84 84" class="day-info-mood-img">
+              <title>Okay mood</title>
+              <desc>Icon for okay mood.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-1198.000000, -241.000000)">
+                  <g transform="translate(1198.000000, 241.000000)">
+                    <circle fill="#4285FF" cx="41.6499179" cy="41.6499179" r="41.6499179"></circle>
+                    <rect fill="#FFFFFF" x="23.7999531" y="46.4099085" width="35.6999297" height="8.32998359" rx="4.16499179"></rect>
+                    <text font-family="CircularStd-Medium, Circular Std" font-size="23.7999531" font-weight="400" fill="#ffffff">
+                      <tspan x="27.3699461" y="39.4699695">ok</tspan>
+                    </text>
+                  </g>
+                </g>
+              </g>
+            </svg>';
+            break;
+          case 1:
+            echo '
+            <svg width="86px" height="86px" viewBox="0 0 86 86" class="day-info-mood-img">
+              <title>Good mood</title>
+              <desc>Icon for good mood.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-1090.000000, -243.000000)">
+                  <g transform="translate(1091.000000, 244.000000)">
+                      <circle id="Oval" stroke="#00D28B" stroke-width="1.2" fill="#00D28B" cx="42" cy="42" r="42"></circle>
+                      <g transform="translate(28.800000, 46.800000)">
+                        <rect x="0" y="0" width="38.4" height="18" rx="2.4"></rect>
+                        <path d="M-3.55271368e-15,0 L38.4,0 C38.4,9.9411255 29.8038672,18 19.2,18 C8.5961328,18 -3.55271368e-15,9.9411255 -3.55271368e-15,0 Z" fill="#FFFFFF"></path>
+                      </g>
+                      <text font-family="CircularStd-Medium, Circular Std" font-size="24" font-weight="400" fill="#ffffff">
+                        <tspan x="12" y="39.6">great</tspan>
                       </text>
                     </g>
                   </g>
                 </g>
-              </g>
-            </g>
-        </svg>';
-        break;
-      case 0:
-        echo '
-        <svg width="84px" height="84px" viewBox="0 0 84 84">
-          <title>Okay mood</title>
-          <desc>Icon for okay mood.</desc>
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-1198.000000, -241.000000)">
-              <g transform="translate(1198.000000, 241.000000)">
-                <circle fill="#4285FF" cx="41.6499179" cy="41.6499179" r="41.6499179"></circle>
-                <rect fill="#FFFFFF" x="23.7999531" y="46.4099085" width="35.6999297" height="8.32998359" rx="4.16499179"></rect>
-                <text font-family="CircularStd-Medium, Circular Std" font-size="23.7999531" font-weight="400" fill="#ffffff">
-                  <tspan x="27.3699461" y="39.4699695">ok</tspan>
-                </text>
-              </g>
-            </g>
-          </g>
-        </svg>';
-        break;
-      case 1:
-        echo '
-        <svg width="86px" height="86px" viewBox="0 0 86 86">
-          <title>Good mood</title>
-          <desc>Icon for good mood.</desc>
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-1090.000000, -243.000000)">
-              <g transform="translate(1091.000000, 244.000000)">
-                  <circle id="Oval" stroke="#00D28B" stroke-width="1.2" fill="#00D28B" cx="42" cy="42" r="42"></circle>
-                  <g transform="translate(28.800000, 46.800000)">
-                    <rect x="0" y="0" width="38.4" height="18" rx="2.4"></rect>
-                    <path d="M-3.55271368e-15,0 L38.4,0 C38.4,9.9411255 29.8038672,18 19.2,18 C8.5961328,18 -3.55271368e-15,9.9411255 -3.55271368e-15,0 Z" fill="#FFFFFF"></path>
-                  </g>
-                  <text font-family="CircularStd-Medium, Circular Std" font-size="24" font-weight="400" fill="#ffffff">
-                    <tspan x="12" y="39.6">great</tspan>
-                  </text>
-                </g>
-              </g>
-            </g>
-        </svg>';
-        break;
-      default:
-      echo '<p class="error">No feelings for this day.</p>';
-        break;
-    } ?>
+            </svg>';
+            break;
+          default:
+          echo '<p class="error">No feelings for this day.</p>';
+            break;
+        } ?>
+      </article>
+
+    </section>
+
   <?php else: ?>
     <p class="error">Nothing available for this day.</p>
   <?php endif; ?>

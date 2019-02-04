@@ -1,4 +1,5 @@
 <nav class="main-nav">
+  <h2 class="main-nav-title hide">Progress navigation</h2>
   <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
     <li class="main-nav-item main-nav-item-stats <?php if($currentCategory === 'statistics') { echo 'main-nav-item-active';} ?>">
       <a href="index.php?page=progress&category=statistics" class="main-nav-item-link">stats</a>

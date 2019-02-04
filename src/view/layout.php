@@ -18,6 +18,7 @@
       </h1>
       <?php if (empty($_SESSION['user'])): ?>
       <nav class="header-nav">
+        <h2 class="header-nav-title hide">Header navigation</h2>
         <ul class="header-nav-ul">
           <li class="header-nav-item <?php if($currentPage === 'home') { echo 'header-nav-item-active';} ?>">
             <a href="index.php">Home</a>
@@ -32,6 +33,7 @@
       </nav>
       <?php else: ?>
       <nav class="header-nav">
+        <h2 class="header-nav-title hide">Header navigation</h2>
         <ul class="header-nav-ul">
           <li class="header-nav-item <?php if($currentPage === 'overview') { echo 'header-nav-item-active';} ?>">
             <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>" class="header-nav-item-link">

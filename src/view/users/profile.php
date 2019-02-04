@@ -1,4 +1,5 @@
 <nav class="main-nav">
+  <h2 class="main-nav-title hide">Profile navigation</h2>
   <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
     <li class="main-nav-item main-nav-item-info <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
       <a href="index.php?page=profile&category=info" class="main-nav-item-link">info</a>

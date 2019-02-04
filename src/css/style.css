@@ -25,6 +25,10 @@ a {
   text-decoration: none;
 }
 
+.hide {
+  display: none;
+}
+
 /* header */
 
 .header {
