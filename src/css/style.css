@@ -51,6 +51,7 @@ a {
 }
 
 .header-nav-ul {
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   display: flex;
   width: 45rem;
   justify-content: space-between;
@@ -108,6 +109,34 @@ a {
 .test-img {
   width: 30rem;
   height: auto;
+}
+
+.main-overview-day {
+  display: grid;
+}
+
+.main-overview-day-date {
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
+}
+
+.main-overview-day-date-span {
+  font-size: 2.4rem;
+  font-weight: bold;
+  display: block;
+}
+
+.day-info-mood-title, .day-info-habits-title {
+  display: none;
+}
+
+.day-info-habits-list-item {
+  color: white;
+  padding: 2rem 3rem;
+  border-radius: 1.2rem;
+}
+
+.day-info-habits-list-item:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 /*

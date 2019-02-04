@@ -59,7 +59,9 @@ class PostsController extends Controller {
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
                   }
-                  $this->set('currentDay', $enteredDate->format('l d F Y'));
+                  $this->set('currentDay', $enteredDate->format('l'));
+                  $this->set('currentDateHTML', $enteredDate->format('Y-m-d'));
+                  $this->set('currentDate', $enteredDate->format('d F Y'));
                   $previousDay = new DateTime($_GET['day']);
                   $previousDay->modify('-1 day');
                   $nextDay = new DateTime($_GET['day']);
