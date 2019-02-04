@@ -224,6 +224,10 @@ class PostsController extends Controller {
     }
 
     public function add() {
+      //TODO:
+      //voor elke actieve habit die werd geselecteerd voor die dag, kijken of die een goal heeft
+      //zo ja: pas de goal aan
+
       if(empty($_SESSION['user'])) {
         $_SESSION['error'] = 'You have to be signed in.';
         header('Location: index.php');
@@ -300,7 +304,10 @@ class PostsController extends Controller {
                 }
             }
           } else {
-              $habits = $this->habitDAO->selectAll($_SESSION['user']['user_id']);
+              $habits = $this->habitDAO->selectAllActiveHabits(array(
+                'user_id' => $_SESSION['user']['user_id'],
+                'active' => 1
+              ));
               if (!empty($_POST['add-day'])) {
                 $errors = array();
                 if (empty($_POST['short-memory'])) {

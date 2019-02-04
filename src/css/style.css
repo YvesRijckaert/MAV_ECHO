@@ -1,5 +1,7 @@
 @import 'normalize';
 @import 'reset';
+@import 'fonts';
+@import 'messages';
 
 html {
   font-size: 62.5%;
@@ -12,25 +14,39 @@ html {
 
 body {
   height: 100vh;
-  font-size: 1.5rem;
-  background-color: #d2d2d2;
-  color: #373737;
-  font-family: circular, Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  font-size: 2rem;
+  background-color: white;
+  font-family: 'Circular Std', Arial, Helvetica, sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  font-weight: bold;
 }
 
-a:hover {
-  text-decoration: underline;
+.header {
+  margin: 2.5rem 6rem;
+  display: flex;
+  justify-content: space-between;
 }
+
+.header-title-link {
+  display: flex;
+  flex-direction: column;
+  width: 4em;
+}
+
+.header-title-link span:first-child {
+  text-align: right;
+}
+
+.header-nav-ul {
+  display: flex;
+  width: 40rem;
+  justify-content: space-between;
+}
+
+/* input radio */
 
 input[type=radio] {
   opacity: 0;
@@ -39,72 +55,6 @@ input[type=radio] {
 
 input[type=radio]:focus + label,  input[type=radio]:checked + label {
   outline: rgba(77, 97, 171, .5) auto .3rem;
-}
-
-header {
-  display: flex;
-  margin-bottom: 2.5rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-nav ul, .progress-header-nav {
-  display: flex;
-}
-
-nav ul li, .progress-header-nav li {
-  margin-right: 5rem;
-  margin-bottom: 2.5rem;
-}
-
-.update-form {
-  margin-top: 5rem;
-}
-
-.nav-item-active {
-  text-decoration: underline;
-}
-
-/* session */
-
-.session-info, .session-error {
-  color: white;
-  text-transform: uppercase;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem 0;
-  animation: showNotification 2.5s 0s 1 ease-in-out forwards;
-}
-
-.session-info {
-  background-color: rgba(33, 210, 139, 0.95);
-}
-
-.session-error {
-  background-color: rgba(252, 91, 92, 0.95);
-}
-
-@keyframes showNotification {
-
-  0%, 100% {
-    transform: translateY(-6rem);
-  }
-
-  15%, 85% {
-    transform: translateY(0);
-  }
-}
-
-.error {
-  color: red;
-  font-weight: bold;
 }
 
 /* calendar */

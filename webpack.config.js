@@ -28,7 +28,7 @@ const commonConfig = {
         loader: [`babel-loader`, `eslint-loader`]
       },
       {
-        test: /\.(jpe?g|png|gif|webp|svg)$/,
+        test: /\.(jpe?g|png|gif|webp|svg|woff|woff2)$/,
         use: [
           {
             loader: `file-loader`,
