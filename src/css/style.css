@@ -92,6 +92,24 @@ a {
   border-bottom-right-radius: 4rem;
 }
 
+/*
+
+.main-nav-item-stats.main-nav-item-active + .main-nav-item-achievements {
+  border-bottom-left-radius: 4rem;
+}
+
+.main-nav-item-achievements.main-nav-item-active + .main-nav-item-goals {
+  border-bottom-left-radius: 4rem;
+}
+
+.main-nav-item-stats {
+  border-bottom-right-radius: 4rem;
+}
+
+.main-nav-item-achievements {
+  border-bottom-right-radius: 4rem;
+} */
+
 /* input radio */
 
 input[type=radio] {
