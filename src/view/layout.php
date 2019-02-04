@@ -9,6 +9,7 @@
     <?php echo $css; ?>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <header class="header">
       <h1 class="header-title">
         <a href="index.php" class="header-title-link" >

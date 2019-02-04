@@ -1,6 +1,6 @@
 {
   const handleData = data => {
-    document.querySelector('.calendar-section').innerHTML = data;
+    document.querySelector('.main-overview-month-calendar').innerHTML = data;
   };
 
   const handleCategoryChange = e => {
@@ -16,13 +16,13 @@
   };
 
   const init = () => {
-    const categorySubmit = document.querySelector(`.calendar-habits-submit`);
+    const categorySubmit = document.querySelector(`.month-form-submit`);
     if (categorySubmit) {
       categorySubmit.remove();
     }
 
     document
-      .querySelectorAll(`.calendar-habits-button`)
+      .querySelectorAll(`.month-form-input`)
       .forEach(category =>
         category.addEventListener(`change`, handleCategoryChange)
       );

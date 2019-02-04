@@ -105,19 +105,19 @@ class PostsController extends Controller {
                   if (!empty($_GET['chosen_habit'])) {
                     if(in_array($_GET['chosen_habit'], array_column($activeHabits, 'habit_name'))){
                       function build_calendar($month,$year, $today_date, $fulfilled_habit, $class) {
-                        $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+                        $daysOfWeek = array('sun','mon','tue','wed','thu','fri','sat');
                         $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
                         $numberDays = date('t',$firstDayOfMonth);
                         $dateComponents = getdate($firstDayOfMonth);
                         $monthName = $dateComponents['month'];
                         $dayOfWeek = $dateComponents['wday'];
-                        $calendar = "<table class='calendar'>";
-                        $calendar .= "<tr>";
+                        $calendar = "<tbody>";
+                        $calendar .= "<tr class='month-calendar-row'>";
                         foreach($daysOfWeek as $day) {
-                            $calendar .= "<th class='header'>$day</th>";
+                            $calendar .= "<th class='month-calendar-row-header'>$day</th>";
                         }
                         $currentDay = 1;
-                        $calendar .= "</tr><tr>";
+                        $calendar .= "</tr><tr class='month-calendar-row'>";
                         if ($dayOfWeek > 0) {
                             $calendar .= "<td colspan='$dayOfWeek'>&nbsp;</td>";
                         }
@@ -128,7 +128,7 @@ class PostsController extends Controller {
                         while ($currentDay <= $numberDays) {
                           if ($dayOfWeek == 7) {
                               $dayOfWeek = 0;
-                              $calendar .= "</tr><tr>";
+                              $calendar .= "</tr><tr class='month-calendar-row'>";
                           }
                           $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
                           $date = "$year-$month-$currentDayRel";
@@ -143,16 +143,16 @@ class PostsController extends Controller {
                           ));
                           if(empty($hasFulfilledHabit)) {
                             if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
-                              $calendar .= "<td class='day today_date' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              $calendar .= "<td class='month-calendar-row-day month-calendar-row-today' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                             } else {
-                              $calendar .= "<td class='day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              $calendar .= "<td class='month-calendar-row-day' rel='$date'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                             }
                           }else {
                             $totalDaysOfFulfilledHabit++;
                             if($currentDayRel == $today_date && $month == date('m') && $year == date('Y')) {
-                              $calendar .= "<td class='day today_date' rel='$date' style='background-color: $habit_colour; color: white'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              $calendar .= "<td class='month-calendar-row-day month-calendar-row-today' rel='$date' style='background-color: $habit_colour; color: white'><a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                             } else {
-                              $calendar .= "<td class='day' rel='$date' style='background-color: $habit_colour; color: white'> <a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
+                              $calendar .= "<td class='month-calendar-row-day' rel='$date' style='background-color: $habit_colour; color: white'> <a href=\"index.php?page=overview&view=day&day=" . sprintf("%02d", $currentDay) . "-" . $month . "-" . $year . "\">$currentDay</a></td>";
                             }
                           }
                           $currentDay++;
@@ -164,7 +164,7 @@ class PostsController extends Controller {
                         }
                         $class->set('totalDaysOfFulfilledHabit', $totalDaysOfFulfilledHabit);
                         $calendar .= "</tr>";
-                        $calendar .= "</table>";
+                        $calendar .= "</tbody>";
                         return $calendar;
                       }
                       $enteredDate = new DateTime('01-' . $_GET['month']);

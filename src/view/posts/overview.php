@@ -44,7 +44,7 @@
 <?php endif; ?>
 
 <?php if($view == 'day') : ?>
-  <section class="main-overview-day">
+  <section class="main-overview-day" id="main">
     <h2 class="main-overview-day-title hide">Day view</h2>
     <?php if(isset($previousDay)):?>
       <a href="index.php?page=overview&view=day&day=<?php echo $previousDay; ?>" class="main-overview-day-previous">
@@ -187,7 +187,6 @@
           </svg>
         </a>
       </section>
-
     <?php else: ?>
       <p class="main-overview-day-error error">Nothing available for <?php echo $currentDay . ' ' . $currentDate ?>.</p>
     <?php endif; ?>
@@ -195,32 +194,60 @@
 <?php endif; ?>
 
 <?php if($view == 'month') : ?>
-<section>
-  <header>
+  <section class="main-overview-month" id="main">
+    <h2 class="main-overview-month-title hide">Month view</h2>
     <?php if(isset($previousMonth)):?>
-    <a href="index.php?page=overview&view=month&month=<?php echo $previousMonth . '&chosen_habit=' . $firstActiveHabit; ?>">←</a>
+      <a href="index.php?page=overview&view=month&month=<?php echo $previousMonth . '&chosen_habit=' . $firstActiveHabit; ?>" class="main-overview-month-previous">
+        <svg width="13px" height="22px" viewBox="0 0 13 22">
+          <title>Link to previous month</title>
+          <desc>Icon for previous month link.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g transform="translate(-167.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+              <g transform="translate(169.000000, 465.000000)">
+                <polyline transform="translate(5.000000, 10.000000) rotate(-180.000000) translate(-5.000000, -10.000000) " points="0 0 10 10 0 20"></polyline>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
     <?php endif; ?>
-    <p><?php echo $enteredDate->format('F Y'); ?></p>
     <?php if(isset($nextMonth)):?>
-    <a href="index.php?page=overview&view=month&month=<?php echo $nextMonth . '&chosen_habit=' . $firstActiveHabit; ?>">→</a>
+      <a href="index.php?page=overview&view=month&month=<?php echo $nextMonth . '&chosen_habit=' . $firstActiveHabit; ?>" class="main-overview-month-next">
+        <svg width="13px" height="22px" viewBox="0 0 13 22">
+          <title>Link to next month</title>
+          <desc>Icon for next month link.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g transform="translate(-1261.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+              <g transform="translate(169.000000, 465.000000)">
+                <polyline points="1093 0 1103 10 1093 20"></polyline>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
     <?php endif; ?>
-  </header>
-</section>
-<section class="calendar-section">
-  <?php echo $calendar ?>
-</section>
-<form method="get" class="calendar-habits-form">
-  <?php foreach($activeHabits as $habit): ?>
-    <input type="radio" class="calendar-habits-button" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if($_GET['chosen_habit'] == $habit['habit_name']) echo 'checked'; ?> required />
-    <label for="<?php echo $habit['habit_id'] ?>">
-      <span class="form-label"><?php echo $habit['habit_name'] ?></span>
-    </label>
-  <?php endforeach; ?>
-  <input type="hidden" name="page" value="overview" />
-  <input type="hidden" name="view" value="month" />
-  <input type="hidden" name="month" value="<?php echo $enteredDate->format('m-Y'); ?>" />
-  <input type="submit" value="submit" class="calendar-habits-submit" />
-</form>
-<p><?php if(!empty($chosenHabit)) echo $chosenHabit; ?></p>
-<p><?php if(!empty($chosenHabit)) echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; ?></p>
+    <time datetime="<?php echo $enteredDate->format('Y-m') ?>" class="main-overview-month-date">
+      <span class="month-date-span"><?php echo $enteredDate->format('F') ?></span><span><?php echo $enteredDate->format('Y') ?></span>
+    </time>
+    <table class="main-overview-month-calendar">
+      <?php echo $calendar ?>
+    </table>
+    <form method="get" class="main-overview-month-form">
+      <?php foreach($activeHabits as $habit): ?>
+        <input type="radio" class="month-form-input" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" <?php if($_GET['chosen_habit'] == $habit['habit_name']) echo 'checked'; ?> required />
+        <label for="<?php echo $habit['habit_id'] ?>">
+          <span class="form-label"><?php echo $habit['habit_name'] ?></span>
+        </label>
+      <?php endforeach; ?>
+      <input type="hidden" name="page" value="overview" />
+      <input type="hidden" name="view" value="month" />
+      <input type="hidden" name="month" value="<?php echo $enteredDate->format('m-Y'); ?>" />
+      <input type="submit" value="submit" class="month-form-submit" />
+    </form>
+    <article class="main-overview-month-info">
+      <h3 class="month-info-title hide">Info</h3>
+      <p><?php if(!empty($chosenHabit)) echo $chosenHabit; ?></p>
+      <p><?php if(!empty($chosenHabit)) echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; ?></p>
+    </article>
+  </section
 <?php endif; ?>
