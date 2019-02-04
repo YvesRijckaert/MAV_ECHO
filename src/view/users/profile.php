@@ -1,12 +1,12 @@
 <nav class="main-nav">
-  <ul class="main-nav-ul">
-    <li class="main-nav-item <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
+  <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
+    <li class="main-nav-item main-nav-item-info <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
       <a href="index.php?page=profile&category=info" class="main-nav-item-link">info</a>
     </li>
-    <li class="main-nav-item <?php if($currentCategory === 'customize') { echo 'main-nav-item-active';} ?>">
+    <li class="main-nav-item main-nav-item-customize <?php if($currentCategory === 'customize') { echo 'main-nav-item-active';} ?>">
       <a href="index.php?page=profile&category=customize" class="main-nav-item-link">customize</a>
     </li>
-    <li class="main-nav-item <?php if($currentCategory === 'links') { echo 'main-nav-item-active';} ?>">
+    <li class="main-nav-item main-nav-item-links <?php if($currentCategory === 'links') { echo 'main-nav-item-active';} ?>">
       <a href="index.php?page=profile&category=links" class="main-nav-item-link">links</a>
     </li>
   </ul>

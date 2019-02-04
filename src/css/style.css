@@ -92,6 +92,22 @@ a {
   border-bottom-right-radius: 4rem;
 }
 
+.active-category-statistics .main-nav-item-achievements, .active-category-info .main-nav-item-customize {
+  border-bottom-left-radius: 4rem;
+}
+
+.active-category-achievements .main-nav-item-stats, .active-category-customize .main-nav-item-info {
+  border-bottom-right-radius: 4rem;
+}
+
+.active-category-achievements .main-nav-item-goals, .active-category-customize .main-nav-item-links {
+  border-bottom-left-radius: 4rem;
+}
+
+.active-category-goals .main-nav-item-achievements, .active-category-links .main-nav-item-customize {
+  border-bottom-right-radius: 4rem;
+}
+
 /*
 
 .main-nav-item-stats.main-nav-item-active + .main-nav-item-achievements {
