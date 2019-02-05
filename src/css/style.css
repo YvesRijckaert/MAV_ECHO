@@ -391,3 +391,57 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   text-transform: lowercase;
   font-weight: bold;
 }
+
+/* profile links */
+
+.main-profile-links-sites {
+  display: grid;
+  grid-template: repeat(2, min-content) / 1fr 3fr 3fr 1fr;
+  grid-template-areas:
+    '. jac awel .'
+    '. cgg tejo .';
+}
+
+.main-profile-links-sites-article:nth-child(2) {
+  grid-area: jac;
+}
+
+.main-profile-links-sites-article:nth-child(3) {
+  grid-area: awel;
+}
+
+.main-profile-links-sites-article:nth-child(4) {
+  grid-area: cgg;
+}
+
+.main-profile-links-sites-article:nth-child(5) {
+  grid-area: tejo;
+}
+
+.main-profile-links-phone {
+  display: grid;
+  grid-template: repeat(2, min-content) / 1fr 1.5fr 1.5fr 3fr 1fr;
+  grid-template-areas:
+    '. geweld awel zelfmoordlijn .'
+    '. druglijn druglijn teleonthaal .';
+}
+
+.main-pofile-links-phone-article:nth-child(2) {
+  grid-area: geweld;
+}
+
+.main-pofile-links-phone-article:nth-child(3) {
+  grid-area: awel;
+}
+
+.main-pofile-links-phone-article:nth-child(4) {
+  grid-area: zelfmoordlijn;
+}
+
+.main-pofile-links-phone-article:nth-child(5) {
+  grid-area: druglijn;
+}
+
+.main-pofile-links-phone-article:nth-child(6) {
+  grid-area: teleonthaal;
+}
