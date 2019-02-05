@@ -1,19 +1,18 @@
-<nav class="main-nav">
-  <h2 class="main-nav-title hide">Profile navigation</h2>
-  <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
-    <li class="main-nav-item main-nav-item-info <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
-      <a href="index.php?page=profile&category=info" class="main-nav-item-link">info</a>
-    </li>
-    <li class="main-nav-item main-nav-item-customize <?php if($currentCategory === 'customize') { echo 'main-nav-item-active';} ?>">
-      <a href="index.php?page=profile&category=customize" class="main-nav-item-link">customize</a>
-    </li>
-    <li class="main-nav-item main-nav-item-links <?php if($currentCategory === 'links') { echo 'main-nav-item-active';} ?>">
-      <a href="index.php?page=profile&category=links" class="main-nav-item-link">links</a>
-    </li>
-  </ul>
-</nav>
-
 <?php if ($currentCategory == 'info') : ?>
+  <nav class="main-nav">
+    <h2 class="main-nav-title hide">Profile navigation</h2>
+    <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
+      <li class="main-nav-item main-nav-item-info <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=info" class="main-nav-item-link">info</a>
+      </li>
+      <li class="main-nav-item main-nav-item-customize <?php if($currentCategory === 'customize') { echo 'main-nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=customize" class="main-nav-item-link">customize</a>
+      </li>
+      <li class="main-nav-item main-nav-item-links <?php if($currentCategory === 'links') { echo 'main-nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=links" class="main-nav-item-link">links</a>
+      </li>
+    </ul>
+  </nav>
   <section class="main-profile-info" id="main">
     <h2 class="main-profile-info-title hide">Profile settings</h2>
     <form class="main-profile-info-form" method="post">
@@ -78,6 +77,20 @@
 <?php if ($currentCategory == 'customize'): ?>
 
   <?php if ($currentStep === 1): ?>
+    <nav class="main-nav">
+      <h2 class="main-nav-title hide">Profile navigation</h2>
+      <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
+        <li class="main-nav-item main-nav-item-info <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
+          <a href="index.php?page=profile&category=info" class="main-nav-item-link">info</a>
+        </li>
+        <li class="main-nav-item main-nav-item-customize <?php if($currentCategory === 'customize') { echo 'main-nav-item-active';} ?>">
+          <a href="index.php?page=profile&category=customize" class="main-nav-item-link">customize</a>
+        </li>
+        <li class="main-nav-item main-nav-item-links <?php if($currentCategory === 'links') { echo 'main-nav-item-active';} ?>">
+          <a href="index.php?page=profile&category=links" class="main-nav-item-link">links</a>
+        </li>
+      </ul>
+    </nav>
     <section class="main-profile-customize" id="main">
       <h2 class="main-profile-customize-title hide">Customize</h2>
       <article class="main-profile-customize-habits">
@@ -102,7 +115,23 @@
                   </g>
             </svg></a>' . '</li>';
             } else {
-              echo '<li class="customize-habits-list-item" style="border: .2rem solid ' . $habit['habit_colour'] . '; color: ' . $habit['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'">add habit</a></li>';
+              echo '<li class="customize-habits-list-item" style="border: .2rem solid ' . $habit['habit_colour'] . '; color: ' . $habit['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'">
+              <svg width="14px" height="14px" viewBox="0 0 14 14">
+                <title>Add habit link</title>
+                <desc>Icon for add habit.</desc>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-321.000000, -710.000000)" stroke="' . $habit['habit_colour'] . '" stroke-linecap="round" stroke-width="2.17756">
+                        <g transform="translate(294.000000, 203.000000)">
+                            <g transform="translate(0.000000, 484.000000)">
+                                <g transform="translate(28.420480, 24.878000)">
+                                    <path d="M5.98829,2.66453526e-15 L5.98829,10.8878"></path>
+                                    <path d="M5.98829,2.66453526e-15 L5.98829,10.8878" transform="translate(5.988290, 5.443900) rotate(90.000000) translate(-5.988290, -5.443900) "></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg><span>add habit</span></a></li>';
             }
           };
           endforeach;
@@ -168,7 +197,22 @@
           </svg></a>' . '</li>';
               }
               if(isset($goal['repetitive']['no-goal']) && isset($goal['streaks']['no-goal']) && isset($goal['total_amount']['no-goal'])) {
-                echo '<li class="customize-goals-list-item" style="border: .2rem solid ' . $goal['repetitive']['habit_colour'] . '; color: ' . $goal['repetitive']['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-goal=' . $goal['repetitive']['habit_name']  .'">add goal for ' . $goal['repetitive']['habit_name'] . '</a></li>';
+                echo '<li class="customize-goals-list-item" style="border: .2rem solid ' . $goal['repetitive']['habit_colour'] . '; color: ' . $goal['repetitive']['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-goal=' . $goal['repetitive']['habit_name']  .'">              <svg width="14px" height="14px" viewBox="0 0 14 14">
+                <title>Add habit link</title>
+                <desc>Icon for add habit.</desc>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-321.000000, -710.000000)" stroke="' . $goal['repetitive']['habit_colour'] . '" stroke-linecap="round" stroke-width="2.17756">
+                        <g transform="translate(294.000000, 203.000000)">
+                            <g transform="translate(0.000000, 484.000000)">
+                                <g transform="translate(28.420480, 24.878000)">
+                                    <path d="M5.98829,2.66453526e-15 L5.98829,10.8878"></path>
+                                    <path d="M5.98829,2.66453526e-15 L5.98829,10.8878" transform="translate(5.988290, 5.443900) rotate(90.000000) translate(-5.988290, -5.443900) "></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg><span>add goal for ' . $goal['repetitive']['habit_name'] . '</span></a></li>';
               }
             };
             endforeach;
@@ -184,7 +228,7 @@
   <?php if ($currentStep === 'add-habit-1'): ?>
     <section class="main-profile-add-habit">
       <h2 class="main-profile-add-habit-title">add habit</h2>
-      <p>choose or write down a new habit</p>
+      <p class="main-profile-add-habit-subtitle">choose or write down a new habit</p>
       <form method="post">
         <?php if(!empty($errors['add-habit'])) echo '<span class="error">' . $errors['add-habit'] . '</span>';?>
         <input type="radio" id="neither" name="chosen_habit" value="neither" class="form-input" checked />
@@ -423,6 +467,20 @@
 <?php endif; ?>
 
 <?php if ($currentCategory == 'links'): ?>
+  <nav class="main-nav">
+    <h2 class="main-nav-title hide">Profile navigation</h2>
+    <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
+      <li class="main-nav-item main-nav-item-info <?php if($currentCategory === 'info') { echo 'main-nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=info" class="main-nav-item-link">info</a>
+      </li>
+      <li class="main-nav-item main-nav-item-customize <?php if($currentCategory === 'customize') { echo 'main-nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=customize" class="main-nav-item-link">customize</a>
+      </li>
+      <li class="main-nav-item main-nav-item-links <?php if($currentCategory === 'links') { echo 'main-nav-item-active';} ?>">
+        <a href="index.php?page=profile&category=links" class="main-nav-item-link">links</a>
+      </li>
+    </ul>
+  </nav>
   <section class="main-profile-links-sites">
     <h2 class="main-profile-links-sites-title hide">Sites</h2>
     <article class="main-profile-links-sites-article site-jac">

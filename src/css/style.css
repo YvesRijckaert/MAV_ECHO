@@ -499,6 +499,20 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   font-weight: bold;
 }
 
+/* profile customize add habit */
+
+.main-profile-add-habit-title {
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: bold;
+}
+
+.main-profile-add-habit-subtitle {
+  text-align: center;
+  width: 20rem;
+  margin: 0 auto;
+}
+
 /* profile links */
 
 .main-profile-links-sites {
