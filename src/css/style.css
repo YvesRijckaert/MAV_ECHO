@@ -528,7 +528,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   margin: 0 2.5rem;
 }
 
-.customize-habits-title, .customize-goals-title, legend {
+.customize-habits-title, .customize-goals-title, .add-habit-form-field-legend {
   margin: 2.5rem 0;
   color: whitesmoke;
   font-size: 5.6rem;
@@ -542,24 +542,25 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
 /* profile customize add habit */
 
-.main-profile-add-habit {
+.main-profile-add-habit, .main-profile-add-goal {
   position: relative;
 }
 
-.main-profile-add-habit-title {
+.main-profile-add-habit-title, .main-profile-add-goal-title {
   text-align: center;
   font-size: 3.6rem;
   font-weight: bold;
 }
 
-.main-profile-add-habit-subtitle {
+.main-profile-add-habit-subtitle, .main-profile-add-goal-subtitle {
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   text-align: center;
   width: 20rem;
   margin: 0 auto;
   padding: 2.5rem 0;
 }
 
-.main-profile-add-habit-back {
+.main-profile-add-habit-back, .main-profile-add-goal-back {
   position: absolute;
   top: 0;
   left: 0;
@@ -598,6 +599,12 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 .add-habit-form-submit {
   grid-area: submit;
   align-self: flex-end;
+}
+
+.main-profile-add-habit-form-shape {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 15rem;
 }
 
 /* profile links */

@@ -231,8 +231,8 @@
       <p class="main-profile-add-habit-subtitle">choose or write down a new habit</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
         <svg width="30px" height="23px" viewBox="0 0 30 23">
-          <title>Group 6</title>
-          <desc>Created with Sketch.</desc>
+          <title>Back button</title>
+          <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-49.000000, -126.000000)">
               <g transform="translate(52.000000, 128.000000)">
@@ -246,14 +246,14 @@
       <?php if(!empty($errors['add-habit'])) echo '<p class="main-profile-add-habit-error error">' . $errors['add-habit'] . '</p>';?>
       <form class="main-profile-add-habit-form" method="post">
         <fieldset class="add-habit-form-field add-habit-suggested">
-          <legend>suggested</legend>
+          <legend class="add-habit-form-field-legend">suggested</legend>
           <input type="radio" id="test" class="add-habit-form-input" name="chosen_habit" value="test" />
           <label for="test" class="add-habit-form-label">
             <span>test</span>
           </label>
         </fieldset>
         <fieldset class="add-habit-form-field add-habit-write">
-          <legend>write</legend>
+          <legend class="add-habit-form-field-legend">write</legend>
           <input type="radio" id="neither" class="add-habit-form-input" name="chosen_habit" value="neither" checked />
           <label for="neither" class="add-habit-form-label">
             <span>Write down my own habit</span>
@@ -261,7 +261,7 @@
           <input type="text" class="add-habit-form-input add-habit-form-input-text" name="custom_habit" placeholder="write down a habit" />
         </fieldset>
         <fieldset class="add-habit-form-field add-habit-all">
-          <legend>all</legend>
+          <legend class="add-habit-form-field-legend">all</legend>
           <div class="add-habit-form-field-all">
             <?php foreach($allPossibleHabits as $habit): ?>
               <input type="radio" id="<?php echo $habit['data_habit_name_id'] ?>" class="add-habit-form-input" name="chosen_habit" value="<?php echo $habit['data_habit_name_id'] ?>" />
@@ -282,8 +282,8 @@
       <p class="main-profile-add-habit-subtitle">choose a shape</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
         <svg width="30px" height="23px" viewBox="0 0 30 23">
-          <title>Group 6</title>
-          <desc>Created with Sketch.</desc>
+          <title>Back button</title>
+          <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-49.000000, -126.000000)">
               <g transform="translate(52.000000, 128.000000)">
@@ -294,14 +294,19 @@
           </g>
         </svg>
       </a>
-      <form method="post">
-        <?php if(!empty($errors['add-habit-icon'])) echo '<span class="error">' . $errors['add-habit-icon'] . '</span>';?>
-        <?php foreach($allPossibleHabitIcons as $icon): ?>
-          <input type="radio" id="<?php echo $icon['data_habit_icon_id'] ?>" name="chosen_habit_icon" value="<?php echo $icon['data_habit_icon_id'] ?>" class="form-input" />
-          <label for="<?php echo $icon['data_habit_icon_id'] ?>">
-            <span class="form-label"><?php echo $icon['habit_icon'] ?></span>
-          </label>
-        <?php endforeach; ?>
+      <?php if(!empty($errors['add-habit-icon'])) echo '<p class="main-profile-add-habit-error error">' . $errors['add-habit-icon'] . '</p>';?>
+      <form class="main-profile-add-habit-form-shape" method="post">
+        <fieldset class="add-habit-form-shape-field">
+          <legend class="add-habit-form-field-legend">shapes</legend>
+          <div class="add-habit-form-field-shapes-all">
+            <?php foreach($allPossibleHabitIcons as $icon): ?>
+              <input type="radio" id="<?php echo $icon['data_habit_icon_id'] ?>" name="chosen_habit_icon" value="<?php echo $icon['data_habit_icon_id'] ?>" class="form-input" />
+              <label for="<?php echo $icon['data_habit_icon_id'] ?>">
+                <span class="form-label"><?php echo $icon['habit_icon'] ?></span>
+              </label>
+            <?php endforeach; ?>
+          </div>
+        </fieldset>
         <input type="submit" name="add-habit-2" value="done" />
       </form>
     </section>
@@ -310,7 +315,21 @@
   <?php if ($currentStep === 'add-goal-1'): ?>
     <section class="main-profile-add-goal">
       <h2 class="main-profile-add-goal-title">add goal</h2>
-      <p>choose a goal type</p>
+      <p class="main-profile-add-goal-subtitle">choose a goal type</p>
+      <a href="index.php?page=profile&category=customize" class="main-profile-add-goal-back">
+        <svg width="30px" height="23px" viewBox="0 0 30 23">
+          <title>Back button</title>
+          <desc>Icon for back button.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-49.000000, -126.000000)">
+              <g transform="translate(52.000000, 128.000000)">
+                <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+                <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <ul>
         <li>
           <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=repetitive">Repetitive</a>
