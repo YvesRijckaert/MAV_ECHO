@@ -273,7 +273,7 @@ input[type=radio] {
 .month-calendar-row-day {
   text-align: center;
   vertical-align: middle;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   width: 5rem;
   padding: -1rem;
 }
@@ -397,51 +397,104 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 .main-profile-links-sites {
   display: grid;
   grid-template: repeat(2, min-content) / 1fr 3fr 3fr 1fr;
+  grid-gap: 2.5rem;
   grid-template-areas:
     '. jac awel .'
     '. cgg tejo .';
+  margin-bottom: 10rem;
+  margin-top: 5rem;
 }
 
-.main-profile-links-sites-article:nth-child(2) {
+.site-jac {
   grid-area: jac;
 }
 
-.main-profile-links-sites-article:nth-child(3) {
+.site-jac-title {
+  color: var(--red);
+}
+
+.site-awel {
   grid-area: awel;
 }
 
-.main-profile-links-sites-article:nth-child(4) {
+.site-awel-title {
+  color: var(--orange);
+}
+
+.site-cgg {
   grid-area: cgg;
 }
 
-.main-profile-links-sites-article:nth-child(5) {
+.site-cgg-title {
+  color: var(--green);
+}
+
+.site-tejo {
   grid-area: tejo;
+}
+
+.site-tejo-title {
+  color: var(--blue);
+}
+
+.site-jac, .site-awel, .site-cgg, .site-tejo {
+  border-bottom: .2rem solid rgba(43, 43, 43, .2);
+  padding: 2rem;
+}
+
+.site-jac-title, .site-awel-title, .site-cgg-title, .site-tejo-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.links-sites-article-text {
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  padding-top: 1rem;
+  max-width: 40rem;
 }
 
 .main-profile-links-phone {
   display: grid;
   grid-template: repeat(2, min-content) / 1fr 1.5fr 1.5fr 3fr 1fr;
+  grid-gap: 1.5rem;
   grid-template-areas:
     '. geweld awel zelfmoordlijn .'
     '. druglijn druglijn teleonthaal .';
 }
 
-.main-pofile-links-phone-article:nth-child(2) {
+.main-pofile-links-phone-article {
+  display: flex;
+  border: .2rem solid #2b2b2b;
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+}
+
+.phone-geweld {
   grid-area: geweld;
 }
 
-.main-pofile-links-phone-article:nth-child(3) {
+.phone-awel {
   grid-area: awel;
 }
 
-.main-pofile-links-phone-article:nth-child(4) {
+.phone-zelfmoordlijn {
   grid-area: zelfmoordlijn;
 }
 
-.main-pofile-links-phone-article:nth-child(5) {
+.phone-druglijn {
   grid-area: druglijn;
 }
 
-.main-pofile-links-phone-article:nth-child(6) {
+.phone-teleonthaal {
   grid-area: teleonthaal;
+}
+
+.links-phone-article-title, .links-phone-article-tel {
+  font-size: 2.2rem;
+}
+
+.links-phone-article-tel {
+  padding-left: 1rem;
+  color: #d4d4d4;
 }

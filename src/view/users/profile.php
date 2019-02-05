@@ -387,44 +387,44 @@
 <?php if ($currentCategory == 'links'): ?>
   <section class="main-profile-links-sites">
     <h2 class="main-profile-links-sites-title hide">Sites</h2>
-    <article class="main-profile-links-sites-article">
-      <h3 class="links-sites-article-title">JAC</h3>
-      <p>Jongeren Advies Centrum (JAC) geeft informatie, advies en hulp aan jongeren. </p>
+    <article class="main-profile-links-sites-article site-jac">
+      <h3 class="links-sites-article-title site-jac-title">JAC</h3>
+      <p class="links-sites-article-text">Jongeren Advies Centrum (JAC) geeft informatie, advies en hulp aan jongeren. </p>
     </article>
-    <article class="main-profile-links-sites-article">
-      <h3 class="links-sites-article-title">Awel</h3>
-      <p>Awel luistert naar alle kinderen en jongeren met een vraag, een verhaal of een probleem.</p>
+    <article class="main-profile-links-sites-article site-awel">
+      <h3 class="links-sites-article-title site-awel-title">Awel</h3>
+      <p class="links-sites-article-text">Awel luistert naar alle kinderen en jongeren met een vraag, een verhaal of een probleem.</p>
     </article>
-    <article class="main-profile-links-sites-article">
-      <h3 class="links-sites-article-title">CGG</h3>
-      <p>CGG biedt medisch-psychiatrische en psychotherapeutische hulpverlening aan mensen met ernstigepsychische problemen.</p>
+    <article class="main-profile-links-sites-article site-cgg">
+      <h3 class="links-sites-article-title site-cgg-title">CGG</h3>
+      <p class="links-sites-article-text">CGG biedt medisch-psychiatrische en psychotherapeutische hulpverlening aan mensen met ernstige psychische problemen.</p>
     </article>
-    <article class="main-profile-links-sites-article">
-      <h3 class="links-sites-article-title">Tejo</h3>
-      <p>TEJO biedt laagdrempelige, therapeutische ondersteuning aan jongeren, kortdurend, onmiddellijk, anoniem, en gratis.</p>
+    <article class="main-profile-links-sites-article site-tejo">
+      <h3 class="links-sites-article-title site-tejo-title">Tejo</h3>
+      <p class="links-sites-article-text">TEJO biedt laagdrempelige, therapeutische ondersteuning aan jongeren, kortdurend, onmiddellijk, anoniem, en gratis.</p>
     </article>
   </section>
   <section class="main-profile-links-phone">
     <h2 class="main-profile-links-phone-title hide">Phone numbers</h2>
-    <article class="main-pofile-links-phone-article">
-      <h3 class="links-phone-article-title">Geweld</h3>
-      <a href="tel:1217" rel="nofollow">1217</a>
+    <article class="main-pofile-links-phone-article phone-geweld">
+      <h3 class="links-phone-article-title phone-geweld-title">Geweld</h3>
+      <a href="tel:1217" class="links-phone-article-tel phone-geweld-tel" rel="nofollow">1217</a>
     </article>
-    <article class="main-pofile-links-phone-article">
-      <h3 class="links-phone-article-title">Awel</h3>
-      <a href="tel:102" rel="nofollow">102</a>
+    <article class="main-pofile-links-phone-article phone-awel">
+      <h3 class="links-phone-article-title phone-awel-title">Awel</h3>
+      <a href="tel:102" class="links-phone-article-tel phone-awel-tel" rel="nofollow">102</a>
     </article>
-    <article class="main-pofile-links-phone-article">
-      <h3 class="links-phone-article-title">Zelfmoordlijn</h3>
-      <a href="tel:+1813" rel="nofollow">1813</a>
+    <article class="main-pofile-links-phone-article phone-zelfmoordlijn">
+      <h3 class="links-phone-article-title phone-zelfmoordlijn-title">Zelfmoordlijn</h3>
+      <a href="tel:+1813" class="links-phone-article-tel phone-zelfmoordlijn-tel" rel="nofollow">1813</a>
     </article>
-    <article class="main-pofile-links-phone-article">
-      <h3 class="links-phone-article-title">Druglijn</h3>
-      <a href="tel:078-15-10-20" rel="nofollow">078 / 15 10 20</a>
+    <article class="main-pofile-links-phone-article phone-druglijn">
+      <h3 class="links-phone-article-title phone-druglijn-title">Druglijn</h3>
+      <a href="tel:078-15-10-20" class="links-phone-article-tel phone-druglijn-tel" rel="nofollow">078 / 15 10 20</a>
     </article>
-    <article class="main-pofile-links-phone-article">
-      <h3 class="links-phone-article-title">Teleonthaal</h3>
-      <a href="tel:106" rel="nofollow">106</a>
+    <article class="main-pofile-links-phone-article phone-teleonthaal">
+      <h3 class="links-phone-article-title phone-teleonthaal-title">Teleonthaal</h3>
+      <a href="tel:106" class="links-phone-article-tel phone-teleonthaal-tel" rel="nofollow">106</a>
     </article>
   </section>
 <?php endif; ?>
