@@ -29,12 +29,12 @@
     <a href="index.php?page=profile&category=customize">edit</a>
     <nav class="main-progress-goals-nav">
       <h3 class="goals-nav-title hide">Goals navigation</h3>
-      <ul>
-        <li>
-          <a href="index.php?page=progress&category=goals&goals-type=in-progress" class="<?php if($goalsCategory === 'in-progress') { echo 'nav-item-active';} ?>">in progress</a>
+      <ul class="goals-nav-list">
+        <li class="goals-nav-list-item">
+          <a href="index.php?page=progress&category=goals&goals-type=in-progress" class="goals-nav-list-item-link <?php if($goalsCategory === 'in-progress') { echo 'goals-nav-list-item-link-active';} ?>">in progress</a>
         </li>
-        <li>
-          <a href="index.php?page=progress&category=goals&goals-type=completed" class="<?php if($goalsCategory === 'completed') { echo 'nav-item-active';} ?>">completed</a>
+        <li class="goals-nav-list-item">
+          <a href="index.php?page=progress&category=goals&goals-type=completed" class="goals-nav-list-item-link <?php if($goalsCategory === 'completed') { echo 'goals-nav-list-item-link-active';} ?>">completed</a>
         </li>
       </ul>
     </nav>
@@ -45,17 +45,17 @@
           echo '<ul class="goals-in-progress-list">';
           if (!empty($inProgressGoals['repetitive'])) {
             foreach ($inProgressGoals['repetitive'] as $goal) {
-              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_name'] .'</span><span>every ' . $goal['day'] .' of ' . $goal['month'] .'</span></li>';
+              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'"><div class="goals-in-progress-list-item-topwrap"><p class="goals-in-progress-list-item-name">' . $goal['habit_name'] .'</p><p class="goals-in-progress-list-item-status">2 days</p></div><p class="goals-in-progress-list-item-amount">every ' . $goal['day'] .' of ' . $goal['month'] .'</p></li>';
             }
           }
           if (!empty($inProgressGoals['streaks'])) {
             foreach ($inProgressGoals['streaks'] as $goal) {
-              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_name'] .'</span><span>' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</span></li>';
+              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'"><div class="goals-in-progress-list-item-topwrap"><p class="goals-in-progress-list-item-name">' . $goal['habit_name'] .'</p><p class="goals-in-progress-list-item-status">2 days</p></div><p class="goals-in-progress-list-item-amount">' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</p></li>';
             }
           }
           if (!empty($inProgressGoals['total_amount'])) {
             foreach ($inProgressGoals['total_amount'] as $goal) {
-              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_name'] .'</span><span>' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</span></li>';
+              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'"><div class="goals-in-progress-list-item-topwrap"><p class="goals-in-progress-list-item-name">' . $goal['habit_name'] .'</p><p class="goals-in-progress-list-item-status">2 days</p></div><p class="goals-in-progress-list-item-amount">' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</p></li>';
             }
           }
           echo '</ul>';
@@ -72,17 +72,17 @@
           echo '<ul class="goals-completed-list">';
           if (!empty($completedGoals['repetitive'])) {
             foreach ($completedGoals['repetitive'] as $goal) {
-              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>Completed</span><span>every ' . $goal['day'] .' of ' . $goal['month'] .'</span></li>';
+              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'"><div class="goals-completed-list-item-topwrap"><p class="goals-completed-list-item-name">' . $goal['habit_name'] .'</p><p class="goals-completed-list-item-status">completed</p></div><p class="goals-completed-list-item-amount">every ' . $goal['day'] .' of ' . $goal['month'] .'</p></li>';
             }
           }
           if (!empty($completedGoals['streaks'])) {
             foreach ($completedGoals['streaks'] as $goal) {
-              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>Completed</span><span>' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</span></li>';
+              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'"><div class="goals-completed-list-item-topwrap"><p class="goals-completed-list-item-name">' . $goal['habit_name'] .'</p><p class="goals-completed-list-item-status">completed</p></div><p class="goals-completed-list-item-amount">' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</p></li>';
             }
           }
           if (!empty($completedGoals['total_amount'])) {
             foreach ($completedGoals['total_amount'] as $goal) {
-              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'"><span>' . $goal['habit_icon'] . '</span><span>' . $goal['habit_name'] .'</span><span>Completed</span><span>' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</span></li>';
+              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'"><div class="goals-completed-list-item-topwrap"><p class="goals-completed-list-item-name">' . $goal['habit_name'] .'</p><p class="goals-completed-list-item-status">completed</p></div><p class="goals-completed-list-item-amount">' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</p></li>';
             }
           }
           echo '</ul>';

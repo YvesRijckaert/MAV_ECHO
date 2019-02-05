@@ -6,8 +6,8 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 2rem 0;
-  animation: showNotification 2.5s 0s 1 ease-in-out forwards;
+  padding: 3rem 0;
+  animation: showNotification 2s 0s 1 ease-in-out forwards;
 }
 
 .session-info {
@@ -21,7 +21,7 @@
 @keyframes showNotification {
 
   0%, 100% {
-    transform: translateY(-6rem);
+    transform: translateY(-100%);
   }
 
   15%, 85% {
