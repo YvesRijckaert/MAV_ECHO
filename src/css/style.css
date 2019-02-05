@@ -504,6 +504,10 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
 /* profile customize add habit */
 
+.main-profile-add-habit {
+  position: relative;
+}
+
 .main-profile-add-habit-title {
   text-align: center;
   font-size: 3.6rem;
@@ -515,6 +519,16 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   width: 20rem;
   margin: 0 auto;
   padding: 2.5rem 0;
+}
+
+.main-profile-add-habit-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 2.5rem 5rem;
+  border-bottom-right-radius: 4rem;
 }
 
 .main-profile-add-habit-error {

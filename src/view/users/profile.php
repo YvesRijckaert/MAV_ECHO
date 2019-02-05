@@ -229,6 +229,20 @@
     <section class="main-profile-add-habit">
       <h2 class="main-profile-add-habit-title">add habit</h2>
       <p class="main-profile-add-habit-subtitle">choose or write down a new habit</p>
+      <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
+        <svg width="30px" height="23px" viewBox="0 0 30 23">
+          <title>Group 6</title>
+          <desc>Created with Sketch.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-49.000000, -126.000000)">
+              <g transform="translate(52.000000, 128.000000)">
+                <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+                <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <?php if(!empty($errors['add-habit'])) echo '<p class="main-profile-add-habit-error error">' . $errors['add-habit'] . '</p>';?>
       <form class="main-profile-add-habit-form" method="post">
         <fieldset class="add-habit-form-field add-habit-suggested">
@@ -257,7 +271,7 @@
             <?php endforeach; ?>
           </div>
         </fieldset>
-        <input type="submit" class="add-habit-form-submit" name="add-habit-1" value="submit" />
+        <input type="submit" class="add-habit-form-submit" name="add-habit-1" value="next" />
       </form>
     </section>
   <?php endif; ?>
@@ -265,7 +279,21 @@
   <?php if ($currentStep === 'add-habit-2'): ?>
     <section class="main-profile-add-habit">
       <h2 class="main-profile-add-habit-title">add habit</h2>
-      <p>choose a shape</p>
+      <p class="main-profile-add-habit-subtitle">choose a shape</p>
+      <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
+        <svg width="30px" height="23px" viewBox="0 0 30 23">
+          <title>Group 6</title>
+          <desc>Created with Sketch.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-49.000000, -126.000000)">
+              <g transform="translate(52.000000, 128.000000)">
+                <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+                <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <form method="post">
         <?php if(!empty($errors['add-habit-icon'])) echo '<span class="error">' . $errors['add-habit-icon'] . '</span>';?>
         <?php foreach($allPossibleHabitIcons as $icon): ?>
@@ -274,7 +302,7 @@
             <span class="form-label"><?php echo $icon['habit_icon'] ?></span>
           </label>
         <?php endforeach; ?>
-        <input type="submit" name="add-habit-2" value="submit" />
+        <input type="submit" name="add-habit-2" value="done" />
       </form>
     </section>
   <?php endif; ?>
