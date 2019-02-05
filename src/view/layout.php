@@ -5,6 +5,7 @@
     <meta name="author" content="Yves Rijckaert Arthur Segaert">
     <meta name="description" content="Major Atelier V">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
     <title><?php echo $title; ?></title>
     <?php echo $css; ?>
   </head>

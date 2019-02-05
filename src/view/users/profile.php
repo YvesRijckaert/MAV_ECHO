@@ -387,11 +387,45 @@
 <?php if ($currentCategory == 'links'): ?>
   <section class="main-profile-links-sites">
     <h2 class="main-profile-links-sites-title hide">Sites</h2>
-
+    <article>
+      <h3>JAC</h3>
+      <p>Jongeren Advies Centrum (JAC) geeft informatie, advies en hulp aan jongeren. </p>
+    </article>
+    <article>
+      <h3>Awel</h3>
+      <p>Awel luistert naar alle kinderen en jongeren met een vraag, een verhaal of een probleem.</p>
+    </article>
+    <article>
+      <h3>CGG</h3>
+      <p>CGG biedt medisch-psychiatrische en psychotherapeutische hulpverlening aan mensen met ernstigepsychische problemen.</p>
+    </article>
+    <article>
+      <h3>Tejo</h3>
+      <p>TEJO biedt laagdrempelige, therapeutische ondersteuning aan jongeren, kortdurend, onmiddellijk, anoniem, en gratis.</p>
+    </article>
   </section>
   <section class="main-profile-links-phone">
     <h2 class="main-profile-links-phone-title hide">Phone numbers</h2>
-
+    <article>
+      <h3>Geweld</h3>
+      <a href="tel:1217" rel="nofollow">1217</a>
+    </article>
+    <article>
+      <h3>Awel</h3>
+      <a href="tel:102" rel="nofollow">102</a>
+    </article>
+    <article>
+      <h3>Zelfmoordlijn</h3>
+      <a href="tel:+1813" rel="nofollow">1813</a>
+    </article>
+    <article>
+      <h3>Druglijn</h3>
+      <a href="tel:078-15-10-20" rel="nofollow">078 / 15 10 20</a>
+    </article>
+    <article>
+      <h3>Teleonthaal</h3>
+      <a href="tel:106" rel="nofollow">106</a>
+    </article>
   </section>
 <?php endif; ?>
 
