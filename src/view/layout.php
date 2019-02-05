@@ -25,11 +25,11 @@
           <li class="header-nav-item <?php if($currentPage === 'home') { echo 'header-nav-item-active';} ?>">
             <a href="index.php">Home</a>
           </li>
-          <li class="header-nav-item <?php if($currentPage === 'register') { echo 'header-nav-item-active';} ?>">
-            <a href="index.php?page=register">Register</a>
-          </li>
           <li class="header-nav-item <?php if($currentPage === 'login') { echo 'header-nav-item-active';} ?>">
             <a href="index.php?page=login">Login</a>
+          </li>
+          <li class="header-nav-item <?php if($currentPage === 'register') { echo 'header-nav-item-active';} ?>">
+            <a href="index.php?page=register">Hop on board</a>
           </li>
         </ul>
       </nav>

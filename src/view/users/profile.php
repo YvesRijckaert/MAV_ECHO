@@ -330,18 +330,24 @@
           </g>
         </svg>
       </a>
-      <ul>
-        <li>
-          <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=repetitive">Repetitive</a>
-          <p>e.g. <?php echo $habit ?>, every <strong>thursday</strong> of <strong>june</strong>.</p>
+      <ul class="main-profile-add-goal-types">
+        <li class="add-goal-type">
+          <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=repetitive">
+            <p>Repetitive</p>
+            <p>e.g. <?php echo $habit ?>, every <strong>thursday</strong> of <strong>june</strong>.</p>
+          </a>
         </li>
-        <li>
-          <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=streak">Streak</a>
-          <p>e.g. <?php echo $habit ?>, <strong>10 days</strong> in a row.</p>
+        <li class="add-goal-type">
+          <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=streak">
+            <p>Streak</p>
+            <p>e.g. <?php echo $habit ?>, <strong>10 days</strong> in a row.</p>
+          </a>
         </li>
-        <li>
-          <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=total">Total</a>
-          <p>e.g. <?php echo $habit ?>, <strong>20 days</strong> in <strong>january</strong>.</p>
+        <li class="add-goal-type">
+          <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=total">
+            <p>Total</p>
+            <p>e.g. <?php echo $habit ?>, <strong>20 days</strong> in <strong>january</strong>.</p>
+          </a>
         </li>
       </ul>
     </section>

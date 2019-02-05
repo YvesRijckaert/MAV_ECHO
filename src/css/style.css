@@ -607,6 +607,21 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   margin: 2.5rem 15rem;
 }
 
+/* customize add goals */
+
+.main-profile-add-goal-types {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.add-goal-type a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* profile links */
 
 .main-profile-links-sites {

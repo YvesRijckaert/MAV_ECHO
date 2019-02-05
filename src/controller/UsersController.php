@@ -195,6 +195,9 @@ class UsersController extends Controller {
               $this->set('errors', $errors);
             }
 
+            //TODO:
+            //checken of de habit die je wilt verwijderen actieve goals heeft en die dan ook verwijderen
+
             if (isset($_GET['delete-habit'])) {
               $habit = $this->habitDAO->selectOne(array(
                 'user_id' => $_SESSION['user']['user_id'],
