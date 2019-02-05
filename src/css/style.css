@@ -218,14 +218,19 @@ input[type=radio] {
   display: none;
 }
 
-.day-info-habits-list-item, .month-form-label {
+.day-info-habits-list-item, .month-form-label, .customize-habits-list-item, .customize-goals-list-item {
   color: white;
   padding: 2rem 3rem;
   border-radius: 1.2rem;
   font-weight: bold;
 }
 
-.day-info-habits-list-item:not(:last-child), .month-form-label:not(:last-child) {
+.customize-habits-list-item, .customize-goals-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day-info-habits-list-item:not(:last-child), .month-form-label:not(:last-child), .customize-habits-list-item:not(:last-child), .customize-goals-list-item:not(:last-child) {
   margin-bottom: 1rem;
 }
 
@@ -233,11 +238,13 @@ input[type=radio] {
 
 .main-overview-month {
   display: grid;
-  grid-template: 1fr 2fr 2fr / 1fr 1fr;
+  grid-template: min-content 1fr min-content / 1fr 3fr 3fr 1fr;
+  grid-column-gap: 5rem;
+  grid-row-gap: 2.5rem;
   grid-template-areas:
-    'nav habits'
-    'calendar habits'
-    'calendar info';
+    '. nav habits .'
+    '. calendar habits .'
+    '. calendar info .';
 }
 
 .main-overview-month-previous {
@@ -250,6 +257,7 @@ input[type=radio] {
 }
 
 .main-overview-month-date {
+  text-align: center;
   grid-area: nav;
   justify-self: center;
 }
@@ -258,12 +266,20 @@ input[type=radio] {
   grid-area: calendar;
 }
 
+.month-calendar-row {
+  height: 5rem;
+}
+
+.month-calendar-row-day {
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 1rem;
+  width: 5rem;
+  padding: -1rem;
+}
+
 .month-calendar-row-today {
-  border: .5rem solid black;
-  border-radius: 50%;
-  height: 1rem;
-  width: 1rem;
-  display: inline;
+  border: .2rem solid black;
 }
 
 .main-overview-month-form {
@@ -329,4 +345,49 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
 .main-overview-month-info {
   grid-area: info;
+}
+
+/* PROFILE: info */
+
+.main-profile-info-form {
+  display: flex;
+}
+
+.info-form-input {
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
+  border: none;
+  border-bottom: .2rem solid black;
+}
+
+.info-form-label-text {
+  color: #d4d4d4;
+}
+
+.info-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* profile customize */
+
+.main-profile-customize {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.main-profile-customize-habits, .main-profile-customize-goals {
+  width: 100%;
+  min-width: 20rem;
+  max-width: 50rem;
+  margin: 0 2.5rem;
+}
+
+.customize-habits-title, .customize-goals-title {
+  margin: 2.5rem 0;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 5.6rem;
+  text-transform: lowercase;
+  font-weight: bold;
 }

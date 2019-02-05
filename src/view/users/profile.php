@@ -14,24 +14,25 @@
 </nav>
 
 <?php if ($currentCategory == 'info') : ?>
-  <section>
-    <form class="update-form" method="post">
+  <section class="main-profile-info" id="main">
+    <h2 class="main-profile-info-title hide">Profile settings</h2>
+    <form class="main-profile-info-form" method="post">
       <label>
-        <span class="form-label">Email address</span>
-        <input type="email" name="email" class="form-input" value="<?php echo $_SESSION['user']['email'];?>" required />
+        <span class="info-form-label-text">email address</span>
+        <input type="email" name="email" class="info-form-input" value="<?php echo $_SESSION['user']['email'];?>" required />
         <?php if(!empty($errors['email'])) echo '<span class="error">' . $errors['email'] . '</span>';?>
       </label>
       <label>
-        <span class="form-label">Name</span>
-        <input type="text" name="nickname" class="form-input" value="<?php echo $_SESSION['user']['nickname'];?>" required />
+        <span class="info-form-label-text">username</span>
+        <input type="text" name="nickname" class="info-form-input" value="<?php echo $_SESSION['user']['nickname'];?>" required />
         <?php if(!empty($errors['nickname'])) echo '<span class="error">' . $errors['nickname'] . '</span>';?>
       </label>
       <label>
-        <span class="form-label">Birthdate</span>
-        <input type="date" name="birthdate" class="form-input" value="<?php echo $_SESSION['user']['birthdate'];?>" required />
+        <span class="info-form-label-text">birthday</span>
+        <input type="date" name="birthdate" class="info-form-input" value="<?php echo $_SESSION['user']['birthdate'];?>" required />
         <?php if(!empty($errors['birthdate'])) echo '<span class="error">' . $errors['birthdate'] . '</span>';?>
       </label>
-      <input type="submit" name="update-profile" value="save" />
+      <input type="submit" name="update-profile" class="info-form-submit"  value="done" />
     </form>
   </section>
 <?php endif; ?>
@@ -39,44 +40,105 @@
 <?php if ($currentCategory == 'customize'): ?>
 
   <?php if ($currentStep === 1): ?>
-  <section>
-    <article>
-      <h1>Habits</h1>
-      <ul>
-      <?php foreach ($currentHabits as $habit): {
-        if ($habit['active']) {
-            echo '<li style="background-color:' . $habit['habit_colour'] .'"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'"> delete</a>' . '</li>';
-        } else {
-          echo '<li><a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'" style="background-color:' .  $habit['habit_colour'] .'">add habit</a></li>';
-        }
-      };
-      endforeach;
-      ?>
-      </ul>
-    </article>
-    <article>
-      <h1>Goals</h1>
-      <ul>
-        <?php
-          if(!empty($currentGoals)) {
-            foreach ($currentGoals as $goal ): {
-              if(!isset($goal['repetitive']['no-goal'])) {
-                echo '<li style="background-color: ' . $goal['repetitive']['habit_colour'] . '"><span>' . $goal['repetitive']['habit_name'] . ', every ' . $goal['repetitive']['day'] . ' of ' . $goal['repetitive']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=repetitive&delete-goal=' . $goal['repetitive']['repetitive_id']  .'"> delete</a>' . '</li>';
-              } else if(!isset($goal['streaks']['no-goal'])) {
-                echo '<li style="background-color: ' . $goal['streaks']['habit_colour'] . '"><span>' . $goal['streaks']['habit_name'] . ', ' . $goal['streaks']['time_amount'] . ' ' . $goal['streaks']['time_type'] . ' in a row' . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=streaks&delete-goal=' . $goal['streaks']['streak_id']  .'"> delete</a>' . '</li>';
-              } else if(!isset($goal['total_amount']['no-goal'])) {
-                echo '<li style="background-color: ' . $goal['total_amount']['habit_colour'] . '"><span>' . $goal['total_amount']['habit_name'] . ', ' . $goal['total_amount']['days_amount'] . ' days in ' . $goal['total_amount']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=total-amount&delete-goal=' . $goal['total_amount']['total_amount_id']  .'"> delete</a>' . '</li>';
-              }
-              if(isset($goal['repetitive']['no-goal']) && isset($goal['streaks']['no-goal']) && isset($goal['total_amount']['no-goal'])) {
-                echo '<li style="background-color: ' . $goal['repetitive']['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-goal=' . $goal['repetitive']['habit_name']  .'">Add goal for ' . $goal['repetitive']['habit_name'] . '</a></li>';
-              }
-            };
-            endforeach;
+  <section class="main-profile-customize" id="main">
+    <h2 class="main-profile-customize-title hide">Customize</h2>
+    <article class="main-profile-customize-habits">
+      <h3 class="customize-habits-title">Habits</h3>
+      <ul class="customize-habits-list">
+        <?php foreach ($currentHabits as $habit): {
+          if ($habit['active']) {
+              echo '<li class="customize-habits-list-item" style="background-color:' . $habit['habit_colour'] .'; border: .2rem solid ' . $habit['habit_colour'] . '"><span>' . $habit['habit_name'] . '</span>' . '<a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'"><svg width="11px" height="11px" viewBox="0 0 11 11">
+                <title>Delete habit link</title>
+                <desc>Icon for delete habit link.</desc>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-627.000000, -332.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.17756">
+                    <g transform="translate(294.000000, 203.000000)">
+                      <g transform="translate(0.000000, 103.000000)">
+                        <g transform="translate(338.554870, 31.192388) rotate(-45.000000) translate(-338.554870, -31.192388) translate(332.554870, 25.192388)">
+                          <path d="M5.74368671,0.15790027 L5.74368671,11.1579003"></path>
+                          <path d="M5.74368671,0.203354815 L5.74368671,11.1124457" transform="translate(5.743687, 5.657900) rotate(90.000000) translate(-5.743687, -5.657900) "></path>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+          </svg></a>' . '</li>';
           } else {
-            echo '<p>You need to add habits in order to add goals.</p>';
+            echo '<li class="customize-habits-list-item" style="border: .2rem solid ' . $habit['habit_colour'] . '; color: ' . $habit['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'">add habit</a></li>';
           }
+        };
+        endforeach;
         ?>
       </ul>
+    </article>
+    <article class="main-profile-customize-goals">
+      <h3 class="customize-goals-title">Goals</h3>
+      <?php
+        if(!empty($currentGoals)) {
+          echo '<ul class="customize-goals-list">';
+          foreach ($currentGoals as $goal ): {
+            if(!isset($goal['repetitive']['no-goal'])) {
+              echo '<li class="customize-goals-list-item" style="background-color: ' . $goal['repetitive']['habit_colour'] . '; border: .2rem solid ' . $goal['total_amount']['habit_colour'] . '"><span>' . $goal['repetitive']['habit_name'] . ', every ' . $goal['repetitive']['day'] . ' of ' . $goal['repetitive']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=repetitive&delete-goal=' . $goal['repetitive']['repetitive_id']  .'"><svg width="11px" height="11px" viewBox="0 0 11 11">
+              <title>Delete habit link</title>
+              <desc>Icon for delete habit link.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-627.000000, -332.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.17756">
+                  <g transform="translate(294.000000, 203.000000)">
+                    <g transform="translate(0.000000, 103.000000)">
+                      <g transform="translate(338.554870, 31.192388) rotate(-45.000000) translate(-338.554870, -31.192388) translate(332.554870, 25.192388)">
+                        <path d="M5.74368671,0.15790027 L5.74368671,11.1579003"></path>
+                        <path d="M5.74368671,0.203354815 L5.74368671,11.1124457" transform="translate(5.743687, 5.657900) rotate(90.000000) translate(-5.743687, -5.657900) "></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+        </svg></a>' . '</li>';
+            } else if(!isset($goal['streaks']['no-goal'])) {
+              echo '<li class="customize-goals-list-item" style="background-color: ' . $goal['streaks']['habit_colour'] . '; border: .2rem solid ' . $goal['total_amount']['habit_colour'] . '"><span>' . $goal['streaks']['habit_name'] . ', ' . $goal['streaks']['time_amount'] . ' ' . $goal['streaks']['time_type'] . ' in a row' . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=streaks&delete-goal=' . $goal['streaks']['streak_id']  .'"><svg width="11px" height="11px" viewBox="0 0 11 11">
+              <title>Delete habit link</title>
+              <desc>Icon for delete habit link.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-627.000000, -332.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.17756">
+                  <g transform="translate(294.000000, 203.000000)">
+                    <g transform="translate(0.000000, 103.000000)">
+                      <g transform="translate(338.554870, 31.192388) rotate(-45.000000) translate(-338.554870, -31.192388) translate(332.554870, 25.192388)">
+                        <path d="M5.74368671,0.15790027 L5.74368671,11.1579003"></path>
+                        <path d="M5.74368671,0.203354815 L5.74368671,11.1124457" transform="translate(5.743687, 5.657900) rotate(90.000000) translate(-5.743687, -5.657900) "></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+        </svg></a>' . '</li>';
+            } else if(!isset($goal['total_amount']['no-goal'])) {
+              echo '<li class="customize-goals-list-item" style="background-color: ' . $goal['total_amount']['habit_colour'] . '; border: .2rem solid ' . $goal['total_amount']['habit_colour'] . '"><span>' . $goal['total_amount']['habit_name'] . ', ' . $goal['total_amount']['days_amount'] . ' days in ' . $goal['total_amount']['month'] . '</span>' . '<a href="index.php?page=profile&category=customize&goal-category=total-amount&delete-goal=' . $goal['total_amount']['total_amount_id']  .'"><svg width="11px" height="11px" viewBox="0 0 11 11">
+              <title>Delete habit link</title>
+              <desc>Icon for delete habit link.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-627.000000, -332.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.17756">
+                  <g transform="translate(294.000000, 203.000000)">
+                    <g transform="translate(0.000000, 103.000000)">
+                      <g transform="translate(338.554870, 31.192388) rotate(-45.000000) translate(-338.554870, -31.192388) translate(332.554870, 25.192388)">
+                        <path d="M5.74368671,0.15790027 L5.74368671,11.1579003"></path>
+                        <path d="M5.74368671,0.203354815 L5.74368671,11.1124457" transform="translate(5.743687, 5.657900) rotate(90.000000) translate(-5.743687, -5.657900) "></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+        </svg></a>' . '</li>';
+            }
+            if(isset($goal['repetitive']['no-goal']) && isset($goal['streaks']['no-goal']) && isset($goal['total_amount']['no-goal'])) {
+              echo '<li class="customize-goals-list-item" style="border: .2rem solid ' . $goal['repetitive']['habit_colour'] . '; color: ' . $goal['repetitive']['habit_colour'] . '"><a href="index.php?page=profile&category=customize&add-goal=' . $goal['repetitive']['habit_name']  .'">add goal for ' . $goal['repetitive']['habit_name'] . '</a></li>';
+            }
+          };
+          endforeach;
+          echo '</ul>';
+        } else {
+          echo '<p>You need to add habits in order to add goals.</p>';
+        }
+      ?>
     </article>
   </section>
   <?php endif; ?>
