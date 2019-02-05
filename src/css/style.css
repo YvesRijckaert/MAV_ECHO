@@ -120,7 +120,7 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 
 .main-nav-item-active .main-nav-item-link {
   padding-bottom: 1rem;
-  border-bottom: .2rem solid #2b2b2b;
+  border-bottom: .25rem solid #2b2b2b;
 }
 
 .main-nav-item-month:not(.main-nav-item-active), .active-category-statistics .main-nav-item-achievements, .active-category-info .main-nav-item-customize, .active-category-achievements .main-nav-item-goals, .active-category-customize .main-nav-item-links {
@@ -256,9 +256,14 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 }
 
 .goals-in-progress-list-item-amount, .goals-completed-list-item-amount {
-  padding-top: 3rem;
+  padding-top: 2.5rem;
   color: black;
   opacity: .2;
+}
+
+.goals-completed-list-item-topwrap {
+  border-bottom: .25rem solid white;
+  padding-bottom: 2.5rem;
 }
 
 /* calendar */
@@ -306,7 +311,7 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 }
 
 .month-calendar-row-today {
-  border: .2rem solid black;
+  border: .25rem solid black;
 }
 
 .main-overview-month-form {
@@ -317,61 +322,94 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 
 .month-form-label-red {
   color: var(--red);
-  border: .2rem solid var(--red);
+  border: .25rem solid var(--red);
 }
 
 input[type=radio]:focus + .month-form-label-red,  input[type=radio]:checked + .month-form-label-red {
   color: white;
-  border: .2rem solid var(--red);
+  border: .25rem solid var(--red);
   background-color: var(--red);
 }
 
 .month-form-label-orange {
   color: var(--orange);
-  border: .2rem solid var(--orange);
+  border: .25rem solid var(--orange);
 }
 
 input[type=radio]:focus + .month-form-label-orange,  input[type=radio]:checked + .month-form-label-orange {
   color: white;
-  border: .2rem solid var(--orange);
+  border: .25rem solid var(--orange);
   background-color: var(--orange);
 }
 
 .month-form-label-green {
   color: var(--green);
-  border: .2rem solid var(--green);
+  border: .25rem solid var(--green);
 }
 
 input[type=radio]:focus + .month-form-label-green,  input[type=radio]:checked + .month-form-label-green {
   color: white;
-  border: .2rem solid var(--green);
+  border: .25rem solid var(--green);
   background-color: var(--green);
 }
 
 .month-form-label-blue {
   color: var(--blue);
-  border: .2rem solid var(--blue);
+  border: .25rem solid var(--blue);
 }
 
 input[type=radio]:focus + .month-form-label-blue,  input[type=radio]:checked + .month-form-label-blue {
   color: white;
-  border: .2rem solid var(--blue);
+  border: .25rem solid var(--blue);
   background-color: var(--blue);
 }
 
 .month-form-label-purple {
   color: var(--purple);
-  border: .2rem solid var(--purple);
+  border: .25rem solid var(--purple);
 }
 
 input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked + .month-form-label-purple {
   color: white;
-  border: .2rem solid var(--purple);
+  border: .25rem solid var(--purple);
   background-color: var(--purple);
 }
 
 .main-overview-month-info {
   grid-area: info;
+}
+
+/* progress achievements */
+
+.main-progress-achievements-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15rem);
+  grid-gap: 2.5rem;
+  margin: 2.5rem 5vw;
+  justify-content: center;
+}
+
+.achievements-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: whitesmoke;
+  border-radius: 1.2rem;
+}
+
+.achievements-list-item-title, .achievements-list-item-desc {
+  font-size: 1.6rem;
+}
+
+.achievements-list-item-title {
+  font-weight: bold;
+  padding-top: 15rem;
+}
+
+.achievements-list-item-desc {
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
+  padding: 1rem 2.5rem 2rem;
 }
 
 /* progress goals */
@@ -403,7 +441,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 }
 
 .goals-nav-list-item-link-active {
-  border-bottom: .2rem solid #2b2b2b;
+  border-bottom: .25rem solid #2b2b2b;
 }
 
 /* profile info */
@@ -449,7 +487,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   height: 5rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   border: none;
-  border-bottom: .2rem solid black;
+  border-bottom: .25rem solid black;
 }
 
 .info-form-label-text {
@@ -468,7 +506,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
 .info-form-goals-option, .add-habit-form-label {
   font-size: 1.8rem;
-  border: .2rem solid #2b2b2b;
+  border: .25rem solid #2b2b2b;
   border-radius: 1.2rem;
   padding: 1rem;
   margin-right: 1rem;
@@ -608,7 +646,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 }
 
 .site-jac, .site-awel, .site-cgg, .site-tejo {
-  border-bottom: .2rem solid rgba(43, 43, 43, .2);
+  border-bottom: .25rem solid rgba(43, 43, 43, .2);
   padding: 2rem;
 }
 
@@ -635,7 +673,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
 .main-pofile-links-phone-article {
   display: flex;
-  border: .2rem solid #2b2b2b;
+  border: .25rem solid #2b2b2b;
   border-radius: 1.2rem;
   padding: 1.5rem;
 }

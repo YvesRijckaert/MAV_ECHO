@@ -19,7 +19,50 @@
 <?php endif; ?>
 
 <?php if ($currentCategory == 'achievements'): ?>
-  <section>
+  <section class="main-progress-achievements" id="main">
+    <h2 class="main-progress-achievements-title hide">Achievements</h2>
+    <ul class="main-progress-achievements-list">
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">The first steps</h3>
+        <p class="achievements-list-item-desc">enter down your first day</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Golazo</h3>
+        <p class="achievements-list-item-desc">complete your first goal</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+      <li class="achievements-list-item">
+        <h3 class="achievements-list-item-title">Lucky three</h3>
+        <p class="achievements-list-item-desc">enter three days in a row</p>
+      </li>
+    </ul>
   </section>
 <?php endif; ?>
 
