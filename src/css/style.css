@@ -445,7 +445,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   grid-area: submit;
 }
 
-.info-form-input {
+.info-form-input, .add-habit-form-input-text {
   height: 5rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   border: none;
@@ -461,12 +461,12 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   flex-direction: column;
 }
 
-.info-form-goals-options {
+.info-form-goals-options, .add-habit-form-field-all {
   display: flex;
   flex-wrap: wrap;
 }
 
-.info-form-goals-option {
+.info-form-goals-option, .add-habit-form-label {
   font-size: 1.8rem;
   border: .2rem solid #2b2b2b;
   border-radius: 1.2rem;
@@ -490,13 +490,16 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   margin: 0 2.5rem;
 }
 
-.customize-habits-title, .customize-goals-title {
+.customize-habits-title, .customize-goals-title, legend {
   margin: 2.5rem 0;
-  text-align: center;
   color: whitesmoke;
   font-size: 5.6rem;
   text-transform: lowercase;
   font-weight: bold;
+}
+
+.customize-habits-title, .customize-goals-title {
+  text-align: center;
 }
 
 /* profile customize add habit */
@@ -511,6 +514,38 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   text-align: center;
   width: 20rem;
   margin: 0 auto;
+  padding: 2.5rem 0;
+}
+
+.main-profile-add-habit-error {
+  text-align: center;
+}
+
+.main-profile-add-habit-form {
+  padding-top: 2.5rem;
+  display: grid;
+  grid-template: repeat(2, min-content) / 1fr 3fr 3fr 1fr;
+  grid-gap: 2.5rem;
+  grid-template-areas:
+    '. suggested write .'
+    '. all all submit';
+}
+
+.add-habit-suggested {
+  grid-area: suggested;
+}
+
+.add-habit-write {
+  grid-area: write;
+}
+
+.add-habit-all {
+  grid-area: all;
+}
+
+.add-habit-form-submit {
+  grid-area: submit;
+  align-self: flex-end;
 }
 
 /* profile links */

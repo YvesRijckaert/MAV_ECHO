@@ -229,20 +229,35 @@
     <section class="main-profile-add-habit">
       <h2 class="main-profile-add-habit-title">add habit</h2>
       <p class="main-profile-add-habit-subtitle">choose or write down a new habit</p>
-      <form method="post">
-        <?php if(!empty($errors['add-habit'])) echo '<span class="error">' . $errors['add-habit'] . '</span>';?>
-        <input type="radio" id="neither" name="chosen_habit" value="neither" class="form-input" checked />
-        <label for="neither">
-          <span class="form-label">Write down my own habit</span>
-        </label>
-        <input type="text" name="custom_habit" placeholder="write down a habit" />
-        <?php foreach($allPossibleHabits as $habit): ?>
-          <input type="radio" id="<?php echo $habit['data_habit_name_id'] ?>" name="chosen_habit" value="<?php echo $habit['data_habit_name_id'] ?>" class="form-input" />
-          <label for="<?php echo $habit['data_habit_name_id'] ?>">
-            <span class="form-label"><?php echo $habit['habit_name'] ?></span>
+      <?php if(!empty($errors['add-habit'])) echo '<p class="main-profile-add-habit-error error">' . $errors['add-habit'] . '</p>';?>
+      <form class="main-profile-add-habit-form" method="post">
+        <fieldset class="add-habit-form-field add-habit-suggested">
+          <legend>suggested</legend>
+          <input type="radio" id="test" class="add-habit-form-input" name="chosen_habit" value="test" />
+          <label for="test" class="add-habit-form-label">
+            <span>test</span>
           </label>
-        <?php endforeach; ?>
-        <input type="submit" name="add-habit-1" value="submit" />
+        </fieldset>
+        <fieldset class="add-habit-form-field add-habit-write">
+          <legend>write</legend>
+          <input type="radio" id="neither" class="add-habit-form-input" name="chosen_habit" value="neither" checked />
+          <label for="neither" class="add-habit-form-label">
+            <span>Write down my own habit</span>
+          </label>
+          <input type="text" class="add-habit-form-input add-habit-form-input-text" name="custom_habit" placeholder="write down a habit" />
+        </fieldset>
+        <fieldset class="add-habit-form-field add-habit-all">
+          <legend>all</legend>
+          <div class="add-habit-form-field-all">
+            <?php foreach($allPossibleHabits as $habit): ?>
+              <input type="radio" id="<?php echo $habit['data_habit_name_id'] ?>" class="add-habit-form-input" name="chosen_habit" value="<?php echo $habit['data_habit_name_id'] ?>" />
+              <label for="<?php echo $habit['data_habit_name_id'] ?>" class="add-habit-form-label">
+                <span><?php echo $habit['habit_name'] ?></span>
+              </label>
+            <?php endforeach; ?>
+          </div>
+        </fieldset>
+        <input type="submit" class="add-habit-form-submit" name="add-habit-1" value="submit" />
       </form>
     </section>
   <?php endif; ?>
