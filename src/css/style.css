@@ -54,6 +54,11 @@ input[type=radio] {
   position: absolute;
 }
 
+input[type=radio]:focus + label,  input[type=radio]:checked + label {
+  background-color: black;
+  color: white;
+}
+
 /* header */
 
 .header {
@@ -369,27 +374,6 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   grid-area: info;
 }
 
-/* profile info */
-
-.main-profile-info-form {
-  display: flex;
-}
-
-.info-form-input {
-  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
-  border: none;
-  border-bottom: .2rem solid black;
-}
-
-.info-form-label-text {
-  color: #d4d4d4;
-}
-
-.info-form-group {
-  display: flex;
-  flex-direction: column;
-}
-
 /* progress goals */
 
 .main-progress-goals {
@@ -420,6 +404,72 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
 .goals-nav-list-item-link-active {
   border-bottom: .2rem solid #2b2b2b;
+}
+
+/* profile info */
+
+.main-profile-info-form {
+  display: grid;
+  grid-template: repeat(4, 1fr) / 1fr 3fr 3fr 1fr;
+  grid-row-gap: 5rem;
+  grid-column-gap: 2.5rem;
+  grid-template-areas:
+    '. email birthday .'
+    '. username password .'
+    '. goals goals .'
+    '. . . submit';
+  margin-top: 2.5rem;
+}
+
+.info-form-email {
+  grid-area: email;
+}
+
+.info-form-birthday {
+  grid-area: birthday;
+}
+
+.info-form-username {
+  grid-area: username;
+}
+
+.info-form-password {
+  grid-area: password;
+}
+
+.info-form-goals {
+  grid-area: goals;
+}
+
+.info-form-submit {
+  grid-area: submit;
+}
+
+.info-form-input {
+  height: 5rem;
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
+  border: none;
+  border-bottom: .2rem solid black;
+}
+
+.info-form-label-text {
+  color: #d4d4d4;
+}
+
+.info-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-form-goals-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info-form-goals-option {
+  border: .2rem solid #2b2b2b;
+  border-radius: 1.2rem;
+  padding: 1rem;
 }
 
 /* profile customize */
@@ -456,7 +506,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
     '. jac awel .'
     '. cgg tejo .';
   margin-bottom: 10rem;
-  margin-top: 5rem;
+  margin-top: 2.5rem;
 }
 
 .site-jac {
@@ -511,7 +561,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 .main-profile-links-phone {
   display: grid;
   grid-template: repeat(2, min-content) / 1fr 1.5fr 1.5fr 3fr 1fr;
-  grid-gap: 1.5rem;
+  grid-gap: 2.5rem;
   grid-template-areas:
     '. geweld awel zelfmoordlijn .'
     '. druglijn druglijn teleonthaal .';

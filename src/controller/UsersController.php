@@ -34,16 +34,21 @@ class UsersController extends Controller {
               if (empty($_POST['birthdate'])) {
                 $errors['birthdate'] = 'Please enter your birthdate.';
               }
+              if (empty($_POST['lifegoal'])) {
+                $errors['lifegoal'] = 'Please choose a lifegoal.';
+              }
               if(empty($errors)) {
                 $this->userDAO->update(array(
                   'email' => $_POST['email'],
                   'nickname' => $_POST['nickname'],
                   'birthdate' => $_POST['birthdate'],
+                  'lifegoal' => $_POST['lifegoal'],
                   'user_id' => $_SESSION['user']['user_id']
                 ));
                 $_SESSION['user']['email'] = $_POST['email'];
                 $_SESSION['user']['nickname'] = $_POST['nickname'];
                 $_SESSION['user']['birthdate'] = $_POST['birthdate'];
+                $_SESSION['user']['lifegoal'] = $_POST['lifegoal'];
                 $_SESSION['info'] = 'Successfully updated profile.';
                 header('Location: index.php?page=profile&category=info');
                 exit();

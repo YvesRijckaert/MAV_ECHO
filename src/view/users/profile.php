@@ -17,22 +17,60 @@
   <section class="main-profile-info" id="main">
     <h2 class="main-profile-info-title hide">Profile settings</h2>
     <form class="main-profile-info-form" method="post">
-      <label>
+      <label class="info-form-group info-form-email">
         <span class="info-form-label-text">email address</span>
         <input type="email" name="email" class="info-form-input" value="<?php echo $_SESSION['user']['email'];?>" required />
         <?php if(!empty($errors['email'])) echo '<span class="error">' . $errors['email'] . '</span>';?>
       </label>
-      <label>
+      <label class="info-form-group info-form-username">
         <span class="info-form-label-text">username</span>
         <input type="text" name="nickname" class="info-form-input" value="<?php echo $_SESSION['user']['nickname'];?>" required />
         <?php if(!empty($errors['nickname'])) echo '<span class="error">' . $errors['nickname'] . '</span>';?>
       </label>
-      <label>
+      <label class="info-form-group info-form-birthday">
         <span class="info-form-label-text">birthday</span>
         <input type="date" name="birthdate" class="info-form-input" value="<?php echo $_SESSION['user']['birthdate'];?>" required />
         <?php if(!empty($errors['birthdate'])) echo '<span class="error">' . $errors['birthdate'] . '</span>';?>
       </label>
-      <input type="submit" name="update-profile" class="info-form-submit"  value="done" />
+      <div class="info-form-group info-form-password">
+        <p class="info-form-label-text">password</p>
+        <a href="#">change password</a>
+      </div>
+      <div class="info-form-group info-form-goals">
+        <p class="info-form-label-text">overall goal</p>
+        <?php if(!empty($errors['lifegoal'])) echo '<span class="error">' . $errors['lifegoal'] . '</span>';?>
+        <div class="info-form-goals-options">
+          <input type="radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required <?php if($_SESSION['user']['lifegoal'] == 'reduce-stress') echo 'checked' ?>/>
+          <label for="reduce-stress" class="info-form-goals-option">
+            <span>reduce stress</span>
+          </label>
+          <input type="radio" name="lifegoal" id="feel-happier" value="feel-happier" required <?php if($_SESSION['user']['lifegoal'] == 'feel-happier') echo 'checked' ?> />
+          <label for="feel-happier" class="info-form-goals-option">
+            <span>feel happier</span>
+          </label>
+          <input type="radio" name="lifegoal" id="decrease-anxiety" value="decrease-anxiety" required <?php if($_SESSION['user']['lifegoal'] == 'decrease-anxiety') echo 'checked' ?> />
+          <label for="decrease-anxiety" class="info-form-goals-option">
+            <span>decrease anxiety</span>
+          </label>
+          <input type="radio" name="lifegoal" id="build-confidence" value="build-confidence" required <?php if($_SESSION['user']['lifegoal'] == 'build-confidence') echo 'checked' ?> />
+          <label for="build-confidence" class="info-form-goals-option">
+            <span>build confidence</span>
+          </label>
+          <input type="radio" name="lifegoal" id="improve-social-skills" value="improve-social-skills" required <?php if($_SESSION['user']['lifegoal'] == 'improve-social-skills') echo 'checked' ?> />
+          <label for="improve-social-skills" class="info-form-goals-option">
+            <span>improve social skills</span>
+          </label>
+          <input type="radio" name="lifegoal" id="live-healthier" value="live-healthier" required <?php if($_SESSION['user']['lifegoal'] == 'live-healthier') echo 'checked' ?> />
+          <label for="live-healthier" class="info-form-goals-option">
+            <span>live healthier</span>
+          </label>
+          <input type="radio" name="lifegoal" id="think-positively" value="think-positively" required <?php if($_SESSION['user']['lifegoal'] == 'think-positively') echo 'checked' ?> />
+          <label for="think-positively" class="info-form-goals-option">
+            <span>think positively</span>
+          </label>
+        </div>
+      </div>
+      <input type="submit" class="info-form-submit" name="update-profile" class="info-form-submit"  value="done" />
     </form>
   </section>
 <?php endif; ?>
