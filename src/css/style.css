@@ -223,6 +223,12 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
   display: none;
 }
 
+/* overview add */
+
+.main-overview-add {
+  position: relative;
+}
+
 /* HABITS AND GOALS STYLING */
 
 .day-info-habits-list-item, .month-form-label, .customize-habits-list-item, .customize-goals-list-item, .goals-in-progress-list-item, .goals-completed-list-item {
@@ -235,6 +241,10 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
   height: 6.5rem;
 }
 
+.goals-in-progress-list-item, .goals-completed-list-item {
+  height: 13rem;
+}
+
 .customize-habits-list-item, .customize-goals-list-item {
   display: flex;
   justify-content: space-between;
@@ -244,14 +254,11 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
   margin-bottom: 1rem;
 }
 
-.goals-in-progress-list-item, .goals-completed-list-item {
-  display: flex;
-  flex-direction: column;
-}
-
 .goals-in-progress-list-item-topwrap, .goals-completed-list-item-topwrap {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .goals-in-progress-list-item-status, .goals-completed-list-item-status {
@@ -588,13 +595,13 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   position: relative;
 }
 
-.main-profile-add-habit-title, .main-profile-add-goal-title {
+.main-profile-add-habit-title, .main-profile-add-goal-title, .main-overview-add-title {
   text-align: center;
   font-size: 3.6rem;
   font-weight: bold;
 }
 
-.main-profile-add-habit-subtitle, .main-profile-add-goal-subtitle {
+.main-profile-add-habit-subtitle, .main-profile-add-goal-subtitle, .main-overview-add-subtitle {
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   text-align: center;
   width: 20rem;
@@ -602,7 +609,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   padding: 2.5rem 0;
 }
 
-.main-profile-add-habit-back, .main-profile-add-goal-back {
+.main-profile-add-habit-back, .main-profile-add-goal-back, .main-overview-add-back {
   position: absolute;
   top: 0;
   left: 0;
