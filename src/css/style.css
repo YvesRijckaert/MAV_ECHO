@@ -13,6 +13,11 @@ html {
   box-sizing: inherit;
 }
 
+:focus {
+  outline: .25rem dotted #2b2b2b;
+  outline-offset: .5rem;
+}
+
 body {
   font-size: 2rem;
   background-color: white;
@@ -227,6 +232,15 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 
 .main-overview-add {
   position: relative;
+}
+
+textarea {
+  resize: none;
+  border: none;
+  background-image: linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+  background-size: 100% 31px;
+  line-height: 3.1rem;
+  padding: .7rem;
 }
 
 /* HABITS AND GOALS STYLING */

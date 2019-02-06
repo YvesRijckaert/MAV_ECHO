@@ -18,7 +18,7 @@
   <form class="add-day-form" method="post">
     <label>
       <span class="form-label">What do you want to remember from this day?</span>
-      <textarea class="form-input" name="short-memory" cols="30" rows="10" maxlength="255" required><?php if(!empty($_POST['short-memory'])) echo $_POST['short-memory'];?><?php if(!empty($short_memory)) echo $short_memory ?></textarea>
+      <textarea class="form-input" name="short-memory" cols="40" rows="5" maxlength="255" required><?php if(!empty($_POST['short-memory'])) echo $_POST['short-memory'];?><?php if(!empty($short_memory)) echo $short_memory ?></textarea>
       <?php if(!empty($errors['short-memory'])) echo '<span class="error">' . $errors['short-memory'] . '</span>';?>
     </label>
     <input type="radio" name="feelings" id="feeling-great" value="feeling-great" <?php if(isset($feelings) && $feelings === 1) echo 'checked'; ?> required />

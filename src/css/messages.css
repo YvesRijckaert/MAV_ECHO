@@ -7,7 +7,7 @@
   left: 0;
   right: 0;
   padding: 3rem 0;
-  animation: showNotification 2s 0s 1 ease-in-out forwards;
+  animation: showNotification 1.8s 0s 1 ease-in-out forwards;
 }
 
 .session-info {
