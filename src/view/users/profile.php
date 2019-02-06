@@ -69,7 +69,17 @@
           </label>
         </div>
       </div>
-      <input type="submit" class="info-form-submit" name="update-profile" class="info-form-submit"  value="done" />
+      <label class="info-form-submit">
+        <input type="submit" name="update-profile" class="info-form-submit-button"  value="done" />
+        <span>done</span>
+        <svg width="22px" height="16px" viewBox="0 0 22 16">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
+              <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
+            </g>
+          </g>
+        </svg>
+      </label>
     </form>
   </section>
 <?php endif; ?>
@@ -348,7 +358,7 @@
             <?php endforeach; ?>
           </div>
         </fieldset>
-        <input type="submit" name="add-habit-2" value="done" />
+        <input type="submit" class="add-habit-form-submit" name="add-habit-2" value="done" />
       </form>
     </section>
   <?php endif; ?>
@@ -498,7 +508,7 @@
             <span class="form-label">december</span>
           </label>
         </fieldset>
-        <input type="submit" name="add_repetitive_goal" value="submit">
+        <input type="submit" class="add-goal-form-submit" name="add_repetitive_goal" value="submit">
       </form>
     </section>
   <?php endif; ?>

@@ -514,6 +514,14 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   bottom: 0;
   right: 0;
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.info-form-submit-button {
+  display: none;
 }
 
 .info-form-input, .add-habit-form-input-text {
@@ -629,9 +637,22 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   grid-area: all;
 }
 
-.add-habit-form-submit {
+.add-habit-form-submit, .add-goal-form-submit {
   grid-area: submit;
   align-self: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #2b2b2b;
+  color: white;
+  text-align: center;
+  padding: 2.5rem 7.5rem;
+  border-bottom-left-radius: 4rem;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .main-profile-add-habit-form-shape {
