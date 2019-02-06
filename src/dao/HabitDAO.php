@@ -55,7 +55,7 @@ class HabitDAO extends DAO {
   }
 
   public function selectAllActiveHabitsWithColour($data) {
-    $sql = "SELECT * FROM `habits` WHERE `user_id` = :user_id AND `active` = :active AND `habit_colour_name` = :habit_colour_name";
+    $sql = "SELECT * FROM `habits` INNER JOIN `data_habit_icon` ON habits.habit_icon = data_habit_icon.data_habit_icon_id WHERE habits.user_id = :user_id AND habits.active = :active AND habits.habit_colour_name = :habit_colour_name";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $data['user_id']);
     $stmt->bindValue(':active', $data['active']);

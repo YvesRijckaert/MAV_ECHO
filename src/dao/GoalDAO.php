@@ -57,7 +57,7 @@ class GoalDAO extends DAO {
 
   public function selectAllGoalsFromHabit($data) {
     $goals = array();
-    $sql1 = "SELECT * FROM `repetitive` INNER JOIN `habits` ON repetitive.habit_id = habits.habit_id AND habits.habit_id = :habit_id WHERE repetitive.user_id = :user_id AND repetitive.completed = :completed AND repetitive.active = :active";
+    $sql1 = "SELECT * FROM `repetitive` INNER JOIN `habits` ON repetitive.habit_id = habits.habit_id AND habits.habit_id = :habit_id INNER JOIN `data_habit_icon` ON habits.habit_icon = data_habit_icon.data_habit_icon_id WHERE repetitive.user_id = :user_id AND repetitive.completed = :completed AND repetitive.active = :active";
     $stmt1 = $this->pdo->prepare($sql1);
     $stmt1->bindValue(':user_id', $data['user_id']);
     $stmt1->bindValue(':habit_id', $data['habit_id']);
@@ -72,7 +72,7 @@ class GoalDAO extends DAO {
         'habit_colour' => $data['habit_colour']
       );
     }
-    $sql2 = "SELECT * FROM `streaks` INNER JOIN `habits` ON streaks.habit_id = habits.habit_id AND habits.habit_id = :habit_id WHERE streaks.user_id = :user_id AND streaks.completed = :completed AND streaks.active = :active";
+    $sql2 = "SELECT * FROM `streaks` INNER JOIN `habits` ON streaks.habit_id = habits.habit_id AND habits.habit_id = :habit_id INNER JOIN `data_habit_icon` ON habits.habit_icon = data_habit_icon.data_habit_icon_id WHERE streaks.user_id = :user_id AND streaks.completed = :completed AND streaks.active = :active";
     $stmt2 = $this->pdo->prepare($sql2);
     $stmt2->bindValue(':user_id', $data['user_id']);
     $stmt2->bindValue(':habit_id', $data['habit_id']);
@@ -87,7 +87,7 @@ class GoalDAO extends DAO {
         'habit_colour' => $data['habit_colour']
       );
     }
-    $sql3 = "SELECT * FROM `total_amount` INNER JOIN `habits` ON total_amount.habit_id = habits.habit_id AND habits.habit_id = :habit_id WHERE total_amount.user_id = :user_id AND total_amount.completed = :completed AND total_amount.active = :active";
+    $sql3 = "SELECT * FROM `total_amount` INNER JOIN `habits` ON total_amount.habit_id = habits.habit_id AND habits.habit_id = :habit_id INNER JOIN `data_habit_icon` ON habits.habit_icon = data_habit_icon.data_habit_icon_id WHERE total_amount.user_id = :user_id AND total_amount.completed = :completed AND total_amount.active = :active";
     $stmt3 = $this->pdo->prepare($sql3);
     $stmt3->bindValue(':user_id', $data['user_id']);
     $stmt3->bindValue(':habit_id', $data['habit_id']);

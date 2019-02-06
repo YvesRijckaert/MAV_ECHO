@@ -232,6 +232,7 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
   font-weight: bold;
   display: flex;
   align-items: center;
+  height: 6.5rem;
 }
 
 .customize-habits-list-item, .customize-goals-list-item {
@@ -268,7 +269,12 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
   padding-bottom: 2.5rem;
 }
 
-.day-info-habits-list-item-icon svg {
+.customize-habits-list-item-wrap, .customize-goals-list-item-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.day-info-habits-list-item-icon svg, .customize-habits-list-item-icon svg, .customize-goals-list-item-icon svg {
   width: 3rem;
   margin-right: 1.5rem;
 }
@@ -429,7 +435,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
     '. content content .';
 }
 
-.main-progress-goals-edit {
+.main-progress-goals-edit, .info-form-submit {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -504,6 +510,10 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
 .info-form-submit {
   grid-area: submit;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: none;
 }
 
 .info-form-input, .add-habit-form-input-text {
