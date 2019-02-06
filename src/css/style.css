@@ -620,6 +620,12 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: .25rem solid #2b2b2b;
+  border-radius: 1.2rem;
+  padding: 25rem 2.5rem 2.5rem;
+  width: 30rem;
+  margin: 2.5rem;
+  text-align: center;
 }
 
 /* profile links */
