@@ -16,30 +16,38 @@
     </svg>
   </a>
   <form class="add-day-form" method="post">
-    <label>
-      <span class="form-label">What do you want to remember from this day?</span>
-      <textarea class="form-input" name="short-memory" cols="40" rows="5" maxlength="255" required><?php if(!empty($_POST['short-memory'])) echo $_POST['short-memory'];?><?php if(!empty($short_memory)) echo $short_memory ?></textarea>
+    <fieldset class="add-day-form-field">
+      <legend class="add-day-form-field-legend">mood</legend>
+      <?php if(!empty($errors['feelings'])) echo '<span class="error">' . $errors['feelings'] . '</span>';?>
+      <input type="radio" name="feelings" id="feeling-great" value="feeling-great" <?php if(isset($feelings) && $feelings === 1) echo 'checked'; ?> required />
+      <label for="feeling-great">
+        <span>great</span>
+      </label>
+      <input type="radio" name="feelings" id="feeling-okay" value="feeling-okay" <?php if(isset($feelings) && $feelings === 0) echo 'checked'; ?> required />
+      <label for="feeling-okay">
+        <span>okay</span>
+      </label>
+      <input type="radio" name="feelings" id="feeling-bad" value="feeling-bad" <?php if(isset($feelings) && $feelings === -1) echo 'checked'; ?> required />
+      <label for="feeling-bad">
+        <span>bad</span>
+      </label>
+    </fieldset>
+    <fieldset class="add-day-form-field">
+      <legend class="add-day-form-field-legend">about</legend>
       <?php if(!empty($errors['short-memory'])) echo '<span class="error">' . $errors['short-memory'] . '</span>';?>
-    </label>
-    <input type="radio" name="feelings" id="feeling-great" value="feeling-great" <?php if(isset($feelings) && $feelings === 1) echo 'checked'; ?> required />
-    <label for="feeling-great">
-      <span>great</span>
-    </label>
-    <input type="radio" name="feelings" id="feeling-okay" value="feeling-okay" <?php if(isset($feelings) && $feelings === 0) echo 'checked'; ?> required />
-    <label for="feeling-okay">
-      <span>okay</span>
-    </label>
-    <input type="radio" name="feelings" id="feeling-bad" value="feeling-bad" <?php if(isset($feelings) && $feelings === -1) echo 'checked'; ?> required />
-    <label for="feeling-bad">
-      <span>bad</span>
-    </label>
-    <?php if(!empty($errors['feelings'])) echo '<span class="error">' . $errors['feelings'] . '</span>';?>
-    <?php foreach($habits as $habit): ?>
-    <label for="<?php echo $habit['habit_id'] ?>">
-      <span class="form-label"><?php echo $habit['habit_name'] ?></span>
-      <input type="checkbox" id="<?php echo $habit['habit_id'] ?>" name="habits[]" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if(!empty($fulfilled_habits_ids) && in_array($habit['habit_id'], $fulfilled_habits_ids)) echo 'checked'; ?> />
-    </label>
-    <?php endforeach; ?>
+      <label>
+        <textarea class="form-input" name="short-memory" cols="40" rows="6" maxlength="255" required><?php if(!empty($short_memory)) { echo $short_memory; } else { echo 'What do you want to remember from this day?'; } ?></textarea>
+      </label>
+    </fieldset>
+    <fieldset class="add-day-form-field">
+      <legend class="add-day-form-field-legend">habits</legend>
+      <?php foreach($habits as $habit): ?>
+        <label for="<?php echo $habit['habit_id'] ?>">
+          <span class="form-label"><?php echo $habit['habit_name'] ?></span>
+          <input type="checkbox" id="<?php echo $habit['habit_id'] ?>" name="habits[]" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if(!empty($fulfilled_habits_ids) && in_array($habit['habit_id'], $fulfilled_habits_ids)) echo 'checked'; ?> />
+        </label>
+      <?php endforeach; ?>
+    </fieldset>
     <input type="submit" name="add-day" value="save" />
   </form>
 </section>

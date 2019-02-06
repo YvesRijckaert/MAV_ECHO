@@ -241,6 +241,10 @@ textarea {
   background-size: 100% 31px;
   line-height: 3.1rem;
   padding: .7rem;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 /* HABITS AND GOALS STYLING */
@@ -591,7 +595,7 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   margin: 0 2.5rem;
 }
 
-.customize-habits-title, .customize-goals-title, .add-habit-form-field-legend {
+.customize-habits-title, .customize-goals-title, .add-habit-form-field-legend, .add-day-form-field-legend {
   margin: 2.5rem 0;
   color: whitesmoke;
   font-size: 5.6rem;
