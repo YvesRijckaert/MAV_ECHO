@@ -294,6 +294,7 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 
 .main-overview-month-previous {
   grid-area: nav;
+  justify-self: flex-start;
 }
 
 .main-overview-month-next {
@@ -719,6 +720,15 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
     '. cgg tejo .';
   margin-bottom: 10rem;
   margin-top: 2.5rem;
+}
+
+.links-sites-article-link {
+  display: flex;
+  align-items: center;
+}
+
+.links-sites-article-arrow {
+  margin-left: .5rem;
 }
 
 .site-jac {

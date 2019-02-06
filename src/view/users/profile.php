@@ -710,19 +710,83 @@
   <section class="main-profile-links-sites">
     <h2 class="main-profile-links-sites-title hide">Sites</h2>
     <article class="main-profile-links-sites-article site-jac">
-      <h3 class="links-sites-article-title site-jac-title">JAC</h3>
+      <a href="https://www.caw.be/jac/" class="links-sites-article-link">
+        <h3 class="links-sites-article-title site-jac-title">JAC</h3>
+        <svg width="9px" height="8px" viewBox="0 0 9 8" class="links-sites-article-arrow">
+          <title>Arrow</title>
+          <desc>Arrow icon.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-367.000000, -253.000000)">
+              <g transform="translate(300.000000, 243.000000)">
+                <g transform="translate(71.293934, 14.392462) rotate(-225.000000) translate(-71.293934, -14.392462) translate(65.293934, 9.592462)">
+                  <polyline stroke="#2B2B2B" stroke-width="1.2" stroke-linecap="round" transform="translate(2.878118, 5.001472) rotate(-180.000000) translate(-2.878118, -5.001472) " points="0.864996396 0.975228767 4.89123949 5.00147186 0.864996396 9.02771496"></polyline>
+                  <rect fill="#2B2B2B" x="0.848528137" y="4.44852814" width="10.125" height="1.2" rx="0.6"></rect>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <p class="links-sites-article-text">Jongeren Advies Centrum (JAC) geeft informatie, advies en hulp aan jongeren. </p>
     </article>
     <article class="main-profile-links-sites-article site-awel">
-      <h3 class="links-sites-article-title site-awel-title">Awel</h3>
+      <a href="https://awel.be/" class="links-sites-article-link">
+        <h3 class="links-sites-article-title site-awel-title">Awel</h3>
+        <svg width="9px" height="8px" viewBox="0 0 9 8" class="links-sites-article-arrow">
+          <title>Arrow</title>
+          <desc>Arrow icon.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-367.000000, -253.000000)">
+              <g transform="translate(300.000000, 243.000000)">
+                <g transform="translate(71.293934, 14.392462) rotate(-225.000000) translate(-71.293934, -14.392462) translate(65.293934, 9.592462)">
+                  <polyline stroke="#2B2B2B" stroke-width="1.2" stroke-linecap="round" transform="translate(2.878118, 5.001472) rotate(-180.000000) translate(-2.878118, -5.001472) " points="0.864996396 0.975228767 4.89123949 5.00147186 0.864996396 9.02771496"></polyline>
+                  <rect fill="#2B2B2B" x="0.848528137" y="4.44852814" width="10.125" height="1.2" rx="0.6"></rect>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <p class="links-sites-article-text">Awel luistert naar alle kinderen en jongeren met een vraag, een verhaal of een probleem.</p>
     </article>
     <article class="main-profile-links-sites-article site-cgg">
-      <h3 class="links-sites-article-title site-cgg-title">CGG</h3>
+      <a href="https://www.zorg-en-gezondheid.be/centra-voor-geestelijke-gezondheidszorg" class="links-sites-article-link">
+        <h3 class="links-sites-article-title site-cgg-title">CGG</h3>
+        <svg width="9px" height="8px" viewBox="0 0 9 8" class="links-sites-article-arrow">
+          <title>Arrow</title>
+          <desc>Arrow icon.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-367.000000, -253.000000)">
+              <g transform="translate(300.000000, 243.000000)">
+                <g transform="translate(71.293934, 14.392462) rotate(-225.000000) translate(-71.293934, -14.392462) translate(65.293934, 9.592462)">
+                  <polyline stroke="#2B2B2B" stroke-width="1.2" stroke-linecap="round" transform="translate(2.878118, 5.001472) rotate(-180.000000) translate(-2.878118, -5.001472) " points="0.864996396 0.975228767 4.89123949 5.00147186 0.864996396 9.02771496"></polyline>
+                  <rect fill="#2B2B2B" x="0.848528137" y="4.44852814" width="10.125" height="1.2" rx="0.6"></rect>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <p class="links-sites-article-text">CGG biedt medisch-psychiatrische en psychotherapeutische hulpverlening aan mensen met ernstige psychische problemen.</p>
     </article>
     <article class="main-profile-links-sites-article site-tejo">
-      <h3 class="links-sites-article-title site-tejo-title">Tejo</h3>
+      <a href="http://www.tejo.be/" class="links-sites-article-link">
+        <h3 class="links-sites-article-title site-tejo-title">Tejo</h3>
+        <svg width="9px" height="8px" viewBox="0 0 9 8" class="links-sites-article-arrow">
+          <title>Arrow</title>
+          <desc>Arrow icon.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-367.000000, -253.000000)">
+              <g transform="translate(300.000000, 243.000000)">
+                <g transform="translate(71.293934, 14.392462) rotate(-225.000000) translate(-71.293934, -14.392462) translate(65.293934, 9.592462)">
+                  <polyline stroke="#2B2B2B" stroke-width="1.2" stroke-linecap="round" transform="translate(2.878118, 5.001472) rotate(-180.000000) translate(-2.878118, -5.001472) " points="0.864996396 0.975228767 4.89123949 5.00147186 0.864996396 9.02771496"></polyline>
+                  <rect fill="#2B2B2B" x="0.848528137" y="4.44852814" width="10.125" height="1.2" rx="0.6"></rect>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <p class="links-sites-article-text">TEJO biedt laagdrempelige, therapeutische ondersteuning aan jongeren, kortdurend, onmiddellijk, anoniem, en gratis.</p>
     </article>
   </section>
