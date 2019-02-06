@@ -5,21 +5,29 @@ require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/UserDAO.php';
 require_once __DIR__ . '/../dao/HabitDAO.php';
 require_once __DIR__ . '/../dao/GoalDAO.php';
+require_once __DIR__ . '/../dao/PostDAO.php';
 
 class UsersController extends Controller {
 
   private $userDAO;
   private $habitDAO;
   private $goalDAO;
+  private $postDAO;
 
   function __construct() {
     $this->userDAO = new UserDAO();
     $this->habitDAO = new HabitDAO();
     $this->goalDAO = new GoalDAO();
+    $this->postDAO = new PostDAO();
   }
 
   public function profile() {
     if (!empty($_SESSION['user'])) {
+      $alreadyPostedToday = $this->postDAO->checkDate(array(
+        'user_id' => $_SESSION['user']['user_id'],
+        'current_date' => date("Y-m-d")
+      ));
+      $this->set('alreadyPostedToday', $alreadyPostedToday);
       if (!empty($_GET['category'])) {
         switch ($_GET['category']) {
           case 'info':

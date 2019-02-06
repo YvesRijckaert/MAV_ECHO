@@ -2,13 +2,16 @@
 
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/GoalDAO.php';
+require_once __DIR__ . '/../dao/PostDAO.php';
 
 class ProgressController extends Controller {
 
   private $goalDAO;
+  private $postDAO;
 
   function __construct() {
     $this->goalDAO = new GoalDAO();
+    $this->postDAO = new PostDAO();
   }
 
   public function progress() {
@@ -17,6 +20,11 @@ class ProgressController extends Controller {
         header('Location: index.php');
         exit();
     } else {
+        $alreadyPostedToday = $this->postDAO->checkDate(array(
+          'user_id' => $_SESSION['user']['user_id'],
+          'current_date' => date("Y-m-d")
+        ));
+        $this->set('alreadyPostedToday', $alreadyPostedToday);
         if (!empty($_GET['category'])) {
           switch ($_GET['category']) {
             case 'statistics':

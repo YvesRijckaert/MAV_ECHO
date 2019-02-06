@@ -83,6 +83,38 @@
               <span>profile</span>
             </a>
           </li>
+          <li>
+            <?php if(empty($alreadyPostedToday)): ?>
+              <a href="index.php?page=add" class="main-green-button">
+                <svg width="25px" height="24px" viewBox="0 0 25 24">
+                  <title>Add day button</title>
+                  <desc>Icon for add day button.</desc>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                    <g transform="translate(-1272.000000, -36.000000)" stroke="#ffffff" stroke-width="4">
+                      <g transform="translate(1274.000000, 38.000000)">
+                        <path d="M10.5,5.32907052e-15 L10.5,20"></path>
+                        <path d="M10.5,5.32907052e-15 L10.5,20" transform="translate(10.500000, 10.000000) rotate(90.000000) translate(-10.500000, -10.000000) "></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <span>Add Day</span>
+              </a>
+            <?php else: ?>
+              <a href="index.php?page=add" class="main-green-button">
+                <svg width="24px" height="21px" viewBox="0 0 24 21">
+                  <title>Change day button</title>
+                  <desc>Icon for change day button.</desc>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-1284.000000, -14.000000)" stroke="#ffffff" stroke-width="2">
+                      <path d="M1286.46798,23.1473573 L1290.06213,17.2473573 C1290.53402,16.4727162 1291.37551,16 1292.28257,16 L1299.71743,16 C1300.62449,16 1301.46598,16.4727162 1301.93787,17.2473573 L1305.53202,23.1473573 C1306.0381,23.9781148 1306.0381,25.0218852 1305.53202,25.8526427 L1301.93787,31.7526427 C1301.46598,32.5272838 1300.62449,33 1299.71743,33 L1292.28257,33 C1291.37551,33 1290.53402,32.5272838 1290.06213,31.7526427 L1286.46798,25.8526427 C1285.9619,25.0218852 1285.9619,23.9781148 1286.46798,23.1473573 Z M1296,27.7716515 C1297.90649,27.7716515 1299.45201,26.3068832 1299.45201,24.5 C1299.45201,22.6931168 1297.90649,21.2283485 1296,21.2283485 C1294.09351,21.2283485 1292.54799,22.6931168 1292.54799,24.5 C1292.54799,26.3068832 1294.09351,27.7716515 1296,27.7716515 Z"></path>
+                    </g>
+                  </g>
+                </svg>
+                <span>Change Day</span>
+              </a>
+            <?php endif; ?>
+          </li>
         </ul>
       </nav>
       <?php endif; ?>
