@@ -92,7 +92,10 @@
           <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
             <ul class="day-info-habits-list">
               <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
-              <li class="day-info-habits-list-item" style="background-color: <?php echo $habit['habit_colour'] ?>"><?php echo $habit['habit_icon_white'] ?><?php echo $habit['habit_name'] ?></li>
+              <li class="day-info-habits-list-item" style="background-color: <?php echo $habit['habit_colour'] ?>">
+                <span class="day-info-habits-list-item-icon"><?php echo $habit['habit_icon_white'] ?></span>
+                <span><?php echo $habit['habit_name'] ?></span>
+              </li>
               <?php endforeach; ?>
             </ul>
           <?php endif; ?>

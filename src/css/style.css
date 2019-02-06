@@ -227,9 +227,11 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 
 .day-info-habits-list-item, .month-form-label, .customize-habits-list-item, .customize-goals-list-item, .goals-in-progress-list-item, .goals-completed-list-item {
   color: white;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   border-radius: 1.2rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .customize-habits-list-item, .customize-goals-list-item {
@@ -264,6 +266,11 @@ input[type=radio]:focus + label,  input[type=radio]:checked + label {
 .goals-completed-list-item-topwrap {
   border-bottom: .25rem solid white;
   padding-bottom: 2.5rem;
+}
+
+.day-info-habits-list-item-icon svg {
+  width: 3rem;
+  margin-right: 1.5rem;
 }
 
 /* calendar */
