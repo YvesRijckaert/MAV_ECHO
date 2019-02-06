@@ -333,20 +333,20 @@
       <ul class="main-profile-add-goal-types">
         <li class="add-goal-type">
           <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=repetitive">
-            <p>Repetitive</p>
-            <p>e.g. <?php echo $habit ?>, every <strong>thursday</strong> of <strong>june</strong>.</p>
+            <p class="add-goal-type-title">Repetitive</p>
+            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every <strong>thursday</strong> of <strong>june</strong>.</p>
           </a>
         </li>
         <li class="add-goal-type">
           <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=streak">
-            <p>Streak</p>
-            <p>e.g. <?php echo $habit ?>, <strong>10 days</strong> in a row.</p>
+            <p class="add-goal-type-title">Streak</p>
+            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <strong>10 days</strong> in a row.</p>
           </a>
         </li>
         <li class="add-goal-type">
           <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>&goal-type=total">
-            <p>Total</p>
-            <p>e.g. <?php echo $habit ?>, <strong>20 days</strong> in <strong>january</strong>.</p>
+            <p class="add-goal-type-title">Total</p>
+            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <strong>20 days</strong> in <strong>january</strong>.</p>
           </a>
         </li>
       </ul>
@@ -356,7 +356,21 @@
   <?php if ($currentStep === 'add-goal-repetitive'): ?>
     <section class="main-profile-add-goal">
       <h2 class="main-profile-add-goal-title">add goal</h2>
-      <p>edit the goal</p>
+      <p class="main-profile-add-goal-subtitle">edit the goal</p>
+      <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
+        <svg width="30px" height="23px" viewBox="0 0 30 23">
+          <title>Back button</title>
+          <desc>Icon for back button.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-49.000000, -126.000000)">
+              <g transform="translate(52.000000, 128.000000)">
+                <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+                <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <p><?php echo $habit ?>, every thursday of june.</p>
       <form method="post">
         <fieldset>
@@ -451,7 +465,21 @@
   <?php if ($currentStep === 'add-goal-streak'): ?>
     <section class="main-profile-add-goal">
       <h2 class="main-profile-add-goal-title">add goal</h2>
-      <p>edit the goal</p>
+      <p class="main-profile-add-goal-subtitle">edit the goal</p>
+      <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
+        <svg width="30px" height="23px" viewBox="0 0 30 23">
+          <title>Back button</title>
+          <desc>Icon for back button.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-49.000000, -126.000000)">
+              <g transform="translate(52.000000, 128.000000)">
+                <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+                <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <p><?php echo $habit ?>, 10 days in a row.</p>
       <form method="post">
         <fieldset>
@@ -467,7 +495,21 @@
   <?php if ($currentStep === 'add-goal-total'): ?>
     <section class="main-profile-add-goal">
       <h2 class="main-profile-add-goal-title">add goal</h2>
-      <p>edit the goal</p>
+      <p class="main-profile-add-goal-subtitle">edit the goal</p>
+      <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
+        <svg width="30px" height="23px" viewBox="0 0 30 23">
+          <title>Back button</title>
+          <desc>Icon for back button.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-49.000000, -126.000000)">
+              <g transform="translate(52.000000, 128.000000)">
+                <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+                <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
       <p><?php echo $habit ?>, 10 days in january.</p>
       <form method="post">
         <fieldset>

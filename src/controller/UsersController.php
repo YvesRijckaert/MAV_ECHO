@@ -235,6 +235,7 @@ class UsersController extends Controller {
                 ));
                 if($doesHabitAlreadyHaveGoal['repetitive'] === false && $doesHabitAlreadyHaveGoal['streaks'] === false && $doesHabitAlreadyHaveGoal['total_amount'] === false) {
                   $this->set('habit', $habit);
+                  $this->set('habit_colour', $doesHabitExist['habit_colour']);
                   if (isset($_GET['goal-type'])) {
                     switch ($_GET['goal-type']) {
                       case 'repetitive':
