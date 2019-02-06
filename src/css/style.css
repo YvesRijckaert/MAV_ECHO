@@ -747,13 +747,17 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   margin-top: 2.5rem;
 }
 
+.links-sites-article-arrow {
+  margin-left: .5rem;
+}
+
 .links-sites-article-link {
   display: flex;
   align-items: center;
-}
 
-.links-sites-article-arrow {
-  margin-left: .5rem;
+  &:hover .links-sites-article-arrow {
+    transform: translate(.25rem, -.25rem);
+  }
 }
 
 .site-jac {
