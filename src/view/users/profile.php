@@ -73,6 +73,8 @@
         <input type="submit" name="update-profile" class="info-form-submit-button"  value="done" />
         <span>done</span>
         <svg width="22px" height="16px" viewBox="0 0 22 16">
+          <title>Done button</title>
+          <desc>Icon for done button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
               <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
@@ -322,7 +324,22 @@
             <?php endforeach; ?>
           </div>
         </fieldset>
-        <input type="submit" class="add-habit-form-submit" name="add-habit-1" value="next" />
+        <label class="add-habit-form-submit">
+          <span>next</span>
+          <svg width="16px" height="12px" viewBox="0 0 16 12">
+            <title>Next button</title>
+            <desc>Icon for next button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1385.000000, -130.000000)">
+                <g transform="translate(1392.000000, 135.692308) rotate(-180.000000) translate(-1392.000000, -135.692308) translate(1385.000000, 130.692308)">
+                  <polyline stroke="#ffffff" stroke-width="2" stroke-linecap="round" transform="translate(2.550561, 4.831892) rotate(-180.000000) translate(-2.550561, -4.831892) " points="0.269230769 0 4.83189171 4.83189171 0.269230769 9.66378341"></polyline>
+                  <rect fill="#ffffff" x="0" y="4" width="13.6832579" height="2" rx="1"></rect>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <input type="submit" class="add-habit-form-submit-button" name="add-habit-1" value="next" />
+        </label>
       </form>
     </section>
   <?php endif; ?>
@@ -358,7 +375,19 @@
             <?php endforeach; ?>
           </div>
         </fieldset>
-        <input type="submit" class="add-habit-form-submit" name="add-habit-2" value="done" />
+        <label class="add-habit-form-submit">
+          <svg width="22px" height="16px" viewBox="0 0 22 16">
+            <title>Done button</title>
+            <desc>Icon for done button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
+                <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
+              </g>
+            </g>
+          </svg>
+          <span>done</span>
+          <input type="submit" class="add-habit-form-submit-button" name="add-habit-2" value="done" />
+        </label>
       </form>
     </section>
   <?php endif; ?>
@@ -508,7 +537,19 @@
             <span class="form-label">december</span>
           </label>
         </fieldset>
-        <input type="submit" class="add-goal-form-submit" name="add_repetitive_goal" value="submit">
+        <label class="add-goal-form-submit">
+          <svg width="22px" height="16px" viewBox="0 0 22 16">
+            <title>Done button</title>
+            <desc>Icon for done button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
+                <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
+              </g>
+            </g>
+          </svg>
+          <span>done</span>
+          <input type="submit" class="add-goal-form-submit-button" name="add_repetitive_goal" value="done">
+        </label>
       </form>
     </section>
   <?php endif; ?>
@@ -538,7 +579,19 @@
           <?php if(!empty($errors['chosen_streak_goal_number'])) echo '<span class="error">' . $errors['chosen_streak_goal_number'] . '</span>';?>
           <input type="number" name="chosen_streak_goal_number" value="2" min="2" max="30" required />
         </fieldset>
-        <input type="submit" name="add_streak_goal" value="submit">
+        <label class="add-goal-form-submit">
+          <svg width="22px" height="16px" viewBox="0 0 22 16">
+            <title>Done button</title>
+            <desc>Icon for done button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
+                <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
+              </g>
+            </g>
+          </svg>
+          <span>done</span>
+          <input type="submit" class="add-goal-form-submit-button" name="add_streak_goal" value="done">
+        </label>
       </form>
     </section>
   <?php endif; ?>
@@ -620,7 +673,19 @@
             <span class="form-label">december</span>
           </label>
         </fieldset>
-        <input type="submit" name="add_total_goal" value="submit">
+        <label class="add-goal-form-submit">
+          <svg width="22px" height="16px" viewBox="0 0 22 16">
+            <title>Done button</title>
+            <desc>Icon for done button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
+                <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
+              </g>
+            </g>
+          </svg>
+          <span>done</span>
+          <input type="submit" class="add-goal-form-submit-button" name="add_total_goal" value="done">
+        </label>
       </form>
     </section>
   <?php endif; ?>

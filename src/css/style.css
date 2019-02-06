@@ -655,6 +655,14 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
   }
 }
 
+.add-habit-form-submit-button {
+  display: none;
+}
+
+.add-goal-form-submit-button {
+  display: none;
+}
+
 .main-profile-add-habit-form-shape {
   display: flex;
   flex-direction: column;
