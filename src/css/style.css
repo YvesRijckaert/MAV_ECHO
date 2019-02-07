@@ -54,7 +54,7 @@ a {
 
 /* input radio */
 
-input[type=radio] {
+input[type=radio], input[type=checkbox] {
   opacity: 0;
   position: absolute;
 }
@@ -352,6 +352,7 @@ textarea {
 /* calendar */
 
 .main-overview-month {
+  margin-top: 2.5rem;
   display: grid;
   grid-template: min-content 1fr min-content / 1fr 3fr 3fr 1fr;
   grid-column-gap: 5rem;
