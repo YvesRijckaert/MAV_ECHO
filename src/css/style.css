@@ -340,7 +340,11 @@ textarea {
   align-items: center;
 }
 
-.day-info-habits-list-item-icon svg, .customize-habits-list-item-icon svg, .customize-goals-list-item-icon svg {
+.day-info-habits-list-item-icon svg,
+.customize-habits-list-item-icon svg,
+.customize-goals-list-item-icon svg,
+.month-habit-item-icon svg,
+.month-habit-item-icon-white svg {
   width: 3rem;
   margin-right: 1.5rem;
 }
@@ -405,10 +409,27 @@ textarea {
   border: .25rem solid var(--red);
 }
 
-input[type=radio]:focus + .month-form-label-red,  input[type=radio]:checked + .month-form-label-red {
+.month-form-input-radio + .month-form-label-red .month-habit-item-icon-white,
+.month-form-input-radio + .month-form-label-orange .month-habit-item-icon-white,
+.month-form-input-radio + .month-form-label-green .month-habit-item-icon-white,
+.month-form-input-radio + .month-form-label-blue .month-habit-item-icon-white,
+.month-form-input-radio + .month-form-label-purple .month-habit-item-icon-white {
+  display: none;
+}
+
+.month-form-input-radio:focus + .month-form-label-red,
+.month-form-input-radio:checked + .month-form-label-red {
   color: white;
   border: .25rem solid var(--red);
   background-color: var(--red);
+
+  & .month-habit-item-icon-white {
+    display: block;
+  }
+
+  & .month-habit-item-icon {
+    display: none;
+  }
 }
 
 .month-form-label-orange {
@@ -416,10 +437,19 @@ input[type=radio]:focus + .month-form-label-red,  input[type=radio]:checked + .m
   border: .25rem solid var(--orange);
 }
 
-input[type=radio]:focus + .month-form-label-orange,  input[type=radio]:checked + .month-form-label-orange {
+.month-form-input-radio:focus + .month-form-label-orange,
+.month-form-input-radio:checked + .month-form-label-orange {
   color: white;
   border: .25rem solid var(--orange);
   background-color: var(--orange);
+
+  & .month-habit-item-icon-white {
+    display: block;
+  }
+
+  & .month-habit-item-icon {
+    display: none;
+  }
 }
 
 .month-form-label-green {
@@ -427,10 +457,19 @@ input[type=radio]:focus + .month-form-label-orange,  input[type=radio]:checked +
   border: .25rem solid var(--green);
 }
 
-input[type=radio]:focus + .month-form-label-green,  input[type=radio]:checked + .month-form-label-green {
+.month-form-input-radio:focus + .month-form-label-green,
+.month-form-input-radio:checked + .month-form-label-green {
   color: white;
   border: .25rem solid var(--green);
   background-color: var(--green);
+
+  & .month-habit-item-icon-white {
+    display: block;
+  }
+
+  & .month-habit-item-icon {
+    display: none;
+  }
 }
 
 .month-form-label-blue {
@@ -438,10 +477,19 @@ input[type=radio]:focus + .month-form-label-green,  input[type=radio]:checked + 
   border: .25rem solid var(--blue);
 }
 
-input[type=radio]:focus + .month-form-label-blue,  input[type=radio]:checked + .month-form-label-blue {
+.month-form-input-radio:focus + .month-form-label-blue,
+.month-form-input-radio:checked + .month-form-label-blue {
   color: white;
   border: .25rem solid var(--blue);
   background-color: var(--blue);
+
+  & .month-habit-item-icon-white {
+    display: block;
+  }
+
+  & .month-habit-item-icon {
+    display: none;
+  }
 }
 
 .month-form-label-purple {
@@ -449,10 +497,19 @@ input[type=radio]:focus + .month-form-label-blue,  input[type=radio]:checked + .
   border: .25rem solid var(--purple);
 }
 
-input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked + .month-form-label-purple {
+.month-form-input-radio:focus + .month-form-label-purple,
+.month-form-input-radio:checked + .month-form-label-purple {
   color: white;
   border: .25rem solid var(--purple);
   background-color: var(--purple);
+
+  & .month-habit-item-icon-white {
+    display: block;
+  }
+
+  & .month-habit-item-icon {
+    display: none;
+  }
 }
 
 .main-overview-month-info {
