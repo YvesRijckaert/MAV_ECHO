@@ -16,7 +16,7 @@
     </svg>
   </a>
   <form class="add-day-form" method="post">
-    <fieldset class="add-day-form-field">
+    <fieldset class="add-day-form-field add-day-form-field-mood">
       <legend class="add-day-form-field-legend">mood</legend>
       <?php if(!empty($errors['feelings'])) echo '<span class="error">' . $errors['feelings'] . '</span>';?>
       <input type="radio" class="add-day-form-field-radio" name="feelings" id="feeling-great" value="feeling-great" <?php if(isset($feelings) && $feelings === 1) echo 'checked'; ?> required />
@@ -84,17 +84,17 @@
         </svg>
       </label>
     </fieldset>
-    <fieldset class="add-day-form-field">
+    <fieldset class="add-day-form-field add-day-form-field-about">
       <legend class="add-day-form-field-legend">about</legend>
       <?php if(!empty($errors['short-memory'])) echo '<span class="error">' . $errors['short-memory'] . '</span>';?>
       <label>
-        <textarea class="form-input" name="short-memory" cols="40" rows="6" maxlength="255" placeholder="What do you want to remember from this day?" required><?php if(!empty($short_memory)) { echo $short_memory; } ?></textarea>
+        <textarea class="add-day-form-field-textarea" name="short-memory" cols="40" rows="6" maxlength="255" placeholder="What do you want to remember from this day?" required><?php if(!empty($short_memory)) { echo $short_memory; } ?></textarea>
       </label>
     </fieldset>
-    <fieldset class="add-day-form-field">
+    <fieldset class="add-day-form-field add-day-form-field-habits">
       <legend class="add-day-form-field-legend">habits</legend>
       <?php foreach($habits as $habit): ?>
-        <input type="checkbox" class="month-form-input month-form-input-radio" id="<?php echo $habit['habit_id'] ?>" name="habits[]" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if(!empty($fulfilled_habits_ids) && in_array($habit['habit_id'], $fulfilled_habits_ids)) echo 'checked'; ?> />
+        <input type="checkbox" class="month-form-input-radio" id="<?php echo $habit['habit_id'] ?>" name="habits[]" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if(!empty($fulfilled_habits_ids) && in_array($habit['habit_id'], $fulfilled_habits_ids)) echo 'checked'; ?> />
         <label for="<?php echo $habit['habit_id'] ?>" class="month-form-label month-form-label-<?php echo $habit['habit_colour_name'] ?>">
           <span class="month-habit-item-icon-white"><?php echo $habit['habit_icon_white'] ?></span>
           <span class="month-habit-item-icon"><?php echo $habit['habit_icon'] ?></span>
@@ -102,6 +102,18 @@
         </label>
       <?php endforeach; ?>
     </fieldset>
-    <input type="submit" name="add-day" value="save" />
+    <label class="add-day-form-submit">
+      <input type="submit" class="add-day-form-submit-button" name="add-day" value="save" />
+      <svg width="22px" height="16px" viewBox="0 0 22 16">
+        <title>Done button</title>
+        <desc>Icon for done button.</desc>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
+            <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
+          </g>
+        </g>
+      </svg>
+      <span>save</span>
+    </label>
   </form>
 </section>
