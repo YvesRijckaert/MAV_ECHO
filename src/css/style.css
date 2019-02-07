@@ -59,19 +59,6 @@ input[type=radio], input[type=checkbox] {
   position: absolute;
 }
 
-/* input[type=radio]:focus + label,  input[type=radio]:checked + label {
-  background-color: black;
-  color: white;
-} */
-
-.info-form-goals-radio:focus + .info-form-goals-option,
-.info-form-goals-radio:checked + .info-form-goals-option,
-.add-habit-form-radio:focus + .add-habit-form-label,
-.add-habit-form-radio:checked + .add-habit-form-label {
-  background-color: black;
-  color: white;
-}
-
 /* header */
 
 .header {
@@ -368,8 +355,13 @@ input[type=radio], input[type=checkbox] {
 
 .goals-in-progress-list-item-amount, .goals-completed-list-item-amount {
   padding-top: 2.5rem;
-  color: black;
+  color: #2b2b2b;
   opacity: .2;
+}
+
+.goals-in-progress-error, .goals-completed-error {
+  text-align: center;
+  padding-top: 5rem;
 }
 
 .goals-completed-list-item-topwrap {
@@ -438,7 +430,7 @@ input[type=radio], input[type=checkbox] {
 }
 
 .month-calendar-row-today {
-  border: .25rem solid black;
+  border: .25rem solid #2b2b2b;
 }
 
 .main-overview-month-form {
@@ -559,6 +551,43 @@ input[type=radio], input[type=checkbox] {
   grid-area: info;
 }
 
+/* progress stats */
+
+.graph .labels.x-labels {
+  text-anchor: middle;
+}
+
+.graph .labels.y-labels {
+  text-anchor: end;
+}
+
+.graph {
+  height: 500px;
+  width: 800px;
+}
+
+.graph .grid {
+  stroke: #ccc;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+}
+
+.labels {
+  font-size: 13px;
+}
+
+.label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black;
+}
+
+.data {
+  fill: red;
+  stroke-width: 1;
+}
+
 /* progress achievements */
 
 .main-progress-achievements-list {
@@ -644,14 +673,13 @@ input[type=radio], input[type=checkbox] {
 
 .main-profile-info-form {
   display: grid;
-  grid-template: .5fr .5fr 1fr 1fr / 1fr 3fr 3fr 1fr;
-  grid-row-gap: 5rem;
+  grid-template: 2fr 2fr 2fr / 1fr 3fr 3fr 1fr;
+  grid-row-gap: 7.5rem;
   grid-column-gap: 2.5rem;
   grid-template-areas:
     '. email birthday .'
     '. username password .'
-    '. goals goals .'
-    '. . . submit';
+    '. goals goals .';
   margin-top: 2.5rem;
 }
 
@@ -699,7 +727,7 @@ input[type=radio], input[type=checkbox] {
   height: 5rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   border: none;
-  border-bottom: .25rem solid black;
+  border-bottom: .25rem solid #2b2b2b;
 }
 
 .info-form-label-text {
@@ -709,6 +737,7 @@ input[type=radio], input[type=checkbox] {
 .info-form-group {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .info-form-goals-options, .add-habit-form-field-all {
@@ -723,6 +752,14 @@ input[type=radio], input[type=checkbox] {
   padding: 1rem;
   margin-right: 1rem;
   margin-top: 1rem;
+}
+
+.info-form-goals-radio:focus + .info-form-goals-option,
+.info-form-goals-radio:checked + .info-form-goals-option,
+.add-habit-form-radio:focus + .add-habit-form-label,
+.add-habit-form-radio:checked + .add-habit-form-label {
+  background-color: #2b2b2b;
+  color: white;
 }
 
 /* profile customize */
