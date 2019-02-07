@@ -299,7 +299,7 @@ class PostsController extends Controller {
                   ));
                 }
                 $_SESSION['info'] = 'Updated day.';
-                header('Location: index.php?page=add');
+                header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                 exit();
               } else {
                   $this->set('errors', $errors);
@@ -350,7 +350,7 @@ class PostsController extends Controller {
                     ));
                   }
                   $_SESSION['info'] = 'Added new day.';
-                  header('Location: index.php?page=add');
+                  header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                   exit();
                 } else {
                     $this->set('errors', $errors);
