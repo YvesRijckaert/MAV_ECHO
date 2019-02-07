@@ -39,31 +39,31 @@
         <p class="info-form-label-text">overall goal</p>
         <?php if(!empty($errors['lifegoal'])) echo '<span class="error">' . $errors['lifegoal'] . '</span>';?>
         <div class="info-form-goals-options">
-          <input type="radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required <?php if($_SESSION['user']['lifegoal'] == 'reduce-stress') echo 'checked' ?>/>
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required <?php if($_SESSION['user']['lifegoal'] == 'reduce-stress') echo 'checked' ?>/>
           <label for="reduce-stress" class="info-form-goals-option">
             <span>reduce stress</span>
           </label>
-          <input type="radio" name="lifegoal" id="feel-happier" value="feel-happier" required <?php if($_SESSION['user']['lifegoal'] == 'feel-happier') echo 'checked' ?> />
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="feel-happier" value="feel-happier" required <?php if($_SESSION['user']['lifegoal'] == 'feel-happier') echo 'checked' ?> />
           <label for="feel-happier" class="info-form-goals-option">
             <span>feel happier</span>
           </label>
-          <input type="radio" name="lifegoal" id="decrease-anxiety" value="decrease-anxiety" required <?php if($_SESSION['user']['lifegoal'] == 'decrease-anxiety') echo 'checked' ?> />
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="decrease-anxiety" value="decrease-anxiety" required <?php if($_SESSION['user']['lifegoal'] == 'decrease-anxiety') echo 'checked' ?> />
           <label for="decrease-anxiety" class="info-form-goals-option">
             <span>decrease anxiety</span>
           </label>
-          <input type="radio" name="lifegoal" id="build-confidence" value="build-confidence" required <?php if($_SESSION['user']['lifegoal'] == 'build-confidence') echo 'checked' ?> />
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="build-confidence" value="build-confidence" required <?php if($_SESSION['user']['lifegoal'] == 'build-confidence') echo 'checked' ?> />
           <label for="build-confidence" class="info-form-goals-option">
             <span>build confidence</span>
           </label>
-          <input type="radio" name="lifegoal" id="improve-social-skills" value="improve-social-skills" required <?php if($_SESSION['user']['lifegoal'] == 'improve-social-skills') echo 'checked' ?> />
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="improve-social-skills" value="improve-social-skills" required <?php if($_SESSION['user']['lifegoal'] == 'improve-social-skills') echo 'checked' ?> />
           <label for="improve-social-skills" class="info-form-goals-option">
             <span>improve social skills</span>
           </label>
-          <input type="radio" name="lifegoal" id="live-healthier" value="live-healthier" required <?php if($_SESSION['user']['lifegoal'] == 'live-healthier') echo 'checked' ?> />
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="live-healthier" value="live-healthier" required <?php if($_SESSION['user']['lifegoal'] == 'live-healthier') echo 'checked' ?> />
           <label for="live-healthier" class="info-form-goals-option">
             <span>live healthier</span>
           </label>
-          <input type="radio" name="lifegoal" id="think-positively" value="think-positively" required <?php if($_SESSION['user']['lifegoal'] == 'think-positively') echo 'checked' ?> />
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="think-positively" value="think-positively" required <?php if($_SESSION['user']['lifegoal'] == 'think-positively') echo 'checked' ?> />
           <label for="think-positively" class="info-form-goals-option">
             <span>think positively</span>
           </label>
@@ -300,14 +300,14 @@
       <form class="main-profile-add-habit-form" method="post">
         <fieldset class="add-habit-form-field add-habit-suggested">
           <legend class="add-habit-form-field-legend">suggested</legend>
-          <input type="radio" id="test" class="add-habit-form-input" name="chosen_habit" value="test" />
+          <input type="radio" class="add-habit-form-radio" id="test" class="add-habit-form-input" name="chosen_habit" value="test" />
           <label for="test" class="add-habit-form-label">
             <span>test</span>
           </label>
         </fieldset>
         <fieldset class="add-habit-form-field add-habit-write">
           <legend class="add-habit-form-field-legend">write</legend>
-          <input type="radio" id="neither" class="add-habit-form-input" name="chosen_habit" value="neither" checked />
+          <input type="radio" class="add-habit-form-radio" id="neither" class="add-habit-form-input" name="chosen_habit" value="neither" checked />
           <label for="neither" class="add-habit-form-label">
             <span>Write down my own habit</span>
           </label>
@@ -317,7 +317,7 @@
           <legend class="add-habit-form-field-legend">all</legend>
           <div class="add-habit-form-field-all">
             <?php foreach($allPossibleHabits as $habit): ?>
-              <input type="radio" id="<?php echo $habit['data_habit_name_id'] ?>" class="add-habit-form-input" name="chosen_habit" value="<?php echo $habit['data_habit_name_id'] ?>" />
+              <input type="radio" class="add-habit-form-radio" id="<?php echo $habit['data_habit_name_id'] ?>" class="add-habit-form-input" name="chosen_habit" value="<?php echo $habit['data_habit_name_id'] ?>" />
               <label for="<?php echo $habit['data_habit_name_id'] ?>" class="add-habit-form-label">
                 <span><?php echo $habit['habit_name'] ?></span>
               </label>

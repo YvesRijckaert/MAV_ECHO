@@ -64,6 +64,14 @@ input[type=radio] {
   color: white;
 } */
 
+.info-form-goals-radio:focus + .info-form-goals-option,
+.info-form-goals-radio:checked + .info-form-goals-option,
+.add-habit-form-radio:focus + .add-habit-form-label,
+.add-habit-form-radio:checked + .add-habit-form-label {
+  background-color: black;
+  color: white;
+}
+
 /* header */
 
 .header {
@@ -247,27 +255,36 @@ textarea {
   }
 }
 
-.add-day-form-field-radio:focus + .add-day-form-field-label-great .great-circle {
+.add-day-form-field-radio:focus + .add-day-form-field-label-great .great-circle,
+.add-day-form-field-radio:checked + .add-day-form-field-label-great .great-circle {
   fill: var(--green);
 }
 
-.add-day-form-field-radio:focus + .add-day-form-field-label-okay .okay-circle {
+.add-day-form-field-radio:focus + .add-day-form-field-label-okay .okay-circle,
+.add-day-form-field-radio:checked + .add-day-form-field-label-okay .okay-circle {
   fill: var(--blue);
 }
 
-.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-circle {
+.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-circle,
+.add-day-form-field-radio:checked + .add-day-form-field-label-bad .bad-circle {
   fill: var(--red);
 }
 
 .add-day-form-field-radio:focus + .add-day-form-field-label-great .great-text,
+.add-day-form-field-radio:checked + .add-day-form-field-label-great .great-text,
 .add-day-form-field-radio:focus + .add-day-form-field-label-okay .okay-text,
-.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-text {
+.add-day-form-field-radio:checked + .add-day-form-field-label-okay .okay-text,
+.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-text,
+.add-day-form-field-radio:checked + .add-day-form-field-label-bad .bad-text {
   fill: white;
 }
 
 .add-day-form-field-radio:focus + .add-day-form-field-label-great .great-smile,
+.add-day-form-field-radio:checked + .add-day-form-field-label-great .great-smile,
 .add-day-form-field-radio:focus + .add-day-form-field-label-okay .okay-smile,
-.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-smile {
+.add-day-form-field-radio:checked + .add-day-form-field-label-okay .okay-smile,
+.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-smile,
+.add-day-form-field-radio:checked + .add-day-form-field-label-bad .bad-smile {
   fill: white;
 }
 
@@ -567,6 +584,10 @@ input[type=radio]:focus + .month-form-label-purple,  input[type=radio]:checked +
 
   &:hover {
     cursor: pointer;
+  }
+
+  & svg {
+    margin-left: 1rem;
   }
 }
 
