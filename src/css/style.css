@@ -59,10 +59,10 @@ input[type=radio] {
   position: absolute;
 }
 
-input[type=radio]:focus + label,  input[type=radio]:checked + label {
+/* input[type=radio]:focus + label,  input[type=radio]:checked + label {
   background-color: black;
   color: white;
-}
+} */
 
 /* header */
 
@@ -245,6 +245,30 @@ textarea {
   &:focus {
     outline: none;
   }
+}
+
+.add-day-form-field-radio:focus + .add-day-form-field-label-great .great-circle {
+  fill: var(--green);
+}
+
+.add-day-form-field-radio:focus + .add-day-form-field-label-okay .okay-circle {
+  fill: var(--blue);
+}
+
+.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-circle {
+  fill: var(--red);
+}
+
+.add-day-form-field-radio:focus + .add-day-form-field-label-great .great-text,
+.add-day-form-field-radio:focus + .add-day-form-field-label-okay .okay-text,
+.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-text {
+  fill: white;
+}
+
+.add-day-form-field-radio:focus + .add-day-form-field-label-great .great-smile,
+.add-day-form-field-radio:focus + .add-day-form-field-label-okay .okay-smile,
+.add-day-form-field-radio:focus + .add-day-form-field-label-bad .bad-smile {
+  fill: white;
 }
 
 /* HABITS AND GOALS STYLING */

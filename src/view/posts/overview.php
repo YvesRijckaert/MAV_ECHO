@@ -99,16 +99,16 @@
               break;
             case 0:
               echo '
-              <svg width="84px" height="84px" viewBox="0 0 84 84" class="day-info-mood-img">
+              <svg width="86px" height="86px" viewBox="0 0 86 86">
                 <title>Okay mood</title>
                 <desc>Icon for okay mood.</desc>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1198.000000, -241.000000)">
-                    <g transform="translate(1198.000000, 241.000000)">
-                      <circle fill="#4285FF" cx="41.6499179" cy="41.6499179" r="41.6499179"></circle>
-                      <rect fill="#FFFFFF" x="23.7999531" y="46.4099085" width="35.6999297" height="8.32998359" rx="4.16499179"></rect>
-                      <text font-family="CircularStd-Medium, Circular Std" font-size="23.7999531" font-weight="400" fill="#ffffff">
-                        <tspan x="27.3699461" y="39.4699695">ok</tspan>
+                  <g transform="translate(-1191.000000, -236.000000)">
+                    <g transform="translate(1192.000000, 237.000000)">
+                      <circle stroke="#4285FF" stroke-width="1.20059945" fill="#4285FF" cx="42.0209807" cy="42.0209807" r="42.0209807"></circle>
+                      <rect fill="#FFFFFF" x="24.011989" y="46.8233785" width="36.0179834" height="8.40419614" rx="4.20209807"></rect>
+                      <text font-family="CircularStd-Medium, Circular Std" font-size="24.011989" font-weight="400" fill="#FFFFFF">
+                        <tspan x="27.6137873" y="39.6077928">ok</tspan>
                       </text>
                     </g>
                   </g>
