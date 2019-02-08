@@ -50,8 +50,8 @@
           <text x="700" y="400">sun</text>
         </g>
         <g class="labels y-labels">
-          <text x="730" y="100">great</text>
-          <text x="730" y="350">bad</text>
+          <text x="750" y="100">great</text>
+          <text x="750" y="350">bad</text>
         </g>
         <g class="data">
           <circle cx="90" cy="192" r="4"></circle>

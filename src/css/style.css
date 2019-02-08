@@ -553,6 +553,26 @@ input[type=radio], input[type=checkbox] {
 
 /* progress stats */
 
+.main-progress-statistics {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 1fr;
+  grid-template-areas:
+    '. nav nav .'
+    '. mood habits .';
+}
+
+.main-progress-statistics-nav {
+  grid-area: nav;
+}
+
+.main-progress-statistics-mood {
+  grid-area: mood;
+}
+
+.main-progress-statistics-habits {
+  grid-area: habits;
+}
+
 .graph .labels.x-labels {
   text-anchor: middle;
 }
@@ -562,25 +582,14 @@ input[type=radio], input[type=checkbox] {
 }
 
 .graph {
-  height: 500px;
-  width: 800px;
+  height: 40rem;
+  width: 80rem;
 }
 
 .graph .grid {
   stroke: #ccc;
   stroke-dasharray: 0;
   stroke-width: 1;
-}
-
-.labels {
-  font-size: 13px;
-}
-
-.label-title {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-  fill: black;
 }
 
 .data {
