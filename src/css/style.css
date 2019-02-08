@@ -657,7 +657,7 @@ input[type=radio], input[type=checkbox] {
   justify-self: center;
 }
 
-.goals-nav-list {
+.goals-nav-list, .statistics-nav-list {
   display: flex;
   justify-content: space-around;
   width: 50%;
@@ -777,7 +777,7 @@ input[type=radio], input[type=checkbox] {
   margin: 0 2.5rem;
 }
 
-.customize-habits-title, .customize-goals-title, .add-habit-form-field-legend, .add-day-form-field-legend {
+.customize-habits-title, .customize-goals-title, .add-habit-form-field-legend, .add-day-form-field-legend, .statistics-mood-title, .statistics-habits-title {
   margin: 2.5rem 0;
   color: whitesmoke;
   font-size: 5.6rem;

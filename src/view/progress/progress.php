@@ -18,54 +18,52 @@
     <h2 class="main-progress-statistics-title hide">Statistics</h2>
     <nav class="main-progress-statistics-nav">
       <h3 class="statistics-nav-title hide">Statistics navigation</h3>
-      <ul>
+      <ul class="statistics-nav-list">
         <li>
-          <a href="#">Week</a>
+          <a href="#">week</a>
         </li>
         <li>
-          <a href="#">Month</a>
+          <a href="#">month</a>
         </li>
         <li>
-          <a href="#">Year</a>
+          <a href="#">year</a>
         </li>
       </ul>
     </nav>
-    <article>
-      <h3>Mood</h3>
+    <article class="main-progress-statistics-mood">
+      <h3 class="statistics-mood-title">mood</h3>
       <svg class="graph">
-        <title>A line chart showing some information</title>
-        <g class="grid x-grid" id="xGrid">
-          <line x1="90" x2="90" y1="5" y2="371"></line>
-        </g>
-        <g class="grid y-grid" id="yGrid">
+        <title>Mood graph</title>
+        <desc>A graph showing the average mood</desc>
+        <g class="grid y-grid">
           <line x1="90" x2="705" y1="370" y2="370"></line>
+          <line x1="90" x2="705" y1="270" y2="270"></line>
+          <line x1="90" x2="705" y1="170" y2="170"></line>
         </g>
         <g class="labels x-labels">
-          <text x="100" y="400">2008</text>
-          <text x="246" y="400">2009</text>
-          <text x="392" y="400">2010</text>
-          <text x="538" y="400">2011</text>
-          <text x="684" y="400">2012</text>
-          <text x="400" y="440" class="label-title">Year</text>
+          <text x="100" y="400">mon</text>
+          <text x="200" y="400">tue</text>
+          <text x="300" y="400">wed</text>
+          <text x="400" y="400">thu</text>
+          <text x="500" y="400">fri</text>
+          <text x="600" y="400">sat</text>
+          <text x="700" y="400">sun</text>
         </g>
         <g class="labels y-labels">
-          <text x="80" y="15">15</text>
-          <text x="80" y="131">10</text>
-          <text x="80" y="248">5</text>
-          <text x="80" y="373">0</text>
-          <text x="50" y="200" class="label-title">Price</text>
+          <text x="730" y="100">great</text>
+          <text x="730" y="350">bad</text>
         </g>
-        <g class="data" data-setname="Our first data set">
-          <circle cx="90" cy="192" data-value="7.2" r="4"></circle>
-          <circle cx="240" cy="141" data-value="8.1" r="4"></circle>
-          <circle cx="388" cy="179" data-value="7.7" r="4"></circle>
-          <circle cx="531" cy="200" data-value="6.8" r="4"></circle>
-          <circle cx="677" cy="104" data-value="6.7" r="4"></circle>
+        <g class="data">
+          <circle cx="90" cy="192" r="4"></circle>
+          <circle cx="240" cy="141" r="4"></circle>
+          <circle cx="388" cy="179" r="4"></circle>
+          <circle cx="531" cy="200" r="4"></circle>
+          <circle cx="677" cy="104" r="4"></circle>
         </g>
       </svg>
     </article>
-    <article>
-      <h3>Habits</h3>
+    <article class="main-progress-statistics-habits">
+      <h3 class="statistics-habits-title">habits</h3>
       <p>Most rewarding habits</p>
       <ol>
         <li>
