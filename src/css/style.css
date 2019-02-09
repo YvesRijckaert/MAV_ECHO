@@ -62,10 +62,13 @@ input[type=radio], input[type=checkbox] {
 /* header */
 
 .header {
-  margin: 2.5rem 0 2.5rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-title {
+  padding-left: 6rem;
 }
 
 .header-title-link {
@@ -80,7 +83,15 @@ input[type=radio], input[type=checkbox] {
   text-align: right;
 }
 
+.header-nav {
+  display: flex;
+  background-color: var(--green);
+}
+
 .header-nav-ul {
+  background-color: white;
+  border-bottom-right-radius: 3rem;
+  padding: 3rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   display: flex;
   width: 45rem;
@@ -98,6 +109,15 @@ input[type=radio], input[type=checkbox] {
 
 .header-nav-item-link:hover .header-nav-item-link-icon-group {
   fill: #2b2b2b;
+}
+
+.main-green-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--green);
+  color: white;
+  width: 17rem;
 }
 
 /* overview */
@@ -129,11 +149,6 @@ input[type=radio], input[type=checkbox] {
 
 .main-nav-item-day:not(.main-nav-item-active), .active-category-goals .main-nav-item-achievements, .active-category-links .main-nav-item-customize, .active-category-achievements .main-nav-item-stats, .active-category-customize .main-nav-item-info {
   border-bottom-right-radius: 4rem;
-}
-
-.main-green-button {
-  background-color: var(--green);
-  color: white;
 }
 
 .test-img {
