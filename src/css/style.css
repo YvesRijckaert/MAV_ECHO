@@ -90,7 +90,7 @@ input[type=radio], input[type=checkbox] {
 
 .header-nav-ul {
   background-color: white;
-  border-bottom-right-radius: 3rem;
+  border-bottom-right-radius: 4rem;
   padding: 3rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   display: flex;
@@ -117,7 +117,11 @@ input[type=radio], input[type=checkbox] {
   align-items: center;
   background-color: var(--green);
   color: white;
-  width: 17rem;
+  width: 20rem;
+}
+
+.main-green-button-svg {
+  margin-right: 1rem;
 }
 
 /* overview */
