@@ -957,6 +957,16 @@ input[type=radio], input[type=checkbox] {
   font-weight: 600;
 }
 
+.main-profile-add-goal-text {
+  font-size: 3.6rem;
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.add-goal-form-field-legend {
+  display: none;
+}
+
 /* profile links */
 
 .main-profile-links-sites {

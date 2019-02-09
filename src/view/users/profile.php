@@ -279,7 +279,7 @@
   <?php endif; ?>
 
   <?php if ($currentStep === 'add-habit-1'): ?>
-    <section class="main-profile-add-habit">
+    <section class="main-profile-add-habit" id="main">
       <h2 class="main-profile-add-habit-title">add habit</h2>
       <p class="main-profile-add-habit-subtitle">choose or write down a new habit</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
@@ -345,7 +345,7 @@
   <?php endif; ?>
 
   <?php if ($currentStep === 'add-habit-2'): ?>
-    <section class="main-profile-add-habit">
+    <section class="main-profile-add-habit" id="main">
       <h2 class="main-profile-add-habit-title">add habit</h2>
       <p class="main-profile-add-habit-subtitle">choose a shape</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
@@ -393,7 +393,7 @@
   <?php endif; ?>
 
   <?php if ($currentStep === 'add-goal-1'): ?>
-    <section class="main-profile-add-goal">
+    <section class="main-profile-add-goal" id="main">
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">choose a goal type</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-goal-back">
@@ -434,7 +434,7 @@
   <?php endif; ?>
 
   <?php if ($currentStep === 'add-goal-repetitive'): ?>
-    <section class="main-profile-add-goal">
+    <section class="main-profile-add-goal" id="main">
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">edit the goal</p>
       <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
@@ -451,10 +451,10 @@
           </g>
         </svg>
       </a>
-      <p><?php echo $habit ?>, every thursday of june.</p>
-      <form method="post">
-        <fieldset>
-          <legend>Choose your day.</legend>
+      <p class="main-profile-add-goal-text"><span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every thursday of june.</p>
+      <form method="post" class="main-profile-add-goal-form add-goal-repetitive-form">
+        <fieldset class="add-goal-form-field">
+          <legend class="add-goal-form-field-legend">Choose your day.</legend>
           <?php if(!empty($errors['chosen_repetitive_goal_day'])) echo '<span class="error">' . $errors['chosen_repetitive_goal_day'] . '</span>';?>
           <input type="radio" id="monday" name="chosen_repetitive_goal_day" value="monday" required checked />
           <label for="monday">
@@ -485,8 +485,8 @@
             <span class="form-label">sunday</span>
           </label>
         </fieldset>
-        <fieldset>
-          <legend>Choose your month.</legend>
+        <fieldset class="add-goal-form-field">
+          <legend class="add-goal-form-field-legend">Choose your month.</legend>
           <?php if(!empty($errors['chosen_repetitive_goal_month'])) echo '<span class="error">' . $errors['chosen_repetitive_goal_month'] . '</span>';?>
           <input type="radio" id="january" name="chosen_repetitive_goal_month" value="january" required checked />
           <label for="january">
@@ -555,7 +555,7 @@
   <?php endif; ?>
 
   <?php if ($currentStep === 'add-goal-streak'): ?>
-    <section class="main-profile-add-goal">
+    <section class="main-profile-add-goal" id="main">
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">edit the goal</p>
       <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
@@ -572,10 +572,10 @@
           </g>
         </svg>
       </a>
-      <p><?php echo $habit ?>, 10 days in a row.</p>
-      <form method="post">
-        <fieldset>
-          <legend>Choose amount of days</legend>
+      <p class="main-profile-add-goal-text"><span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in a row.</p>
+      <form method="post" class="main-profile-add-goal-form add-goal-streak-form">
+        <fieldset class="add-goal-form-field">
+          <legend class="add-goal-form-field-legend">Choose amount of days</legend>
           <?php if(!empty($errors['chosen_streak_goal_number'])) echo '<span class="error">' . $errors['chosen_streak_goal_number'] . '</span>';?>
           <input type="number" name="chosen_streak_goal_number" value="2" min="2" max="30" required />
         </fieldset>
@@ -597,7 +597,7 @@
   <?php endif; ?>
 
   <?php if ($currentStep === 'add-goal-total'): ?>
-    <section class="main-profile-add-goal">
+    <section class="main-profile-add-goal" id="main">
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">edit the goal</p>
       <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
@@ -614,15 +614,15 @@
           </g>
         </svg>
       </a>
-      <p><?php echo $habit ?>, 10 days in january.</p>
-      <form method="post">
-        <fieldset>
-          <legend>Choose amount of days</legend>
+      <p class="main-profile-add-goal-text"><span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in january.</p>
+      <form method="post" class="main-profile-add-goal-form add-goal-total-form">
+        <fieldset class="add-goal-form-field">
+          <legend class="add-goal-form-field-legend">Choose amount of days</legend>
           <?php if(!empty($errors['chosen_total_goal_number'])) echo '<span class="error">' . $errors['chosen_total_goal_number'] . '</span>';?>
           <input type="number" name="chosen_total_goal_number" value="2" min="2" max="30" required />
         </fieldset>
-        <fieldset>
-          <legend>Choose your month.</legend>
+        <fieldset class="add-goal-form-field">
+          <legend class="add-goal-form-field-legend">Choose your month.</legend>
           <?php if(!empty($errors['chosen_total_goal_month'])) echo '<span class="error">' . $errors['chosen_total_goal_month'] . '</span>';?>
           <input type="radio" id="january" name="chosen_total_goal_month" value="january" required checked />
           <label for="january">
