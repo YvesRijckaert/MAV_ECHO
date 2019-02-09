@@ -52,27 +52,42 @@
           <title>Collage</title>
           <desc>Collage of the day.</desc>
           <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
-            <?php foreach($fulfilledHabitsOfEnteredDay as $habit):
-              switch ($habit['habit_colour_name']) {
-                case 'blue':
-                  echo '<g class="blue"><circle fill="#4285ff" cx="90" cy="269" r="90"></circle></g>';
-                  break;
-                case 'orange':
-                  echo '<g class="orange"><path fill="#fbc649"  d="M90.72,360 L180,360 L180,540 L90.72,540 C90.4802221,539.999059 90.240221,540 90,540 C40.2943725,540 -1.8189894e-12,499.705627 -1.8189894e-12,450 C-1.8189894e-12,400.294373 40.2943725,360 90,360 C90.240221,360 90.4802221,360.000941 90.72,360.00282 Z" transform="translate(90.000000, 450.000000) rotate(-90.000000) translate(-90.000000, -450.000000) "></path></g>';
-                  break;
-                case 'purple':
-                  echo '<g class="purple"><rect fill="#9278fd" x="180" y="0" width="180" height="180"></rect></g>';
-                  break;
-                case 'green':
-                  echo '<g class="green"><rect fill="#00d28b" x="-1.56319402e-13" y="9.9475983e-14" width="180" height="180"></rect><rect fill="#ffffff" x="-1.56319402e-13" y="9.9475983e-14" width="90" height="90"></rect><rect fill="#ffffff" x="90" y="90" width="90" height="90"></rect></g>';
-                  break;
-                case 'red':
-                  echo '<g class="red"><polygon fill="#fe5455" points="180 179 360 359 180 359"></polygon></g>';
-                  break;
-                default:
-                  break;
-              } ?>
-            <?php endforeach; ?>
+            <g style="opacity: <?php switch ($postOfEnteredDay['feelings']) {
+              case -1:
+                echo '.5';
+                break;
+              case 0:
+                echo '.75';
+                break;
+              case 1:
+                echo '1';
+                break;
+              default:
+                echo '1';
+                break;
+            }  ?>">
+              <?php foreach($fulfilledHabitsOfEnteredDay as $habit):
+                switch ($habit['habit_colour_name']) {
+                  case 'blue':
+                    echo '<g class="blue"><circle fill="#4285ff" cx="90" cy="269" r="90"></circle></g>';
+                    break;
+                  case 'orange':
+                    echo '<g class="orange"><path fill="#fbc649"  d="M90.72,360 L180,360 L180,540 L90.72,540 C90.4802221,539.999059 90.240221,540 90,540 C40.2943725,540 -1.8189894e-12,499.705627 -1.8189894e-12,450 C-1.8189894e-12,400.294373 40.2943725,360 90,360 C90.240221,360 90.4802221,360.000941 90.72,360.00282 Z" transform="translate(90.000000, 450.000000) rotate(-90.000000) translate(-90.000000, -450.000000) "></path></g>';
+                    break;
+                  case 'purple':
+                    echo '<g class="purple"><rect fill="#9278fd" x="180" y="0" width="180" height="180"></rect></g>';
+                    break;
+                  case 'green':
+                    echo '<g class="green"><rect fill="#00d28b" x="-1.56319402e-13" y="9.9475983e-14" width="180" height="180"></rect><rect fill="#ffffff" x="-1.56319402e-13" y="9.9475983e-14" width="90" height="90"></rect><rect fill="#ffffff" x="90" y="90" width="90" height="90"></rect></g>';
+                    break;
+                  case 'red':
+                    echo '<g class="red"><polygon fill="#fe5455" points="180 179 360 359 180 359"></polygon></g>';
+                    break;
+                  default:
+                    break;
+                } ?>
+              <?php endforeach; ?>
+            </g>
           <?php endif; ?>
         <g class="textbox">
           <rect fill="#ffffff" x="90" y="90" width="182" height="367"></rect>
