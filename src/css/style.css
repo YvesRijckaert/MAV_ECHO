@@ -467,6 +467,15 @@ input[type=radio], input[type=checkbox] {
   border: .25rem solid var(--red);
 }
 
+.month-form-submit {
+  align-self: flex-end;
+  border: .25rem solid #2b2b2b;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .month-form-input-radio + .month-form-label-red .month-habit-item-icon-white,
 .month-form-input-radio + .month-form-label-orange .month-habit-item-icon-white,
 .month-form-input-radio + .month-form-label-green .month-habit-item-icon-white,
