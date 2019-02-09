@@ -348,6 +348,10 @@ input[type=radio], input[type=checkbox] {
   height: 6.5rem;
 }
 
+.month-form-label:hover {
+  cursor: pointer;
+}
+
 .goals-in-progress-list-item, .goals-completed-list-item {
   height: 13rem;
 }
