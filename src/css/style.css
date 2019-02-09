@@ -265,7 +265,7 @@ input[type=radio], input[type=checkbox] {
   right: 0;
   align-self: flex-end;
   text-align: center;
-  padding: 2.5rem 7.5rem;
+  padding: 2.5rem 7rem;
   border-bottom-left-radius: 4rem;
   border: none;
 
@@ -301,6 +301,10 @@ input[type=radio], input[type=checkbox] {
   &:focus {
     outline: none;
   }
+}
+
+.add-day-form-field-label-great:hover, .add-day-form-field-label-bad:hover, .add-day-form-field-label-okay:hover {
+  cursor: pointer;
 }
 
 .add-day-form-field-radio:focus + .add-day-form-field-label-great .great-circle,
@@ -895,7 +899,7 @@ input[type=radio], input[type=checkbox] {
   background-color: #2b2b2b;
   color: white;
   text-align: center;
-  padding: 2.5rem 7.5rem;
+  padding: 2.5rem 7rem;
   border-bottom-left-radius: 4rem;
   border: none;
 
@@ -965,6 +969,32 @@ input[type=radio], input[type=checkbox] {
 
 .add-goal-form-field-legend {
   display: none;
+}
+
+.add-goal-repetitive-day-label, .add-goal-repetitive-month-label, .add-goal-total-month-label {
+  padding: 1rem;
+  border-radius: 1.2rem;
+  border: .25rem solid #2b2b2b;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add-goal-repetitive-day-radio:focus + .add-goal-repetitive-day-label,
+.add-goal-repetitive-day-radio:checked + .add-goal-repetitive-day-label {
+  background-color: var(--red);
+  color: white;
+}
+
+.add-goal-repetitive-month-radio:focus + .add-goal-repetitive-month-label,
+.add-goal-repetitive-month-radio:checked + .add-goal-repetitive-month-label,
+.add-goal-total-month-radio:focus + .add-goal-total-month-label,
+.add-goal-total-month-radio:checked + .add-goal-total-month-label {
+  background-color: var(--orange);
+  color: white;
 }
 
 /* profile links */
