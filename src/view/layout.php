@@ -128,6 +128,11 @@
     <main class="main main-<?php echo $currentPage ?>">
     <?php echo $content; ?>
     </main>
+    <?php if($currentPage === 'home'): ?>
+      <footer>
+        <a href="#"><span>echo</span><span>echo</span></a>
+      </footer>
+    <?php endif; ?>
     <?php echo $js; ?>
   </body>
 </html>
