@@ -1223,3 +1223,63 @@ footer {
   padding-left: 1rem;
   color: #d4d4d4;
 }
+
+/* responsive */
+
+@media only screen and (max-width: 1000px) {
+
+  .main-green-button {
+
+    width: 10rem;
+
+    & span {
+      display: none;
+    }
+  }
+
+  .main-progress-statistics {
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-areas:
+      '. nav .'
+      '. mood .'
+      '. habits .';
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+  .header-title {
+    display: none;
+  }
+
+  .header-nav {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    font-size: 1.4rem;
+    height: 7.5rem;
+
+    & .header-nav-ul {
+      width: 100vw;
+      padding: 2rem;
+      justify-content: space-around;
+      background-color: var(--light-grey);
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 4rem;
+    }
+
+    & a {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    & svg {
+      margin: 0 0 1rem 0;
+    }
+  }
+
+  .main-green-button {
+    display: none;
+  }
+}
