@@ -476,6 +476,10 @@ footer {
   height: 6.5rem;
 }
 
+.customize-habits-list-item svg, .customize-goals-list-item svg {
+  margin-right: 2.2rem;
+}
+
 .month-form-label:hover {
   cursor: pointer;
 }
@@ -1339,6 +1343,25 @@ footer {
 
   .main-green-button {
     display: none;
+  }
+
+  .customize-habits-title, .customize-goals-title {
+    margin-bottom: -2rem;
+    position: relative;
+    z-index: -5000;
+  }
+
+  .customize-goals-list {
+    margin-bottom: 10rem;
+  }
+
+  .customize-goals-list span, .customize-habits-list span { 
+    font-size: 1.6rem;
+  }
+
+  .customize-habits-list-item-icon svg {
+    width: 2rem;
+    height: 2rem;
   }
 
   .info-form-submit {
