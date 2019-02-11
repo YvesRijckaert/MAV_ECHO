@@ -378,6 +378,20 @@ class PostsController extends Controller {
                           'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
                           'time_amount_progress' => $time_amount_progress
                         ));
+                        function countDaysByName($dayName, \DateTimeInterface $start, \DateTimeInterface $end) {
+                          $count = 0;
+                          $interval = new \DateInterval('P1D');
+                          $period = new \DatePeriod($start, $interval, $end);
+
+                          foreach($period as $day){
+                            if($day->format('D') === ucfirst(substr($dayName, 0, 3))){
+                              $count ++;
+                            }
+                          }
+                          return $count;
+                        }
+                        $numberOfCurrentDaysInCurrentMonth = countDaysByName('Fri', DateTime::createFromFormat('d-m-Y', date('01-m-Y')), DateTime::createFromFormat('d-m-Y', date('t-m-Y')));
+                        die();
                         //TODO: CHECK IF GOAL IS COMPLETED
                         //check als de time_amount_progress gelijk is aan het aantal dagen (goal day) in de maand (goal month) (dus ook berkenen vb. hoeveel maandagen er zitten in januari)
                         //if true, dan is de goal completed! dan toon je een bevestiging
