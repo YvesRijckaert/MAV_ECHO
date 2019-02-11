@@ -3,15 +3,18 @@
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/PostDAO.php';
 require_once __DIR__ . '/../dao/HabitDAO.php';
+require_once __DIR__ . '/../dao/GoalDAO.php';
 
 class PostsController extends Controller {
 
     private $postDAO;
     public $habitDAO;
+    public $goalDAO;
 
     function __construct() {
         $this->postDAO = new PostDAO();
         $this->habitDAO = new HabitDAO();
+        $this->goalDAO = new GoalDAO();
     }
 
     public function overview() {
@@ -378,7 +381,41 @@ class PostsController extends Controller {
                       'post_id' => $insertedPost['post_id'],
                       'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
                     ));
+                    $goalsFromHabit = $this->goalDAO->selectAllExistingGoalsFromHabit(array(
+                      'user_id' => $_SESSION['user']['user_id'],
+                      'habit_id' => array_column($fulfilled_habit, 'habit_id')[0],
+                      'completed' => 0,
+                      'active' => 1
+                    ));
+                    if($goalsFromHabit['repetitive']) {
+                      $repetitiveMonth =  $goalsFromHabit['repetitive']['month'];
+                      $todayMonth = strtolower(date('F'));
+                      $repetitiveDay = $goalsFromHabit['repetitive']['day'];
+                      $todayDay = strtolower(date('l'));
+                      if($repetitiveMonth == $todayMonth && $repetitiveDay == $todayDay) {
+                        $time_amount_progress = $this->goalDAO->getTimeAmountProgressRepetitive(array(
+                          'table_name' => 'repetitive',
+                          'user_id' => $_SESSION['user']['user_id'],
+                          'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
+                          'habit_id' => $goalsFromHabit['repetitive']['habit_id'],
+                        ));
+                        $time_amount_progress++;
+                        $this->goalDAO->updateRepetitiveGoal(array(
+                          'user_id' => $_SESSION['user']['user_id'],
+                          'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
+                          'habit_id' => $goalsFromHabit['repetitive']['habit_id'],
+                          'time_amount_progress' => $time_amount_progress
+                        ));
+                      }
+                    };
+                    if($goalsFromHabit['streaks']) {
+
+                    };
+                    if($goalsFromHabit['total_amount']) {
+
+                    };
                   }
+                  die();
                   $_SESSION['info'] = 'Added new day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                   exit();
