@@ -22,9 +22,6 @@
       <nav class="header-nav">
         <h2 class="header-nav-title hide">Header navigation</h2>
         <ul class="header-nav-ul">
-          <li class="header-nav-item <?php if($currentPage === 'home') { echo 'header-nav-item-active';} ?>">
-            <a href="index.php">Home</a>
-          </li>
           <li class="header-nav-item <?php if($currentPage === 'login') { echo 'header-nav-item-active';} ?>">
             <a href="index.php?page=login">Login</a>
           </li>
