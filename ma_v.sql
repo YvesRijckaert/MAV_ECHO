@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Gegenereerd op: 06 feb 2019 om 16:14
+-- Gegenereerd op: 11 feb 2019 om 14:43
 -- Serverversie: 5.7.23
 -- PHP-versie: 7.2.8
 
@@ -45,7 +45,11 @@ INSERT INTO `daily_posts` (`post_id`, `user_id`, `date`, `short_memory`, `feelin
 (119, 22, '2019-02-02', 'dagboek 2 februari', -1),
 (120, 22, '2019-02-04', 'test', 0),
 (121, 22, '2019-02-05', 'memory of the 5th', -1),
-(122, 22, '2019-02-06', 'test', 1);
+(122, 22, '2019-02-06', 'testje van een memory', -1),
+(123, 22, '2019-02-07', 'Niet veel.', 1),
+(124, 22, '2019-02-08', 'Not much', -1),
+(125, 22, '2019-02-09', ' testje van een heel erg lange memory testje van een heel erg lange memory testje van een heel erg lange memory.', 0),
+(126, 22, '2019-02-11', 'test van memory', -1);
 
 -- --------------------------------------------------------
 
@@ -243,8 +247,17 @@ INSERT INTO `fulfilled_habits` (`fulfilled_habit_id`, `user_id`, `habit_id`, `po
 (169, 22, 35, 120),
 (172, 22, 31, 121),
 (173, 22, 32, 121),
-(174, 22, 31, 122),
-(175, 22, 32, 122);
+(191, 22, 31, 122),
+(192, 22, 32, 122),
+(193, 22, 33, 122),
+(237, 22, 34, 123),
+(240, 22, 31, 124),
+(299, 22, 32, 125),
+(300, 22, 33, 125),
+(301, 22, 35, 125),
+(307, 22, 33, 126),
+(308, 22, 34, 126),
+(309, 22, 35, 126);
 
 -- --------------------------------------------------------
 
@@ -271,7 +284,7 @@ INSERT INTO `habits` (`habit_id`, `user_id`, `habit_name`, `habit_icon`, `habit_
 (32, 22, 'no alcohol', 17, '#fab81b', 'orange', 1),
 (33, 22, '5k running', 33, '#00d28b', 'green', 1),
 (34, 22, 'meditate', 49, '#4285ff', 'blue', 1),
-(35, 22, 'drink 1l water', 65, '#9278fd', 'purple', 0);
+(35, 22, 'drink 1l water', 65, '#9278fd', 'purple', 1);
 
 -- --------------------------------------------------------
 
@@ -285,6 +298,7 @@ CREATE TABLE `repetitive` (
   `habit_id` int(11) NOT NULL,
   `day` varchar(255) NOT NULL,
   `month` varchar(255) NOT NULL,
+  `time_amount_progress` int(11) NOT NULL,
   `completed` tinyint(1) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -306,14 +320,6 @@ CREATE TABLE `streaks` (
   `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Gegevens worden geëxporteerd voor tabel `streaks`
---
-
-INSERT INTO `streaks` (`streak_id`, `user_id`, `habit_id`, `time_amount`, `time_amount_progress`, `time_type`, `completed`, `active`) VALUES
-(1, 22, 31, 2, 0, 'days', 1, 1),
-(2, 22, 32, 6, 0, 'days', 0, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -326,6 +332,7 @@ CREATE TABLE `total_amount` (
   `habit_id` int(11) NOT NULL,
   `days_amount` int(11) NOT NULL,
   `month` varchar(255) NOT NULL,
+  `time_amount_progress` int(11) NOT NULL,
   `completed` tinyint(1) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -351,7 +358,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `email`, `password`, `nickname`, `birthdate`, `lifegoal`, `date_joined`) VALUES
-(22, 'hi@yvesrijckaert.com', '$2y$10$PRYaQ1P6NOXYPICDzkqKZOSMKt6xUUkkdQ0deQGlIH3KjJZJfJJHO', 'Yves', '1998-07-13', 'feel-happier', '2019-01-30');
+(22, 'hi@yvesrijckaert.com', '$2y$10$PRYaQ1P6NOXYPICDzkqKZOSMKt6xUUkkdQ0deQGlIH3KjJZJfJJHO', 'Yves', '1998-07-13', 'improve-social-skills', '2019-01-30');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -431,7 +438,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `daily_posts`
 --
 ALTER TABLE `daily_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT voor een tabel `data_habit_icon`
@@ -449,25 +456,25 @@ ALTER TABLE `data_habit_name`
 -- AUTO_INCREMENT voor een tabel `fulfilled_habits`
 --
 ALTER TABLE `fulfilled_habits`
-  MODIFY `fulfilled_habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `fulfilled_habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
 
 --
 -- AUTO_INCREMENT voor een tabel `habits`
 --
 ALTER TABLE `habits`
-  MODIFY `habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT voor een tabel `repetitive`
 --
 ALTER TABLE `repetitive`
-  MODIFY `repetitive_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `repetitive_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT voor een tabel `streaks`
 --
 ALTER TABLE `streaks`
-  MODIFY `streak_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `streak_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT voor een tabel `total_amount`

@@ -71,6 +71,10 @@ input[type=radio], input[type=checkbox] {
   padding-left: 6rem;
 }
 
+.streak-amount span, .total-amount span {
+  font-variant-numeric: tabular-nums;
+}
+
 .header-title-link {
   display: flex;
   flex-direction: column;
@@ -1154,9 +1158,6 @@ footer {
   color: var(--orange);
 }
 
-.streak-amount, .total-amount {
-  font-variant-numeric: tabular-nums;
-}
 
 /* profile links */
 

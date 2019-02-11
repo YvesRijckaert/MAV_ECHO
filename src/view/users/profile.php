@@ -572,7 +572,7 @@
           </g>
         </svg>
       </a>
-      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <span class="streak-amount">2 days</span> in a row.</p>
+      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <span class="streak-amount"><span>2</span> days</span> in a row.</p>
       <form method="post" class="main-profile-add-goal-form add-goal-streak-form">
         <fieldset class="add-goal-form-field">
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
@@ -616,7 +616,7 @@
           </g>
         </svg>
       </a>
-      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <span class="total-amount">2 days</span> in <span class="total-month">january</span>.</p>
+      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <span class="total-amount"><span>2</span> days</span> in <span class="total-month">january</span>.</p>
       <form method="post" class="main-profile-add-goal-form add-goal-total-form">
         <fieldset class="add-goal-form-field">
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
