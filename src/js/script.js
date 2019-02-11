@@ -2,6 +2,7 @@
   const handleData = data => {
     document.querySelector('.main-overview-month .main-overview-month-calendar').innerHTML = data.calendar;
     document.querySelector('.main-overview-month .month-info-chosenHabit').innerHTML = data.info;
+    document.querySelector('.main-overview-month .month-info-totalDays').innerHTML = `total: ${data.total} days`;
   };
 
   const handleCategoryChange = e => {

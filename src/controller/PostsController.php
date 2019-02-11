@@ -162,10 +162,9 @@ class PostsController extends Controller {
                             $remainingDays = 7 - $dayOfWeek;
                             $calendar .= "<td colspan='$remainingDays'>&nbsp;</td>";
                         }
-                        $class->set('totalDaysOfFulfilledHabit', $totalDaysOfFulfilledHabit);
                         $calendar .= "</tr>";
                         $calendar .= "</tbody>";
-                        return $calendar;
+                        return array($calendar, $totalDaysOfFulfilledHabit);
                       }
                       $enteredDate = new DateTime('01-' . $_GET['month']);
                       $month = $enteredDate->format('m');
@@ -185,7 +184,8 @@ class PostsController extends Controller {
                         return ($var['habit_name'] === $chosenHabit);
                       });
                       $calendar = build_calendar($month,$year, $today_date, call_user_func_array('array_merge', $fulfilled_habit), $this);
-                      $this->set('calendar', $calendar);
+                      $this->set('calendar', $calendar[0]);
+                      $this->set('totalDaysOfFulfilledHabit', $calendar[1]);
                       $this->set('chosenHabit', $chosenHabit);
 
                       //AJAX
@@ -194,6 +194,7 @@ class PostsController extends Controller {
                         $data = array();
                         $data['calendar'] = $calendar;
                         $data['info'] = $chosenHabit;
+                        $data['total'] = $calendar[1];
                         echo json_encode($data);
                         exit();
                       }
