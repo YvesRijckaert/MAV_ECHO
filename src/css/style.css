@@ -14,7 +14,7 @@ html {
 }
 
 :focus {
-  outline: .25rem dotted #2b2b2b;
+  outline: .25rem dotted var(--black);
   outline-offset: .5rem;
 }
 
@@ -108,7 +108,7 @@ input[type=radio], input[type=checkbox] {
 }
 
 .header-nav-item-link:hover .header-nav-item-link-icon-group {
-  fill: #2b2b2b;
+  fill: var(--black);
 }
 
 .main-green-button {
@@ -239,7 +239,7 @@ footer {
 }
 
 .main-nav-item {
-  background-color: whitesmoke;
+  background-color: var(--light-grey);
   text-align: center;
   width: 50%;
   padding: 2.5rem;
@@ -251,14 +251,22 @@ footer {
 
 .main-nav-item-active .main-nav-item-link {
   padding-bottom: 1rem;
-  border-bottom: .25rem solid #2b2b2b;
+  border-bottom: .25rem solid var(--black);
 }
 
-.main-nav-item-month:not(.main-nav-item-active), .active-category-statistics .main-nav-item-achievements, .active-category-info .main-nav-item-customize, .active-category-achievements .main-nav-item-goals, .active-category-customize .main-nav-item-links {
+.main-nav-item-month:not(.main-nav-item-active),
+.active-category-statistics .main-nav-item-achievements,
+.active-category-info .main-nav-item-customize,
+.active-category-achievements .main-nav-item-goals,
+.active-category-customize .main-nav-item-links {
   border-bottom-left-radius: 4rem;
 }
 
-.main-nav-item-day:not(.main-nav-item-active), .active-category-goals .main-nav-item-achievements, .active-category-links .main-nav-item-customize, .active-category-achievements .main-nav-item-stats, .active-category-customize .main-nav-item-info {
+.main-nav-item-day:not(.main-nav-item-active),
+.active-category-goals .main-nav-item-achievements,
+.active-category-links .main-nav-item-customize,
+.active-category-achievements .main-nav-item-stats,
+.active-category-customize .main-nav-item-info {
   border-bottom-right-radius: 4rem;
 }
 
@@ -400,8 +408,8 @@ footer {
 .add-day-form-field-textarea {
   resize: none;
   border: none;
-  background-image: linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
-  background-size: 100% 31px;
+  background-image: linear-gradient(white, white 3rem, var(--light-grey) 3rem, var(--light-grey) 3.1rem, white 3.1rem);
+  background-size: 100% 3.1rem;
   line-height: 3.1rem;
   padding: .7rem;
 
@@ -449,7 +457,12 @@ footer {
 
 /* HABITS AND GOALS STYLING */
 
-.day-info-habits-list-item, .month-form-label, .customize-habits-list-item, .customize-goals-list-item, .goals-in-progress-list-item, .goals-completed-list-item {
+.day-info-habits-list-item,
+.month-form-label,
+.customize-habits-list-item,
+.customize-goals-list-item,
+.goals-in-progress-list-item,
+.goals-completed-list-item {
   color: white;
   padding: 1rem 3rem;
   border-radius: 1.2rem;
@@ -463,47 +476,59 @@ footer {
   cursor: pointer;
 }
 
-.goals-in-progress-list-item, .goals-completed-list-item {
+.goals-in-progress-list-item,
+.goals-completed-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   height: 13rem;
 }
 
-.customize-habits-list-item, .customize-goals-list-item {
+.customize-habits-list-item,
+.customize-goals-list-item {
   display: flex;
   justify-content: space-between;
 }
 
-.day-info-habits-list-item:not(:last-child), .month-form-label:not(:last-child), .customize-habits-list-item:not(:last-child), .customize-goals-list-item:not(:last-child), .goals-in-progress-list-item, .goals-completed-list-item {
+.day-info-habits-list-item:not(:last-child),
+.month-form-label:not(:last-child),
+.customize-habits-list-item:not(:last-child),
+.customize-goals-list-item:not(:last-child),
+.goals-in-progress-list-item,
+.goals-completed-list-item {
   margin-bottom: 1rem;
 }
 
-.goals-in-progress-list-item-topwrap, .goals-completed-list-item-topwrap {
+.goals-in-progress-list-item-topwrap,
+.goals-completed-list-item-topwrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-}
-
-.goals-in-progress-list-item-status, .goals-completed-list-item-status {
-  font-weight: normal;
-}
-
-.goals-in-progress-list-item-amount, .goals-completed-list-item-amount {
-  padding-top: 2.5rem;
-  color: #2b2b2b;
-  opacity: .2;
-}
-
-.goals-in-progress-error, .goals-completed-error {
-  text-align: center;
-  padding-top: 5rem;
-}
-
-.goals-completed-list-item-topwrap {
   border-bottom: .25rem solid white;
   padding-bottom: 2.5rem;
 }
 
-.customize-habits-list-item-wrap, .customize-goals-list-item-wrap {
+.goals-in-progress-list-item-status,
+.goals-completed-list-item-status {
+  font-weight: normal;
+}
+
+.goals-in-progress-list-item-amount,
+.goals-completed-list-item-amount {
+  padding-top: 2.5rem;
+  color: var(--black);
+  opacity: .2;
+}
+
+.goals-in-progress-error,
+.goals-completed-error {
+  text-align: center;
+  padding-top: 5rem;
+}
+
+.customize-habits-list-item-wrap,
+.customize-goals-list-item-wrap {
   display: flex;
   align-items: center;
 }
@@ -512,7 +537,9 @@ footer {
 .customize-habits-list-item-icon svg,
 .customize-goals-list-item-icon svg,
 .month-habit-item-icon svg,
-.month-habit-item-icon-white svg {
+.month-habit-item-icon-white svg,
+.goals-in-progress-list-item-topwrap svg,
+.goals-completed-list-item-topwrap svg {
   width: 3rem;
   margin-right: 1.5rem;
 }
@@ -564,7 +591,7 @@ footer {
 }
 
 .month-calendar-row-today {
-  border: .25rem solid #2b2b2b;
+  border: .25rem solid var(--black);
 }
 
 .main-overview-month-form {
@@ -580,7 +607,7 @@ footer {
 
 .month-form-submit {
   align-self: flex-end;
-  border: .25rem solid #2b2b2b;
+  border: .25rem solid var(--black);
 
   &:hover {
     cursor: pointer;
@@ -730,7 +757,7 @@ footer {
 }
 
 .graph .grid {
-  stroke: #ccc;
+  stroke: var(--light-grey);
   stroke-dasharray: 0;
   stroke-width: 1;
 }
@@ -755,7 +782,7 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: whitesmoke;
+  background-color: var(--light-grey);
   border-radius: 1.2rem;
 }
 
@@ -787,7 +814,7 @@ footer {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: #2b2b2b;
+  background-color: var(--black);
   color: white;
   text-align: center;
   padding: 4rem 8rem;
@@ -818,7 +845,7 @@ footer {
 }
 
 .goals-nav-list-item-link-active {
-  border-bottom: .25rem solid #2b2b2b;
+  border-bottom: .25rem solid var(--black);
 }
 
 /* profile info */
@@ -879,11 +906,11 @@ footer {
   height: 5rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   border: none;
-  border-bottom: .25rem solid #2b2b2b;
+  border-bottom: .25rem solid var(--black);
 }
 
 .info-form-label-text {
-  color: #d4d4d4;
+  color: var(--grey);
 }
 
 .info-form-group {
@@ -899,7 +926,7 @@ footer {
 
 .info-form-goals-option, .add-habit-form-label {
   font-size: 1.8rem;
-  border: .25rem solid #2b2b2b;
+  border: .25rem solid var(--black);
   border-radius: 1.2rem;
   padding: 1rem;
   margin-right: 1rem;
@@ -914,7 +941,7 @@ footer {
 .info-form-goals-radio:checked + .info-form-goals-option,
 .add-habit-form-radio:focus + .add-habit-form-label,
 .add-habit-form-radio:checked + .add-habit-form-label {
-  background-color: #2b2b2b;
+  background-color: var(--black);
   color: white;
 }
 
@@ -935,7 +962,7 @@ footer {
 
 .customize-habits-title, .customize-goals-title, .add-habit-form-field-legend, .add-day-form-field-legend, .statistics-mood-title, .statistics-habits-title {
   margin: 2.5rem 0;
-  color: whitesmoke;
+  color: var(--light-grey);
   font-size: 5.6rem;
   text-transform: lowercase;
   font-weight: bold;
@@ -969,7 +996,7 @@ footer {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: whitesmoke;
+  background-color: var(--light-grey);
   text-align: center;
   padding: 2.5rem 5rem;
   border-bottom-right-radius: 4rem;
@@ -1007,7 +1034,7 @@ footer {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #2b2b2b;
+  background-color: var(--black);
   color: white;
   text-align: center;
   padding: 2.5rem 7rem;
@@ -1046,7 +1073,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: .25rem solid #2b2b2b;
+  border: .25rem solid var(--black);
   border-radius: 1.2rem;
   padding: 25rem 2.5rem 2.5rem;
   width: 30rem;
@@ -1065,7 +1092,7 @@ footer {
 }
 
 .add-goal-type-subtitle-abbr {
-  color: #cdcdcd;
+  color: var(--light-grey);
 }
 
 .add-goal-type-subtitle-habitname, strong {
@@ -1085,7 +1112,7 @@ footer {
 .add-goal-repetitive-day-label, .add-goal-repetitive-month-label, .add-goal-total-month-label {
   padding: 1rem;
   border-radius: 1.2rem;
-  border: .25rem solid #2b2b2b;
+  border: .25rem solid var(--black);
   margin-right: 1rem;
   margin-bottom: 1rem;
 
@@ -1098,6 +1125,7 @@ footer {
 .add-goal-repetitive-day-radio:checked + .add-goal-repetitive-day-label {
   background-color: var(--red);
   color: white;
+  border: .25rem solid var(--red);
 }
 
 .add-goal-repetitive-month-radio:focus + .add-goal-repetitive-month-label,
@@ -1106,6 +1134,7 @@ footer {
 .add-goal-total-month-radio:checked + .add-goal-total-month-label {
   background-color: var(--orange);
   color: white;
+  border: .25rem solid var(--orange);
 }
 
 .add-goal-form-field-month {
@@ -1115,6 +1144,14 @@ footer {
 .add-goal-form-field-stepper {
   display: flex;
   justify-content: center;
+}
+
+.repetitive-day {
+  color: var(--red);
+}
+
+.repetitive-month {
+  color: var(--orange);
 }
 
 /* profile links */
@@ -1203,7 +1240,7 @@ footer {
 
 .main-pofile-links-phone-article {
   display: flex;
-  border: .15rem solid #2b2b2b;
+  border: .15rem solid var(--black);
   border-radius: 1.2rem;
   padding: 1.5rem;
 }
@@ -1235,7 +1272,7 @@ footer {
 
 .links-phone-article-tel {
   padding-left: 1rem;
-  color: #d4d4d4;
+  color: var(--grey);
   font-weight: 300;
 }
 

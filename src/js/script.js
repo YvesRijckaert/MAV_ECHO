@@ -1,6 +1,5 @@
 {
   const handleData = data => {
-    console.log(data);
     document.querySelector('.main-overview-month .main-overview-month-calendar').innerHTML = data.calendar[0];
     document.querySelector('.main-overview-month .month-info-chosenHabit').innerHTML = data.info;
     document.querySelector('.main-overview-month .month-info-totalDays').innerHTML = `total: ${data.calendar[1]} days`;
@@ -18,17 +17,40 @@
       .then(data => handleData(data));
   };
 
+  const handleChangeRepetitive = e => {
+    switch (e.target.name) {
+    case 'chosen_repetitive_goal_day':
+      document.querySelector(`.repetitive-day`).innerHTML = e.target.value;
+      break;
+    case 'chosen_repetitive_goal_month':
+      document.querySelector(`.repetitive-month`).innerHTML = e.target.value;
+      break;
+    default:
+      break;
+    }
+  };
+
   const init = () => {
+    //AJAX CALENDAR
     const categorySubmit = document.querySelector(`.month-form-submit`);
     if (categorySubmit) {
       categorySubmit.remove();
     }
-
     document
       .querySelectorAll(`.month-form-input`)
       .forEach(category =>
         category.addEventListener(`change`, handleCategoryChange)
       );
+
+    //AJAX ADD GOALS
+    const $exampleText = document.querySelector(`.add-goals-example`),
+      $repetitiveForm = document.querySelector(`.add-goal-repetitive-form`);
+    if ($exampleText) {
+      $exampleText.remove();
+    }
+    if ($repetitiveForm) {
+      $repetitiveForm.addEventListener(`change`, handleChangeRepetitive);
+    }
   };
   init();
 }

@@ -451,7 +451,7 @@
           </g>
         </svg>
       </a>
-      <p class="main-profile-add-goal-text"><span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every thursday of june.</p>
+      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every <span class="repetitive-day">thursday</span> of <span class="repetitive-month">june</span></p>
       <form method="post" class="main-profile-add-goal-form add-goal-repetitive-form">
         <fieldset class="add-goal-form-field add-goal-form-field-day">
           <legend class="add-goal-form-field-legend">Choose your day.</legend>
@@ -572,7 +572,7 @@
           </g>
         </svg>
       </a>
-      <p class="main-profile-add-goal-text"><span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in a row.</p>
+      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in a row.</p>
       <form method="post" class="main-profile-add-goal-form add-goal-streak-form">
         <fieldset class="add-goal-form-field">
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
@@ -616,7 +616,7 @@
           </g>
         </svg>
       </a>
-      <p class="main-profile-add-goal-text"><span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in january.</p>
+      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in january.</p>
       <form method="post" class="main-profile-add-goal-form add-goal-total-form">
         <fieldset class="add-goal-form-field">
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
