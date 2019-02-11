@@ -4,17 +4,17 @@
   <form class="register-form" method="post">
     <label>
       <span class="form-label">Email:</span>
-      <input type="email" name="email" class="form-input"<?php if(!empty($_POST['email'])) echo 'value="' . $_POST['email'] . '"';?> required />
+      <input class="info-form-input" type="email" name="email" class="form-input"<?php if(!empty($_POST['email'])) echo 'value="' . $_POST['email'] . '"';?> required />
       <?php if(!empty($errors['email'])) echo '<span class="error">' . $errors['email'] . '</span>';?>
     </label>
     <label>
       <span class="form-label">Password:</span>
-      <input type="password" name="password" class="form-input"<?php if(!empty($_POST['password'])) echo 'value="' . $_POST['password'] . '"';?> required />
+      <input class="info-form-input" type="password" name="password" class="form-input"<?php if(!empty($_POST['password'])) echo 'value="' . $_POST['password'] . '"';?> required />
       <?php if(!empty($errors['password'])) echo '<span class="error">' . $errors['password'] . '</span>';?>
     </label>
     <label>
       <span class="form-label">Confirm Password:</span>
-      <input type="password" name="confirm_password" class="form-input"<?php if(!empty($_POST['confirm_password'])) echo 'value="' . $_POST['confirm_password'] . '"';?> required />
+      <input class="info-form-input" type="password" name="confirm_password" class="form-input"<?php if(!empty($_POST['confirm_password'])) echo 'value="' . $_POST['confirm_password'] . '"';?> required />
       <?php if(!empty($errors['confirm_password'])) echo '<span class="error">' . $errors['confirm_password'] . '</span>';?>
     </label>
     <input type="submit" name="register1" value="next step" class="form-submit" />
