@@ -71,6 +71,10 @@ input[type=radio], input[type=checkbox] {
   padding-left: 6rem;
 }
 
+.streak-amount span, .total-amount span {
+  font-variant-numeric: tabular-nums;
+}
+
 .header-title-link {
   display: flex;
   flex-direction: column;
@@ -622,7 +626,6 @@ footer {
   display: none;
 }
 
-.month-form-input-radio:focus + .month-form-label-red,
 .month-form-input-radio:checked + .month-form-label-red {
   color: white;
   border: .25rem solid var(--red);
@@ -642,7 +645,6 @@ footer {
   border: .25rem solid var(--orange);
 }
 
-.month-form-input-radio:focus + .month-form-label-orange,
 .month-form-input-radio:checked + .month-form-label-orange {
   color: white;
   border: .25rem solid var(--orange);
@@ -662,7 +664,6 @@ footer {
   border: .25rem solid var(--green);
 }
 
-.month-form-input-radio:focus + .month-form-label-green,
 .month-form-input-radio:checked + .month-form-label-green {
   color: white;
   border: .25rem solid var(--green);
@@ -682,7 +683,6 @@ footer {
   border: .25rem solid var(--blue);
 }
 
-.month-form-input-radio:focus + .month-form-label-blue,
 .month-form-input-radio:checked + .month-form-label-blue {
   color: white;
   border: .25rem solid var(--blue);
@@ -702,7 +702,6 @@ footer {
   border: .25rem solid var(--purple);
 }
 
-.month-form-input-radio:focus + .month-form-label-purple,
 .month-form-input-radio:checked + .month-form-label-purple {
   color: white;
   border: .25rem solid var(--purple);
@@ -1147,13 +1146,14 @@ footer {
   justify-content: center;
 }
 
-.repetitive-day {
+.repetitive-day, .streak-amount, .total-amount {
   color: var(--red);
 }
 
-.repetitive-month {
+.repetitive-month, .total-month {
   color: var(--orange);
 }
+
 
 /* profile links */
 

@@ -30,6 +30,23 @@
     }
   };
 
+  const handleChangeStreak = e => {
+    document.querySelector(`.streak-amount`).innerHTML = `${e.target.value} days`;
+  };
+
+  const handleChangeTotal = e => {
+    switch (e.target.name) {
+    case 'chosen_total_goal_month':
+      document.querySelector(`.total-month`).innerHTML = e.target.value;
+      break;
+    case 'chosen_total_goal_number':
+      document.querySelector(`.total-amount`).innerHTML = `${e.target.value} days`;
+      break;
+    default:
+      break;
+    }
+  };
+
   const init = () => {
     //AJAX CALENDAR
     const categorySubmit = document.querySelector(`.month-form-submit`);
@@ -44,12 +61,20 @@
 
     //AJAX ADD GOALS
     const $exampleText = document.querySelector(`.add-goals-example`),
-      $repetitiveForm = document.querySelector(`.add-goal-repetitive-form`);
+      $repetitiveForm = document.querySelector(`.add-goal-repetitive-form`),
+      $streakForm = document.querySelector(`.add-goal-streak-form`),
+      $totalForm = document.querySelector(`.add-goal-total-form`);
     if ($exampleText) {
       $exampleText.remove();
     }
     if ($repetitiveForm) {
       $repetitiveForm.addEventListener(`change`, handleChangeRepetitive);
+    }
+    if ($streakForm) {
+      $streakForm.addEventListener(`change`, handleChangeStreak);
+    }
+    if ($totalForm) {
+      $totalForm.addEventListener(`change`, handleChangeTotal);
     }
   };
   init();

@@ -230,8 +230,35 @@ class PostsController extends Controller {
 
     public function add() {
       //TODO:
+
+      //CHECK IF OKAY MELDING
+      //als de mood 5 dagen na elkaar bad is
+      //toon melding
+
+      //GOALS
       //voor elke actieve habit die werd geselecteerd voor die dag, kijken of die een goal heeft
-      //zo ja: pas de goal aan
+        //if true, welke categorie goals?
+          //STREAK
+            //check of de dag ervoor de habit al gedaan is
+            //if true
+              //voeg 1 dag toe bij time_amount_progress
+              //check als time_amount_progress == time_amount
+              //if true, dan is de goal completed! dan toon je een bevestiging
+            //if false
+              //zet de time_amount_progress weer op 1
+
+          //REPETITIVE
+            //check of vandaag dezelfde maand is als de month van de goal
+              //check of vandaag dezelfde dag is als de day van de goal
+                //zo ja +1 bij time_amount_progress
+                //check als de time_amount_progress gelijk is aan het aantal dagen (goal day) in de maand (goal month) (dus ook berkenen vb. hoeveel maandagen er zitten in januari)
+                //if true, dan is de goal completed! dan toon je een bevestiging
+
+          //TOTAL AMOUNT
+            //check of het vandaag dezelfde maand is als de month van de goal
+              //zo ja, +1 bij time_amount_progress
+              //check als de time_amount_progress gelijk is aan days_amount
+              //if true, dan is de goal completed! dan toon je een bevestiging
 
       if(empty($_SESSION['user'])) {
         $_SESSION['error'] = 'You have to be signed in.';
