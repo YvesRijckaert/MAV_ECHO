@@ -29,7 +29,7 @@
             <a href="index.php?page=login">Login</a>
           </li>
           <li class="header-nav-item <?php if($currentPage === 'register') { echo 'header-nav-item-active';} ?>">
-            <a href="index.php?page=register">Hop on board</a>
+            <a href="index.php?page=register" class="register-button">Hop on board</a>
           </li>
         </ul>
       </nav>
@@ -86,7 +86,7 @@
         </ul>
         <?php if(empty($alreadyPostedToday)): ?>
           <a href="index.php?page=add" class="main-green-button">
-            <svg width="25px" height="24px" viewBox="0 0 25 24" class="main-green-button-svg">
+            <svg width="20px" height="20px" viewBox="0 0 25 24" class="main-green-button-svg">
               <title>Add day button</title>
               <desc>Icon for add day button.</desc>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
@@ -102,7 +102,7 @@
           </a>
         <?php else: ?>
           <a href="index.php?page=add" class="main-green-button">
-            <svg width="24px" height="21px" viewBox="0 0 24 21" class="main-green-button-svg">
+            <svg width="20px" height="20px" viewBox="0 0 24 21" class="main-green-button-svg">
               <title>Change day button</title>
               <desc>Icon for change day button.</desc>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

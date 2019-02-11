@@ -124,6 +124,113 @@ input[type=radio], input[type=checkbox] {
   margin-right: 1rem;
 }
 
+/* home */
+
+.home {
+  padding: 0 10rem;
+}
+
+.home-title {
+  font-size: 10rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 10rem;
+
+  & span {
+    margin-top: 5vh;
+  }
+}
+
+.home-title-reflect {
+  align-self: flex-end;
+}
+
+.home-section {
+  width: 45rem;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  font-weight: normal;
+  margin-top: 10rem;
+
+  & mark {
+    background-color: inherit;
+    font-weight: 600;
+  }
+
+  & .home-section-subtitle {
+    background-color: inherit;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 5rem;
+    margin-left: 15rem;
+  }
+
+  & h3 {
+    font-size: 8rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.section-capture {
+
+  & h3 {
+    color: var(--purple);
+  }
+}
+
+.section-reflect {
+
+  & h3 {
+    color: var(--orange);
+  }
+}
+
+.section-shape {
+
+  & .home-section-subtitle {
+    margin-left: 0;
+  }
+
+  & h3 {
+    color: var(--blue);
+  }
+}
+
+.section-cta {
+  margin: 15rem 0;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  & p {
+    font-size: 6rem;
+    font-weight: bold;
+  }
+}
+
+.register-button {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: lowercase;
+  background-color: var(--purple);
+  width: 20rem;
+  height: 6rem;
+  border-radius: 1rem;
+}
+
+footer {
+  background-color: var(--light-grey);
+  height: 12.5rem;
+  padding: 0 10rem;
+  display: flex;
+  align-items: center;
+}
 /* overview */
 
 .main-nav-ul {
@@ -1096,7 +1203,7 @@ input[type=radio], input[type=checkbox] {
 
 .main-pofile-links-phone-article {
   display: flex;
-  border: .25rem solid #2b2b2b;
+  border: .15rem solid #2b2b2b;
   border-radius: 1.2rem;
   padding: 1.5rem;
 }
@@ -1123,9 +1230,94 @@ input[type=radio], input[type=checkbox] {
 
 .links-phone-article-title, .links-phone-article-tel {
   font-size: 2.2rem;
+  font-weight: 500;
 }
 
 .links-phone-article-tel {
   padding-left: 1rem;
   color: #d4d4d4;
+  font-weight: 300;
+}
+
+/* responsive */
+
+@media only screen and (max-width: 1000px) {
+
+  .main-green-button {
+
+    width: 10rem;
+
+    & span {
+      display: none;
+    }
+  }
+
+  .main-progress-statistics {
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-areas:
+      '. nav .'
+      '. mood .'
+      '. habits .';
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+  .header-title {
+    display: none;
+  }
+
+  .header-nav {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    font-size: 1.4rem;
+    height: 7.5rem;
+
+    & .header-nav-ul {
+      width: 100vw;
+      padding: 2rem;
+      justify-content: space-around;
+      background-color: var(--light-grey);
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 4rem;
+    }
+
+    & a {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    & svg {
+      margin: 0 0 1rem 0;
+    }
+  }
+
+  .main-green-button {
+    display: none;
+  }
+
+  .main-profile-links-sites {
+    grid-template: repeat(4, min-content) / 1fr 6fr 1fr;
+    grid-gap: 1.5rem;
+    grid-template-areas:
+      '. jac .'
+      '. awel .'
+      '. cgg .'
+      '. tejo .';
+    margin-bottom: 5rem;
+  }
+
+  .main-profile-links-phone {
+    display: grid;
+    grid-template: repeat(4, min-content) / 1fr 3fr 3fr 1fr;
+    grid-gap: 1rem;
+    margin-bottom: 10rem;
+    grid-template-areas:
+      '. geweld awel .'
+      '. druglijn druglijn .'
+      '. zelfmoordlijn zelfmoordlijn .'
+      '. teleonthaal teleonthaal .';
+  }
 }
