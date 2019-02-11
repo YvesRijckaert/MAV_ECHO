@@ -392,7 +392,14 @@ class PostsController extends Controller {
                         }
                         $numberOfCurrentDaysInCurrentMonth = countDaysByName(date('D'), DateTime::createFromFormat('d-m-Y', date('01-m-Y')), DateTime::createFromFormat('d-m-Y', date('t-m-Y')));
                         if($repetitiveGoal == $numberOfCurrentDaysInCurrentMonth) {
-                          
+                          $this->goalDAO->setCompleteRepetitiveGoal(array(
+                            'user_id' => $_SESSION['user']['user_id'],
+                            'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
+                            'completed' => 1
+                          ));
+                          $_SESSION['info'] = 'Added new day and goal completed!';
+                          header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                          exit();
                         }
                       }
                     };

@@ -282,6 +282,16 @@ class GoalDAO extends DAO {
     $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function setCompleteRepetitiveGoal($data) {
+    $sql = "UPDATE `repetitive` SET `completed` = :completed WHERE `user_id` = :user_id AND `repetitive_id` = :repetitive_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':completed', $data['completed']);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':repetitive_id', $data['repetitive_id']);
+    $stmt->execute();
+    $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function setCompleteStreakGoal($data) {
     $sql = "UPDATE `streaks` SET `completed` = :completed WHERE `user_id` = :user_id AND `streak_id` = :streak_id";
     $stmt = $this->pdo->prepare($sql);
