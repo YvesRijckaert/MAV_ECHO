@@ -282,6 +282,16 @@ class GoalDAO extends DAO {
     $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function setCompleteStreakGoal($data) {
+    $sql = "UPDATE `streaks` SET `completed` = :completed WHERE `user_id` = :user_id AND `streak_id` = :streak_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':completed', $data['completed']);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':streak_id', $data['streak_id']);
+    $stmt->execute();
+    $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function setCompleteTotalAmountGoal($data) {
     $sql = "UPDATE `total_amount` SET `completed` = :completed WHERE `user_id` = :user_id AND `total_amount_id` = :total_amount_id";
     $stmt = $this->pdo->prepare($sql);

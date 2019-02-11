@@ -381,9 +381,6 @@ class PostsController extends Controller {
                         //TODO: CHECK IF GOAL IS COMPLETED
                         //check als de time_amount_progress gelijk is aan het aantal dagen (goal day) in de maand (goal month) (dus ook berkenen vb. hoeveel maandagen er zitten in januari)
                         //if true, dan is de goal completed! dan toon je een bevestiging
-                        $_SESSION['info'] = 'Added new day and updated your repetitive goal!';
-                        header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
-                        exit();
                       }
                     };
                     if($goalsFromHabit['streaks']) {
@@ -405,7 +402,16 @@ class PostsController extends Controller {
                           'streak_id' => $goalsFromHabit['streaks']['streak_id'],
                           'time_amount_progress' => $time_amount_progress
                         ));
-                        //TODO: check if streak is completed
+                        if($streakGoal['time_amount'] == $time_amount_progress) {
+                          $this->goalDAO->setCompleteStreakGoal(array(
+                            'user_id' => $_SESSION['user']['user_id'],
+                            'streak_id' => $goalsFromHabit['streaks']['streak_id'],
+                            'completed' => 1
+                          ));
+                          $_SESSION['info'] = 'Added new day and goal completed!';
+                          header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                          exit();
+                        }
                       } else {
                         //TODO: zet streak terug op 1
                       }
