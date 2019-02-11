@@ -39,33 +39,29 @@
 
   <?php if($currentStep === 3): ?>
   <form class="register-form" method="post">
-    <input type="radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required />
-    <label for="reduce-stress">
-      <span>reduce stress</span>
+    <input type="radio" name="lifegoal" id="document-life" value="document-life" required />
+    <label for="document-life">
+      <span>document life</span>
     </label>
     <input type="radio" name="lifegoal" id="feel-happier" value="feel-happier" required />
     <label for="feel-happier">
       <span>feel happier</span>
     </label>
-    <input type="radio" name="lifegoal" id="decrease-anxiety" value="decrease-anxiety" required />
-    <label for="decrease-anxiety">
-      <span>decrease anxiety</span>
-    </label>
-    <input type="radio" name="lifegoal" id="build-confidence" value="build-confidence" required />
-    <label for="build-confidence">
-      <span>build confidence</span>
-    </label>
-    <input type="radio" name="lifegoal" id="improve-social-skills" value="improve-social-skills" required />
-    <label for="improve-social-skills">
-      <span>improve social skills</span>
+    <input type="radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required />
+    <label for="reduce-stress">
+      <span>reduce stress</span>
     </label>
     <input type="radio" name="lifegoal" id="live-healthier" value="live-healthier" required />
     <label for="live-healthier">
       <span>live healthier</span>
     </label>
-    <input type="radio" name="lifegoal" id="think-positively" value="think-positively" required />
-    <label for="think-positively">
-      <span>think positively</span>
+    <input type="radio" name="lifegoal" id="reach-life-goals" value="reach-life-goals" required />
+    <label for="reach-life-goals">
+      <span>reach life goals</span>
+    </label>
+    <input type="radio" name="lifegoal" id="none-of-the-above" value="none-of-the-above" required />
+    <label for="none-of-the-above">
+      <span>none of the above</span>
     </label>
     <?php if(!empty($errors['lifegoal'])) echo '<span class="error">' . $errors['lifegoal'] . '</span>';?>
     <input type="submit" name="register3" value="finish" />

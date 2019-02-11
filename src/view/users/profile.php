@@ -39,33 +39,29 @@
         <p class="info-form-label-text">overall goal</p>
         <?php if(!empty($errors['lifegoal'])) echo '<span class="error">' . $errors['lifegoal'] . '</span>';?>
         <div class="info-form-goals-options">
-          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required <?php if($_SESSION['user']['lifegoal'] == 'reduce-stress') echo 'checked' ?>/>
-          <label for="reduce-stress" class="info-form-goals-option">
-            <span>reduce stress</span>
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="document-life" value="document-life" required <?php if($_SESSION['user']['lifegoal'] == 'document-life') echo 'checked' ?>/>
+          <label for="document-life" class="info-form-goals-option">
+            <span>document life</span>
           </label>
           <input type="radio" class="info-form-goals-radio" name="lifegoal" id="feel-happier" value="feel-happier" required <?php if($_SESSION['user']['lifegoal'] == 'feel-happier') echo 'checked' ?> />
           <label for="feel-happier" class="info-form-goals-option">
             <span>feel happier</span>
           </label>
-          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="decrease-anxiety" value="decrease-anxiety" required <?php if($_SESSION['user']['lifegoal'] == 'decrease-anxiety') echo 'checked' ?> />
-          <label for="decrease-anxiety" class="info-form-goals-option">
-            <span>decrease anxiety</span>
-          </label>
-          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="build-confidence" value="build-confidence" required <?php if($_SESSION['user']['lifegoal'] == 'build-confidence') echo 'checked' ?> />
-          <label for="build-confidence" class="info-form-goals-option">
-            <span>build confidence</span>
-          </label>
-          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="improve-social-skills" value="improve-social-skills" required <?php if($_SESSION['user']['lifegoal'] == 'improve-social-skills') echo 'checked' ?> />
-          <label for="improve-social-skills" class="info-form-goals-option">
-            <span>improve social skills</span>
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required <?php if($_SESSION['user']['lifegoal'] == 'reduce-stress') echo 'checked' ?> />
+          <label for="reduce-stress" class="info-form-goals-option">
+            <span>reduce stress</span>
           </label>
           <input type="radio" class="info-form-goals-radio" name="lifegoal" id="live-healthier" value="live-healthier" required <?php if($_SESSION['user']['lifegoal'] == 'live-healthier') echo 'checked' ?> />
           <label for="live-healthier" class="info-form-goals-option">
             <span>live healthier</span>
           </label>
-          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="think-positively" value="think-positively" required <?php if($_SESSION['user']['lifegoal'] == 'think-positively') echo 'checked' ?> />
-          <label for="think-positively" class="info-form-goals-option">
-            <span>think positively</span>
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="reach-life-goals" value="nife-goals" required <?php if($_SESSION['user']['lifegoal'] == 'reach-life-goals') echo 'checked' ?> />
+          <label for="reach-life-goals" class="info-form-goals-option">
+            <span>reach life goals</span>
+          </label>
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="none-of-the-above" value="none-of-the-above" required <?php if($_SESSION['user']['lifegoal'] == 'none-of-the-above') echo 'checked' ?> />
+          <label for="none-of-the-above" class="info-form-goals-option">
+            <span>none of the above</span>
           </label>
         </div>
       </div>
