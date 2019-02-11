@@ -253,11 +253,22 @@ class GoalDAO extends DAO {
   }
 
   public function getTimeAmountProgressRepetitive($data) {
-    $sql = "SELECT * FROM `repetitive` WHERE `user_id` = :user_id AND `habit_id` = :habit_id AND `repetitive_id` = :repetitive_id";
+    $sql = "SELECT `time_amount_progress` FROM `repetitive` WHERE `user_id` = :user_id AND `habit_id` = :habit_id AND `repetitive_id` = :repetitive_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $data['user_id']);
     $stmt->bindValue(':habit_id', $data['habit_id']);
     $stmt->bindValue(':repetitive_id', $data['repetitive_id']);
+    $stmt->execute();
+    $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function getTimeAmountProgressStreak($data) {
+    $sql = "SELECT `time_amount_progress` FROM `streaks` WHERE `user_id` = :user_id AND `habit_id` = :habit_id AND `active` = :active AND `completed` = :completed";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit_id', $data['habit_id']);
+    $stmt->bindValue(':active', $data['active']);
+    $stmt->bindValue(':completed', $data['completed']);
     $stmt->execute();
     $stmt->fetch(PDO::FETCH_ASSOC);
   }
@@ -269,6 +280,19 @@ class GoalDAO extends DAO {
     $stmt->bindValue(':user_id', $data['user_id']);
     $stmt->bindValue(':habit_id', $data['habit_id']);
     $stmt->bindValue(':repetitive_id', $data['repetitive_id']);
+    $stmt->execute();
+    $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function updateStreakGoal($data) {
+    var_dump($data);
+    $sql = "UPDATE `streaks` SET `time_amount_progress` = :time_amount_progress WHERE `user_id` = :user_id AND `habit_id` = :habit_id AND `active` = :active AND `completed` = :completed";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':time_amount_progress', $data['time_amount_progress']);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':habit_id', $data['habit_id']);
+    $stmt->bindValue(':active', $data['active']);
+    $stmt->bindValue(':completed', $data['completed']);
     $stmt->execute();
     $stmt->fetch(PDO::FETCH_ASSOC);
   }
