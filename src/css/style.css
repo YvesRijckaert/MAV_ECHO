@@ -797,6 +797,10 @@ input[type=radio], input[type=checkbox] {
   padding: 1rem;
   margin-right: 1rem;
   margin-top: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .info-form-goals-radio:focus + .info-form-goals-option,
@@ -995,6 +999,15 @@ input[type=radio], input[type=checkbox] {
 .add-goal-total-month-radio:checked + .add-goal-total-month-label {
   background-color: var(--orange);
   color: white;
+}
+
+.add-goal-form-field-month {
+  margin-top: 5rem;
+}
+
+.add-goal-form-field-stepper {
+  display: flex;
+  justify-content: center;
 }
 
 /* profile links */

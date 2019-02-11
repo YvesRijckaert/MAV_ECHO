@@ -453,7 +453,7 @@
       </a>
       <p class="main-profile-add-goal-text"><span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every thursday of june.</p>
       <form method="post" class="main-profile-add-goal-form add-goal-repetitive-form">
-        <fieldset class="add-goal-form-field">
+        <fieldset class="add-goal-form-field add-goal-form-field-day">
           <legend class="add-goal-form-field-legend">Choose your day.</legend>
           <?php if(!empty($errors['chosen_repetitive_goal_day'])) echo '<span class="error">' . $errors['chosen_repetitive_goal_day'] . '</span>';?>
           <input type="radio" id="monday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="monday" required checked />
@@ -485,7 +485,7 @@
             <span class="form-label">sunday</span>
           </label>
         </fieldset>
-        <fieldset class="add-goal-form-field">
+        <fieldset class="add-goal-form-field add-goal-form-field-month">
           <legend class="add-goal-form-field-legend">Choose your month.</legend>
           <?php if(!empty($errors['chosen_repetitive_goal_month'])) echo '<span class="error">' . $errors['chosen_repetitive_goal_month'] . '</span>';?>
           <input type="radio" id="january" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="january" required checked />
@@ -577,7 +577,9 @@
         <fieldset class="add-goal-form-field">
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
           <?php if(!empty($errors['chosen_streak_goal_number'])) echo '<span class="error">' . $errors['chosen_streak_goal_number'] . '</span>';?>
-          <input type="number" name="chosen_streak_goal_number" value="2" min="2" max="30" required />
+          <label class="add-goal-form-field-stepper">
+            <input type="number" name="chosen_streak_goal_number" value="2" min="2" max="30" required />
+          </label>
         </fieldset>
         <label class="add-goal-form-submit">
           <svg width="22px" height="16px" viewBox="0 0 22 16">
@@ -619,9 +621,11 @@
         <fieldset class="add-goal-form-field">
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
           <?php if(!empty($errors['chosen_total_goal_number'])) echo '<span class="error">' . $errors['chosen_total_goal_number'] . '</span>';?>
-          <input type="number" name="chosen_total_goal_number" value="2" min="2" max="30" required />
+          <label class="add-goal-form-field-stepper">
+            <input type="number" name="chosen_total_goal_number" value="2" min="2" max="30" required />
+          <label class="add-goal-form-field-stepper">
         </fieldset>
-        <fieldset class="add-goal-form-field">
+        <fieldset class="add-goal-form-field add-goal-form-field-month">
           <legend class="add-goal-form-field-legend">Choose your month.</legend>
           <?php if(!empty($errors['chosen_total_goal_month'])) echo '<span class="error">' . $errors['chosen_total_goal_month'] . '</span>';?>
           <input type="radio" id="january" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="january" required checked />
