@@ -390,11 +390,10 @@ class PostsController extends Controller {
                           }
                           return $count;
                         }
-                        $numberOfCurrentDaysInCurrentMonth = countDaysByName('Fri', DateTime::createFromFormat('d-m-Y', date('01-m-Y')), DateTime::createFromFormat('d-m-Y', date('t-m-Y')));
-                        die();
-                        //TODO: CHECK IF GOAL IS COMPLETED
-                        //check als de time_amount_progress gelijk is aan het aantal dagen (goal day) in de maand (goal month) (dus ook berkenen vb. hoeveel maandagen er zitten in januari)
-                        //if true, dan is de goal completed! dan toon je een bevestiging
+                        $numberOfCurrentDaysInCurrentMonth = countDaysByName(date('D'), DateTime::createFromFormat('d-m-Y', date('01-m-Y')), DateTime::createFromFormat('d-m-Y', date('t-m-Y')));
+                        if($repetitiveGoal == $numberOfCurrentDaysInCurrentMonth) {
+                          
+                        }
                       }
                     };
                     if($goalsFromHabit['streaks']) {

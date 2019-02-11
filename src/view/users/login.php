@@ -20,7 +20,7 @@
             <title>Done button</title>
             <desc>Icon for done button.</desc>
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g transform="translate(-1294.000000, -742.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.4">
+              <g transform="translate(-1294.000000, -742.000000)" stroke="#ffffff" stroke-linecap="round" stroke-width="2.4">
                 <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
               </g>
             </g>

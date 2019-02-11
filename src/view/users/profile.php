@@ -55,7 +55,7 @@
           <label for="live-healthier" class="info-form-goals-option">
             <span>live healthier</span>
           </label>
-          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="reach-life-goals" value="nife-goals" required <?php if($_SESSION['user']['lifegoal'] == 'reach-life-goals') echo 'checked' ?> />
+          <input type="radio" class="info-form-goals-radio" name="lifegoal" id="reach-life-goals" value="reach-life-goals" required <?php if($_SESSION['user']['lifegoal'] == 'reach-life-goals') echo 'checked' ?> />
           <label for="reach-life-goals" class="info-form-goals-option">
             <span>reach life goals</span>
           </label>
