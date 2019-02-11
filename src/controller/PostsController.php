@@ -231,7 +231,9 @@ class PostsController extends Controller {
     public function add() {
       //TODO:
 
-      //
+      //CHECK IF OKAY MELDING
+      //als de mood 5 dagen na elkaar bad is
+      //toon melding
 
       //GOALS
       //voor elke actieve habit die werd geselecteerd voor die dag, kijken of die een goal heeft
