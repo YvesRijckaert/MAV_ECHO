@@ -238,6 +238,21 @@ footer {
 
 /* login */
 
+.nav-no-login {
+  background-color: transparent;
+
+  & ul {
+    display: flex;
+    align-items: center;
+  }
+
+  & a {
+    text-transform: lowercase;
+    font-family: 'Circular Std', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+}
+
 .login-title {
   text-transform: lowercase;
   text-align: center;
@@ -246,11 +261,33 @@ footer {
   font-weight: bold;
 }
 
+.login-register {
+  text-transform: lowercase;
+  text-align: center;
+  margin-top: 2rem;
+
+  & :hover {
+    border-bottom: .1rem solid var(--black);
+  }
+
+  & mark {
+    color: var(--purple);
+    background-color: inherit;
+  }
+}
+
+.input-container button {
+  border: none;
+  color: var(--white);
+  background-color: inherit;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 50rem;
+  margin: 5rem auto;
+  max-width: 50rem;
+  padding: 1fr;
 
   & label {
     display: flex;
@@ -265,6 +302,14 @@ footer {
 
   & input {
     text-align: center;
+  }
+
+  & .submit {
+    background-color: var(--green);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4rem 8rem;
   }
 
 }
@@ -1341,7 +1386,7 @@ footer {
   .header-title {
     display: none;
   }
-
+  
   .header-nav {
     background-color: transparent;
     position: fixed;
@@ -1370,8 +1415,16 @@ footer {
     }
   }
 
+  .nav-no-login .header-nav-ul{
+    background-color: transparent;
+  }
+
   .header-nav-item-icon {
     stroke-width: .15rem;
+  }
+
+  .login-form {
+    padding: .2fr;
   }
 
   .main-green-button {

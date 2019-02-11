@@ -18,8 +18,8 @@
           <span>echo</span>
         </a>
       </h1>
-      <?php if (empty($_SESSION['user'])): ?>
-      <nav class="header-nav">
+      <?php if (empty($_SESSION['user']) ): ?>
+      <nav class="header-nav nav-no-login">
         <h2 class="header-nav-title hide">Header navigation</h2>
         <ul class="header-nav-ul">
           <li class="header-nav-item <?php if($currentPage === 'login') { echo 'header-nav-item-active';} ?>">
