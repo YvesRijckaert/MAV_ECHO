@@ -194,7 +194,6 @@ class PostsController extends Controller {
                         $data = array();
                         $data['calendar'] = $calendar;
                         $data['info'] = $chosenHabit;
-                        $data['total'] = $calendar[1];
                         echo json_encode($data);
                         exit();
                       }

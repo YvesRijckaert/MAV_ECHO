@@ -1,8 +1,9 @@
 {
   const handleData = data => {
-    document.querySelector('.main-overview-month .main-overview-month-calendar').innerHTML = data.calendar;
+    console.log(data);
+    document.querySelector('.main-overview-month .main-overview-month-calendar').innerHTML = data.calendar[0];
     document.querySelector('.main-overview-month .month-info-chosenHabit').innerHTML = data.info;
-    document.querySelector('.main-overview-month .month-info-totalDays').innerHTML = `total: ${data.total} days`;
+    document.querySelector('.main-overview-month .month-info-totalDays').innerHTML = `total: ${data.calendar[1]} days`;
   };
 
   const handleCategoryChange = e => {
