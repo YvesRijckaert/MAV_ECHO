@@ -40,7 +40,7 @@
                 <title>Overview link</title>
                 <desc>Icon for overview.</desc>
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-742.000000, -42.000000)" <?php if($currentPage === 'overview') { echo 'fill="#2b2b2b"';} else { echo 'stroke="#2b2b2b"';} ?>  stroke-width="2" class="header-nav-item-link-icon-group">
+                    <g class="header-nav-item-icon" transform="translate(-742.000000, -42.000000)" <?php if($currentPage === 'overview') { echo 'fill="#2b2b2b"';} else { echo 'stroke="#2b2b2b"';} ?>  stroke-width="2" class="header-nav-item-link-icon-group">
                       <g transform="translate(742.000000, 39.000000)">
                         <rect x="1" y="4" width="16" height="16" rx="5"></rect>
                       </g>
@@ -56,7 +56,7 @@
                 <title>Progress link</title>
                 <desc>Icon for progress.</desc>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-911.000000, -42.000000)" <?php if($currentPage === 'progress') { echo 'fill="#2b2b2b"';} else { echo 'stroke="#2b2b2b"';} ?> stroke-width="2" class="header-nav-item-link-icon-group">
+                  <g class="header-nav-item-icon" transform="translate(-911.000000, -42.000000)" <?php if($currentPage === 'progress') { echo 'fill="#2b2b2b"';} else { echo 'stroke="#2b2b2b"';} ?> stroke-width="2" class="header-nav-item-link-icon-group">
                     <path d="M928,45.3773705 C928,44.8469375 927.789286,44.3382297 927.414214,43.9631569 C926.633165,43.1821083 925.366835,43.1821083 924.585786,43.9631569 L912.963157,55.5857864 C912.588084,55.9608592 912.37737,56.469567 912.37737,57 C912.37737,58.1045695 913.272801,59 914.37737,59 L926,59 C927.104569,59 928,58.1045695 928,57 L928,45.3773705 Z"></path>
                   </g>
                 </g>
@@ -70,7 +70,7 @@
                 <title>Profile link</title>
                 <desc>Icon for profile.</desc>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1083.000000, -41.000000)" <?php if($currentPage === 'profile') { echo 'fill="#2b2b2b"';} else { echo 'stroke="#2b2b2b"';} ?> stroke-width="2" class="header-nav-item-link-icon-group">
+                  <g class="header-nav-item-icon" transform="translate(-1083.000000, -41.000000)" <?php if($currentPage === 'profile') { echo 'fill="#2b2b2b"';} else { echo 'stroke="#2b2b2b"';} ?> stroke-width="2" class="header-nav-item-link-icon-group">
                     <g transform="translate(742.000000, 39.000000)">
                       <circle cx="351" cy="12" r="9"></circle>
                     </g>

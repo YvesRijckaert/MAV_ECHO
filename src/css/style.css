@@ -476,6 +476,10 @@ footer {
   height: 6.5rem;
 }
 
+.customize-habits-list-item svg, .customize-goals-list-item svg {
+  margin-right: 2.2rem;
+}
+
 .month-form-label:hover {
   cursor: pointer;
 }
@@ -819,6 +823,7 @@ footer {
   padding: 4rem 8rem;
   border-top-left-radius: 4rem;
   display: flex;
+  flex-direction: row-reverse;
 }
 
 .main-progress-goals-edit svg {
@@ -893,7 +898,7 @@ footer {
   }
 
   & svg {
-    margin-left: 1rem;
+    margin-right: 2rem;
   }
 }
 
@@ -905,7 +910,7 @@ footer {
   height: 5rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   border: none;
-  border-bottom: .25rem solid var(--black);
+  border-bottom: .15rem solid var(--black);
 }
 
 .info-form-label-text {
@@ -925,7 +930,7 @@ footer {
 
 .info-form-goals-option, .add-habit-form-label {
   font-size: 1.8rem;
-  border: .25rem solid var(--black);
+  border: .15rem solid var(--black);
   border-radius: 1.2rem;
   padding: 1rem;
   margin-right: 1rem;
@@ -1163,7 +1168,7 @@ footer {
   grid-template-areas:
     '. jac awel .'
     '. cgg tejo .';
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
   margin-top: 2.5rem;
 }
 
@@ -1213,8 +1218,8 @@ footer {
 }
 
 .site-jac, .site-awel, .site-cgg, .site-tejo {
-  border-bottom: .25rem solid rgba(43, 43, 43, .2);
-  padding: 2rem;
+  border-bottom: .2rem solid rgba(43, 43, 43, .2);
+  padding: 4rem 2rem;
 }
 
 .site-jac-title, .site-awel-title, .site-cgg-title, .site-tejo-title {
@@ -1305,8 +1310,9 @@ footer {
   }
 
   .header-nav {
-    background-color: white;
+    background-color: transparent;
     position: fixed;
+    z-index: 1000;
     bottom: 0;
     width: 100vw;
     font-size: 1.4rem;
@@ -1331,30 +1337,119 @@ footer {
     }
   }
 
+  .header-nav-item-icon {
+    stroke-width: .15rem;
+  }
+
   .main-green-button {
     display: none;
   }
 
+  .customize-habits-title, .customize-goals-title {
+    margin-bottom: -2rem;
+    position: relative;
+    z-index: -5000;
+  }
+
+  .customize-goals-list {
+    margin-bottom: 10rem;
+  }
+
+  .customize-goals-list span, .customize-habits-list span { 
+    font-size: 1.6rem;
+  }
+
+  .customize-habits-list-item-icon svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .info-form-submit {
+    position: fixed;
+    padding: 3.75rem 7.5rem 10rem;
+  }
+
+  .main-profile-info-form {
+    display: grid;
+    grid-template: repeat(5, 6rem) / .2fr 6fr .2fr;
+    grid-row-gap: 3rem;
+    grid-template-areas: '. email .' '. birthday .' '. username .' '. password .' '. goals .';
+    margin-top: 25px;
+    margin-top: 2.5rem;
+    font-size: 1.6rem;
+
+    & .info-form-label-text {
+      font-weight: normal;
+    }
+
+    & .info-form-input {
+      border-bottom: .1rem solid #2b2b2b;
+    }
+  }
+
+  .info-form-goals-option {
+    border: .1rem solid #2b2b2b;
+    font-size: 1.4rem;
+    font-weight: normal;
+  }
+
+  .info-form-goals-options {
+    margin-top: 1rem;
+  }
+
   .main-profile-links-sites {
-    grid-template: repeat(4, min-content) / 1fr 6fr 1fr;
-    grid-gap: 1.5rem;
+    grid-template: repeat(4, min-content) / .2fr 6fr .2fr;
+    grid-gap: .5rem;
     grid-template-areas:
       '. jac .'
       '. awel .'
       '. cgg .'
       '. tejo .';
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+
+    & article {
+      border-width: .1rem;
+      padding: 1.8rem;
+    }
+
+    & h3 {
+      font-size: 1.8rem;
+    } 
+
+    & p {
+      font-size: 1.6rem;
+    }
   }
 
   .main-profile-links-phone {
     display: grid;
-    grid-template: repeat(4, min-content) / 1fr 3fr 3fr 1fr;
+    grid-template: repeat(4, 4rem) / .2fr 3fr 3fr .2fr;
     grid-gap: 1rem;
-    margin-bottom: 10rem;
     grid-template-areas:
       '. geweld awel .'
       '. druglijn druglijn .'
       '. zelfmoordlijn zelfmoordlijn .'
       '. teleonthaal teleonthaal .';
+
+    & article {
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    & .main-pofile-links-phone-article {
+      border: .1rem solid var(--black);
+    }
+
+    & .links-phone-article-title {
+      font-weight: normal;
+      font-size: 1.6rem;
+    }
+
+    & .links-phone-article-tel {
+      font-weight: normal;
+      font-size: 1.6rem;
+    }
   }
 }
