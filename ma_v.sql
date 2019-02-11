@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Gegenereerd op: 11 feb 2019 om 14:43
+-- Gegenereerd op: 11 feb 2019 om 20:17
 -- Serverversie: 5.7.23
 -- PHP-versie: 7.2.8
 
@@ -49,7 +49,8 @@ INSERT INTO `daily_posts` (`post_id`, `user_id`, `date`, `short_memory`, `feelin
 (123, 22, '2019-02-07', 'Niet veel.', 1),
 (124, 22, '2019-02-08', 'Not much', -1),
 (125, 22, '2019-02-09', ' testje van een heel erg lange memory testje van een heel erg lange memory testje van een heel erg lange memory.', 0),
-(126, 22, '2019-02-11', 'test van memory', -1);
+(141, 22, '2019-02-10', 'test', -1),
+(149, 22, '2019-02-11', 'test', 1);
 
 -- --------------------------------------------------------
 
@@ -255,9 +256,10 @@ INSERT INTO `fulfilled_habits` (`fulfilled_habit_id`, `user_id`, `habit_id`, `po
 (299, 22, 32, 125),
 (300, 22, 33, 125),
 (301, 22, 35, 125),
-(307, 22, 33, 126),
-(308, 22, 34, 126),
-(309, 22, 35, 126);
+(362, 22, 31, 141),
+(363, 22, 32, 141),
+(384, 22, 31, 149),
+(385, 22, 32, 149);
 
 -- --------------------------------------------------------
 
@@ -298,7 +300,7 @@ CREATE TABLE `repetitive` (
   `habit_id` int(11) NOT NULL,
   `day` varchar(255) NOT NULL,
   `month` varchar(255) NOT NULL,
-  `time_amount_progress` int(11) NOT NULL,
+  `time_amount_progress` int(11) NOT NULL DEFAULT '0',
   `completed` tinyint(1) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -320,6 +322,13 @@ CREATE TABLE `streaks` (
   `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `streaks`
+--
+
+INSERT INTO `streaks` (`streak_id`, `user_id`, `habit_id`, `time_amount`, `time_amount_progress`, `time_type`, `completed`, `active`) VALUES
+(5, 22, 31, 5, 1, 'days', 0, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -332,7 +341,7 @@ CREATE TABLE `total_amount` (
   `habit_id` int(11) NOT NULL,
   `days_amount` int(11) NOT NULL,
   `month` varchar(255) NOT NULL,
-  `time_amount_progress` int(11) NOT NULL,
+  `time_amount_progress` int(11) NOT NULL DEFAULT '0',
   `completed` tinyint(1) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -438,7 +447,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `daily_posts`
 --
 ALTER TABLE `daily_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT voor een tabel `data_habit_icon`
@@ -456,7 +465,7 @@ ALTER TABLE `data_habit_name`
 -- AUTO_INCREMENT voor een tabel `fulfilled_habits`
 --
 ALTER TABLE `fulfilled_habits`
-  MODIFY `fulfilled_habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
+  MODIFY `fulfilled_habit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
 
 --
 -- AUTO_INCREMENT voor een tabel `habits`
@@ -468,13 +477,13 @@ ALTER TABLE `habits`
 -- AUTO_INCREMENT voor een tabel `repetitive`
 --
 ALTER TABLE `repetitive`
-  MODIFY `repetitive_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `repetitive_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT voor een tabel `streaks`
 --
 ALTER TABLE `streaks`
-  MODIFY `streak_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `streak_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT voor een tabel `total_amount`
