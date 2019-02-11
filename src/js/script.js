@@ -39,7 +39,9 @@
     case 'chosen_total_goal_month':
       document.querySelector(`.total-month`).innerHTML = e.target.value;
       break;
-
+    case 'chosen_total_goal_number':
+      document.querySelector(`.total-amount`).innerHTML = `${e.target.value} days`;
+      break;
     default:
       break;
     }

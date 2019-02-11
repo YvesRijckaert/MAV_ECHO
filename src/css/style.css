@@ -1146,12 +1146,16 @@ footer {
   justify-content: center;
 }
 
-.repetitive-day, .streak-amount {
+.repetitive-day, .streak-amount, .total-amount {
   color: var(--red);
 }
 
 .repetitive-month, .total-month {
   color: var(--orange);
+}
+
+.streak-amount, .total-amount {
+  font-variant-numeric: tabular-nums;
 }
 
 /* profile links */

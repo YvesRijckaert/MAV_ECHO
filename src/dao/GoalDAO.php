@@ -105,6 +105,31 @@ class GoalDAO extends DAO {
     return $goals;
   }
 
+  public function deactivateGoalsFromHabit($data) {
+    $goals = array();
+    $sql1 = "DELETE FROM `repetitive` WHERE `user_id` = :user_id AND `habit_id` = :habit_id";
+    $stmt1 = $this->pdo->prepare($sql1);
+    $stmt1->bindValue(':user_id', $data['user_id']);
+    $stmt1->bindValue(':habit_id', $data['habit_id']);
+    $stmt1->execute();
+    $stmt1->fetch(PDO::FETCH_ASSOC);
+
+    $sql2 = "DELETE FROM `streaks` ";
+    $stmt2 = $this->pdo->prepare($sql2);
+    $stmt2->bindValue(':user_id', $data['user_id']);
+    $stmt2->bindValue(':habit_id', $data['habit_id']);
+    $stmt2->execute();
+    $stmt2->fetch(PDO::FETCH_ASSOC);
+
+    $sql3 = "DELETE FROM `total_amount` ";
+    $stmt3 = $this->pdo->prepare($sql3);
+    $stmt3->bindValue(':user_id', $data['user_id']);
+    $stmt3->bindValue(':habit_id', $data['habit_id']);
+    $stmt3->execute();
+    $stmt3->fetch(PDO::FETCH_ASSOC);
+
+  }
+
   public function selectAllGoals($data) {
     $goals = array();
     $sql1 = "SELECT * FROM `repetitive` INNER JOIN `habits` ON repetitive.habit_id = habits.habit_id INNER JOIN `data_habit_icon` ON habits.habit_icon = data_habit_icon.data_habit_icon_id WHERE repetitive.user_id = :user_id AND repetitive.completed = :completed AND repetitive.active = :active";

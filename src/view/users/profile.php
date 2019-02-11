@@ -616,7 +616,7 @@
           </g>
         </svg>
       </a>
-      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in <span class="total-month">january</span>.</p>
+      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <span class="total-amount">2 days</span> in <span class="total-month">january</span>.</p>
       <form method="post" class="main-profile-add-goal-form add-goal-total-form">
         <fieldset class="add-goal-form-field">
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>

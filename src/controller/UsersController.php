@@ -203,9 +203,6 @@ class UsersController extends Controller {
               $this->set('errors', $errors);
             }
 
-            //TODO:
-            //checken of de habit die je wilt verwijderen actieve goals heeft en die dan ook verwijderen
-
             if (isset($_GET['delete-habit'])) {
               $habit = $this->habitDAO->selectOne(array(
                 'user_id' => $_SESSION['user']['user_id'],
@@ -215,6 +212,10 @@ class UsersController extends Controller {
                 $this->habitDAO->deactivateHabit(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'habit_id' =>  $_GET['delete-habit']
+                ));
+                $this->goalDAO->deactivateGoalsFromHabit(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'habit_id' => $_GET['delete-habit']
                 ));
                 $_SESSION['info'] = 'Habit successfully deleted.';
                 header('Location: index.php?page=profile&category=customize');
