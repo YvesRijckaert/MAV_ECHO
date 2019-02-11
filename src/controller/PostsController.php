@@ -233,28 +233,9 @@ class PostsController extends Controller {
 
     public function add() {
       //TODO:
-
       //CHECK IF OKAY MELDING
       //als de mood 5 dagen na elkaar bad is
       //toon melding
-
-      //GOALS
-      //voor elke actieve habit die werd geselecteerd voor die dag, kijken of die een goal heeft
-        //if true, welke categorie goals?
-          //STREAK
-            //check of de dag ervoor de habit al gedaan is
-            //if true
-              //voeg 1 dag toe bij time_amount_progress
-              //check als time_amount_progress == time_amount
-              //if true, dan is de goal completed! zet op complete en toon dan een bevestiging
-            //if false
-              //zet de time_amount_progress weer op 1
-
-          //TOTAL AMOUNT
-            //check of het vandaag dezelfde maand is als de month van de goal
-              //zo ja, +1 bij time_amount_progress
-              //check als de time_amount_progress gelijk is aan days_amount
-              //if true, dan is de goal completed! zet op complete en toon dan een bevestiging
 
       if(empty($_SESSION['user'])) {
         $_SESSION['error'] = 'You have to be signed in.';
@@ -390,12 +371,16 @@ class PostsController extends Controller {
                           'user_id' => $_SESSION['user']['user_id'],
                           'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
                           'habit_id' => $goalsFromHabit['repetitive']['habit_id'],
+                          'active' => 1,
+                          'completed' => 0,
                         ));
                         $time_amount_progress++;
                         $this->goalDAO->updateRepetitiveGoal(array(
                           'user_id' => $_SESSION['user']['user_id'],
                           'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
                           'habit_id' => $goalsFromHabit['repetitive']['habit_id'],
+                          'active' => 1,
+                          'completed' => 0,
                           'time_amount_progress' => $time_amount_progress
                         ));
                         //TODO: CHECK IF GOAL IS COMPLETED
@@ -417,15 +402,15 @@ class PostsController extends Controller {
                         $time_amount_progress = $this->goalDAO->getTimeAmountProgressStreak(array(
                           'user_id' => $_SESSION['user']['user_id'],
                           'habit_id' => $goalsFromHabit['streaks']['habit_id'],
+                          'streak_id' => $goalsFromHabit['streaks']['streak_id'],
                           'active' => 1,
                           'completed' => 0
                         ));
-                        var_dump($time_amount_progress);
                         $time_amount_progress++;
-                        var_dump($time_amount_progress);
                         $this->goalDAO->updateStreakGoal(array(
                           'user_id' => $_SESSION['user']['user_id'],
                           'habit_id' => $goalsFromHabit['streaks']['habit_id'],
+                          'streak_id' => $goalsFromHabit['streaks']['streak_id'],
                           'active' => 1,
                           'completed' => 0,
                           'time_amount_progress' => $time_amount_progress
@@ -436,7 +421,28 @@ class PostsController extends Controller {
                       }
                     };
                     if($goalsFromHabit['total_amount']) {
-
+                      $totalMonth =  $goalsFromHabit['total_amount']['month'];
+                      $todayMonth = strtolower(date('F'));
+                      if($totalMonth == $todayMonth) {
+                        $time_amount_progress = $this->goalDAO->getTimeAmountProgressTotalAmount(array(
+                          'user_id' => $_SESSION['user']['user_id'],
+                          'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
+                          'habit_id' => $goalsFromHabit['total_amount']['habit_id'],
+                          'active' => 1,
+                          'completed' => 0
+                        ));
+                        $time_amount_progress++;
+                        $this->goalDAO->updateTotalAmountGoal(array(
+                          'user_id' => $_SESSION['user']['user_id'],
+                          'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
+                          'habit_id' => $goalsFromHabit['total_amount']['habit_id'],
+                          'active' => 1,
+                          'completed' => 0,
+                          'time_amount_progress' => $time_amount_progress
+                        ));
+                      }
+                      //check als de time_amount_progress gelijk is aan days_amount
+                        //if true, dan is de goal completed! zet op complete en toon dan een bevestiging
                     };
                   }
                   die();
