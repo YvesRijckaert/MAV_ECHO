@@ -944,6 +944,10 @@ footer {
 
 /* progress stats */
 
+.statistics-habits-title, .statistics-mood-title {
+  text-align: center;
+}
+
 .main-progress-statistics {
   display: grid;
   grid-template-columns: 1fr 3fr 3fr 1fr;
@@ -958,10 +962,23 @@ footer {
 
 .main-progress-statistics-mood {
   grid-area: mood;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & text {
+    font-weight: 300;
+  }
+
+  & .y-labels {
+    font-size: 3rem;
+    fill: var(--light-grey);
+  }
 }
 
 .main-progress-statistics-habits {
   grid-area: habits;
+  margin-left: 5rem;
 }
 
 .graph .labels.x-labels {
@@ -974,7 +991,7 @@ footer {
 
 .graph {
   height: 40rem;
-  width: 80rem;
+  width: 55rem;
 }
 
 .graph .grid {
@@ -984,7 +1001,7 @@ footer {
 }
 
 .data {
-  fill: red;
+  fill: var(--purple);
   stroke-width: 1;
 }
 
@@ -998,7 +1015,6 @@ footer {
     justify-content: center;
     color: var(--white);
     position: relative;
-    left: -6rem;
     top: 3.5rem;
   }
 
@@ -1006,12 +1022,14 @@ footer {
     content: '1';
     width: 5rem;
     height: 5rem;
+    left: -8rem;
     font-size: 2.6rem;
   }
 
   & li:nth-of-type(2)::before {
     content: '2';
     width: 4rem;
+    left: -7.5rem;
     height: 4rem;
   }
 
@@ -1019,15 +1037,18 @@ footer {
     content: '3';
     width: 3rem;
     height: 3rem;
+    left: -7rem;
     font-size: 1.8rem;
   }
 }
 
 .main-progress-statistics-habits-list li {
-  margin: 2rem 6rem 0;
+  margin: 0 0 0 10rem;
+
   & h4 {
     font-weight: bold;
-    margin-bottom: 1rem;
+    text-transform: lowercase;
+    margin-bottom: .5rem;
   }
 
   & p {
@@ -1199,10 +1220,6 @@ footer {
 .info-form-goals-options, .add-habit-form-field-all {
   display: flex;
   flex-wrap: wrap;
-}
-
-.info-form-goals-options {
-  margin:
 }
 
 .info-form-goals-option, .add-habit-form-label {

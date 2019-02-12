@@ -36,29 +36,29 @@
         <title>Mood graph</title>
         <desc>A graph showing the average mood</desc>
         <g class="grid y-grid">
-          <line x1="90" x2="705" y1="370" y2="370"></line>
-          <line x1="90" x2="705" y1="270" y2="270"></line>
-          <line x1="90" x2="705" y1="170" y2="170"></line>
+          <line x1="90" x2="505" y1="270" y2="270"></line>
+          <line x1="90" x2="505" y1="170" y2="170"></line>
+          <line x1="90" x2="505" y1="70" y2="70"></line>
         </g>
         <g class="labels x-labels">
-          <text x="100" y="400">mon</text>
-          <text x="200" y="400">tue</text>
-          <text x="300" y="400">wed</text>
-          <text x="400" y="400">thu</text>
-          <text x="500" y="400">fri</text>
-          <text x="600" y="400">sat</text>
-          <text x="700" y="400">sun</text>
+          <text x="90" y="300">mon</text>
+          <text x="160" y="300">tue</text>
+          <text x="230" y="300">wed</text>
+          <text x="300" y="300">thu</text>
+          <text x="370" y="300">fri</text>
+          <text x="440" y="300">sat</text>
+          <text x="510" y="300">sun</text>
         </g>
         <g class="labels y-labels">
-          <text x="750" y="100">great</text>
-          <text x="750" y="350">bad</text>
+          <text x="90" y="50">great</text>
+          <text x="90" y="250">bad</text>
         </g>
         <g class="data">
           <circle cx="90" cy="192" r="4"></circle>
-          <circle cx="240" cy="141" r="4"></circle>
-          <circle cx="388" cy="179" r="4"></circle>
-          <circle cx="531" cy="200" r="4"></circle>
-          <circle cx="677" cy="104" r="4"></circle>
+          <circle cx="160" cy="141" r="4"></circle>
+          <circle cx="230" cy="179" r="4"></circle>
+          <circle cx="300" cy="200" r="4"></circle>
+          <circle cx="370" cy="104" r="4"></circle>
         </g>
       </svg>
     </article>
