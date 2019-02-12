@@ -70,7 +70,7 @@
       </div>
       <div class="main-overview-modal-buttons">
         <a class="main-overview-modal-button-more" href="index.php?page=profile&category=links">tell me more</a>
-        <a class="main-overview-modal-dismiss" href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">dismiss</a>
+        <a class="main-overview-modal-button-dismiss" href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">dismiss</a>
       </div>
     </section>
     <header class="header">

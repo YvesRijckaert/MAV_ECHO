@@ -879,7 +879,7 @@ footer {
   pointer-events: none;
 }
 
-.main-overview-modal + .header + .main-overview {
+.main-overview-modal + .header + .main {
   filter: blur(1rem);
   pointer-events: none;
 }
@@ -911,6 +911,14 @@ footer {
 .main-overview-modal-button-more {
   background-color: var(--black);
   color: var(--white);
+  padding: 1.5rem 3rem;
+  border-radius: 1.2rem;
+}
+
+.main-overview-modal-button-dismiss {
+  margin-top: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: .25rem solid var(--black);
 }
 
 /* progress stats */
