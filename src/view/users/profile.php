@@ -173,7 +173,13 @@
               if(!isset($goal['repetitive']['no-goal'])) { ?>
                 <li class="customize-goals-list-item" style="background-color: <?php echo $goal['repetitive']['habit_colour'] ?>; border: .2rem solid <?php echo $goal['total_amount']['habit_colour'] ?>;">
                   <div class="customize-goals-list-item-wrap">
-                    <span class="customize-goals-list-item-icon"><?php echo $goal['repetitive']['habit_icon'] ?></span>
+                    <span class="customize-goals-list-item-icon">
+                      <svg width="30px" height="30px" viewbox="0 0 180 180">
+                        <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                          <?php echo $goal['repetitive']['habit_icon'] ?>
+                        </g>
+                      </svg>
+                    </span>
                     <span><?php echo $goal['repetitive']['habit_name'] ?>, every <?php echo $goal['repetitive']['day'] ?> of <?php echo $goal['repetitive']['month'] ?></span>
                   </div>
                   <a href="index.php?page=profile&category=customize&goal-category=repetitive&delete-goal=<?php echo $goal['repetitive']['repetitive_id'] ?>">
@@ -198,7 +204,13 @@
               <?php } else if(!isset($goal['streaks']['no-goal'])) { ?>
                 <li class="customize-goals-list-item" style="background-color: <?php echo $goal['streaks']['habit_colour'] ?>; border: .2rem solid <?php echo $goal['total_amount']['habit_colour'] ?>;">
                   <div class="customize-goals-list-item-wrap">
-                    <span class="customize-goals-list-item-icon"><?php echo $goal['streaks']['habit_icon'] ?></span>
+                    <span class="customize-goals-list-item-icon">
+                      <svg width="30px" height="30px" viewbox="0 0 180 180">
+                        <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                          <?php echo $goal['streaks']['habit_icon'] ?>
+                        </g>
+                      </svg>
+                    </span>
                     <span><?php echo $goal['streaks']['habit_name'] ?>, <?php echo $goal['streaks']['time_amount'] ?> <?php echo $goal['streaks']['time_type'] ?> in a row</span>
                   </div>
                   <a href="index.php?page=profile&category=customize&goal-category=streaks&delete-goal=<?php echo $goal['streaks']['streak_id'] ?>">
@@ -223,7 +235,13 @@
               <?php } else if(!isset($goal['total_amount']['no-goal'])) { ?>
                 <li class="customize-goals-list-item" style="background-color: <?php echo $goal['total_amount']['habit_colour'] ?>; border: .2rem solid <?php echo $goal['total_amount']['habit_colour'] ?>;">
                   <div class="customize-goals-list-item-wrap">
-                    <span class="customize-goals-list-item-icon"><?php echo $goal['total_amount']['habit_icon'] ?>'</span>
+                    <span class="customize-goals-list-item-icon">
+                      <svg width="30px" height="30px" viewbox="0 0 180 180">
+                        <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                          <?php echo $goal['total_amount']['habit_icon'] ?>
+                        </g>
+                      </svg>
+                    </span>
                     <span><?php echo $goal['total_amount']['habit_name'] ?>, <?php echo $goal['total_amount']['days_amount'] ?> days in <?php echo $goal['total_amount']['month'] ?></span>
                   </div>
                   <a href="index.php?page=profile&category=customize&goal-category=total-amount&delete-goal=<?php echo $goal['total_amount']['total_amount_id'] ?>">

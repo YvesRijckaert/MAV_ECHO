@@ -21,7 +21,7 @@
           <title>Link to previous day</title>
           <desc>Icon for previous day link.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-            <g transform="translate(-167.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+            <g transform="translate(-167.000000, -464.000000)" stroke="#2b2b2b" stroke-width="2">
               <g transform="translate(169.000000, 465.000000)">
                 <polyline transform="translate(5.000000, 10.000000) rotate(-180.000000) translate(-5.000000, -10.000000) " points="0 0 10 10 0 20"></polyline>
               </g>
@@ -36,7 +36,7 @@
           <title>Link to next day</title>
           <desc>Icon for next day link.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-            <g transform="translate(-1261.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+            <g transform="translate(-1261.000000, -464.000000)" stroke="#2b2b2b" stroke-width="2">
               <g transform="translate(169.000000, 465.000000)">
                 <polyline points="1093 0 1103 10 1093 20"></polyline>
               </g>
@@ -117,7 +117,13 @@
             <ul class="day-info-habits-list">
               <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
               <li class="day-info-habits-list-item" style="background-color: <?php echo $habit['habit_colour'] ?>">
-                <span class="day-info-habits-list-item-icon"><?php echo $habit['habit_icon_white'] ?></span>
+                <span class="day-info-habits-list-item-icon">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $habit['habit_icon'] ?>
+                    </g>
+                  </svg>
+                </span>
                 <span><?php echo $habit['habit_name'] ?></span>
               </li>
               <?php endforeach; ?>
