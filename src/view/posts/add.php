@@ -1,5 +1,5 @@
 <section class="main-overview-add" id="main">
-  <h2 class="main-overview-add-title">add day</h2>
+  <h2 class="main-overview-add-title"><?php if(empty($alreadyPostedToday)) { echo 'add day'; } else { echo 'change day'; }?></h2>
   <p class="main-overview-add-subtitle">Current date: <?php echo date("d/m/Y") ?></p>
   <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y")?>" class="main-overview-add-back">
     <svg width="30px" height="23px" viewBox="0 0 30 23">
