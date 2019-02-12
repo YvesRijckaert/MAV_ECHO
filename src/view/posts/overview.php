@@ -229,7 +229,7 @@
           <title>Link to previous month</title>
           <desc>Icon for previous month link.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-            <g transform="translate(-167.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+            <g transform="translate(-167.000000, -464.000000)" stroke="#2b2b2b" stroke-width="2">
               <g transform="translate(169.000000, 465.000000)">
                 <polyline transform="translate(5.000000, 10.000000) rotate(-180.000000) translate(-5.000000, -10.000000) " points="0 0 10 10 0 20"></polyline>
               </g>
@@ -244,7 +244,7 @@
           <title>Link to next month</title>
           <desc>Icon for next month link.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-            <g transform="translate(-1261.000000, -464.000000)" stroke="#2B2B2B" stroke-width="2">
+            <g transform="translate(-1261.000000, -464.000000)" stroke="#2b2b2b" stroke-width="2">
               <g transform="translate(169.000000, 465.000000)">
                 <polyline points="1093 0 1103 10 1093 20"></polyline>
               </g>
@@ -263,8 +263,20 @@
       <?php foreach($activeHabits as $habit): ?>
         <input type="radio" class="month-form-input month-form-input-radio" id="<?php echo $habit['habit_id'] ?>" name="chosen_habit" value="<?php echo $habit['habit_name'] ?>" <?php if($_GET['chosen_habit'] == $habit['habit_name']) echo 'checked'; ?> required />
         <label for="<?php echo $habit['habit_id'] ?>" class="month-form-label month-form-label-<?php echo $habit['habit_colour_name'] ?>">
-          <span class="month-habit-item-icon-white"><?php echo $habit['habit_icon_white'] ?></span>
-          <span class="month-habit-item-icon"><?php echo $habit['habit_icon'] ?></span>
+          <span class="month-habit-item-icon-white">
+            <svg width="30px" height="30px" viewbox="0 0 180 180">
+              <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                <?php echo $habit['habit_icon'] ?>
+              </g>
+            </svg>
+          </span>
+          <span class="month-habit-item-icon">
+            <svg width="30px" height="30px" viewbox="0 0 180 180">
+              <g fill="<?php echo $habit['habit_colour'] ?>" stroke="none" stroke-width="1" fill-rule="evenodd">
+                <?php echo $habit['habit_icon'] ?>
+              </g>
+            </svg>
+          </span>
           <span class="month-habit-item-name"><?php echo $habit['habit_name'] ?></span>
         </label>
       <?php endforeach; ?>

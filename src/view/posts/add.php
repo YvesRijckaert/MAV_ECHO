@@ -96,8 +96,20 @@
       <?php foreach($habits as $habit): ?>
         <input type="checkbox" class="month-form-input-radio" id="<?php echo $habit['habit_id'] ?>" name="habits[]" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if(!empty($fulfilled_habits_ids) && in_array($habit['habit_id'], $fulfilled_habits_ids)) echo 'checked'; ?> />
         <label for="<?php echo $habit['habit_id'] ?>" class="month-form-label month-form-label-<?php echo $habit['habit_colour_name'] ?>">
-          <span class="month-habit-item-icon-white"><?php echo $habit['habit_icon_white'] ?></span>
-          <span class="month-habit-item-icon"><?php echo $habit['habit_icon'] ?></span>
+          <span class="month-habit-item-icon-white">
+            <svg width="30px" height="30px" viewbox="0 0 180 180">
+              <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                <?php echo $habit['habit_icon'] ?>
+              </g>
+            </svg>
+          </span>
+          <span class="month-habit-item-icon">
+            <svg width="30px" height="30px" viewbox="0 0 180 180">
+              <g fill="<?php echo $habit['habit_colour'] ?>" stroke="none" stroke-width="1" fill-rule="evenodd">
+                <?php echo $habit['habit_icon'] ?>
+              </g>
+            </svg>
+          </span>
           <span class="month-habit-item-name"><?php echo $habit['habit_name'] ?></span>
         </label>
       <?php endforeach; ?>
