@@ -1,5 +1,5 @@
-<section>
-  <header><h1 class="page-header form-title">Register</h1></header>
+<section id="main">
+  <h2 class="page-header form-title">Register</h2>
   <?php if ($currentStep === 1): ?>
   <form class="register-form" method="post">
     <label>

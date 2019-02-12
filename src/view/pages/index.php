@@ -2,7 +2,7 @@
 <a href="index.php?page=overview">Go to overview</a></p>
 <?php endif; ?>
 
-<section class="home">
+<section class="home" id="main">
     <h2 class="home-title"><span class="home-title-capture">Capture.</span><span class="home-title-reflect">Reflect.</span><span class="home-title-shape">Shape.</span></h2>
     <section class="home-section section-capture">
         <div>
@@ -33,4 +33,3 @@
         <a class="register-button" href="index.php?page=register">Hop on board</a>
     </section>
 </section>
- 
