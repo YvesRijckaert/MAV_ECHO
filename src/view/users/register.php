@@ -70,27 +70,27 @@
   <?php if($currentStep === 3): ?>
   <p class="register-subtitle">what do you want to achieve?</p>
   <form class="register-form overal-goals" method="post">
-    <input type="radio" name="lifegoal" id="document-life" value="document-life" required />
+    <input class="register-goal-radio" type="radio" name="lifegoal" id="document-life" value="document-life" required />
     <label for="document-life" class="info-form-goals-option">
       <span>document life</span>
     </label>
-    <input type="radio" name="lifegoal" id="feel-happier" value="feel-happier" required />
+    <input class="register-goal-radio" type="radio" name="lifegoal" id="feel-happier" value="feel-happier" required />
     <label for="feel-happier" class="info-form-goals-option">
       <span>feel happier</span>
     </label>
-    <input type="radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required />
+    <input class="register-goal-radio" type="radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required />
     <label for="reduce-stress" class="info-form-goals-option">
       <span>reduce stress</span>
     </label>
-    <input type="radio" name="lifegoal" id="live-healthier" value="live-healthier" required />
+    <input class="register-goal-radio" type="radio" name="lifegoal" id="live-healthier" value="live-healthier" required />
     <label for="live-healthier" class="info-form-goals-option">
       <span>live healthier</span>
     </label>
-    <input type="radio" name="lifegoal" id="reach-life-goals" value="reach-life-goals" required />
+    <input class="register-goal-radio" type="radio" name="lifegoal" id="reach-life-goals" value="reach-life-goals" required />
     <label for="reach-life-goals" class="info-form-goals-option">
       <span>reach life goals</span>
     </label>
-    <input type="radio" name="lifegoal" id="none-of-the-above" value="none-of-the-above" required />
+    <input class="register-goal-radio" type="radio" name="lifegoal" id="none-of-the-above" value="none-of-the-above" required />
     <label for="none-of-the-above" class="info-form-goals-option">
       <span>none of the above</span>
     </label>

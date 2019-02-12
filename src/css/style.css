@@ -325,6 +325,11 @@ footer {
   }
 }
 
+.register-goal-radio:checked + .info-form-goals-option, .register-goal-radio:hover + .info-form-goals-option {
+  background-color: var(--black);
+  color: var(--white);
+}
+
 .overal-goals .info-form-goals-option {
   padding: 2rem;
   max-width: 20rem;
@@ -1448,8 +1453,8 @@ footer {
     }
   }
 
-  .nav-no-login .header-nav-ul{
-    background-color: transparent;
+  .nav-no-login {
+    display: none;
   }
 
   .header-nav-item-icon {
