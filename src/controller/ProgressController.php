@@ -3,15 +3,18 @@
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/GoalDAO.php';
 require_once __DIR__ . '/../dao/PostDAO.php';
+require_once __DIR__ . '/../dao/AchievementDAO.php';
 
 class ProgressController extends Controller {
 
   private $goalDAO;
   private $postDAO;
+  private $achievementDAO;
 
   function __construct() {
     $this->goalDAO = new GoalDAO();
     $this->postDAO = new PostDAO();
+    $this->achievementDAO = new AchievementDAO();
   }
 
   public function progress() {
@@ -51,6 +54,8 @@ class ProgressController extends Controller {
               $this->set('currentCategory', 'statistics');
               break;
             case 'achievements':
+              $allPossibleAchievements = $this->achievementDAO->selectAllPossibleAchievements();
+              $this->set('allPossibleAchievements', $allPossibleAchievements);
               $this->set('currentCategory', 'achievements');
               break;
             case 'goals':
