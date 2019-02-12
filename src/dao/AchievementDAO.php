@@ -20,9 +20,9 @@ class AchievementDAO extends DAO {
   }
 
   public function selectById($id){
-    $sql = "SELECT * FROM `data_achievements` WHERE `data_achievement_id` = :data_achievement_id";
+    $sql = "SELECT * FROM `fulfilled_achievements` INNER JOIN `data_achievements` ON data_achievements.data_achievement_id = fulfilled_achievements.achievement_id  WHERE fulfilled_achievements.fulfilled_achievement_id = :fulfilled_achievement_id";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':data_achievement_id', $id);
+    $stmt->bindValue(':fulfilled_achievement_id', $id);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }

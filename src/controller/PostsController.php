@@ -495,7 +495,9 @@ class PostsController extends Controller {
                       'user_id' => $_SESSION['user']['user_id'],
                       'achievement_id' => 1
                     ));
-                    $_SESSION['completed_achievement'] = true;
+                    $_SESSION['completed_achievement']['data_achievement_name'] = $unlockAchievment['data_achievement_name'];
+                    $_SESSION['completed_achievement']['data_achievement_desc'] = $unlockAchievment['data_achievement_desc'];
+                    $_SESSION['completed_achievement']['data_achievement_image'] = $unlockAchievment['data_achievement_image'];
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
                   }
