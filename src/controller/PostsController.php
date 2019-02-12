@@ -305,6 +305,7 @@ class PostsController extends Controller {
                     'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
                   ));
                 }
+                $_SESSION['needs_help'] = true;
                 $_SESSION['info'] = 'Updated day.';
                 header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                 exit();
