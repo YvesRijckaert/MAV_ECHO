@@ -12,9 +12,9 @@ class AchievementDAO extends DAO {
   }
 
   public function selectById($id){
-    $sql = "SELECT * FROM `daily_posts` WHERE `post_id` = :post_id";
+    $sql = "SELECT * FROM `data_achievements` WHERE `data_achievement_id` = :data_achievement_id";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':post_id', $id);
+    $stmt->bindValue(':data_achievement_id', $id);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }

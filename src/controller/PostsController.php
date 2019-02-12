@@ -491,10 +491,10 @@ class PostsController extends Controller {
                     'user_id' => $_SESSION['user']['user_id']
                   ));
                   if(count($allPostsFromUser) == 1) {
-                    // $unlockAchievment = $this->achievementDAO->unlockAchievement(array(
-                    //   'user_id' => $_SESSION['user']['user_id'],
-                    //   'achivement_id' => 1
-                    // ));
+                    $unlockAchievment = $this->achievementDAO->unlockAchievement(array(
+                      'user_id' => $_SESSION['user']['user_id'],
+                      'achievement_id' => 1
+                    ));
                     $_SESSION['completed_achievement'] = true;
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
