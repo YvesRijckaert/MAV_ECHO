@@ -979,7 +979,7 @@ footer {
   padding: 2.5rem 0;
 }
 
-.goals-nav-list-item-link-active {
+.goals-nav-list-item-link-active, .statistics-nav-list-item-link-active {
   border-bottom: .25rem solid var(--black);
 }
 

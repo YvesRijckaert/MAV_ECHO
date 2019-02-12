@@ -28,6 +28,26 @@ class ProgressController extends Controller {
         if (!empty($_GET['category'])) {
           switch ($_GET['category']) {
             case 'statistics':
+              if(!empty($_GET['date'])) {
+                switch ($_GET['date']) {
+                  case 'week':
+                    $this->set('statisticsCategory', 'week');
+                    break;
+                  case 'month':
+                    $this->set('statisticsCategory', 'month');
+                    break;
+                  case 'year':
+                    $this->set('statisticsCategory', 'year');
+                    break;
+                  default:
+                    header('Location: index.php?page=progress&category=statistics&date=week');
+                    exit();
+                    break;
+                }
+              } else {
+                header('Location: index.php?page=progress&category=statistics&date=week');
+                exit();
+              }
               $this->set('currentCategory', 'statistics');
               break;
             case 'achievements':

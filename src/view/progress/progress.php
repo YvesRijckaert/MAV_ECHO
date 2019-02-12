@@ -2,7 +2,7 @@
   <h2 class="main-nav-title hide">Progress navigation</h2>
   <ul class="main-nav-ul <?php echo 'active-category-' . $currentCategory; ?>">
     <li class="main-nav-item main-nav-item-stats <?php if($currentCategory === 'statistics') { echo 'main-nav-item-active';} ?>">
-      <a href="index.php?page=progress&category=statistics" class="main-nav-item-link">stats</a>
+      <a href="index.php?page=progress&category=statistics&date=week" class="main-nav-item-link">stats</a>
     </li>
     <li class="main-nav-item main-nav-item-achievements <?php if($currentCategory === 'achievements') { echo 'main-nav-item-active';} ?>">
       <a href="index.php?page=progress&category=achievements" class="main-nav-item-link">achievements</a>
@@ -19,14 +19,14 @@
     <nav class="main-progress-statistics-nav">
       <h3 class="statistics-nav-title hide">Statistics navigation</h3>
       <ul class="statistics-nav-list">
-        <li>
-          <a href="#">week</a>
+        <li class="statistics-nav-list-item">
+          <a href="index.php?page=progress&category=statistics&date=week" class="statistics-nav-list-item-link <?php if($statisticsCategory === 'week') { echo 'statistics-nav-list-item-link-active';} ?>">week</a>
         </li>
-        <li>
-          <a href="#">month</a>
+        <li class="statistics-nav-list-item">
+          <a href="index.php?page=progress&category=statistics&date=month" class="statistics-nav-list-item-link <?php if($statisticsCategory === 'month') { echo 'statistics-nav-list-item-link-active';} ?>">month</a>
         </li>
-        <li>
-          <a href="#">year</a>
+        <li class="statistics-nav-list-item">
+          <a href="index.php?page=progress&category=statistics&date=year" class="statistics-nav-list-item-link <?php if($statisticsCategory === 'year') { echo 'statistics-nav-list-item-link-active';} ?>">year</a>
         </li>
       </ul>
     </nav>
