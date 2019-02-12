@@ -667,6 +667,21 @@ footer {
   margin-right: 1.5rem;
 }
 
+.goals-progress-bar {
+  animation: progressBar 1s 0s 1 ease-out forwards;
+}
+
+@keyframes progressBar {
+
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
 /* calendar */
 
 .main-overview-month {
