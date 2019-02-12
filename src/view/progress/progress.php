@@ -173,7 +173,7 @@
                   <p class="goals-in-progress-list-item-name"><?php echo $goal['habit_name'] ?></p>
                   <p class="goals-in-progress-list-item-status"><?php echo $goal['time_amount_progress'] ?> <?php if($goal['time_amount_progress'] == 1) { echo 'day'; } else { echo 'days'; }; ?></p>
                 </div>
-                <svg width="250px" height="3px" viewBox="0 0 250 3">
+                <svg style="width:100%; height:100%" width="250px" height="3px" viewBox="0 0 250 3">
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <rect fill="#2b2b2b" opacity="0.2" transform="translate(125, 1.5) scale(1, -1) translate(-125, -1.5) " x="0" y="0" width="250" height="3" rx="1.5"></rect>
                     <rect fill="#ffffff" x="0" y="0" width="102" height="3" rx="1.5"></rect>
@@ -195,8 +195,8 @@
                   <p class="goals-in-progress-list-item-name"><?php echo $goal['habit_name'] ?></p>
                   <p class="goals-in-progress-list-item-status"><?php echo $goal['time_amount_progress'] ?> <?php if($goal['time_amount_progress'] == 1) { echo 'day'; } else { echo 'days'; }; ?></p>
                 </div>
-                <svg width="250px" height="3px" viewBox="0 0 250 3">
-                  <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <svg style="width:100%; height:100%" width="250px" height="3px" viewBox="0 0 250 3">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <rect fill="#2b2b2b" opacity="0.2" transform="translate(125, 1.5) scale(1, -1) translate(-125, -1.5) " x="0" y="0" width="250" height="3" rx="1.5"></rect>
                     <rect fill="#ffffff" x="0" y="0" width="102" height="3" rx="1.5"></rect>
                   </g>
@@ -217,8 +217,8 @@
                   <p class="goals-in-progress-list-item-name"><?php echo $goal['habit_name'] ?></p>
                   <p class="goals-in-progress-list-item-status"><?php echo $goal['time_amount_progress'] ?> <?php if($goal['time_amount_progress'] == 1) { echo 'day'; } else { echo 'days'; }; ?></p>
                 </div>
-                <svg width="250px" height="3px" viewBox="0 0 250 3">
-                  <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <svg style="width:100%; height:100%" width="250px" height="3px" viewBox="0 0 250 3">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <rect fill="#2b2b2b" opacity="0.2" transform="translate(125, 1.5) scale(1, -1) translate(-125, -1.5) " x="0" y="0" width="250" height="3" rx="1.5"></rect>
                     <rect fill="#ffffff" x="0" y="0" width="102" height="3" rx="1.5"></rect>
                   </g>
