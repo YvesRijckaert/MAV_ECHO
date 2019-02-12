@@ -66,7 +66,7 @@ class PostDAO extends DAO {
   }
 
   public function checkIfBadDays($data) {
-    $sql = "SELECT * FROM `daily_posts` WHERE `user_id` = :user_id AND `date` >= :four_days_ago AND `date` <= :today_date";
+    $sql = "SELECT * FROM `daily_posts` WHERE `user_id` = :user_id AND `date` >= :four_days_ago AND `date` <= :today_date AND `feelings` = -1";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $data['user_id']);
     $stmt->bindValue(':today_date', $data['today_date']);

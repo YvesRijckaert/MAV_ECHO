@@ -301,16 +301,17 @@ class PostsController extends Controller {
                   ));
                 }
 
-                //check if 4 days in a row bad day and if mood now is bad
-                //show modal
+
                 $postsFrom5Days = $this->postDAO->checkIfBadDays(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'today_date' => date("Y-m-d"),
                   'four_days_ago' => date('Y-m-d', strtotime("-4 days"))
                 ));
-                var_dump($postsFrom5Days);
-                die();
-
+                if(count($postsFrom5Days) == 5) {
+                  $_SESSION['needs_help'] = true;
+                  header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                  exit();
+                };
                 $_SESSION['info'] = 'Updated day.';
                 header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                 exit();
