@@ -135,6 +135,7 @@
   <section class="main-progress-goals" id="main">
     <h2 class="main-progress-goals-title hide">Goals</h2>
     <a href="index.php?page=profile&category=customize" class="main-progress-goals-edit">
+      <span>edit</span>
       <svg width="24px" height="21px" viewBox="0 0 24 21">
         <title>Edit goals button</title>
         <desc>Icon for edit goals button.</desc>
@@ -144,7 +145,6 @@
           </g>
         </g>
       </svg>
-      <span>edit</span>
     </a>
     <nav class="main-progress-goals-nav">
       <h3 class="goals-nav-title hide">Goals navigation</h3>
