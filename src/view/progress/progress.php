@@ -176,7 +176,7 @@
                 <svg style="width:100%; height:100%" width="250px" height="3px" viewBox="0 0 250 3">
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <rect fill="#2b2b2b" opacity="0.2" transform="translate(125, 1.5) scale(1, -1) translate(-125, -1.5) " x="0" y="0" width="250" height="3" rx="1.5"></rect>
-                    <rect class="goals-progress-bar" style="width: 0%" fill="#ffffff" x="0" y="0" height="3" rx="1.5"></rect>
+                    <rect class="goals-progress-bar" style="width: <?php echo ($goal['time_amount_progress'] / 4) * 100 . '%' ?>" fill="#ffffff" x="0" y="0" height="3" rx="1.5"></rect>
                   </g>
                 </svg>
                 <p class="goals-in-progress-list-item-amount">every <?php echo $goal['day'] ?> of <?php echo $goal['month'] ?></p>
@@ -249,6 +249,12 @@
                   <p class="goals-completed-list-item-name"><?php echo $goal['habit_name'] ?></p>
                   <p class="goals-completed-list-item-status">completed</p>
                 </div>
+                <svg style="width:100%; height:100%" width="250px" height="3px" viewBox="0 0 250 3">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect fill="#2b2b2b" opacity="0.2" transform="translate(125, 1.5) scale(1, -1) translate(-125, -1.5) " x="0" y="0" width="250" height="3" rx="1.5"></rect>
+                    <rect class="goals-progress-bar" style="width: 100%" fill="#ffffff" x="0" y="0" height="3" rx="1.5"></rect>
+                  </g>
+                </svg>
                 <p class="goals-completed-list-item-amount">every <?php echo $goal['day'] ?> of <?php echo $goal['month'] ?></p>
               </li>
             <?php }
@@ -265,6 +271,12 @@
                   <p class="goals-completed-list-item-name"><?php echo $goal['habit_name'] ?></p>
                   <p class="goals-completed-list-item-status">completed</p>
                 </div>
+                <svg style="width:100%; height:100%" width="250px" height="3px" viewBox="0 0 250 3">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect fill="#2b2b2b" opacity="0.2" transform="translate(125, 1.5) scale(1, -1) translate(-125, -1.5) " x="0" y="0" width="250" height="3" rx="1.5"></rect>
+                    <rect class="goals-progress-bar" style="width: 100%" fill="#ffffff" x="0" y="0" height="3" rx="1.5"></rect>
+                  </g>
+                </svg>
                 <p class="goals-completed-list-item-amount"><?php echo $goal['time_amount'] ?> <?php echo $goal['time_type'] ?> in a row</p>
               </li>
             <?php }
@@ -281,6 +293,12 @@
                   <p class="goals-completed-list-item-name"><?php echo $goal['habit_name'] ?></p>
                   <p class="goals-completed-list-item-status">completed</p>
                 </div>
+                <svg style="width:100%; height:100%" width="250px" height="3px" viewBox="0 0 250 3">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect fill="#2b2b2b" opacity="0.2" transform="translate(125, 1.5) scale(1, -1) translate(-125, -1.5) " x="0" y="0" width="250" height="3" rx="1.5"></rect>
+                    <rect class="goals-progress-bar" style="width: 100%" fill="#ffffff" x="0" y="0" height="3" rx="1.5"></rect>
+                  </g>
+                </svg>
                 <p class="goals-completed-list-item-amount"><?php echo $goal['days_amount'] ?> days in <?php echo $goal['month'] ?></p>
               </li>
             <?php }

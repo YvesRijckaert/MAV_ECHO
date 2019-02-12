@@ -278,7 +278,7 @@
     <article class="main-overview-month-info">
       <h3 class="month-info-title hide">Info</h3>
       <p class="month-info-chosenHabit"><?php if(!empty($chosenHabit)) echo $chosenHabit; ?></p>
-      <p class="month-info-totalDays"><?php if(!empty($chosenHabit)) echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; ?></p>
+      <p class="month-info-totalDays"><?php if(!empty($chosenHabit)) { if($totalDaysOfFulfilledHabit == 1) { echo 'total: ' . $totalDaysOfFulfilledHabit . ' day'; } else { echo 'total: ' . $totalDaysOfFulfilledHabit . ' days'; } }?></p>
     </article>
   </section
 <?php endif; ?>
