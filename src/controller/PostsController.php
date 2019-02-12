@@ -4,17 +4,20 @@ require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/PostDAO.php';
 require_once __DIR__ . '/../dao/HabitDAO.php';
 require_once __DIR__ . '/../dao/GoalDAO.php';
+require_once __DIR__ . '/../dao/AchievementDAO.php';
 
 class PostsController extends Controller {
 
     private $postDAO;
     public $habitDAO;
     public $goalDAO;
+    public $achievementDAO;
 
     function __construct() {
         $this->postDAO = new PostDAO();
         $this->habitDAO = new HabitDAO();
         $this->goalDAO = new GoalDAO();
+        $this->achievementDAO = new AchievementDAO();
     }
 
     public function overview() {
@@ -300,6 +303,7 @@ class PostsController extends Controller {
                     'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
                   ));
                 }
+                //MODAL FOR HELP
                 $postsFrom5Days = $this->postDAO->checkIfBadDays(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'today_date' => date("Y-m-d"),
@@ -351,124 +355,127 @@ class PostsController extends Controller {
                     'short_memory' => $_POST['short-memory'],
                     'feelings' => $feelingsRatio,
                   ));
-                  foreach ($_POST['habits'] as $chosenHabit) {
-                    $fulfilled_habit = array_filter($habits, function ($var) use ($chosenHabit) {
-                      return ($var['habit_name'] === $chosenHabit);
-                    });
-                    $this->habitDAO->insertFulfilledHabit(array(
-                      'user_id' => $_SESSION['user']['user_id'],
-                      'post_id' => $insertedPost['post_id'],
-                      'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
-                    ));
-                    $goalsFromHabit = $this->goalDAO->selectAllExistingGoalsFromHabit(array(
-                      'user_id' => $_SESSION['user']['user_id'],
-                      'habit_id' => array_column($fulfilled_habit, 'habit_id')[0],
-                      'completed' => 0,
-                      'active' => 1
-                    ));
-                    if($goalsFromHabit['repetitive']) {
-                      $repetitiveMonth =  $goalsFromHabit['repetitive']['month'];
-                      $todayMonth = strtolower(date('F'));
-                      $repetitiveDay = $goalsFromHabit['repetitive']['day'];
-                      $todayDay = strtolower(date('l'));
-                      if($repetitiveMonth == $todayMonth && $repetitiveDay == $todayDay) {
-                        $repetitiveGoal = $this->goalDAO->selectRepetitiveGoal(array(
-                          'user_id' => $_SESSION['user']['user_id'],
-                          'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
-                        ));
-                        $time_amount_progress = $repetitiveGoal['time_amount_progress'];
-                        $time_amount_progress++;
-                        $this->goalDAO->updateRepetitiveGoal(array(
-                          'user_id' => $_SESSION['user']['user_id'],
-                          'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
-                          'time_amount_progress' => $time_amount_progress
-                        ));
-                        function countDaysByName($dayName, \DateTimeInterface $start, \DateTimeInterface $end) {
-                          $count = 0;
-                          $interval = new \DateInterval('P1D');
-                          $period = new \DatePeriod($start, $interval, $end);
-
-                          foreach($period as $day){
-                            if($day->format('D') === ucfirst(substr($dayName, 0, 3))){
-                              $count ++;
-                            }
-                          }
-                          return $count;
-                        }
-                        $numberOfCurrentDaysInCurrentMonth = countDaysByName(date('D'), DateTime::createFromFormat('d-m-Y', date('01-m-Y')), DateTime::createFromFormat('d-m-Y', date('t-m-Y')));
-                        if($repetitiveGoal == $numberOfCurrentDaysInCurrentMonth) {
-                          $this->goalDAO->setCompleteRepetitiveGoal(array(
+                  if(!empty($_POST['habits'])) {
+                    foreach ($_POST['habits'] as $chosenHabit) {
+                      $fulfilled_habit = array_filter($habits, function ($var) use ($chosenHabit) {
+                        return ($var['habit_name'] === $chosenHabit);
+                      });
+                      $this->habitDAO->insertFulfilledHabit(array(
+                        'user_id' => $_SESSION['user']['user_id'],
+                        'post_id' => $insertedPost['post_id'],
+                        'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
+                      ));
+                      $goalsFromHabit = $this->goalDAO->selectAllExistingGoalsFromHabit(array(
+                        'user_id' => $_SESSION['user']['user_id'],
+                        'habit_id' => array_column($fulfilled_habit, 'habit_id')[0],
+                        'completed' => 0,
+                        'active' => 1
+                      ));
+                      if($goalsFromHabit['repetitive']) {
+                        $repetitiveMonth =  $goalsFromHabit['repetitive']['month'];
+                        $todayMonth = strtolower(date('F'));
+                        $repetitiveDay = $goalsFromHabit['repetitive']['day'];
+                        $todayDay = strtolower(date('l'));
+                        if($repetitiveMonth == $todayMonth && $repetitiveDay == $todayDay) {
+                          $repetitiveGoal = $this->goalDAO->selectRepetitiveGoal(array(
                             'user_id' => $_SESSION['user']['user_id'],
                             'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
-                            'completed' => 1
                           ));
-                          $_SESSION['info'] = 'Added new day and goal completed!';
-                          header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
-                          exit();
+                          $time_amount_progress = $repetitiveGoal['time_amount_progress'];
+                          $time_amount_progress++;
+                          $this->goalDAO->updateRepetitiveGoal(array(
+                            'user_id' => $_SESSION['user']['user_id'],
+                            'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
+                            'time_amount_progress' => $time_amount_progress
+                          ));
+                          function countDaysByName($dayName, \DateTimeInterface $start, \DateTimeInterface $end) {
+                            $count = 0;
+                            $interval = new \DateInterval('P1D');
+                            $period = new \DatePeriod($start, $interval, $end);
+
+                            foreach($period as $day){
+                              if($day->format('D') === ucfirst(substr($dayName, 0, 3))){
+                                $count ++;
+                              }
+                            }
+                            return $count;
+                          }
+                          $numberOfCurrentDaysInCurrentMonth = countDaysByName(date('D'), DateTime::createFromFormat('d-m-Y', date('01-m-Y')), DateTime::createFromFormat('d-m-Y', date('t-m-Y')));
+                          if($repetitiveGoal == $numberOfCurrentDaysInCurrentMonth) {
+                            $this->goalDAO->setCompleteRepetitiveGoal(array(
+                              'user_id' => $_SESSION['user']['user_id'],
+                              'repetitive_id' => $goalsFromHabit['repetitive']['repetitive_id'],
+                              'completed' => 1
+                            ));
+                            $_SESSION['info'] = 'Added new day and goal completed!';
+                            header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                            exit();
+                          }
                         }
-                      }
-                    };
-                    if($goalsFromHabit['streaks']) {
-                      $yesterday = date('Y-m-d',strtotime("-1 days"));
-                      $hasStreakYesterday = $this->habitDAO->getSpecificFulfilledHabitsOfDay(array(
-                        'user_id' => $_SESSION['user']['user_id'],
-                        'date' => $yesterday,
-                        'habit_id' => array_column($fulfilled_habit, 'habit_id')[0],
-                      ));
-                      if(!empty($hasStreakYesterday[0])){
-                        $streakGoal = $this->goalDAO->selectStreakGoal(array(
+                      };
+                      if($goalsFromHabit['streaks']) {
+                        $yesterday = date('Y-m-d',strtotime("-1 days"));
+                        $hasStreakYesterday = $this->habitDAO->getSpecificFulfilledHabitsOfDay(array(
                           'user_id' => $_SESSION['user']['user_id'],
-                          'streak_id' => $goalsFromHabit['streaks']['streak_id'],
+                          'date' => $yesterday,
+                          'habit_id' => array_column($fulfilled_habit, 'habit_id')[0],
                         ));
-                        $time_amount_progress = $streakGoal['time_amount_progress'];
-                        $time_amount_progress++;
-                        $this->goalDAO->updateStreakGoal(array(
-                          'user_id' => $_SESSION['user']['user_id'],
-                          'streak_id' => $goalsFromHabit['streaks']['streak_id'],
-                          'time_amount_progress' => $time_amount_progress
-                        ));
-                        if($streakGoal['time_amount'] == $time_amount_progress) {
-                          $this->goalDAO->setCompleteStreakGoal(array(
+                        if(!empty($hasStreakYesterday[0])){
+                          $streakGoal = $this->goalDAO->selectStreakGoal(array(
                             'user_id' => $_SESSION['user']['user_id'],
                             'streak_id' => $goalsFromHabit['streaks']['streak_id'],
+                          ));
+                          $time_amount_progress = $streakGoal['time_amount_progress'];
+                          $time_amount_progress++;
+                          $this->goalDAO->updateStreakGoal(array(
+                            'user_id' => $_SESSION['user']['user_id'],
+                            'streak_id' => $goalsFromHabit['streaks']['streak_id'],
+                            'time_amount_progress' => $time_amount_progress
+                          ));
+                          if($streakGoal['time_amount'] == $time_amount_progress) {
+                            $this->goalDAO->setCompleteStreakGoal(array(
+                              'user_id' => $_SESSION['user']['user_id'],
+                              'streak_id' => $goalsFromHabit['streaks']['streak_id'],
+                              'completed' => 1
+                            ));
+                            $_SESSION['info'] = 'Added new day and goal completed!';
+                            header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                            exit();
+                          }
+                        } else {
+                          //TODO: zet streak terug op 1
+                        }
+                      };
+                      if($goalsFromHabit['total_amount']) {
+                        $totalMonth =  $goalsFromHabit['total_amount']['month'];
+                        $todayMonth = strtolower(date('F'));
+                        if($totalMonth == $todayMonth) {
+                          $totalAmountGoal = $this->goalDAO->selectTotalAmountGoal(array(
+                            'user_id' => $_SESSION['user']['user_id'],
+                            'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
+                          ));
+                          $time_amount_progress = $totalAmountGoal['time_amount_progress'];
+                          $time_amount_progress++;
+                          $this->goalDAO->updateTotalAmountGoal(array(
+                            'user_id' => $_SESSION['user']['user_id'],
+                            'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
+                            'time_amount_progress' => $time_amount_progress
+                          ));
+                        }
+                        if($time_amount_progress == $totalAmountGoal['days_amount']) {
+                          $this->goalDAO->setCompleteTotalAmountGoal(array(
+                            'user_id' => $_SESSION['user']['user_id'],
+                            'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
                             'completed' => 1
                           ));
                           $_SESSION['info'] = 'Added new day and goal completed!';
                           header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                           exit();
                         }
-                      } else {
-                        //TODO: zet streak terug op 1
-                      }
-                    };
-                    if($goalsFromHabit['total_amount']) {
-                      $totalMonth =  $goalsFromHabit['total_amount']['month'];
-                      $todayMonth = strtolower(date('F'));
-                      if($totalMonth == $todayMonth) {
-                        $totalAmountGoal = $this->goalDAO->selectTotalAmountGoal(array(
-                          'user_id' => $_SESSION['user']['user_id'],
-                          'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
-                        ));
-                        $time_amount_progress = $totalAmountGoal['time_amount_progress'];
-                        $time_amount_progress++;
-                        $this->goalDAO->updateTotalAmountGoal(array(
-                          'user_id' => $_SESSION['user']['user_id'],
-                          'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
-                          'time_amount_progress' => $time_amount_progress
-                        ));
-                      }
-                      if($time_amount_progress == $totalAmountGoal['days_amount']) {
-                        $this->goalDAO->setCompleteTotalAmountGoal(array(
-                          'user_id' => $_SESSION['user']['user_id'],
-                          'total_amount_id' => $goalsFromHabit['total_amount']['total_amount_id'],
-                          'completed' => 1
-                        ));
-                        $_SESSION['info'] = 'Added new day and goal completed!';
-                        header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
-                        exit();
-                      }
-                    };
+                      };
+                    }
                   }
+                  //MODAL FOR HELP
                   $postsFrom5Days = $this->postDAO->checkIfBadDays(array(
                     'user_id' => $_SESSION['user']['user_id'],
                     'today_date' => date("Y-m-d"),
@@ -479,6 +486,19 @@ class PostsController extends Controller {
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
                   };
+                  //MODAL FOR ACHIEVEMENT: JOURNEY STARTED
+                  $allPostsFromUser = $this->postDAO->selectAllPostsFromUser(array(
+                    'user_id' => $_SESSION['user']['user_id']
+                  ));
+                  if(count($allPostsFromUser) == 1) {
+                    // $unlockAchievment = $this->achievementDAO->unlockAchievement(array(
+                    //   'user_id' => $_SESSION['user']['user_id'],
+                    //   'achivement_id' => 1
+                    // ));
+                    $_SESSION['completed_achievement'] = true;
+                    header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                    exit();
+                  }
                   $_SESSION['info'] = 'Added new day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                   exit();

@@ -905,7 +905,7 @@ footer {
   line-height: 1.5;
 }
 
-.main-overview-modal-help-buttons {
+.main-overview-modal-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
