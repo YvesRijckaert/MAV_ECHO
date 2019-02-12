@@ -11,6 +11,14 @@ class PostDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function selectAllPostsFromUser($data){
+    $sql = "SELECT COUNT(`post_id`) FROM `daily_posts` WHERE `user_id` = :user_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function selectById($id){
     $sql = "SELECT * FROM `daily_posts` WHERE `post_id` = :post_id";
     $stmt = $this->pdo->prepare($sql);

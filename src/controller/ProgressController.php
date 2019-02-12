@@ -54,6 +54,9 @@ class ProgressController extends Controller {
               $this->set('currentCategory', 'statistics');
               break;
             case 'achievements':
+              if (!empty($_SESSION['completed_achievement'])) {
+                unset($_SESSION['completed_achievement']);
+              }
               $allPossibleAchievements = $this->achievementDAO->selectAllPossibleAchievements();
               $this->set('allPossibleAchievements', $allPossibleAchievements);
               $this->set('currentCategory', 'achievements');

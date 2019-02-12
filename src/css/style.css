@@ -868,10 +868,6 @@ footer {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .main-overview-modal + .header {
@@ -884,7 +880,14 @@ footer {
   pointer-events: none;
 }
 
-.main-overview-modal-title {
+.main-overview-modal-help {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-overview-modal-help-title {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 500;
@@ -896,7 +899,7 @@ footer {
   min-width: 22rem;
 }
 
-.main-overview-modal-text {
+.main-overview-modal-help-text {
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   text-align: center;
   line-height: 1.5;
