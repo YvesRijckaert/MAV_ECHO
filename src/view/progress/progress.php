@@ -88,7 +88,7 @@
     <h2 class="main-progress-achievements-title hide">Achievements</h2>
     <ul class="main-progress-achievements-list">
     <?php foreach ($allPossibleAchievements as $achievement): ?>
-      <?php if(!empty($fulfilledAchievements)): ?>
+      <?php if(!empty($allFulfilledAchievements)): ?>
         <?php foreach(array_column($allFulfilledAchievements, 'achievement_id') as $fulfilledAchievement): ?>
           <?php if($achievement['data_achievement_id'] == $fulfilledAchievement): ?>
             <li class="achievements-list-item achievement-list-item-unlocked">
