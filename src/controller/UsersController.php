@@ -550,25 +550,25 @@ class UsersController extends Controller {
                 ),
                 array(
                   'habit_name' => 'no alcohol',
-                  'habit_icon' => '17',
+                  'habit_icon' => '2',
                   'habit_colour_name' => 'orange',
                   'habit_colour' => '#fab81b'
                 ),
                 array(
                   'habit_name' => '5k running',
-                  'habit_icon' => '33',
+                  'habit_icon' => '3',
                   'habit_colour_name' => 'green',
                   'habit_colour' => '#00d28b'
                 ),
                 array(
                   'habit_name' => 'meditate',
-                  'habit_icon' => '49',
+                  'habit_icon' => '4',
                   'habit_colour_name' => 'blue',
                   'habit_colour' => '#4285ff'
                 ),
                 array(
                   'habit_name' => 'drink 1l water',
-                  'habit_icon' => '65',
+                  'habit_icon' => '5',
                   'habit_colour_name' => 'purple',
                   'habit_colour' => '#9278fd'
                 )

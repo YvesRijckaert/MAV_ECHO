@@ -627,11 +627,11 @@ footer {
 
 .goals-in-progress-list-item-topwrap,
 .goals-completed-list-item-topwrap {
+  margin-top: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 2.5rem;
 }
 
 .goals-in-progress-list-item-status,
@@ -641,7 +641,6 @@ footer {
 
 .goals-in-progress-list-item-amount,
 .goals-completed-list-item-amount {
-  padding-top: 2.5rem;
   color: var(--black);
   opacity: .2;
 }
