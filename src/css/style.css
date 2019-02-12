@@ -456,6 +456,23 @@ footer {
   display: none;
 }
 
+.day-collage-habit-icon:nth-child(2) {
+  transform: translateX(18rem);
+}
+
+.day-collage-habit-icon:nth-child(3) {
+  transform: translateY(18rem);
+}
+
+.day-collage-habit-icon:nth-child(4) {
+  transform: translate(18rem, 18rem);
+}
+
+.day-collage-habit-icon:nth-child(5) {
+  transform: translateY(36rem);
+}
+
+
 /* overview add */
 
 .main-overview-add {
