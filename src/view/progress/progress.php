@@ -88,18 +88,28 @@
     <h2 class="main-progress-achievements-title hide">Achievements</h2>
     <ul class="main-progress-achievements-list">
     <?php foreach ($allPossibleAchievements as $achievement): ?>
-      <li class="achievements-list-item">
-        <svg class="achievements-list-item-svg" width="140px" height="50px" viewBox="0 0 140 50">
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <circle id="Oval" fill="#ffffff" cx="70" cy="25" r="25"></circle>
-            <rect id="Rectangle" fill="#ffffff" x="0" y="22" width="140" height="5"></rect>
-            <circle id="Oval" fill="#f5f5f5" cx="70" cy="20" r="6"></circle>
-            <rect id="Rectangle" fill="#f5f5f5" x="67.5" y="23" width="5" height="12" rx="2"></rect>
-          </g>
-        </svg>
-        <h3 class="achievements-list-item-title"><?php echo $achievement['data_achievement_name'] ?></h3>
-        <p class="achievements-list-item-desc"><?php echo $achievement['data_achievement_desc'] ?></p>
-      </li>
+      <?php foreach(array_column($allFulfilledAchievements, 'achievement_id') as $fulfilledAchievement): ?>
+        <?php if($achievement['data_achievement_id'] == $fulfilledAchievement): ?>
+          <li class="achievements-list-item achievement-list-item-unlocked">
+            <?php echo $achievement['data_achievement_image'] ?>
+            <h3 class="achievements-list-item-title"><?php echo $achievement['data_achievement_name'] ?></h3>
+            <p class="achievements-list-item-desc"><?php echo $achievement['data_achievement_desc'] ?></p>
+          </li>
+        <?php else: ?>
+          <li class="achievements-list-item">
+            <svg class="achievements-list-item-svg" width="140px" height="50px" viewBox="0 0 140 50">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <circle id="Oval" fill="#ffffff" cx="70" cy="25" r="25"></circle>
+                <rect id="Rectangle" fill="#ffffff" x="0" y="22" width="140" height="5"></rect>
+                <circle id="Oval" fill="#f5f5f5" cx="70" cy="20" r="6"></circle>
+                <rect id="Rectangle" fill="#f5f5f5" x="67.5" y="23" width="5" height="12" rx="2"></rect>
+              </g>
+            </svg>
+            <h3 class="achievements-list-item-title"><?php echo $achievement['data_achievement_name'] ?></h3>
+            <p class="achievements-list-item-desc"><?php echo $achievement['data_achievement_desc'] ?></p>
+          </li>
+        <?php endif; ?>
+      <?php endforeach; ?>
     <?php endforeach; ?>
     </ul>
   </section>

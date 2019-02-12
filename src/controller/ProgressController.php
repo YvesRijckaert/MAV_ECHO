@@ -58,7 +58,11 @@ class ProgressController extends Controller {
                 unset($_SESSION['completed_achievement']);
               }
               $allPossibleAchievements = $this->achievementDAO->selectAllPossibleAchievements();
+              $allFulfilledAchievements = $this->achievementDAO->selectAllFulfilledAchievements(array(
+                'user_id' => $_SESSION['user']['user_id']
+              ));
               $this->set('allPossibleAchievements', $allPossibleAchievements);
+              $this->set('allFulfilledAchievements', $allFulfilledAchievements);
               $this->set('currentCategory', 'achievements');
               break;
             case 'goals':
