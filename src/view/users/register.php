@@ -68,33 +68,46 @@
   <?php endif; ?>
 
   <?php if($currentStep === 3): ?>
-  <form class="register-form" method="post">
+  <p class="register-subtitle">what do you want to achieve?</p>
+  <form class="register-form overal-goals" method="post">
     <input type="radio" name="lifegoal" id="document-life" value="document-life" required />
-    <label for="document-life">
+    <label for="document-life" class="info-form-goals-option">
       <span>document life</span>
     </label>
     <input type="radio" name="lifegoal" id="feel-happier" value="feel-happier" required />
-    <label for="feel-happier">
+    <label for="feel-happier" class="info-form-goals-option">
       <span>feel happier</span>
     </label>
     <input type="radio" name="lifegoal" id="reduce-stress" value="reduce-stress" required />
-    <label for="reduce-stress">
+    <label for="reduce-stress" class="info-form-goals-option">
       <span>reduce stress</span>
     </label>
     <input type="radio" name="lifegoal" id="live-healthier" value="live-healthier" required />
-    <label for="live-healthier">
+    <label for="live-healthier" class="info-form-goals-option">
       <span>live healthier</span>
     </label>
     <input type="radio" name="lifegoal" id="reach-life-goals" value="reach-life-goals" required />
-    <label for="reach-life-goals">
+    <label for="reach-life-goals" class="info-form-goals-option">
       <span>reach life goals</span>
     </label>
     <input type="radio" name="lifegoal" id="none-of-the-above" value="none-of-the-above" required />
-    <label for="none-of-the-above">
+    <label for="none-of-the-above" class="info-form-goals-option">
       <span>none of the above</span>
     </label>
     <?php if(!empty($errors['lifegoal'])) echo '<span class="error">' . $errors['lifegoal'] . '</span>';?>
-    <input type="submit" name="register3" value="finish" />
+    <label class="info-form-submit submit input-container">
+        <input type="submit" name="register3" class="info-form-submit-button"  value="finish" />
+        <svg width="22px" height="16px" viewBox="0 0 22 16">
+            <title>Done button</title>
+            <desc>Icon for done button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1294.000000, -742.000000)" stroke="#ffffff" stroke-linecap="round" stroke-width="2.4">
+                <polyline points="1296 750.267785 1301.81878 756 1314 744"></polyline>
+              </g>
+            </g>
+          </svg>
+        <span>Finish</span>
+      </label>
   </form>
   <?php endif; ?>
 </section>

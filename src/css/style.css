@@ -310,6 +310,26 @@ footer {
 .register-form .submit {
   background-color: var(--black);
 }
+
+.register-subtitle {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.overal-goals {
+  display: flex;
+  flex-flow: row wrap;
+
+  & .submit {
+    background-color: var(--green);
+  }
+}
+
+.overal-goals .info-form-goals-option {
+  padding: 2rem;
+  max-width: 20rem;
+}
+
 /* overview */
 
 .main-nav-ul {
