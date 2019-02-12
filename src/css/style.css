@@ -868,6 +868,10 @@ footer {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .main-overview-modal + .header {
@@ -880,16 +884,14 @@ footer {
   pointer-events: none;
 }
 
-.main-overview-modal-help {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.main-overview-modal-help-title {
+.main-overview-modal-help-title, .main-overview-modal-achievement-title {
   text-align: center;
   font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.main-overview-modal-achievement-subtitle {
+  padding-top: 1.5rem;
   font-weight: 500;
 }
 
@@ -903,6 +905,24 @@ footer {
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   text-align: center;
   line-height: 1.5;
+}
+
+.main-overview-modal-achievement-text {
+  text-align: center;
+
+  & .achievement-text-bigtitle {
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+
+  & .achievement-text-smalltitle {
+    padding-top: 1.5rem;
+    font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
+  }
+
+  &:first-child {
+    padding-top: 2.5rem;
+  }
 }
 
 .main-overview-modal-buttons {
