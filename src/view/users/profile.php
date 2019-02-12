@@ -523,7 +523,7 @@
               </g>
             </svg>
             <p class="add-goal-type-title">Repetitive</p>
-            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every <strong>thursday</strong> of <strong>june</strong>.</p>
+            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every <strong>monday</strong> of <strong>january</strong>.</p>
           </a>
         </li>
         <li class="add-goal-type">
@@ -660,7 +660,7 @@
           </g>
         </svg>
       </a>
-      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every <span class="repetitive-day">thursday</span> of <span class="repetitive-month">june</span></p>
+      <p class="main-profile-add-goal-text"><span class="add-goals-example">example:</span> <span style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every <span class="repetitive-day">monday</span> of <span class="repetitive-month">january</span></p>
       <form method="post" class="main-profile-add-goal-form add-goal-repetitive-form">
         <fieldset class="add-goal-form-field add-goal-form-field-day">
           <legend class="add-goal-form-field-legend">Choose your day.</legend>

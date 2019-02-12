@@ -125,7 +125,7 @@
           </g>
         </g>
       </svg>
-      <span>save</span>
+      <span><?php if(empty($alreadyPostedToday)) { echo 'add'; } else { echo 'save'; }?></span>
     </label>
   </form>
 </section>
