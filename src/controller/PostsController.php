@@ -232,11 +232,6 @@ class PostsController extends Controller {
     }
 
     public function add() {
-      //TODO:
-      //CHECK IF OKAY MELDING
-      //als de mood 5 dagen na elkaar bad is
-      //toon melding
-
       if(empty($_SESSION['user'])) {
         $_SESSION['error'] = 'You have to be signed in.';
         header('Location: index.php');
@@ -305,7 +300,17 @@ class PostsController extends Controller {
                     'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
                   ));
                 }
-                $_SESSION['needs_help'] = true;
+
+                //check if 4 days in a row bad day and if mood now is bad
+                //show modal
+                $postsFrom5Days = $this->postDAO->checkIfBadDays(array(
+                  'user_id' => $_SESSION['user']['user_id'],
+                  'today_date' => date("Y-m-d"),
+                  'four_days_ago' => date('Y-m-d', strtotime("-4 days"))
+                ));
+                var_dump($postsFrom5Days);
+                die();
+
                 $_SESSION['info'] = 'Updated day.';
                 header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                 exit();
