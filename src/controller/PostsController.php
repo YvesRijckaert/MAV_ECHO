@@ -314,6 +314,27 @@ class PostsController extends Controller {
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                   exit();
                 };
+
+                //MODAL FOR ACHIEVEMENT: DONE FOR TODAY
+                if(!empty($_POST['habits'])) {
+                  if(count($_POST['habits']) == 5) {
+                    $doesAchievementExistYet = $this->achievementDAO->checkIfAchievementExist(array(
+                      'user_id' => $_SESSION['user']['user_id'],
+                      'achievement_id' => 4
+                    ));
+                    if(empty($doesAchievementExistYet)) {
+                      $unlockAchievment = $this->achievementDAO->unlockAchievement(array(
+                        'user_id' => $_SESSION['user']['user_id'],
+                        'achievement_id' => 4
+                      ));
+                      $_SESSION['completed_achievement']['data_achievement_name'] = $unlockAchievment['data_achievement_name'];
+                      $_SESSION['completed_achievement']['data_achievement_desc'] = $unlockAchievment['data_achievement_desc'];
+                      $_SESSION['completed_achievement']['data_achievement_image'] = $unlockAchievment['data_achievement_image'];
+                      header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                      exit();
+                    }
+                  }
+                }
                 $_SESSION['info'] = 'Updated day.';
                 header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                 exit();
@@ -475,6 +496,7 @@ class PostsController extends Controller {
                       };
                     }
                   }
+
                   //MODAL FOR HELP
                   $postsFrom5Days = $this->postDAO->checkIfBadDays(array(
                     'user_id' => $_SESSION['user']['user_id'],
@@ -486,6 +508,7 @@ class PostsController extends Controller {
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
                   };
+
                   //MODAL FOR ACHIEVEMENT: JOURNEY STARTED
                   $allPostsFromUser = $this->postDAO->selectAllPostsFromUser(array(
                     'user_id' => $_SESSION['user']['user_id']
@@ -501,6 +524,7 @@ class PostsController extends Controller {
                     header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                     exit();
                   }
+
                   $_SESSION['info'] = 'Added new day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                   exit();

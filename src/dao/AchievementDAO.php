@@ -11,6 +11,15 @@ class AchievementDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function checkIfAchievementExist($data) {
+    $sql = "SELECT * FROM `fulfilled_achievements` WHERE `user_id` = :user_id AND `achievement_id` = :achievement_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':achievement_id', $data['achievement_id']);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function selectAllFulfilledAchievements($data) {
     $sql = "SELECT * FROM `fulfilled_achievements` WHERE `user_id` = :user_id";
     $stmt = $this->pdo->prepare($sql);
