@@ -166,10 +166,32 @@ class UsersController extends Controller {
                 if($_POST['chosen_habit'] != 'neither') {
                   $habitName = $allPossibleHabits[$_POST['chosen_habit'] - 1]['habit_name'];
                 }
+                switch ($_GET['add-habit']) {
+                  case 'red':
+                    $iconColour = '#fe5455';
+                    break;
+                  case 'orange':
+                    $iconColour = '#fab81b';
+                    break;
+                  case 'green':
+                    $iconColour = '#00d28b';
+                    break;
+                  case 'blue':
+                    $iconColour = '#4285ff';
+                    break;
+                  case 'purple':
+                    $iconColour = '#9278fd';
+                    break;
+
+                  default:
+                    break;
+                }
                 $_SESSION['add-habit-colour-name'] = $_GET['add-habit'];
                 $_SESSION['add-habit-name'] = $habitName;
+                $_SESSION['icon-colour'] = $iconColour;
                 $allPossibleHabitIcons = $this->habitDAO->selectAllPossibleHabitIcons($_GET['add-habit']);
                 $this->set('allPossibleHabitIcons', $allPossibleHabitIcons);
+                $this->set('iconColour', $iconColour);
                 $this->set('currentStep', 'add-habit-2');
               } else {
                   $this->set('errors', $errors);
@@ -187,8 +209,8 @@ class UsersController extends Controller {
                   $this->habitDAO->insertNewHabit(array(
                     'user_id' => $_SESSION['user']['user_id'],
                     'habit_name' => $_SESSION['add-habit-name'],
-                    'habit_colour_name' => $habit_icon['habit_colour_name'],
-                    'habit_colour' => $habit_icon['habit_colour'],
+                    'habit_colour_name' => $_SESSION['add-habit-colour-name'],
+                    'habit_colour' => $_SESSION['icon-colour'],
                     'habit_icon' => $habit_icon['data_habit_icon_id'],
                   ));
                   $_SESSION['info'] = 'Added your new habit.';

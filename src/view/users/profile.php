@@ -105,54 +105,60 @@
         <h3 class="customize-habits-title">Habits</h3>
         <ul class="customize-habits-list">
           <?php foreach ($currentHabits as $habit): {
-            if ($habit['active']) {
-                echo '<li class="customize-habits-list-item" style="background-color:' . $habit['habit_colour'] .'; border: .2rem solid ' . $habit['habit_colour'] . '">
-                        <div class="customize-habits-list-item-wrap">
-                          <span class="customize-habits-list-item-icon">' . $habit['habit_icon_white'] .'</span>
-                          <span>' . $habit['habit_name'] . '</span>
-                        </div>
-                        <a href="index.php?page=profile&category=customize&delete-habit=' . $habit['habit_id']  .'">
-                          <svg width="11px" height="11px" viewBox="0 0 11 11">
-                            <title>Delete habit link</title>
-                            <desc>Icon for delete habit link.</desc>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                              <g transform="translate(-627.000000, -332.000000)" stroke="#ffffff" stroke-linecap="round" stroke-width="2.17756">
-                                <g transform="translate(294.000000, 203.000000)">
-                                  <g transform="translate(0.000000, 103.000000)">
-                                    <g transform="translate(338.554870, 31.192388) rotate(-45.000000) translate(-338.554870, -31.192388) translate(332.554870, 25.192388)">
-                                      <path d="M5.74368671,0.15790027 L5.74368671,11.1579003"></path>
-                                      <path d="M5.74368671,0.203354815 L5.74368671,11.1124457" transform="translate(5.743687, 5.657900) rotate(90.000000) translate(-5.743687, -5.657900) "></path>
-                                    </g>
-                                  </g>
-                                </g>
-                              </g>
-                            </g>
-                        </svg>
-                      </a>
-                    </li>';
-            } else {
-              echo '<li class="customize-habits-list-item" style="border: .2rem solid ' . $habit['habit_colour'] . '; color: ' . $habit['habit_colour'] . '">
-                      <a href="index.php?page=profile&category=customize&add-habit=' . $habit['habit_colour_name']  .'">
-                        <svg width="14px" height="14px" viewBox="0 0 14 14">
-                          <title>Add habit link</title>
-                          <desc>Icon for add habit.</desc>
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                              <g transform="translate(-321.000000, -710.000000)" stroke="' . $habit['habit_colour'] . '" stroke-linecap="round" stroke-width="2.17756">
-                                  <g transform="translate(294.000000, 203.000000)">
-                                      <g transform="translate(0.000000, 484.000000)">
-                                          <g transform="translate(28.420480, 24.878000)">
-                                              <path d="M5.98829,2.66453526e-15 L5.98829,10.8878"></path>
-                                              <path d="M5.98829,2.66453526e-15 L5.98829,10.8878" transform="translate(5.988290, 5.443900) rotate(90.000000) translate(-5.988290, -5.443900) "></path>
-                                          </g>
-                                      </g>
+            if ($habit['active']) { ?>
+            <li class="customize-habits-list-item" style="background-color: <?php echo $habit['habit_colour'] ?>; border: .2rem solid <?php echo $habit['habit_colour']; ?>">
+              <div class="customize-habits-list-item-wrap">
+                <span class="customize-habits-list-item-icon">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $habit['habit_icon'] ?>
+                    </g>
+                  </svg>
+                </span>
+                <span><?php echo $habit['habit_name'] ?></span>
+              </div>
+              <a href="index.php?page=profile&category=customize&delete-habit=<?php echo $habit['habit_id']  ?>">
+                <svg width="11px" height="11px" viewBox="0 0 11 11">
+                  <title>Delete habit link</title>
+                  <desc>Icon for delete habit link.</desc>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-627.000000, -332.000000)" stroke="#ffffff" stroke-linecap="round" stroke-width="2.17756">
+                      <g transform="translate(294.000000, 203.000000)">
+                        <g transform="translate(0.000000, 103.000000)">
+                          <g transform="translate(338.554870, 31.192388) rotate(-45.000000) translate(-338.554870, -31.192388) translate(332.554870, 25.192388)">
+                            <path d="M5.74368671,0.15790027 L5.74368671,11.1579003"></path>
+                            <path d="M5.74368671,0.203354815 L5.74368671,11.1124457" transform="translate(5.743687, 5.657900) rotate(90.000000) translate(-5.743687, -5.657900) "></path>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <?php } else { ?>
+            <li class="customize-habits-list-item" style="border: .2rem solid <?php echo $habit['habit_colour'] ?>; color: <?php echo $habit['habit_colour'] ?>;">
+              <a href="index.php?page=profile&category=customize&add-habit=<?php echo $habit['habit_colour_name'] ?>">
+                <svg width="14px" height="14px" viewBox="0 0 14 14">
+                  <title>Add habit link</title>
+                  <desc>Icon for add habit.</desc>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g transform="translate(-321.000000, -710.000000)" stroke="<?php echo $habit['habit_colour'] ?>" stroke-linecap="round" stroke-width="2.17756">
+                          <g transform="translate(294.000000, 203.000000)">
+                              <g transform="translate(0.000000, 484.000000)">
+                                  <g transform="translate(28.420480, 24.878000)">
+                                      <path d="M5.98829,2.66453526e-15 L5.98829,10.8878"></path>
+                                      <path d="M5.98829,2.66453526e-15 L5.98829,10.8878" transform="translate(5.988290, 5.443900) rotate(90.000000) translate(-5.988290, -5.443900) "></path>
                                   </g>
                               </g>
                           </g>
-                        </svg>
-                        <span>add habit</span>
-                      </a>
-                    </li>';
-            }
+                      </g>
+                  </g>
+                </svg>
+                <span>add habit</span>
+              </a>
+            </li>
+            <?php }
           };
           endforeach;
           ?>
@@ -366,7 +372,13 @@
             <?php foreach($allPossibleHabitIcons as $icon): ?>
               <input type="radio" id="<?php echo $icon['data_habit_icon_id'] ?>" name="chosen_habit_icon" value="<?php echo $icon['data_habit_icon_id'] ?>" class="form-input" />
               <label for="<?php echo $icon['data_habit_icon_id'] ?>">
-                <span class="form-label"><?php echo $icon['habit_icon'] ?></span>
+                <span class="form-label">
+                  <svg class="add-habit-icon-svg" width="60px" height="60px" viewbox="0 0 180 180">
+                    <g fill="<?php echo $iconColour ?>" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $icon['habit_icon'] ?>
+                    </g>
+                  </svg>
+                </span>
               </label>
             <?php endforeach; ?>
           </div>

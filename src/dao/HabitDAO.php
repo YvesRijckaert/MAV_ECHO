@@ -39,9 +39,8 @@ class HabitDAO extends DAO {
   }
 
   public function selectAllPossibleHabitIcons($colour) {
-    $sql = "SELECT * FROM `data_habit_icon` WHERE `habit_colour_name` = :colour";
+    $sql = "SELECT * FROM `data_habit_icon`";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':colour', $colour);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
