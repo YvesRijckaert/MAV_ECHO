@@ -65,7 +65,7 @@
     <article class="main-progress-statistics-habits">
       <h3 class="statistics-habits-title">habits</h3>
       <p>Most rewarding habits</p>
-      <ol>
+      <ol class="main-progress-statistics-habits-list">
         <li>
           <h4>No smoking</h4>
           <p>5x together with a good mood</p>
