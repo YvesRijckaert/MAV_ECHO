@@ -463,6 +463,9 @@ class UsersController extends Controller {
             $this->set('currentCategory', 'customize');
             break;
           case 'links':
+            if (!empty($_SESSION['needs_help'])) {
+              unset($_SESSION['needs_help']);
+            }
             $this->set('currentCategory', 'links');
             break;
           default:
