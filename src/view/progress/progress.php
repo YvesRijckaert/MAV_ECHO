@@ -160,97 +160,118 @@
     <?php if($goalsCategory === 'in-progress'): ?>
       <article class="main-progress-goals-in-progress">
         <h3 class="goals-in-progress-title hide">In Progress goals</h3>
-        <?php
-          echo '<ul class="goals-in-progress-list">';
-          if (!empty($inProgressGoals['repetitive'])) {
             foreach ($inProgressGoals['repetitive'] as $goal) {
-              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'">
-                      <div class="goals-in-progress-list-item-topwrap">
-                        ' . $goal['habit_icon_white'] . '
-                        <p class="goals-in-progress-list-item-name">' . $goal['habit_name'] .'</p>
-                        <p class="goals-in-progress-list-item-status">2 days</p>
-                      </div>
-                      <p class="goals-in-progress-list-item-amount">every ' . $goal['day'] .' of ' . $goal['month'] .'</p>
-                    </li>';
-            }
+          <ul class="goals-in-progress-list">
+          <?php if (!empty($inProgressGoals['repetitive'])) {
+            foreach ($inProgressGoals['repetitive'] as $goal) { ?>
+              <li class="goals-in-progress-list-item" style="background-color: <?php echo $goal['habit_colour'] ?>;">
+                <div class="goals-in-progress-list-item-topwrap">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $goal['habit_icon'] ?>
+                    </g>
+                  </svg>
+                  <p class="goals-in-progress-list-item-name"><?php echo $goal['habit_name'] ?></p>
+                  <p class="goals-in-progress-list-item-status"><?php echo $goal['time_amount_progress'] ?> days</p>
+                </div>
+                <p class="goals-in-progress-list-item-amount">every <?php echo $goal['day'] ?> of <?php echo $goal['month'] ?></p>
+              </li>
+            <?php }
           }
           if (!empty($inProgressGoals['streaks'])) {
-            foreach ($inProgressGoals['streaks'] as $goal) {
-              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'">
-                      <div class="goals-in-progress-list-item-topwrap">
-                        ' . $goal['habit_icon_white'] . '
-                        <p class="goals-in-progress-list-item-name">' . $goal['habit_name'] .'</p>
-                        <p class="goals-in-progress-list-item-status">2 days</p>
-                      </div>
-                      <p class="goals-in-progress-list-item-amount">' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</p>
-                    </li>';
-            }
+            foreach ($inProgressGoals['streaks'] as $goal) { ?>
+              <li class="goals-in-progress-list-item" style="background-color: <?php echo $goal['habit_colour'] ?>;">
+                <div class="goals-in-progress-list-item-topwrap">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $goal['habit_icon'] ?>
+                    </g>
+                  </svg>
+                  <p class="goals-in-progress-list-item-name"><?php echo $goal['habit_name'] ?></p>
+                  <p class="goals-in-progress-list-item-status"><?php echo $goal['time_amount_progress'] ?> days</p>
+                </div>
+                <p class="goals-in-progress-list-item-amount"><?php echo $goal['time_amount'] ?> <?php echo $goal['time_type'] ?> in a row</p>
+              </li>
+            <?php }
           }
           if (!empty($inProgressGoals['total_amount'])) {
-            foreach ($inProgressGoals['total_amount'] as $goal) {
-              echo '<li class="goals-in-progress-list-item" style="background-color: ' . $goal['habit_colour'] .'">
-                      <div class="goals-in-progress-list-item-topwrap">
-                        ' . $goal['habit_icon_white'] . '
-                        <p class="goals-in-progress-list-item-name">' . $goal['habit_name'] .'</p>
-                        <p class="goals-in-progress-list-item-status">2 days</p>
-                      </div>
-                      <p class="goals-in-progress-list-item-amount">' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</p>
-                    </li>';
-            }
-          }
-          echo '</ul>';
-          if (empty($inProgressGoals['repetitive']) && empty($inProgressGoals['streaks']) && empty($inProgressGoals['total_amount'])) {
-            echo '<p class="goals-in-progress-error error">No goals currently in progress.</p>';
-          }
-        ?>
+            foreach ($inProgressGoals['total_amount'] as $goal) { ?>
+              <li class="goals-in-progress-list-item" style="background-color: <?php echo $goal['habit_colour'] ?>;">
+                <div class="goals-in-progress-list-item-topwrap">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $goal['habit_icon'] ?>
+                    </g>
+                  </svg>
+                  <p class="goals-in-progress-list-item-name"><?php echo $goal['habit_name'] ?></p>
+                  <p class="goals-in-progress-list-item-status"><?php echo $goal['time_amount_progress'] ?> days</p>
+                </div>
+                <p class="goals-in-progress-list-item-amount"><?php echo $goal['days_amount'] ?> days in <?php echo $goal['month'] ?></p>
+              </li>
+            <?php }
+          } ?>
+          </ul>
+          <?php if (empty($inProgressGoals['repetitive']) && empty($inProgressGoals['streaks']) && empty($inProgressGoals['total_amount'])) { ?>
+            <p class="goals-in-progress-error error">No goals currently in progress.</p>
+          <?php } ?>
       </article>
     <?php endif; ?>
     <?php if($goalsCategory === 'completed'): ?>
       <article class="main-progress-goals-completed">
         <h3 class="goals-completed-title hide">Completed goals</h3>
-        <?php
-          echo '<ul class="goals-completed-list">';
-          if (!empty($completedGoals['repetitive'])) {
-            foreach ($completedGoals['repetitive'] as $goal) {
-              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'">
-                      <div class="goals-completed-list-item-topwrap">
-                        ' . $goal['habit_icon_white'] . '
-                        <p class="goals-completed-list-item-name">' . $goal['habit_name'] .'</p>
-                        <p class="goals-completed-list-item-status">completed</p>
-                      </div>
-                      <p class="goals-completed-list-item-amount">every ' . $goal['day'] .' of ' . $goal['month'] .'</p>
-                    </li>';
-            }
+          <ul class="goals-completed-list">
+          <?php if (!empty($completedGoals['repetitive'])) {
+            foreach ($completedGoals['repetitive'] as $goal) { ?>
+              <li class="goals-completed-list-item" style="background-color: <?php echo $goal['habit_colour'] ?>;">
+                <div class="goals-completed-list-item-topwrap">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $goal['habit_icon'] ?>
+                    </g>
+                  </svg>
+                  <p class="goals-completed-list-item-name"><?php echo $goal['habit_name'] ?></p>
+                  <p class="goals-completed-list-item-status">completed</p>
+                </div>
+                <p class="goals-completed-list-item-amount">every <?php echo $goal['day'] ?> of <?php echo $goal['month'] ?></p>
+              </li>
+            <?php }
           }
           if (!empty($completedGoals['streaks'])) {
-            foreach ($completedGoals['streaks'] as $goal) {
-              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'">
-                      <div class="goals-completed-list-item-topwrap">
-                        ' . $goal['habit_icon_white'] . '
-                        <p class="goals-completed-list-item-name">' . $goal['habit_name'] .'</p>
-                        <p class="goals-completed-list-item-status">completed</p>
-                      </div>
-                      <p class="goals-completed-list-item-amount">' . $goal['time_amount'] . ' ' . $goal['time_type'] .' in a row</p>
-                    </li>';
-            }
+            foreach ($completedGoals['streaks'] as $goal) { ?>
+              <li class="goals-completed-list-item" style="background-color: <?php echo $goal['habit_colour'] ?>">
+                <div class="goals-completed-list-item-topwrap">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $goal['habit_icon'] ?>
+                    </g>
+                  </svg>
+                  <p class="goals-completed-list-item-name"><?php echo $goal['habit_name'] ?></p>
+                  <p class="goals-completed-list-item-status">completed</p>
+                </div>
+                <p class="goals-completed-list-item-amount"><?php echo $goal['time_amount'] ?> <?php echo $goal['time_type'] ?> in a row</p>
+              </li>
+            <?php }
           }
           if (!empty($completedGoals['total_amount'])) {
-            foreach ($completedGoals['total_amount'] as $goal) {
-              echo '<li class="goals-completed-list-item" style="background-color: ' . $goal['habit_colour'] .'">
-                      <div class="goals-completed-list-item-topwrap">
-                        ' . $goal['habit_icon_white'] . '
-                        <p class="goals-completed-list-item-name">' . $goal['habit_name'] .'</p>
-                        <p class="goals-completed-list-item-status">completed</p>
-                      </div>
-                      <p class="goals-completed-list-item-amount">' . $goal['days_amount'] . ' days in ' . $goal['month'] .'</p>
-                    </li>';
-            }
-          }
-          echo '</ul>';
-          if (empty($completedGoals['repetitive']) && empty($completedGoals['streaks']) && empty($completedGoals['total_amount'])) {
-            echo '<p class="goals-completed-error error">No completed goals yet.</p>';
-          }
-        ?>
+            foreach ($completedGoals['total_amount'] as $goal) { ?>
+              <li class="goals-completed-list-item" style="background-color: <?php echo $goal['habit_colour'] ?>">
+                <div class="goals-completed-list-item-topwrap">
+                  <svg width="30px" height="30px" viewbox="0 0 180 180">
+                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                      <?php echo $goal['habit_icon'] ?>
+                    </g>
+                  </svg>
+                  <p class="goals-completed-list-item-name"><?php echo $goal['habit_name'] ?></p>
+                  <p class="goals-completed-list-item-status">completed</p>
+                </div>
+                <p class="goals-completed-list-item-amount"><?php echo $goal['days_amount'] ?> days in <?php echo $goal['month'] ?></p>
+              </li>
+            <?php }
+          } ?>
+          </ul>
+          <?php if (empty($completedGoals['repetitive']) && empty($completedGoals['streaks']) && empty($completedGoals['total_amount'])) { ?>
+            <p class="goals-completed-error error">No completed goals yet.</p>
+          <?php } ?>
       </article>
     <?php endif; ?>
   </section>
