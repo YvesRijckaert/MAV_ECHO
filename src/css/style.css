@@ -495,15 +495,13 @@ footer {
 }
 
 .add-day-form-submit {
-  background-color: var(--green);
   color: white;
   position: absolute;
-  top: 0;
+  top: -7rem;
   right: 0;
   align-self: flex-end;
   text-align: center;
-  padding: 2.5rem 7rem;
-  border-bottom-left-radius: 4rem;
+  padding: 2rem 7rem;
   border: none;
 
   &:hover {
@@ -1437,7 +1435,6 @@ footer {
 .repetitive-month, .total-month {
   color: var(--orange);
 }
-
 
 /* profile links */
 

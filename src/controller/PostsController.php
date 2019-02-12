@@ -537,6 +537,7 @@ class PostsController extends Controller {
       $this->set('alreadyPostedToday', $alreadyPostedToday);
       $this->set('habits', $habits);
       $this->set('title', 'Add day');
+      $this->set('onAddPage', 'onAddPage');
       $this->set('currentPage', 'overview');
     }
 

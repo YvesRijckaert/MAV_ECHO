@@ -185,7 +185,7 @@
             <span>Add Day</span>
           </a>
         <?php else: ?>
-          <a href="index.php?page=add" class="main-green-button">
+          <a style="<?php if(isset($onAddPage)) { echo 'opacity: 0; pointer-events: none;'; } ?>" href="index.php?page=add" class="main-green-button">
             <svg width="20px" height="20px" viewBox="0 0 24 21" class="main-green-button-svg">
               <title>Change day button</title>
               <desc>Icon for change day button.</desc>

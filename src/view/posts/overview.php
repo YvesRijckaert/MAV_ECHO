@@ -78,7 +78,7 @@
           <text font-family="Circular Std" font-size="16" font-style="italic" font-weight="300" fill="#2b2b2b">
             <tspan x="100" y="172">#<?php echo $livedDaysAmount; ?></tspan>
           </text>
-          <text font-family="Circular Std" font-size="22" font-weight="400" line-spacing="24" fill="#2b2b2b">
+          <text font-family="Circular Std" font-size="18" font-weight="400" line-spacing="24" fill="#2b2b2b">
             <?php $count = 200; $splittedMemory = explode( "\n", wordwrap( $postOfEnteredDay['short_memory'], 15));
             foreach ($splittedMemory as $key => $splittedMemory):
               $count+= 22;
