@@ -300,8 +300,6 @@ class PostsController extends Controller {
                     'habit_id' => array_column($fulfilled_habit, 'habit_id')[0]
                   ));
                 }
-
-
                 $postsFrom5Days = $this->postDAO->checkIfBadDays(array(
                   'user_id' => $_SESSION['user']['user_id'],
                   'today_date' => date("Y-m-d"),
@@ -471,6 +469,16 @@ class PostsController extends Controller {
                       }
                     };
                   }
+                  $postsFrom5Days = $this->postDAO->checkIfBadDays(array(
+                    'user_id' => $_SESSION['user']['user_id'],
+                    'today_date' => date("Y-m-d"),
+                    'four_days_ago' => date('Y-m-d', strtotime("-4 days"))
+                  ));
+                  if(count($postsFrom5Days) == 5) {
+                    $_SESSION['needs_help'] = true;
+                    header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+                    exit();
+                  };
                   $_SESSION['info'] = 'Added new day.';
                   header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
                   exit();

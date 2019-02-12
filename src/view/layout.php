@@ -71,10 +71,15 @@
         </div>
         <div class="main-overview-modal-buttons">
           <a class="main-overview-modal-button-more" href="index.php?page=profile&category=links">tell me more</a>
-          <a class="main-overview-modal-button-dismiss" href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y") ?>">dismiss</a>
+          <a class="main-overview-modal-button-dismiss" href="?modal-dismiss">dismiss</a>
         </div>
       </section>
     <?php endif; ?>
+    <?php
+      if(isset($_GET['modal-dismiss'])) {
+        unset($_SESSION['needs_help']);
+      }
+    ?>
     <header class="header">
       <h1 class="header-title">
         <a href="index.php" class="header-title-link" >

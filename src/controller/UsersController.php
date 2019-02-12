@@ -465,6 +465,8 @@ class UsersController extends Controller {
           case 'links':
             if (!empty($_SESSION['needs_help'])) {
               unset($_SESSION['needs_help']);
+              header('Location: index.php?page=overview&view=day&day=' . date("d-m-Y"));
+              die();
             }
             $this->set('currentCategory', 'links');
             break;
