@@ -1,5 +1,5 @@
 <section>
-  <header><h1 class="page-header">Register</h1></header>
+  <header><h1 class="page-header form-title">Register</h1></header>
   <?php if ($currentStep === 1): ?>
   <form class="register-form" method="post">
     <label>
@@ -17,7 +17,22 @@
       <input class="info-form-input" type="password" name="confirm_password" class="form-input"<?php if(!empty($_POST['confirm_password'])) echo 'value="' . $_POST['confirm_password'] . '"';?> required />
       <?php if(!empty($errors['confirm_password'])) echo '<span class="error">' . $errors['confirm_password'] . '</span>';?>
     </label>
-    <input type="submit" name="register1" value="next step" class="form-submit" />
+    <label class="info-form-submit submit input-container">
+          <span>next</span>
+          <svg width="16px" height="12px" viewBox="0 0 16 12">
+            <title>Next button</title>
+            <desc>Icon for next button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1385.000000, -130.000000)">
+                <g transform="translate(1392.000000, 135.692308) rotate(-180.000000) translate(-1392.000000, -135.692308) translate(1385.000000, 130.692308)">
+                  <polyline stroke="#ffffff" stroke-width="2" stroke-linecap="round" transform="translate(2.550561, 4.831892) rotate(-180.000000) translate(-2.550561, -4.831892) " points="0.269230769 0 4.83189171 4.83189171 0.269230769 9.66378341"></polyline>
+                  <rect fill="#ffffff" x="0" y="4" width="13.6832579" height="2" rx="1"></rect>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <input type="submit" class="add-habit-form-submit-button" name="register1" value="next" />
+    </label>
   </form>
   <?php endif; ?>
 
@@ -25,15 +40,30 @@
   <form class="register-form" method="post">
     <label>
       <span class="form-label">How do you want to be called?</span>
-      <input type="text" name="nickname" class="form-input"<?php if(!empty($_POST['nickname'])) echo 'value="' . $_POST['nickname'] . '"';?> required />
+      <input type="text" name="nickname" class="info-form-input"<?php if(!empty($_POST['nickname'])) echo 'value="' . $_POST['nickname'] . '"';?> required />
       <?php if(!empty($errors['nickname'])) echo '<span class="error">' . $errors['nickname'] . '</span>';?>
     </label>
     <label>
       <span class="form-label">When is your birthday?</span>
-      <input type="date" name="birthdate" class="form-input"<?php if(!empty($_POST['birthdate'])) echo 'value="' . $_POST['birthdate'] . '"';?> required />
+      <input type="date" name="birthdate" class="info-form-input"<?php if(!empty($_POST['birthdate'])) echo 'value="' . $_POST['birthdate'] . '"';?> required />
       <?php if(!empty($errors['birthdate'])) echo '<span class="error">' . $errors['birthdate'] . '</span>';?>
     </label>
-    <input type="submit" name="register2" value="next step" />
+    <label class="info-form-submit submit input-container">
+          <span>next</span>
+          <svg width="16px" height="12px" viewBox="0 0 16 12">
+            <title>Next button</title>
+            <desc>Icon for next button.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1385.000000, -130.000000)">
+                <g transform="translate(1392.000000, 135.692308) rotate(-180.000000) translate(-1392.000000, -135.692308) translate(1385.000000, 130.692308)">
+                  <polyline stroke="#ffffff" stroke-width="2" stroke-linecap="round" transform="translate(2.550561, 4.831892) rotate(-180.000000) translate(-2.550561, -4.831892) " points="0.269230769 0 4.83189171 4.83189171 0.269230769 9.66378341"></polyline>
+                  <rect fill="#ffffff" x="0" y="4" width="13.6832579" height="2" rx="1"></rect>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <input type="submit" class="add-habit-form-submit-button" name="register2" value="next" />
+    </label>
   </form>
   <?php endif; ?>
 

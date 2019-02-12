@@ -253,11 +253,11 @@ footer {
   }
 }
 
-.login-title {
+.form-title {
   text-transform: lowercase;
   text-align: center;
   font-size: 3.6rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
   font-weight: bold;
 }
 
@@ -276,13 +276,7 @@ footer {
   }
 }
 
-.input-container button {
-  border: none;
-  color: var(--white);
-  background-color: inherit;
-}
-
-.login-form {
+.login-form, .register-form {
   display: flex;
   flex-direction: column;
   margin: 5rem auto;
@@ -292,7 +286,7 @@ footer {
   & label {
     display: flex;
     flex-direction: column;
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
   }
 
   & span {
@@ -311,7 +305,10 @@ footer {
     align-items: center;
     padding: 4rem 8rem;
   }
+}
 
+.register-form .submit {
+  background-color: var(--black);
 }
 /* overview */
 
@@ -971,12 +968,12 @@ footer {
   right: 0;
   border: none;
 
-  &:hover {
-    cursor: pointer;
+  & span {
+    margin: 0 2rem;
   }
 
-  & svg {
-    margin-right: 2rem;
+  &:hover {
+    cursor: pointer;
   }
 }
 

@@ -1,5 +1,5 @@
 <section>
-  <header><h1 class="page-header login-title">Login</h1></header>
+  <header><h1 class="page-header form-title">Login</h1></header>
     <form class="login-form" method="post" action="index.php?page=login">
       <input type="hidden" name="action" value="login" />
       <div class="input-container text">
