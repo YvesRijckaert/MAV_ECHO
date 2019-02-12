@@ -319,10 +319,44 @@
       <form class="main-profile-add-habit-form" method="post">
         <fieldset class="add-habit-form-field add-habit-suggested">
           <legend class="add-habit-form-field-legend">suggested</legend>
-          <input type="radio" class="add-habit-form-radio" id="test" class="add-habit-form-input" name="chosen_habit" value="test" />
-          <label for="test" class="add-habit-form-label">
-            <span>test</span>
-          </label>
+          <?php switch ($_SESSION['user']['lifegoal']) {
+              case 'document-life': ?>
+                <input type="radio" class="add-habit-form-radio" id="24" class="add-habit-form-input" name="chosen_habit" value="24" />
+                <label for="24" class="add-habit-form-label">
+                  <span>read something</span>
+                </label>
+                <?php break;
+              case 'feel-happier': ?>
+                <input type="radio" class="add-habit-form-radio" id="6" class="add-habit-form-input" name="chosen_habit" value="6" />
+                <label for="6" class="add-habit-form-label">
+                  <span>no social media</span>
+                </label>
+                <?php break;
+              case 'reduce-stress': ?>
+                <input type="radio" class="add-habit-form-radio" id="4" class="add-habit-form-input" name="chosen_habit" value="4" />
+                <label for="4" class="add-habit-form-label">
+                  <span>meditate</span>
+                </label>
+                <?php break;
+              case 'live-healthier': ?>
+                <input type="radio" class="add-habit-form-radio" id="9" class="add-habit-form-input" name="chosen_habit" value="9" />
+                <label for="9" class="add-habit-form-label">
+                  <span>go for a run</span>
+                </label>
+                <?php break;
+              case 'reach-life-goals': ?>
+                <input type="radio" class="add-habit-form-radio" id="2" class="add-habit-form-input" name="chosen_habit" value="2" />
+                <label for="2" class="add-habit-form-label">
+                  <span>do something new</span>
+                </label>
+                <?php break;
+              case 'none-of-the-above': ?>
+                <p class="error">No recommendations</p>
+                <?php break;
+              default: ?>
+                <p class="error">No recommendations</p>
+              <?php break;
+            } ?>
         </fieldset>
         <fieldset class="add-habit-form-field add-habit-write">
           <legend class="add-habit-form-field-legend">write</legend>
