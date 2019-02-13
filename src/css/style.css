@@ -1235,13 +1235,13 @@ footer {
 .main-profile-info-form {
   display: grid;
   grid-template: 2fr 2fr 2fr / 1fr 3fr 3fr 1fr;
-  grid-row-gap: 4.5rem;
+  grid-row-gap: 6.5rem;
   grid-column-gap: 2.5rem;
   grid-template-areas:
     '. email birthday .'
     '. username password .'
     '. goals goals .';
-  margin-top: 2.5rem;
+  margin-top: 4.5rem;
 }
 
 .info-form-email {
@@ -1258,6 +1258,14 @@ footer {
 
 .info-form-password {
   grid-area: password;
+
+  & .info-form-password-link {
+    text-align: center;
+    padding-bottom: 2rem;
+    background-image: url(../assets/img/Rectangle.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
 }
 
 .info-form-goals {
@@ -1703,6 +1711,10 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+
+  .main-profile-info-form {
+    grid-row-gap: 2rem;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1905,9 +1917,7 @@ footer {
   .main-profile-info-form {
     display: grid;
     grid-template: repeat(5, 6rem) / .2fr 6fr .2fr;
-    grid-row-gap: 3rem;
     grid-template-areas: '. email .' '. birthday .' '. username .' '. password .' '. goals .';
-    margin-top: 25px;
     margin-top: 2.5rem;
     font-size: 1.6rem;
 

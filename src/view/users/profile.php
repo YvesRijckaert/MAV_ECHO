@@ -33,7 +33,7 @@
       </label>
       <div class="info-form-group info-form-password">
         <p class="info-form-label-text">password</p>
-        <a href="#">change password</a>
+        <a href="#" class="info-form-password-link">change password</a>
       </div>
       <div class="info-form-group info-form-goals">
         <p class="info-form-label-text">overall goal</p>
