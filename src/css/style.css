@@ -1694,6 +1694,15 @@ footer {
     }
   }
 
+  .day-info-mood {
+    display: flex;
+    justify-content: flex-end;
+
+    & svg {
+      width: 70%;
+    }
+  }
+
   .main-progress-statistics {
     grid-template-columns: 1fr 6fr 1fr;
     grid-template-areas:
@@ -1948,7 +1957,7 @@ footer {
   }
 
   .add-day-form-field-habits {
-  
+
     & svg {
       width: 2rem;
     }
