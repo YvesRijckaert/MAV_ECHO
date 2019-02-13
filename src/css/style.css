@@ -18,6 +18,10 @@ html {
   outline-offset: .5rem;
 }
 
+input:focus {
+  outline-offset: 0;
+}
+
 body {
   font-size: 2rem;
   background-color: white;
@@ -440,6 +444,7 @@ footer {
 }
 
 .main-overview-day {
+  padding-top: 2.5rem;
   min-height: 65rem;
   margin-top: 5rem;
   display: grid;
@@ -1073,11 +1078,6 @@ footer {
 
 .graph .labels.y-labels {
   text-anchor: end;
-}
-
-.graph {
-  height: 40rem;
-  width: 55rem;
 }
 
 .graph .grid {
@@ -1715,15 +1715,19 @@ footer {
   }
 
   .main-progress-statistics {
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: .5fr 6fr .5fr;
     grid-template-areas:
       '. nav .'
       '. mood .'
       '. habits .';
   }
 
-  .main-overview-day-collage {
-    border-right: none;
+  .graph {
+    margin-right: 2.5rem;
+  }
+
+  .statistics-nav-list {
+    width: 100%;
   }
 
   .main-progress-statistics-habits {
@@ -1739,6 +1743,14 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .main-progress-goals {
+    grid-template-columns: .5fr 3fr 3fr .5fr;
+  }
+
+  .goals-nav-list, .main-progress-goals-in-progress, .main-progress-goals-completed {
+    width: 100%;
   }
 
   .main-profile-info-form {
@@ -1861,7 +1873,7 @@ footer {
     }
 
     & svg {
-      margin: 0 0 1rem 0;
+      margin: 0 0 1rem;
     }
   }
 
@@ -2004,10 +2016,6 @@ footer {
     & span {
       display: none;
     }
-  }
-
-  .graph {
-    height: 35rem;
   }
 
   .customize-habits-title, .customize-goals-title {
