@@ -90,120 +90,123 @@
           </g>
         </svg>
       </section>
-      <section class="main-overview-day-info">
-        <h3 class="day-info-title hide">Day view info</h3>
-        <p class="day-info-date">
-          <span class="day-info-date-span"><?php echo $currentDay; ?></span>
-          <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date"><?php echo $currentDate ?></time>
-        </p>
-        <article class="day-info-habits">
-          <h4 class="day-info-habits-title">Habits</h4>
-          <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
-            <ul class="day-info-habits-list">
-              <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
-              <li class="day-info-habits-list-item" style="background-color: <?php echo $habit['habit_colour'] ?>">
-                <span class="day-info-habits-list-item-icon">
-                  <svg width="30px" height="30px" viewbox="0 0 180 180">
-                    <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
-                      <?php echo $habit['habit_icon'] ?>
-                    </g>
-                  </svg>
-                </span>
-                <span><?php echo $habit['habit_name'] ?></span>
-              </li>
-              <?php endforeach; ?>
-            </ul>
-          <?php endif; ?>
-        </article>
-        <article class="day-info-mood">
-          <h4 class="day-info-mood-title">Mood</h4>
-          <?php switch ($postOfEnteredDay['feelings']) {
-            case -1:
-              echo'
-              <svg width="86px" height="86px" viewBox="0 0 86 86" class="day-info-mood-img">
-                <title>Bad mood</title>
-                <desc>Icon for bad mood.</desc>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1305.000000, -244.000000)">
-                    <g transform="translate(1091.000000, 241.000000)">
-                        <g transform="translate(215.000000, 4.000000)">
-                          <circle id="Oval-Copy-2" stroke="#FE5455" stroke-width="1.196345" fill="#FF5257" cx="41.872075" cy="41.872075" r="41.872075"></circle>
-                          <g transform="translate(21.534210, 15.552485)">
-                            <g transform="translate(2.392690, 31.104970)">
-                              <rect id="path-1" x="0" y="0" width="38.28304" height="17.945175" rx="2.39269"></rect>
-                              <path d="M-1.0658141e-14,0 L38.28304,0 C38.28304,9.91084648 29.7130896,17.945175 19.14152,17.945175 C8.56995042,17.945175 -3.55271368e-15,9.91084648 -3.55271368e-15,0 Z" id="Combined-Shape" fill="#FFFFFF" mask="url(#mask-2)" transform="translate(19.141520, 8.972588) rotate(-180.000000) translate(-19.141520, -8.972588) "></path>
+      <a class="btn" href="#open-modal"><i class="fas fa-external-link-alt"></i> Basic CSS-Only Modal</a>
+      <section class="main-overview-day-info" id="open-modal">
+        <div>
+          <h3 class="day-info-title hide">Day view info</h3>
+          <p class="day-info-date">
+            <span class="day-info-date-span"><?php echo $currentDay; ?></span>
+            <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date"><?php echo $currentDate ?></time>
+          </p>
+          <article class="day-info-habits">
+            <h4 class="day-info-habits-title">Habits</h4>
+            <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>
+              <ul class="day-info-habits-list">
+                <?php foreach($fulfilledHabitsOfEnteredDay as $habit): ?>
+                <li class="day-info-habits-list-item" style="background-color: <?php echo $habit['habit_colour'] ?>">
+                  <span class="day-info-habits-list-item-icon">
+                    <svg width="30px" height="30px" viewbox="0 0 180 180">
+                      <g fill="#ffffff" stroke="none" stroke-width="1" fill-rule="evenodd">
+                        <?php echo $habit['habit_icon'] ?>
+                      </g>
+                    </svg>
+                  </span>
+                  <span><?php echo $habit['habit_name'] ?></span>
+                </li>
+                <?php endforeach; ?>
+              </ul>
+            <?php endif; ?>
+          </article>
+          <article class="day-info-mood">
+            <h4 class="day-info-mood-title">Mood</h4>
+            <?php switch ($postOfEnteredDay['feelings']) {
+              case -1:
+                echo'
+                <svg width="86px" height="86px" viewBox="0 0 86 86" class="day-info-mood-img">
+                  <title>Bad mood</title>
+                  <desc>Icon for bad mood.</desc>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-1305.000000, -244.000000)">
+                      <g transform="translate(1091.000000, 241.000000)">
+                          <g transform="translate(215.000000, 4.000000)">
+                            <circle id="Oval-Copy-2" stroke="#FE5455" stroke-width="1.196345" fill="#FF5257" cx="41.872075" cy="41.872075" r="41.872075"></circle>
+                            <g transform="translate(21.534210, 15.552485)">
+                              <g transform="translate(2.392690, 31.104970)">
+                                <rect id="path-1" x="0" y="0" width="38.28304" height="17.945175" rx="2.39269"></rect>
+                                <path d="M-1.0658141e-14,0 L38.28304,0 C38.28304,9.91084648 29.7130896,17.945175 19.14152,17.945175 C8.56995042,17.945175 -3.55271368e-15,9.91084648 -3.55271368e-15,0 Z" id="Combined-Shape" fill="#FFFFFF" mask="url(#mask-2)" transform="translate(19.141520, 8.972588) rotate(-180.000000) translate(-19.141520, -8.972588) "></path>
+                              </g>
+                              <text id="bad" font-family="CircularStd-Medium, Circular Std" font-size="23.9269" font-weight="400" fill="#FFFFFF">
+                                <tspan x="0" y="24">bad</tspan>
+                              </text>
                             </g>
-                            <text id="bad" font-family="CircularStd-Medium, Circular Std" font-size="23.9269" font-weight="400" fill="#FFFFFF">
-                              <tspan x="0" y="24">bad</tspan>
-                            </text>
                           </g>
                         </g>
                       </g>
                     </g>
-                  </g>
-              </svg>';
-              break;
-            case 0:
-              echo '
-              <svg width="86px" height="86px" viewBox="0 0 86 86">
-                <title>Okay mood</title>
-                <desc>Icon for okay mood.</desc>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1191.000000, -236.000000)">
-                    <g transform="translate(1192.000000, 237.000000)">
-                      <circle stroke="#4285FF" stroke-width="1.20059945" fill="#4285FF" cx="42.0209807" cy="42.0209807" r="42.0209807"></circle>
-                      <rect fill="#FFFFFF" x="24.011989" y="46.8233785" width="36.0179834" height="8.40419614" rx="4.20209807"></rect>
-                      <text font-family="CircularStd-Medium, Circular Std" font-size="24.011989" font-weight="400" fill="#FFFFFF">
-                        <tspan x="27.6137873" y="39.6077928">ok</tspan>
-                      </text>
-                    </g>
-                  </g>
-                </g>
-              </svg>';
-              break;
-            case 1:
-              echo '
-              <svg width="86px" height="86px" viewBox="0 0 86 86" class="day-info-mood-img">
-                <title>Good mood</title>
-                <desc>Icon for good mood.</desc>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1090.000000, -243.000000)">
-                    <g transform="translate(1091.000000, 244.000000)">
-                        <circle id="Oval" stroke="#00D28B" stroke-width="1.2" fill="#00D28B" cx="42" cy="42" r="42"></circle>
-                        <g transform="translate(28.800000, 46.800000)">
-                          <rect x="0" y="0" width="38.4" height="18" rx="2.4"></rect>
-                          <path d="M-3.55271368e-15,0 L38.4,0 C38.4,9.9411255 29.8038672,18 19.2,18 C8.5961328,18 -3.55271368e-15,9.9411255 -3.55271368e-15,0 Z" fill="#FFFFFF"></path>
-                        </g>
-                        <text font-family="CircularStd-Medium, Circular Std" font-size="24" font-weight="400" fill="#ffffff">
-                          <tspan x="12" y="39.6">great</tspan>
+                </svg>';
+                break;
+              case 0:
+                echo '
+                <svg width="86px" height="86px" viewBox="0 0 86 86">
+                  <title>Okay mood</title>
+                  <desc>Icon for okay mood.</desc>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-1191.000000, -236.000000)">
+                      <g transform="translate(1192.000000, 237.000000)">
+                        <circle stroke="#4285FF" stroke-width="1.20059945" fill="#4285FF" cx="42.0209807" cy="42.0209807" r="42.0209807"></circle>
+                        <rect fill="#FFFFFF" x="24.011989" y="46.8233785" width="36.0179834" height="8.40419614" rx="4.20209807"></rect>
+                        <text font-family="CircularStd-Medium, Circular Std" font-size="24.011989" font-weight="400" fill="#FFFFFF">
+                          <tspan x="27.6137873" y="39.6077928">ok</tspan>
                         </text>
                       </g>
                     </g>
                   </g>
-              </svg>';
-              break;
-            default:
-            echo '<p class="error">No feelings for this day.</p>';
-              break;
-          } ?>
-        </article>
-        <a href="#" class="day-info-share">
-          <svg width="60px" height="60px" viewBox="0 0 60 60">
-            <title>Share button</title>
-            <desc>Icon for share button.</desc>
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g transform="translate(-1003.000000, -256.000000)">
-                <g transform="translate(1003.000000, 256.000000)">
-                  <circle fill="#f5f5f5" cx="30" cy="30" r="30"></circle>
-                  <circle stroke="#2b2b2b" stroke-width="2.4" cx="30" cy="30" r="8.4"></circle>
-                  <rect fill="#2b2b2b" x="22.8" y="20.4" width="4.8" height="4.8" rx="2.4"></rect>
-                  <rect fill="#2b2b2b" x="36" y="27.6" width="4.8" height="4.8" rx="2.4"></rect>
-                  <rect fill="#2b2b2b" x="22.8" y="34.8" width="4.8" height="4.8" rx="2.4"></rect>
+                </svg>';
+                break;
+              case 1:
+                echo '
+                <svg width="86px" height="86px" viewBox="0 0 86 86" class="day-info-mood-img">
+                  <title>Good mood</title>
+                  <desc>Icon for good mood.</desc>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-1090.000000, -243.000000)">
+                      <g transform="translate(1091.000000, 244.000000)">
+                          <circle id="Oval" stroke="#00D28B" stroke-width="1.2" fill="#00D28B" cx="42" cy="42" r="42"></circle>
+                          <g transform="translate(28.800000, 46.800000)">
+                            <rect x="0" y="0" width="38.4" height="18" rx="2.4"></rect>
+                            <path d="M-3.55271368e-15,0 L38.4,0 C38.4,9.9411255 29.8038672,18 19.2,18 C8.5961328,18 -3.55271368e-15,9.9411255 -3.55271368e-15,0 Z" fill="#FFFFFF"></path>
+                          </g>
+                          <text font-family="CircularStd-Medium, Circular Std" font-size="24" font-weight="400" fill="#ffffff">
+                            <tspan x="12" y="39.6">great</tspan>
+                          </text>
+                        </g>
+                      </g>
+                    </g>
+                </svg>';
+                break;
+              default:
+              echo '<p class="error">No feelings for this day.</p>';
+                break;
+            } ?>
+          </article>
+          <a href="#" class="day-info-share">
+            <svg width="60px" height="60px" viewBox="0 0 60 60">
+              <title>Share button</title>
+              <desc>Icon for share button.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-1003.000000, -256.000000)">
+                  <g transform="translate(1003.000000, 256.000000)">
+                    <circle fill="#f5f5f5" cx="30" cy="30" r="30"></circle>
+                    <circle stroke="#2b2b2b" stroke-width="2.4" cx="30" cy="30" r="8.4"></circle>
+                    <rect fill="#2b2b2b" x="22.8" y="20.4" width="4.8" height="4.8" rx="2.4"></rect>
+                    <rect fill="#2b2b2b" x="36" y="27.6" width="4.8" height="4.8" rx="2.4"></rect>
+                    <rect fill="#2b2b2b" x="22.8" y="34.8" width="4.8" height="4.8" rx="2.4"></rect>
+                  </g>
                 </g>
               </g>
-            </g>
-          </svg>
-        </a>
+            </svg>
+          </a>
+        </div>
       </section>
     <?php else: ?>
       <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date-mobile"><?php echo $currentDate ?></time>
