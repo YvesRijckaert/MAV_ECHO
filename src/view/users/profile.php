@@ -302,7 +302,7 @@
       <h2 class="main-profile-add-habit-title">add habit</h2>
       <p class="main-profile-add-habit-subtitle">choose or write down a new habit</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
-        <svg width="30px" height="23px" viewBox="0 0 30 23">
+        <svg width="20px" height="23px" viewBox="0 0 30 23">
           <title>Back button</title>
           <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -402,7 +402,7 @@
       <h2 class="main-profile-add-habit-title">add habit</h2>
       <p class="main-profile-add-habit-subtitle">choose a shape</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-habit-back">
-        <svg width="30px" height="23px" viewBox="0 0 30 23">
+        <svg width="20px" height="23px" viewBox="0 0 30 23">
           <title>Back button</title>
           <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -456,7 +456,7 @@
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">choose a goal type</p>
       <a href="index.php?page=profile&category=customize" class="main-profile-add-goal-back">
-        <svg width="30px" height="23px" viewBox="0 0 30 23">
+        <svg width="20px" height="23px" viewBox="0 0 30 23">
           <title>Back button</title>
           <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -647,7 +647,7 @@
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">edit the goal</p>
       <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
-        <svg width="30px" height="23px" viewBox="0 0 30 23">
+        <svg width="20px" height="23px" viewBox="0 0 30 23">
           <title>Back button</title>
           <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -768,7 +768,7 @@
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">edit the goal</p>
       <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
-        <svg width="30px" height="23px" viewBox="0 0 30 23">
+        <svg width="20px" height="23px" viewBox="0 0 30 23">
           <title>Back button</title>
           <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -812,7 +812,7 @@
       <h2 class="main-profile-add-goal-title">add goal</h2>
       <p class="main-profile-add-goal-subtitle">edit the goal</p>
       <a href="index.php?page=profile&category=customize&add-goal=<?php echo $habit ?>" class="main-profile-add-goal-back">
-        <svg width="30px" height="23px" viewBox="0 0 30 23">
+        <svg width="20px" height="23px" viewBox="0 0 30 23">
           <title>Back button</title>
           <desc>Icon for back button.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

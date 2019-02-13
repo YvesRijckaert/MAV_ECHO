@@ -2,7 +2,7 @@
   <h2 class="main-overview-add-title"><?php if(empty($alreadyPostedToday)) { echo 'add day'; } else { echo 'change day'; }?></h2>
   <p class="main-overview-add-subtitle">Current day: <?php echo date("d/m/Y") ?></p>
   <a href="index.php?page=overview&view=day&day=<?php echo date("d-m-Y")?>" class="main-overview-add-back">
-    <svg width="30px" height="23px" viewBox="0 0 30 23">
+    <svg width="20px" height="23px" viewBox="0 0 30 23">
       <title>Back button</title>
       <desc>Icon for back button.</desc>
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
