@@ -18,6 +18,10 @@ html {
   outline-offset: .5rem;
 }
 
+input:focus {
+  outline-offset: 0;
+}
+
 body {
   font-size: 2rem;
   background-color: white;
