@@ -32,7 +32,7 @@
     </nav>
     <article class="main-progress-statistics-mood">
       <h3 class="statistics-mood-title">mood</h3>
-      <svg class="graph">
+      <svg class="graph" preserveAspectRatio="xMinYMin meet" viewBox="0 0 550 300">
         <title>Mood graph</title>
         <desc>A graph showing the average mood</desc>
         <g class="grid y-grid">

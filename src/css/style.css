@@ -1069,11 +1069,6 @@ footer {
   text-anchor: end;
 }
 
-.graph {
-  height: 40rem;
-  width: 55rem;
-}
-
 .graph .grid {
   stroke: var(--light-grey);
   stroke-dasharray: 0;
@@ -1716,6 +1711,10 @@ footer {
       '. habits .';
   }
 
+  .statistics-nav-list {
+    width: 100%;
+  }
+
   .main-progress-statistics-habits {
     margin-left: 0;
     margin-bottom: 15rem;
@@ -1849,7 +1848,7 @@ footer {
     }
 
     & svg {
-      margin: 0 0 1rem 0;
+      margin: 0 0 1rem;
     }
   }
 
@@ -1992,10 +1991,6 @@ footer {
     & span {
       display: none;
     }
-  }
-
-  .graph {
-    height: 35rem;
   }
 
   .customize-habits-title, .customize-goals-title {
