@@ -276,7 +276,7 @@ footer {
   text-transform: lowercase;
   text-align: center;
   font-size: 3.6rem;
-  margin-top: 2rem;
+  padding-top: 15rem;
   font-weight: bold;
 }
 
@@ -773,7 +773,7 @@ footer {
 
 .month-form-label-red {
   color: var(--red);
-  border: .25rem solid var(--red);
+  border: .15rem solid var(--red);
 }
 
 .month-form-submit {
@@ -795,7 +795,7 @@ footer {
 
 .month-form-input-radio:checked + .month-form-label-red {
   color: white;
-  border: .25rem solid var(--red);
+  border: .15rem solid var(--red);
   background-color: var(--red);
 
   & .month-habit-item-icon-white {
@@ -809,12 +809,12 @@ footer {
 
 .month-form-label-orange {
   color: var(--orange);
-  border: .25rem solid var(--orange);
+  border: .15rem solid var(--orange);
 }
 
 .month-form-input-radio:checked + .month-form-label-orange {
   color: white;
-  border: .25rem solid var(--orange);
+  border: .15rem solid var(--orange);
   background-color: var(--orange);
 
   & .month-habit-item-icon-white {
@@ -828,12 +828,12 @@ footer {
 
 .month-form-label-green {
   color: var(--green);
-  border: .25rem solid var(--green);
+  border: .15rem solid var(--green);
 }
 
 .month-form-input-radio:checked + .month-form-label-green {
   color: white;
-  border: .25rem solid var(--green);
+  border: .15rem solid var(--green);
   background-color: var(--green);
 
   & .month-habit-item-icon-white {
@@ -847,12 +847,12 @@ footer {
 
 .month-form-label-blue {
   color: var(--blue);
-  border: .25rem solid var(--blue);
+  border: .15rem solid var(--blue);
 }
 
 .month-form-input-radio:checked + .month-form-label-blue {
   color: white;
-  border: .25rem solid var(--blue);
+  border: .15rem solid var(--blue);
   background-color: var(--blue);
 
   & .month-habit-item-icon-white {
@@ -866,12 +866,12 @@ footer {
 
 .month-form-label-purple {
   color: var(--purple);
-  border: .25rem solid var(--purple);
+  border: .15rem solid var(--purple);
 }
 
 .month-form-input-radio:checked + .month-form-label-purple {
   color: white;
-  border: .25rem solid var(--purple);
+  border: .15rem solid var(--purple);
   background-color: var(--purple);
 
   & .month-habit-item-icon-white {
@@ -885,6 +885,8 @@ footer {
 
 .main-overview-month-info {
   grid-area: info;
+  border-top: var(--light-grey) solid .2rem;
+  padding-top: 2rem;
 }
 
 /* main overview modal */
@@ -1712,6 +1714,33 @@ footer {
 
   .main-green-button {
     display: none;
+  }
+
+  .main-overview-month {
+    margin-top: 2rem;
+    grid-template: min-content 1fr min-content / 1fr 6fr 1fr;
+    grid-column-gap: 0;
+    grid-template-areas: '. nav .' '. calendar .' '. habits .' '. info .';
+  }
+
+  .main-overview-month-form {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .month-habit-item-name {
+    display: none;
+  }
+
+  .month-form-label {
+    max-height: 6rem;
+    max-width: 6rem;
+    display: flex;
+    justify-content: center;
+
+    & svg {
+      margin: 0;
+    }
   }
 
   .main-profile-add-habit-title, .main-profile-add-goal-title, .main-overview-add-title {
