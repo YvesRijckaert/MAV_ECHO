@@ -90,15 +90,6 @@
           </g>
         </svg>
       </section>
-      <a class="main-overview-day-open-modal" href="#open-modal">
-        <svg width="50px" height="50px" viewBox="0 0 50 50">
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <circle fill="#2B2B2B" cx="25" cy="25" r="25"></circle>
-            <rect fill="#FFFFFF" x="23" y="23" width="4" height="10" rx="2"></rect>
-            <rect fill="#FFFFFF" x="23" y="17" width="4" height="4" rx="2"></rect>
-          </g>
-        </svg>
-      </a>
       <section class="main-overview-day-info" id="open-modal">
         <div>
           <a href="#" class="main-overview-day-close-modal">close</a>
@@ -217,6 +208,15 @@
           </a>
         </div>
       </section>
+      <a class="main-overview-day-open-modal" href="#open-modal">
+        <svg width="50px" height="50px" viewBox="0 0 50 50">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <circle fill="#2B2B2B" cx="25" cy="25" r="25"></circle>
+            <rect fill="#FFFFFF" x="23" y="23" width="4" height="10" rx="2"></rect>
+            <rect fill="#FFFFFF" x="23" y="17" width="4" height="4" rx="2"></rect>
+          </g>
+        </svg>
+      </a>
     <?php else: ?>
       <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date-mobile"><?php echo $currentDate ?></time>
       <p class="main-overview-day-error error">Nothing available for <?php echo $currentDay . ' ' . $currentDate ?>.</p>

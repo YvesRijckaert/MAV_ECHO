@@ -1776,6 +1776,7 @@ footer {
     grid-column: 1 / 5;
     opacity: 0;
     pointer-events: none;
+    z-index: 100;
 
     &:target {
       opacity: 1;
