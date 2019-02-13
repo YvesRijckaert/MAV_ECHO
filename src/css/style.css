@@ -153,8 +153,12 @@ input[type=radio], input[type=checkbox] {
   animation: umberella 1.8s 0s infinite ease-in-out alternate;
 }
 
+.home-image-wrap {
+  position: absolute;
+}
+
 .home-image {
-  width: 100%;
+  width: 100vw;
   height: 100%;
 }
 
