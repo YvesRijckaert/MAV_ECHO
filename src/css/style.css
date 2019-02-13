@@ -1774,7 +1774,6 @@ footer {
     z-index: 999;
     opacity: 0;
     pointer-events: none;
-    transition: all .3s;
 
     &:target {
       opacity: 1;
