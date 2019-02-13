@@ -1692,6 +1692,11 @@ footer {
     stroke-width: .15rem;
   }
 
+  .main-profile-add-habit-back, .main-profile-add-goal-back, .main-overview-add-back {
+    padding: 2.5rem 3rem;
+    border-bottom-right-radius: 2rem;
+  }
+
   .login-form {
     padding: .2fr;
   }
@@ -1717,6 +1722,13 @@ footer {
 
   .add-day-form-field-legend {
     margin: -1.5rem 0;
+    font-size: 4.2rem;
+  }
+
+  .add-day-form-field-textarea {
+    background-image: linear-gradient(transparent, transparent 2.5rem, whitesmoke 2.5rem, whitesmoke 2.6rem, transparent 2.5rem);    background-size: 100% 3.1rem;
+    line-height: 2rem;
+    font-size: 1.6rem;
   }
 
   .graph {
