@@ -1242,6 +1242,16 @@ footer {
 
 /* profile info */
 
+.main-profile-info-logout {
+  position: fixed;
+  bottom: 4rem;
+  right: 40rem;
+  background-image: url(../assets/img/Rectangle.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  padding-bottom: 1rem;
+}
+
 .main-profile-info-form {
   display: grid;
   grid-template: 2fr 2fr 2fr / 1fr 3fr 3fr 1fr;
