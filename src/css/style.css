@@ -1685,7 +1685,7 @@ footer {
     grid-template: 1fr 3fr / .5fr 3fr 3fr .5fr;
   }
 
-  .main-green-button {
+  .main-green-button, .add-day-form-submit {
 
     width: 10rem;
 
@@ -1913,21 +1913,48 @@ footer {
     padding: .5rem 0 3rem;
   }
 
+  .add-day-form-field-mood {
+
+    & svg {
+      width: 7rem;
+      height: 7rem;
+      margin-left: 2rem;
+      margin-right: 0;
+    }
+  }
+
   .add-day-form {
     grid-template: 1fr / 1fr 6fr 1fr;
-    grid-gap: 2.5rem;
+    grid-gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 8rem;
     grid-template-areas: '. mood .' '. about .' '. habits .';
   }
 
   .add-day-form-field-legend {
     margin: -1.5rem 0;
-    font-size: 4.2rem;
+    z-index: -500;
+    position: relative;
   }
 
   .add-day-form-field-textarea {
     background-image: linear-gradient(transparent, transparent 2.5rem, whitesmoke 2.5rem, whitesmoke 2.6rem, transparent 2.5rem);    background-size: 100% 3.1rem;
     line-height: 2rem;
     font-size: 1.6rem;
+  }
+
+  .add-day-form-field-habits {
+  
+    & svg {
+      width: 2rem;
+    }
+
+    & label {
+      font-size: 1.6rem;
+      border-width: .1rem;
+      height: 5rem;
+      padding: 1rem 2rem;
+    }
   }
 
   .add-day-form-submit {
