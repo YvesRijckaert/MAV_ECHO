@@ -747,6 +747,7 @@ footer {
 
 .main-overview-month-calendar {
   grid-area: calendar;
+  border-collapse: separate;
 }
 
 .month-calendar-row {
@@ -762,7 +763,8 @@ footer {
 }
 
 .month-calendar-row-today {
-  border: .25rem solid var(--black);
+  border: .15rem solid #2b2b2b;
+  border-radius: 5rem;
 }
 
 .main-overview-month-form {
@@ -975,7 +977,9 @@ footer {
 .main-overview-modal-button-dismiss {
   margin-top: 2.5rem;
   padding-bottom: 1rem;
-  border-bottom: .25rem solid var(--black);
+  background-image: url(../assets/img/Rectangle.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
 
 /* progress stats */
@@ -1718,9 +1722,13 @@ footer {
 
   .main-overview-month {
     margin-top: 2rem;
-    grid-template: min-content 1fr min-content / 1fr 6fr 1fr;
+    grid-template: min-content 1fr min-content / 1fr 30rem 1fr;
     grid-column-gap: 0;
     grid-template-areas: '. nav .' '. calendar .' '. habits .' '. info .';
+  }
+
+  .month-calendar-row-day {
+    width: 20rem;
   }
 
   .main-overview-month-form {
@@ -1728,13 +1736,13 @@ footer {
     justify-content: space-between;
   }
 
-  .month-habit-item-name {
+  .main-overview-month-form .month-habit-item-name {
     display: none;
   }
 
-  .month-form-label {
-    max-height: 6rem;
-    max-width: 6rem;
+  .main-overview-month-form .month-form-label {
+    padding: 1rem;
+    height: 5rem;
     display: flex;
     justify-content: center;
 
