@@ -92,7 +92,19 @@
       </section>
       <section class="main-overview-day-info" id="open-modal">
         <div>
-          <a href="#" class="main-overview-day-close-modal">close</a>
+          <a href="#" class="main-overview-day-close-modal">
+          <svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>Close info</title>
+              <desc>Icon for close info.</desc>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <rect fill="#ffffff" x="23" y="23" width="4" height="10" rx="2"></rect>
+                <rect id="Rectangle-Copy" fill="#FFFFFF" x="23" y="17" width="4" height="4" rx="2"></rect>
+                <circle id="Oval-Copy" fill="#2B2B2B" cx="25" cy="25" r="25"></circle>
+                <path d="M25,19 L25,31" id="Path-21" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" transform="translate(25.000000, 25.000000) rotate(-315.000000) translate(-25.000000, -25.000000) "></path>
+                <path d="M25,19.2857143 L25,30.7142857" id="Path-21-Copy" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" transform="translate(25.000000, 25.000000) rotate(-225.000000) translate(-25.000000, -25.000000) "></path>
+              </g>
+          </svg>
+          </a>
           <h3 class="day-info-title hide">Day view info</h3>
           <p class="day-info-date">
             <span class="day-info-date-span"><?php echo $currentDay; ?></span>
@@ -210,10 +222,12 @@
       </section>
       <a class="main-overview-day-open-modal" href="#open-modal">
         <svg width="50px" height="50px" viewBox="0 0 50 50">
+          <title>Open info</title>
+          <desc>Icon for open info.</desc>
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <circle fill="#2B2B2B" cx="25" cy="25" r="25"></circle>
-            <rect fill="#FFFFFF" x="23" y="23" width="4" height="10" rx="2"></rect>
-            <rect fill="#FFFFFF" x="23" y="17" width="4" height="4" rx="2"></rect>
+            <circle fill="#2b2b2b" cx="25" cy="25" r="25"></circle>
+            <rect fill="#ffffff" x="23" y="23" width="4" height="10" rx="2"></rect>
+            <rect fill="#ffffff" x="23" y="17" width="4" height="4" rx="2"></rect>
           </g>
         </svg>
       </a>

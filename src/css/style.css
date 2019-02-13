@@ -1756,6 +1756,13 @@ footer {
     left: 2.5rem;
   }
 
+  .main-overview-day-close-modal {
+    display: block;
+    position: fixed;
+    bottom: 10rem;
+    left: 2.5rem;
+  }
+
   .main-overview-day-collage {
     grid-row: 2;
     grid-column: 1 / 5;
