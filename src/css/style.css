@@ -441,6 +441,7 @@ footer {
 
 .main-overview-day {
   min-height: 65rem;
+  margin-top: 5rem;
   display: grid;
   grid-template: 1fr 3fr / 1fr 3fr 3fr 1fr;
   grid-column-gap: 5rem;
@@ -467,6 +468,11 @@ footer {
 
 .main-overview-day-collage {
   grid-area: img;
+  border-right: var(--light-grey) .15rem solid;
+
+  & svg {
+    border: var(--light-grey) .15rem solid;
+  }
 }
 
 .main-overview-day-error {
@@ -1716,6 +1722,10 @@ footer {
       '. habits .';
   }
 
+  .main-overview-day-collage {
+    border-right: none;
+  }
+
   .main-progress-statistics-habits {
     margin-left: 0;
     margin-bottom: 15rem;
@@ -1742,6 +1752,7 @@ footer {
     display: grid;
     grid-template: 1fr 10fr / .5fr 1fr 1fr .5fr;
     min-height: auto;
+    margin-top: 2rem;
     grid-column-gap: 0;
 
     & .main-overview-day-previous {
@@ -1778,6 +1789,7 @@ footer {
   }
 
   .main-overview-day-collage {
+    border-right: none;
     grid-row: 2;
     grid-column: 1 / 5;
     display: flex;

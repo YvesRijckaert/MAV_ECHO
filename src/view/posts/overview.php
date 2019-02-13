@@ -105,7 +105,7 @@
         </svg>
         </a>
         <h3 class="day-info-title hide">Day view info</h3>
-        <p class="day-info-date">
+        <p class="day-info-date overview-date">
           <span class="day-info-date-span"><?php echo $currentDay; ?></span>
           <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date"><?php echo $currentDate ?></time>
         </p>
