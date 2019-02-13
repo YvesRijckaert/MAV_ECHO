@@ -1,6 +1,8 @@
 .session-info, .session-error {
+  font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
+  font-size: 2.2rem;
   color: white;
-  text-transform: uppercase;
   text-align: center;
   position: absolute;
   top: 0;
