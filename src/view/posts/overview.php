@@ -46,6 +46,7 @@
       </a>
     <?php endif; ?>
     <?php if(!empty($postOfEnteredDay)): ?>
+      <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date-mobile"><?php echo $currentDate ?></time>
       <section class="main-overview-day-collage">
         <h3 class="day-collage-title hide">Day view collage</h3>
         <svg width="360px" height="540px" viewBox="0 0 360 540">
@@ -205,6 +206,7 @@
         </a>
       </section>
     <?php else: ?>
+      <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date-mobile"><?php echo $currentDate ?></time>
       <p class="main-overview-day-error error">Nothing available for <?php echo $currentDay . ' ' . $currentDate ?>.</p>
     <?php endif; ?>
   </section>
