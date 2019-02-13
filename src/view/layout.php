@@ -125,7 +125,7 @@
           <span>echo</span>
         </a>
       </h1>
-      <nav class="header-nav">
+      <nav class="header-nav" style="<?php if(isset($onAddPage)) { echo 'opacity: 0; pointer-events: none;'; } ?>">
         <h2 class="header-nav-title hide">Header navigation</h2>
         <ul class="header-nav-ul">
           <li class="header-nav-item <?php if($currentPage === 'overview') { echo 'header-nav-item-active';} ?>">
