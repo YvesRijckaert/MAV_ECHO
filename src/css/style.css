@@ -1717,6 +1717,11 @@ footer {
       grid-row: 1;
       grid-column: 1;
     }
+
+    & .main-overview-day-next {
+      grid-row: 1;
+      grid-column: 4;
+    }
   }
 
   .main-overview-day-collage {
