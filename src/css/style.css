@@ -1734,6 +1734,14 @@ footer {
     align-items: center;
   }
 
+  .main-progress-goals {
+    grid-template-columns: .5fr 3fr 3fr .5fr;
+  }
+
+  .goals-nav-list, .main-progress-goals-in-progress, .main-progress-goals-completed {
+    width: 100%;
+  }
+
   .main-profile-info-form {
     grid-row-gap: 2rem;
   }
