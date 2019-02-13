@@ -1262,6 +1262,7 @@ footer {
 
 .info-form-password {
   grid-area: password;
+  align-items: flex-start;
 
   & .info-form-password-link {
     text-align: center;
