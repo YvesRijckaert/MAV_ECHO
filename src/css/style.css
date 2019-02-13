@@ -1770,6 +1770,11 @@ footer {
 
 @media only screen and (max-width: 700px) {
 
+  .main-profile-info-logout {
+    bottom: 10rem;
+    right: 28rem;
+  }
+
   .main-overview-day {
     display: grid;
     grid-template: 1fr 10fr / .5fr 1fr 1fr .5fr;
@@ -1812,7 +1817,7 @@ footer {
 
   .main-overview-day-collage {
     border-right: none;
-    border-top: var(--light-grey) solid .4rem; 
+    border-top: var(--light-grey) solid .4rem;
     grid-row: 2;
     grid-column: 1 / 5;
     display: flex;
