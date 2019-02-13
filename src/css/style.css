@@ -449,6 +449,10 @@ footer {
     'prev img info next';
 }
 
+.main-overview-day-date-mobile {
+  display: none;
+}
+
 .main-overview-day-previous {
   grid-area: prev;
   align-self: center;
@@ -1722,6 +1726,14 @@ footer {
       grid-row: 1;
       grid-column: 4;
     }
+
+    & .main-overview-day-date-mobile {
+      display: block;
+      grid-column: 2 / 4;
+      grid-row: 1;
+      align-self: center;
+      justify-self: center;
+    }
   }
 
   .main-overview-day-collage {
@@ -1730,7 +1742,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 81.5vh;
+    height: 76.5vh;
 
     & svg {
       width: 100%;
