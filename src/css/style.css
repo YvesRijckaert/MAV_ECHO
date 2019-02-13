@@ -577,6 +577,13 @@ footer {
   fill: white;
 }
 
+.add-day-form-empty {
+
+  & a {
+    color: var(--green);
+  }
+}
+
 /* HABITS AND GOALS STYLING */
 
 .day-info-habits-list-item,

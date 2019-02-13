@@ -93,6 +93,7 @@
     </fieldset>
     <fieldset class="add-day-form-field add-day-form-field-habits">
       <legend class="add-day-form-field-legend">habits</legend>
+      <?php if(!empty($habits)): ?>
       <?php foreach($habits as $habit): ?>
         <input type="checkbox" class="month-form-input-radio" id="<?php echo $habit['habit_id'] ?>" name="habits[]" value="<?php echo $habit['habit_name'] ?>" class="form-input" <?php if(!empty($fulfilled_habits_ids) && in_array($habit['habit_id'], $fulfilled_habits_ids)) echo 'checked'; ?> />
         <label for="<?php echo $habit['habit_id'] ?>" class="month-form-label month-form-label-<?php echo $habit['habit_colour_name'] ?>">
@@ -113,6 +114,10 @@
           <span class="month-habit-item-name"><?php echo $habit['habit_name'] ?></span>
         </label>
       <?php endforeach; ?>
+      <?php else: ?>
+        <p class="add-day-form-empty">no habits, add some <a href="index.php?page=profile&category=customize">here</a></p>
+      <?php endif; ?>
+
     </fieldset>
     <label class="add-day-form-submit">
       <input type="submit" class="add-day-form-submit-button" name="add-day" value="save" />
