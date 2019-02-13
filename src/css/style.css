@@ -1712,11 +1712,11 @@ footer {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 82vh;
+    height: 81.5vh;
 
     & svg {
       width: 100%;
-      max-width: 45rem;
+      max-width: 46rem;
       height: auto;
     }
   }
@@ -1772,6 +1772,16 @@ footer {
 
   .main-green-button {
     display: none;
+  }
+
+  .main-green-button.main-green-button-overview {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+    right: 0;
+    padding: 3.75rem 7.5rem 10rem;
+    border-top-left-radius: 1.2rem;
   }
 
   .main-overview-month {

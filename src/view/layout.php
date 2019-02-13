@@ -176,7 +176,7 @@
           </li>
         </ul>
         <?php if(empty($alreadyPostedToday)): ?>
-          <a style="<?php if(isset($onAddPage)) { echo 'opacity: 0; pointer-events: none;'; } ?>" href="index.php?page=add" class="main-green-button">
+          <a style="<?php if(isset($onAddPage)) { echo 'opacity: 0; pointer-events: none;'; } ?>" href="index.php?page=add" class="main-green-button <?php if($currentPage == 'overview'){ echo 'main-green-button-overview'; } ?>">
             <svg width="20px" height="20px" viewBox="0 0 25 24" class="main-green-button-svg">
               <title>Add day button</title>
               <desc>Icon for add day button.</desc>
@@ -192,7 +192,7 @@
             <span>Add Day</span>
           </a>
         <?php else: ?>
-          <a style="<?php if(isset($onAddPage)) { echo 'opacity: 0; pointer-events: none;'; } ?>" href="index.php?page=add" class="main-green-button">
+          <a style="<?php if(isset($onAddPage)) { echo 'opacity: 0; pointer-events: none;'; } ?>" href="index.php?page=add" class="main-green-button <?php if($currentPage == 'overview'){ echo 'main-green-button-overview'; } ?>">
             <svg width="20px" height="20px" viewBox="0 0 24 21" class="main-green-button-svg">
               <title>Change day button</title>
               <desc>Icon for change day button.</desc>

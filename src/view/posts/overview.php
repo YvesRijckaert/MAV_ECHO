@@ -73,21 +73,21 @@
               <?php endforeach; ?>
             </g>
           <?php endif; ?>
-        <g class="textbox">
-          <rect fill="#ffffff" x="90" y="90" width="182" height="367"></rect>
-          <text font-family="Circular Std" font-size="16" font-style="italic" font-weight="300" fill="#2b2b2b">
-            <tspan x="100" y="172">#<?php echo $livedDaysAmount; ?></tspan>
-          </text>
-          <text font-family="Circular Std" font-size="18" font-weight="400" line-spacing="24" fill="#2b2b2b">
-            <?php $count = 200; $splittedMemory = explode( "\n", wordwrap( $postOfEnteredDay['short_memory'], 15));
-            foreach ($splittedMemory as $key => $splittedMemory):
-              $count+= 22;
-              echo '<tspan x="100" y=' . $count  . '>' . $splittedMemory . '</tspan>';
-            endforeach;
-            ?>
-          </text>
-        </g>
-      </svg>
+          <g class="textbox">
+            <rect fill="#ffffff" x="90" y="90" width="182" height="367"></rect>
+            <text font-family="Circular Std" font-size="16" font-style="italic" font-weight="300" fill="#2b2b2b">
+              <tspan x="100" y="172">#<?php echo $livedDaysAmount; ?></tspan>
+            </text>
+            <text font-family="Circular Std" font-size="18" font-weight="400" line-spacing="24" fill="#2b2b2b">
+              <?php $count = 200; $splittedMemory = explode( "\n", wordwrap( $postOfEnteredDay['short_memory'], 15));
+              foreach ($splittedMemory as $key => $splittedMemory):
+                $count+= 22;
+                echo '<tspan x="100" y=' . $count  . '>' . $splittedMemory . '</tspan>';
+              endforeach;
+              ?>
+            </text>
+          </g>
+        </svg>
       </section>
       <section class="main-overview-day-info">
         <h3 class="day-info-title hide">Day view info</h3>
