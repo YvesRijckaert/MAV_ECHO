@@ -79,6 +79,7 @@
         </svg>
       </label>
     </form>
+    <a class="main-profile-info-logout" href="index.php?page=logout">log out</a>
   </section>
 <?php endif; ?>
 
