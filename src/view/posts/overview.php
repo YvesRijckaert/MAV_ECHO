@@ -91,11 +91,13 @@
         </svg>
       </section>
       <a class="main-overview-day-open-modal" href="#open-modal">
-      <svg width="50px" height="50px" viewBox="0 0 50 50">
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <path d="M25,50 C11.1928813,50 0,38.8071187 0,25 C0,11.1928813 11.1928813,0 25,0 C38.8071187,0 50,11.1928813 50,25 C50,38.8071187 38.8071187,50 25,50 Z M25,23 C23.8954305,23 23,23.8954305 23,25 L23,31 C23,32.1045695 23.8954305,33 25,33 C26.1045695,33 27,32.1045695 27,31 L27,25 C27,23.8954305 26.1045695,23 25,23 Z M25,17 C23.8954305,17 23,17.8954305 23,19 C23,20.1045695 23.8954305,21 25,21 C26.1045695,21 27,20.1045695 27,19 C27,17.8954305 26.1045695,17 25,17 Z" fill="#2b2b2b"></path>
-        </g>
-      </svg>
+        <svg width="50px" height="50px" viewBox="0 0 50 50">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <circle fill="#2B2B2B" cx="25" cy="25" r="25"></circle>
+            <rect fill="#FFFFFF" x="23" y="23" width="4" height="10" rx="2"></rect>
+            <rect fill="#FFFFFF" x="23" y="17" width="4" height="4" rx="2"></rect>
+          </g>
+        </svg>
       </a>
       <section class="main-overview-day-info" id="open-modal">
         <div>
