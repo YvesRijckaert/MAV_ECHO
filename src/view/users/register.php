@@ -1,19 +1,33 @@
 <section id="main">
   <h2 class="page-header form-title">Register</h2>
   <?php if ($currentStep === 1): ?>
+  <a href="index.php?" class="landing-back main-overview-add-back">
+    <svg width="20px" height="23px" viewBox="0 0 30 23">
+      <title>Back button</title>
+      <desc>Icon for back button.</desc>
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-49.000000, -126.000000)">
+          <g transform="translate(52.000000, 128.000000)">
+            <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+            <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </a>
   <form class="register-form" method="post">
     <label>
-      <span class="form-label">Email:</span>
+      <span class="form-label">Email</span>
       <input class="info-form-input" type="email" name="email" class="form-input"<?php if(!empty($_POST['email'])) echo 'value="' . $_POST['email'] . '"';?> required />
       <?php if(!empty($errors['email'])) echo '<span class="error">' . $errors['email'] . '</span>';?>
     </label>
     <label>
-      <span class="form-label">Password:</span>
+      <span class="form-label">Password</span>
       <input class="info-form-input" type="password" name="password" class="form-input"<?php if(!empty($_POST['password'])) echo 'value="' . $_POST['password'] . '"';?> required />
       <?php if(!empty($errors['password'])) echo '<span class="error">' . $errors['password'] . '</span>';?>
     </label>
     <label>
-      <span class="form-label">Confirm Password:</span>
+      <span class="form-label">Confirm Password</span>
       <input class="info-form-input" type="password" name="confirm_password" class="form-input"<?php if(!empty($_POST['confirm_password'])) echo 'value="' . $_POST['confirm_password'] . '"';?> required />
       <?php if(!empty($errors['confirm_password'])) echo '<span class="error">' . $errors['confirm_password'] . '</span>';?>
     </label>
@@ -37,6 +51,20 @@
   <?php endif; ?>
 
   <?php if($currentStep === 2): ?>
+  <a href="index.php?page=register" class="register-back main-overview-add-back">
+    <svg width="20px" height="23px" viewBox="0 0 30 23">
+      <title>Back button</title>
+      <desc>Icon for back button.</desc>
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-49.000000, -126.000000)">
+          <g transform="translate(52.000000, 128.000000)">
+            <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+            <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </a>
   <form class="register-form" method="post">
     <label>
       <span class="form-label">How do you want to be called?</span>
@@ -68,6 +96,20 @@
   <?php endif; ?>
 
   <?php if($currentStep === 3): ?>
+  <a href="index.php?page=register" class="register-back main-overview-add-back">
+    <svg width="20px" height="23px" viewBox="0 0 30 23">
+      <title>Back button</title>
+      <desc>Icon for back button.</desc>
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-49.000000, -126.000000)">
+          <g transform="translate(52.000000, 128.000000)">
+            <polyline stroke="#2b2b2b" stroke-width="3" stroke-linecap="round" transform="translate(4.736757, 9.473513) rotate(-180.000000) translate(-4.736757, -9.473513) " points="0 0 9.47351317 9.47351317 0 18.9470263"></polyline>
+            <rect fill="#2b2b2b" x="1.58823529" y="7.94117647" width="25.4117647" height="3" rx="1.5"></rect>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </a>
   <p class="register-subtitle">what do you want to achieve?</p>
   <form class="register-form overal-goals" method="post">
     <input class="register-goal-radio" type="radio" name="lifegoal" id="document-life" value="document-life" required />

@@ -285,6 +285,14 @@ footer {
 
 /* login */
 
+.landing-back {
+  display: none;
+}
+
+.register-back {
+  margin-top: 10rem;
+}
+
 .nav-no-login {
   background-color: transparent;
 
@@ -526,7 +534,6 @@ footer {
 .day-collage-habit-icon:nth-child(5) {
   transform: translateY(36rem);
 }
-
 
 /* overview add */
 
@@ -1735,6 +1742,10 @@ footer {
     stroke-width: .15rem;
   }
 
+  .landing-back {
+    display: inherit;
+  }
+
   .main-profile-add-habit-back, .main-profile-add-goal-back, .main-overview-add-back {
     padding: 2.5rem 3rem;
     border-bottom-right-radius: 2rem;
@@ -1742,6 +1753,11 @@ footer {
 
   .login-form {
     padding: .2fr;
+  }
+
+  .overal-goals {
+    flex-direction: column;
+    align-items: center;
   }
 
   .main-green-button {
