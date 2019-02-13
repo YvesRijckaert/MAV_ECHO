@@ -572,6 +572,7 @@
     </g>
   </svg>
 </div>
+<div class="home-content">
 <section class="home-section section-capture">
   <div>
     <h3>Capture.</h3>
@@ -601,4 +602,5 @@
   <p>Ready to start the journey</p>
   <a class="register-button" href="index.php?page=register">Hop on board</a>
 </section>
+</div>
 </section>
