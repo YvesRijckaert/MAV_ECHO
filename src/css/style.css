@@ -99,7 +99,7 @@ input[type=radio], input[type=checkbox] {
 .header-nav-ul {
   background-color: white;
   border-bottom-right-radius: 4rem;
-  padding: 3rem;
+  padding: 3rem 5rem 3rem 3rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
   display: flex;
   width: 45rem;
@@ -1159,7 +1159,7 @@ footer {
 }
 
 .achievement-list-item-unlocked {
-  border: .25rem solid #2b2b2b;
+  border: .15rem solid #2b2b2b;
   background-color: white;
 }
 
@@ -1179,7 +1179,7 @@ footer {
 
 .achievements-list-item-desc {
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
-  padding: 1rem 2.5rem 2rem;
+  padding: 1rem 2.5rem 0;
 }
 
 /* progress goals */
