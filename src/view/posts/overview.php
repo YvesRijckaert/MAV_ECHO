@@ -93,6 +93,7 @@
       <a class="btn" href="#open-modal"><i class="fas fa-external-link-alt"></i> Basic CSS-Only Modal</a>
       <section class="main-overview-day-info" id="open-modal">
         <div>
+          <a href="#" title="Close" class="modal-close">Close</a>
           <h3 class="day-info-title hide">Day view info</h3>
           <p class="day-info-date">
             <span class="day-info-date-span"><?php echo $currentDay; ?></span>
