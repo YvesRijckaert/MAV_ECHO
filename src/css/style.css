@@ -1704,11 +1704,15 @@ footer {
   }
 
   .main-progress-statistics {
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: .5fr 6fr .5fr;
     grid-template-areas:
       '. nav .'
       '. mood .'
       '. habits .';
+  }
+
+  .graph {
+    margin-right: 2.5rem;
   }
 
   .statistics-nav-list {
