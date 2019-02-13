@@ -1682,6 +1682,7 @@ footer {
 @media only screen and (max-width: 1000px) {
 
   .main-overview-day {
+    grid-gap: .5rem;
     grid-template: 1fr 3fr / .5fr 3fr 3fr .5fr;
   }
 
@@ -1701,6 +1702,10 @@ footer {
     & svg {
       width: 70%;
     }
+  }
+
+  .day-info-share {
+    margin-right: 7rem;
   }
 
   .main-progress-statistics {
