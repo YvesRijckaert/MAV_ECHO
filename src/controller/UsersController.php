@@ -544,38 +544,63 @@ class UsersController extends Controller {
               'lifegoal' => $_POST['lifegoal']
             ));
             if (!empty($inserteduser)) {
-              $defaultHabits = array(
-                array(
-                  'habit_name' => 'no smoking',
-                  'habit_icon' => '1',
-                  'habit_colour_name' => 'red',
-                  'habit_colour' => '#fe5455'
-                ),
-                array(
-                  'habit_name' => 'no alcohol',
-                  'habit_icon' => '2',
-                  'habit_colour_name' => 'orange',
-                  'habit_colour' => '#fab81b'
-                ),
-                array(
-                  'habit_name' => '5k running',
-                  'habit_icon' => '3',
-                  'habit_colour_name' => 'green',
-                  'habit_colour' => '#00d28b'
-                ),
-                array(
-                  'habit_name' => 'meditate',
-                  'habit_icon' => '4',
-                  'habit_colour_name' => 'blue',
-                  'habit_colour' => '#4285ff'
-                ),
-                array(
-                  'habit_name' => 'drink 1l water',
-                  'habit_icon' => '5',
-                  'habit_colour_name' => 'purple',
-                  'habit_colour' => '#9278fd'
-                )
-              );
+              switch ($_POST['lifegoal']) {
+                case 'document-life':
+                  $defaultHabits = array(
+                    array(
+                      'habit_name' => 'read something',
+                      'habit_icon' => '1',
+                      'habit_colour_name' => 'red',
+                      'habit_colour' => '#fe5455'
+                    )
+                  );
+                  break;
+                case 'feel-happier':
+                $defaultHabits = array(
+                  array(
+                    'habit_name' => 'no social media',
+                    'habit_icon' => '1',
+                    'habit_colour_name' => 'red',
+                    'habit_colour' => '#fe5455'
+                  )
+                );
+                    break;
+                case 'reduce-stress':
+                $defaultHabits = array(
+                  array(
+                    'habit_name' => 'meditate',
+                    'habit_icon' => '1',
+                    'habit_colour_name' => 'red',
+                    'habit_colour' => '#fe5455'
+                  )
+                );
+                    break;
+                case 'live-healthier':
+                $defaultHabits = array(
+                  array(
+                    'habit_name' => 'go for a run',
+                    'habit_icon' => '1',
+                    'habit_colour_name' => 'red',
+                    'habit_colour' => '#fe5455'
+                  )
+                );
+                    break;
+                case 'reach-life-goals':
+                  $defaultHabits = array(
+                    array(
+                      'habit_name' => 'do something new',
+                      'habit_icon' => '1',
+                      'habit_colour_name' => 'red',
+                      'habit_colour' => '#fe5455'
+                    )
+                  );
+                    break;
+                case 'none-of-the-above':
+                $defaultHabits = array();
+                      break;
+                default:
+                  break;
+              }
               foreach ($defaultHabits as $defaultHabit) {
                 $this->habitDAO->insertNewHabit(array(
                   'user_id' => $inserteduser['user_id'],
