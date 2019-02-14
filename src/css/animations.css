@@ -1,0 +1,15 @@
+.home-umberella {
+  transform-origin: 85rem 38rem;
+  animation: umberella 1.8s 0s infinite ease-in-out alternate;
+}
+
+@keyframes umberella {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(15deg);
+  }
+}

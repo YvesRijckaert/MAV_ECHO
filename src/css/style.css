@@ -3,6 +3,7 @@
 @import 'fonts';
 @import 'vars';
 @import 'messages';
+@import 'animations';
 
 html {
   font-size: 62.5%;
@@ -189,11 +190,6 @@ input[type=radio], input[type=checkbox] {
   }
 }
 
-.home-umberella {
-  transform-origin: 85rem 38rem;
-  animation: umberella 1.8s 0s infinite ease-in-out alternate;
-}
-
 .home-image-wrap {
   position: relative;
   z-index: -1;
@@ -202,17 +198,6 @@ input[type=radio], input[type=checkbox] {
 .home-image {
   width: 100vw;
   height: 100%;
-}
-
-@keyframes umberella {
-
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(15deg);
-  }
 }
 
 .home-section {
@@ -2067,7 +2052,7 @@ footer {
   }
 
   .nav-no-login {
-    display: none;
+    display: flex;
   }
 
   .header-nav-item-icon {
