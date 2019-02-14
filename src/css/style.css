@@ -727,6 +727,10 @@ footer {
   height: 13rem;
 }
 
+.goals-in-progress-list-item-name {
+  margin-right: auto;
+}
+
 .customize-habits-list-item,
 .customize-goals-list-item {
   display: flex;
