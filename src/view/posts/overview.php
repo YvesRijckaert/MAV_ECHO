@@ -49,7 +49,7 @@
       <time datetime="<?php echo $currentDateHTML ?>" class="main-overview-day-date-mobile"><?php echo $currentDate ?></time>
       <section class="main-overview-day-collage">
         <h3 class="day-collage-title hide">Day view collage</h3>
-        <svg width="360px" height="540px" viewBox="0 0 360 540">
+        <svg viewBox="0 0 360 540" preserveAspectRatio="xMinYMin meet">
           <title>Collage</title>
           <desc>Collage of the day.</desc>
           <?php if(!empty($fulfilledHabitsOfEnteredDay)): ?>

@@ -476,6 +476,7 @@ footer {
   border-right: var(--light-grey) .15rem solid;
 
   & svg {
+    max-width: 40rem;
     border: var(--light-grey) .15rem solid;
   }
 }
@@ -1777,7 +1778,7 @@ footer {
 
   .main-overview-day {
     display: grid;
-    grid-template: 1fr 10fr / .5fr 1fr 1fr .5fr;
+    grid-template: 1fr 20fr / .5fr 1fr 1fr .5fr;
     min-height: auto;
     margin-top: 0;
     grid-column-gap: 0;
@@ -1804,34 +1805,41 @@ footer {
   .main-overview-day-open-modal {
     display: block;
     position: fixed;
-    bottom: 10rem;
+    bottom: 8rem;
     left: 2.5rem;
   }
 
   .main-overview-day-close-modal {
     display: block;
     position: fixed;
-    bottom: 10rem;
+    bottom: 8rem;
     left: 2.5rem;
   }
 
   .main-overview-day-collage {
+    margin: 0 auto;
     border-right: none;
     border-top: var(--light-grey) solid .4rem;
     grid-row: 2;
     grid-column: 1 / 5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
 
     & svg {
       width: 100%;
-      max-width: 46rem;
+      max-height: 65vh;
       height: auto;
     }
   }
 
+  .day-info-habits-list-item, .month-form-label, .customize-habits-list-item, .customize-goals-list-item, .goals-in-progress-list-item, .goals-completed-list-item {
+    height: 5rem;
+  }
+
+  .day-info-habits-list-item:not(:last-child), .month-form-label:not(:last-child), .customize-habits-list-item:not(:last-child), .customize-goals-list-item:not(:last-child), .goals-in-progress-list-item, .goals-completed-list-item {
+    margin-bottom: .5rem;
+  }
+
   .main-overview-day-info {
+    padding-top: 0;
     background-color: white;
     grid-row: 2;
     grid-column: 1 / 5;
@@ -1991,9 +1999,7 @@ footer {
 
   .add-day-form {
     grid-template: 1fr / 1fr 6fr 1fr;
-    grid-gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 8rem;
+    grid-gap: .5rem;
     grid-template-areas: '. mood .' '. about .' '. habits .';
   }
 
@@ -2004,12 +2010,15 @@ footer {
   }
 
   .add-day-form-field-textarea {
-    background-image: linear-gradient(transparent, transparent 2.5rem, whitesmoke 2.5rem, whitesmoke 2.6rem, transparent 2.5rem);    background-size: 100% 3.1rem;
+    background-image: linear-gradient(transparent, transparent 1.5rem, whitesmoke 1.5rem, whitesmoke 1.6rem, transparent 1.5rem);
+    background-size: 100% 2rem;
     line-height: 2rem;
+    margin-top: 1rem;
     font-size: 1.6rem;
   }
 
   .add-day-form-field-habits {
+    padding-bottom: 2rem;
 
     & svg {
       width: 2rem;
