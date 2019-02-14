@@ -1801,9 +1801,17 @@ footer {
     width: 100%;
   }
 
+  .main-progress-achievements-list {
+    margin-bottom: 10rem;
+  }
+
+  .main-progress-statistics-habits-list li {
+    margin: 0 0 0 7.5rem;
+  }
+
   .main-progress-statistics-habits {
     margin-left: 0;
-    margin-bottom: 15rem;
+    margin-bottom: 10rem;
 
     & p {
       text-align: center;
@@ -1831,6 +1839,19 @@ footer {
 
 @media only screen and (max-width: 700px) {
 
+  .main-profile-add-habit-subtitle {
+    width: 30%;
+  }
+
+  .add-habit-form-submit {
+    padding: 4rem;
+    border-bottom-left-radius: 2rem;
+
+    & span {
+      display: none;
+    }
+  }
+
   .day-info-mood {
     width: 100%;
 
@@ -1840,7 +1861,8 @@ footer {
   }
 
   .main-profile-info-logout {
-    bottom: 10rem;
+    position: absolute;
+    bottom: -10rem;
     right: 28rem;
   }
 
@@ -2013,8 +2035,13 @@ footer {
   .main-overview-month {
     margin-top: 2rem;
     grid-template: min-content 1fr min-content / 1fr 30rem 1fr;
+    grid-row-gap: 1rem;
     grid-column-gap: 0;
     grid-template-areas: '. nav .' '. calendar .' '. habits .' '. info .';
+  }
+
+  .month-calendar-row {
+    height: 4rem;
   }
 
   .month-calendar-row-day {
@@ -2132,7 +2159,7 @@ footer {
 
   .main-profile-info-form {
     display: grid;
-    grid-template: repeat(5, 6rem) / .2fr 6fr .2fr;
+    grid-template: repeat(10, 6rem) / .2fr 6fr .2fr;
     grid-template-areas: '. email .' '. birthday .' '. username .' '. password .' '. goals .';
     margin-top: 2.5rem;
     font-size: 1.6rem;
