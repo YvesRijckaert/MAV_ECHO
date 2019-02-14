@@ -918,9 +918,19 @@ footer {
   }
 }
 
-.month-form-label-purple {
+.month-form-label-purple, .add-habit-form-label-purple {
   color: var(--purple);
   border: .15rem solid var(--purple);
+}
+
+.add-habit-form-icon-radio:checked + .add-habit-form-label-purple {
+  color: white;
+  border: .15rem solid var(--purple);
+  background-color: var(--purple);
+
+  & g {
+    fill: white;
+  }
 }
 
 .month-form-input-radio:checked + .month-form-label-purple {
@@ -1336,9 +1346,20 @@ footer {
   flex-wrap: wrap;
 }
 
+.add-habit-form-field-shapes-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  flex-wrap: wrap;
+}
+
+.info-form-goals-option {
+  border: .15rem solid var(--black);
+}
+
 .info-form-goals-option, .add-habit-form-label {
   font-size: 1.8rem;
-  border: .15rem solid var(--black);
   border-radius: 1.2rem;
   padding: 1.5rem 2rem;
   margin-right: 1rem;
@@ -1474,7 +1495,7 @@ footer {
 .main-profile-add-habit-form-shape {
   display: flex;
   flex-direction: column;
-  margin: 2.5rem 15rem;
+  align-items: center;
 }
 
 /* customize add goals */

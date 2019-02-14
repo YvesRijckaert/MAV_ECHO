@@ -422,8 +422,8 @@
           <legend class="add-habit-form-field-legend">shapes</legend>
           <div class="add-habit-form-field-shapes-all">
             <?php foreach($allPossibleHabitIcons as $icon): ?>
-              <input type="radio" id="<?php echo $icon['data_habit_icon_id'] ?>" name="chosen_habit_icon" value="<?php echo $icon['data_habit_icon_id'] ?>" class="form-input" />
-              <label for="<?php echo $icon['data_habit_icon_id'] ?>">
+              <input type="radio" class="add-habit-form-icon-radio" id="<?php echo $icon['data_habit_icon_id'] ?>" name="chosen_habit_icon" value="<?php echo $icon['data_habit_icon_id'] ?>" class="form-input" />
+              <label for="<?php echo $icon['data_habit_icon_id'] ?>" class="add-habit-form-label add-habit-form-label-<?php echo $_GET['add-habit'] ?>">
                 <span class="form-label">
                   <svg class="add-habit-icon-svg" width="60px" height="60px" viewbox="0 0 180 180">
                     <g fill="<?php echo $iconColour ?>" stroke="none" stroke-width="1" fill-rule="evenodd">
