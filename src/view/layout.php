@@ -127,7 +127,7 @@
           <span>echo</span>
         </a>
       </h1>
-      <nav class="header-nav nav-no-login">
+      <nav class="header-nav nav-no-login <?php if(isset($_GET['page']) && $_GET['page'] == 'login'){ echo 'nav-hideit';} ?> <?php if(isset($_GET['page']) && $_GET['page'] == 'register'){ echo 'nav-hideit';} ?>">
         <h2 class="header-nav-title hide">Header navigation</h2>
         <ul class="header-nav-ul header-nav-ul-nosession">
           <li class="header-nav-item <?php if($currentPage === 'login') { echo 'header-nav-item-active';} ?>">
