@@ -114,6 +114,7 @@
           <span class="month-habit-item-name"><?php echo $habit['habit_name'] ?></span>
         </label>
       <?php endforeach; ?>
+      <a class="add-day-form-field-habits-edit" href="index.php?page=profile&category=customize">edit</a>
       <?php else: ?>
         <p class="add-day-form-empty">no habits, add some <a href="index.php?page=profile&category=customize">here</a></p>
       <?php endif; ?>
