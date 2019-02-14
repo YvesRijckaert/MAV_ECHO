@@ -88,7 +88,7 @@
       <legend class="add-day-form-field-legend">about</legend>
       <?php if(!empty($errors['short-memory'])) echo '<span class="error">' . $errors['short-memory'] . '</span>';?>
       <label>
-        <textarea class="add-day-form-field-textarea" name="short-memory" cols="40" rows="6" maxlength="255" placeholder="What do you want to remember from this day?" required><?php if(!empty($short_memory)) { echo $short_memory; } ?></textarea>
+        <textarea class="add-day-form-field-textarea" name="short-memory" cols="40" rows="6" maxlength="255" placeholder="What do you want to remember from today?" required><?php if(!empty($short_memory)) { echo $short_memory; } ?></textarea>
       </label>
     </fieldset>
     <fieldset class="add-day-form-field add-day-form-field-habits">
