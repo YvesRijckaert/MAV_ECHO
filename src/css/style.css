@@ -825,11 +825,6 @@ footer {
   flex-direction: column;
 }
 
-.month-form-label-red {
-  color: var(--red);
-  border: .15rem solid var(--red);
-}
-
 .month-form-submit {
   align-self: flex-end;
   border: .25rem solid var(--black);
@@ -847,6 +842,21 @@ footer {
   display: none;
 }
 
+.month-form-label-red, .add-habit-form-label-red {
+  color: var(--red);
+  border: .15rem solid var(--red);
+}
+
+.add-habit-form-icon-radio:checked + .add-habit-form-label-red {
+  color: white;
+  border: .15rem solid var(--red);
+  background-color: var(--red);
+
+  & g {
+    fill: white;
+  }
+}
+
 .month-form-input-radio:checked + .month-form-label-red {
   color: white;
   border: .15rem solid var(--red);
@@ -861,9 +871,19 @@ footer {
   }
 }
 
-.month-form-label-orange {
+.month-form-label-orange, .add-habit-form-label-orange {
   color: var(--orange);
   border: .15rem solid var(--orange);
+}
+
+.add-habit-form-icon-radio:checked + .add-habit-form-label-orange {
+  color: white;
+  border: .15rem solid var(--orange);
+  background-color: var(--orange);
+
+  & g {
+    fill: white;
+  }
 }
 
 .month-form-input-radio:checked + .month-form-label-orange {
@@ -880,9 +900,19 @@ footer {
   }
 }
 
-.month-form-label-green {
+.month-form-label-green, .add-habit-form-label-green {
   color: var(--green);
   border: .15rem solid var(--green);
+}
+
+.add-habit-form-icon-radio:checked + .add-habit-form-label-green {
+  color: white;
+  border: .15rem solid var(--green);
+  background-color: var(--green);
+
+  & g {
+    fill: white;
+  }
 }
 
 .month-form-input-radio:checked + .month-form-label-green {
@@ -899,9 +929,19 @@ footer {
   }
 }
 
-.month-form-label-blue {
+.month-form-label-blue, .add-habit-form-label-blue {
   color: var(--blue);
   border: .15rem solid var(--blue);
+}
+
+.add-habit-form-icon-radio:checked + .add-habit-form-label-blue {
+  color: white;
+  border: .15rem solid var(--blue);
+  background-color: var(--blue);
+
+  & g {
+    fill: white;
+  }
 }
 
 .month-form-input-radio:checked + .month-form-label-blue {
@@ -1354,11 +1394,7 @@ footer {
   flex-wrap: wrap;
 }
 
-.info-form-goals-option {
-  border: .15rem solid var(--black);
-}
-
-.info-form-goals-option, .add-habit-form-label {
+.info-form-goals-option, .add-habit-form-label, .add-habit-form-icon-label {
   font-size: 1.8rem;
   border-radius: 1.2rem;
   padding: 1.5rem 2rem;
@@ -1368,6 +1404,10 @@ footer {
   &:hover {
     cursor: pointer;
   }
+}
+
+.info-form-goals-option, .add-habit-form-label {
+  border: .15rem solid var(--black);
 }
 
 .info-form-goals-radio:focus + .info-form-goals-option,
