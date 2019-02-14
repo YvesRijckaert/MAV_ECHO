@@ -635,6 +635,12 @@ footer {
   grid-area: habits;
 }
 
+.add-day-form-field-habits-edit {
+  color: var(--grey);
+  font-size: 1.6rem;
+  margin-left: 1rem;
+}
+
 .add-day-form-field-textarea {
   resize: none;
   border: none;
