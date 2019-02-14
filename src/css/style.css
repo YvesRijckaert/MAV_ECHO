@@ -350,7 +350,7 @@ footer {
   text-transform: lowercase;
   text-align: center;
   font-size: 3.6rem;
-  padding-top: 15rem;
+  padding-top: 10rem;
   font-weight: bold;
 }
 
@@ -2027,10 +2027,6 @@ footer {
     margin-top: -3rem;
   }
 
-  footer {
-    display: none;
-  }
-
   .header-nav {
     background-color: transparent;
     position: fixed;
@@ -2322,5 +2318,9 @@ footer {
       font-weight: normal;
       font-size: 1.6rem;
     }
+  }
+
+  footer, .nav-hideit {
+    display: none;
   }
 }
