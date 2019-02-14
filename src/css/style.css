@@ -727,6 +727,10 @@ footer {
   height: 13rem;
 }
 
+.goals-in-progress-list-item-name {
+  margin-right: auto;
+}
+
 .customize-habits-list-item,
 .customize-goals-list-item {
   display: flex;
@@ -1979,8 +1983,12 @@ footer {
     }
   }
 
-  .day-info-habits-list-item, .month-form-label, .customize-habits-list-item, .customize-goals-list-item, .goals-in-progress-list-item, .goals-completed-list-item {
+  .day-info-habits-list-item, .month-form-label, .customize-habits-list-item, .customize-goals-list-item {
     height: 5rem;
+  }
+
+  .goals-in-progress-list-item, .goals-completed-list-item {
+    height: 13rem;
   }
 
   .day-info-habits-list-item:not(:last-child), .month-form-label:not(:last-child), .customize-habits-list-item:not(:last-child), .customize-goals-list-item:not(:last-child), .goals-in-progress-list-item, .goals-completed-list-item {
