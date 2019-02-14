@@ -270,7 +270,7 @@ input[type=radio], input[type=checkbox] {
 
 .section-cta {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 0;
   right: 0;
   display: flex;
@@ -279,8 +279,10 @@ input[type=radio], input[type=checkbox] {
   justify-content: space-around;
 
   & p {
+    text-align: center;
     font-size: 6rem;
     font-weight: bold;
+    padding-bottom: 5rem;
   }
 }
 
