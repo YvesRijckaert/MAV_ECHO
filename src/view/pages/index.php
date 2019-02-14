@@ -571,36 +571,34 @@
         <path d="M-73.6208,1164.42921 L28.2622,1164.42921 C39.5497,1164.42921 48.7162,1155.30053 48.7732,1144.00229 L49.2997,1040.12355 C49.2997,968.04503 129.2852,966.208785 129.2852,966.208785" id="Stroke-83" stroke="#2B2B2B" stroke-width="0.5"></path>
     </g>
   </svg>
-</div>
-<div class="home-content">
-<section class="home-section section-capture">
-  <div>
-    <h3>Capture.</h3>
-    <p class="home-section-subtitle">day by day</p>
-  </div>
-  <p>Everyday is a new blank canvas. While you live the day, Echo Echo paints the picture for you.</p>
-  <p>The online tool helps you <mark>document</mark> and <mark>visualise</mark> your actions, habits, feelings and life.</p>
-</section>
-<section class="home-section section-reflect">
-  <div>
-    <h3>Reflect.</h3>
-    <p class="home-section-subtitle">on yourself</p>
-  </div>
-  <p>Understand the <mark>past journey</mark> and get a better look at the road ahead. <mark>Learn</mark> more about yourself, your progress and many other things.</p>
-  <p>Depending on your behaviour and your personality, we try angling you in the right direction.</p>
-</section>
-<section class="home-section section-shape">
-  <div>
-    <h3>Shape.</h3>
-    <p class="home-section-subtitle">the future</p>
-  </div>
-  <p>Go full circle. Make everyday more beautiful as you build up <mark>habits, reach goals and change your life.</mark></p>
-  <p>Avoid going back to square one by enjoying the many benefits of <mark>structure</mark> and a <mark>good resilience.</mark></p>
-</section>
-<section class="section-cta">
-  <h3 class="hide">Start journey</h3>
-  <p>Ready to start the journey</p>
-  <a class="register-button" href="index.php?page=register">Hop on board</a>
-</section>
+    <section class="home-section section-capture">
+      <div>
+        <h3>Capture.</h3>
+        <p class="home-section-subtitle">day by day</p>
+      </div>
+      <p>Everyday is a new blank canvas. While you live the day, Echo Echo paints the picture for you.</p>
+      <p>The online tool helps you <mark>document</mark> and <mark>visualise</mark> your actions, habits, feelings and life.</p>
+    </section>
+    <section class="home-section section-reflect">
+      <div>
+        <h3>Reflect.</h3>
+        <p class="home-section-subtitle">on yourself</p>
+      </div>
+      <p>Understand the <mark>past journey</mark> and get a better look at the road ahead. <mark>Learn</mark> more about yourself, your progress and many other things.</p>
+      <p>Depending on your behaviour and your personality, we try angling you in the right direction.</p>
+    </section>
+    <section class="home-section section-shape">
+      <div>
+        <h3>Shape.</h3>
+        <p class="home-section-subtitle">the future</p>
+      </div>
+      <p>Go full circle. Make everyday more beautiful as you build up <mark>habits, reach goals and change your life.</mark></p>
+      <p>Avoid going back to square one by enjoying the many benefits of <mark>structure</mark> and a <mark>good resilience.</mark></p>
+    </section>
+    <section class="section-cta">
+      <h3 class="hide">Start journey</h3>
+      <p>Ready to start the journey</p>
+      <a class="register-button" href="index.php?page=register">Hop on board</a>
+    </section>
 </div>
 </section>

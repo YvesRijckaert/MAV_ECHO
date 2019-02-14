@@ -666,86 +666,90 @@
         <fieldset class="add-goal-form-field add-goal-form-field-day">
           <legend class="add-goal-form-field-legend">Choose your day.</legend>
           <?php if(!empty($errors['chosen_repetitive_goal_day'])) echo '<span class="error">' . $errors['chosen_repetitive_goal_day'] . '</span>';?>
-          <input type="radio" id="monday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="monday" required checked />
-          <label for="monday" class="add-goal-repetitive-day-label">
-            <span class="form-label">monday</span>
-          </label>
-          <input type="radio" id="tuesday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="tuesday" required />
-          <label for="tuesday" class="add-goal-repetitive-day-label">
-            <span class="form-label">tuesday</span>
-          </label>
-          <input type="radio" id="wednesday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="wednesday" required />
-          <label for="wednesday" class="add-goal-repetitive-day-label">
-            <span class="form-label">wednesday</span>
-          </label>
-          <input type="radio" id="thursday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="thursday" required />
-          <label for="thursday" class="add-goal-repetitive-day-label">
-            <span class="form-label">thursday</span>
-          </label>
-          <input type="radio" id="friday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="friday" required />
-          <label for="friday" class="add-goal-repetitive-day-label">
-            <span class="form-label">friday</span>
-          </label>
-          <input type="radio" id="saturday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="saturday" required />
-          <label for="saturday" class="add-goal-repetitive-day-label">
-            <span class="form-label">saturday</span>
-          </label>
-          <input type="radio" id="sunday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="sunday" required />
-          <label for="sunday" class="add-goal-repetitive-day-label">
-            <span class="form-label">sunday</span>
-          </label>
+          <div class="add-habit-form-field-all">
+            <input type="radio" id="monday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="monday" required checked />
+            <label for="monday" class="add-goal-repetitive-day-label">
+              <span class="form-label">monday</span>
+            </label>
+            <input type="radio" id="tuesday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="tuesday" required />
+            <label for="tuesday" class="add-goal-repetitive-day-label">
+              <span class="form-label">tuesday</span>
+            </label>
+            <input type="radio" id="wednesday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="wednesday" required />
+            <label for="wednesday" class="add-goal-repetitive-day-label">
+              <span class="form-label">wednesday</span>
+            </label>
+            <input type="radio" id="thursday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="thursday" required />
+            <label for="thursday" class="add-goal-repetitive-day-label">
+              <span class="form-label">thursday</span>
+            </label>
+            <input type="radio" id="friday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="friday" required />
+            <label for="friday" class="add-goal-repetitive-day-label">
+              <span class="form-label">friday</span>
+            </label>
+            <input type="radio" id="saturday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="saturday" required />
+            <label for="saturday" class="add-goal-repetitive-day-label">
+              <span class="form-label">saturday</span>
+            </label>
+            <input type="radio" id="sunday" class="add-goal-repetitive-day-radio" name="chosen_repetitive_goal_day" value="sunday" required />
+            <label for="sunday" class="add-goal-repetitive-day-label">
+              <span class="form-label">sunday</span>
+            </label>
+          </div>
         </fieldset>
         <fieldset class="add-goal-form-field add-goal-form-field-month">
           <legend class="add-goal-form-field-legend">Choose your month.</legend>
           <?php if(!empty($errors['chosen_repetitive_goal_month'])) echo '<span class="error">' . $errors['chosen_repetitive_goal_month'] . '</span>';?>
-          <input type="radio" id="january" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="january" required checked />
-          <label for="january" class="add-goal-repetitive-month-label">
-            <span class="form-label">january</span>
-          </label>
-          <input type="radio" id="february" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="february" required />
-          <label for="february" class="add-goal-repetitive-month-label">
-            <span class="form-label">february</span>
-          </label>
-          <input type="radio" id="march" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="march" required />
-          <label for="march" class="add-goal-repetitive-month-label">
-            <span class="form-label">march</span>
-          </label>
-          <input type="radio" id="april" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="april" required />
-          <label for="april" class="add-goal-repetitive-month-label">
-            <span class="form-label">april</span>
-          </label>
-          <input type="radio" id="may" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="may" required />
-          <label for="may" class="add-goal-repetitive-month-label">
-            <span class="form-label">may</span>
-          </label>
-          <input type="radio" id="june" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="june" required />
-          <label for="june" class="add-goal-repetitive-month-label">
-            <span class="form-label">june</span>
-          </label>
-          <input type="radio" id="july" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="july" required />
-          <label for="july" class="add-goal-repetitive-month-label">
-            <span class="form-label">july</span>
-          </label>
-          <input type="radio" id="august" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="august" required />
-          <label for="august" class="add-goal-repetitive-month-label">
-            <span class="form-label">august</span>
-          </label>
-          <input type="radio" id="september" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="september" required />
-          <label for="september" class="add-goal-repetitive-month-label">
-            <span class="form-label">september</span>
-          </label>
-          <input type="radio" id="october" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="october" required />
-          <label for="october" class="add-goal-repetitive-month-label">
-            <span class="form-label">october</span>
-          </label>
-          <input type="radio" id="november" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="november" required />
-          <label for="november" class="add-goal-repetitive-month-label">
-            <span class="form-label">november</span>
-          </label>
-          <input type="radio" id="december" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="december" required />
-          <label for="december" class="add-goal-repetitive-month-label">
-            <span class="form-label">december</span>
-          </label>
+          <div class="add-habit-form-field-all">
+            <input type="radio" id="january" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="january" required checked />
+            <label for="january" class="add-goal-repetitive-month-label">
+              <span class="form-label">january</span>
+            </label>
+            <input type="radio" id="february" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="february" required />
+            <label for="february" class="add-goal-repetitive-month-label">
+              <span class="form-label">february</span>
+            </label>
+            <input type="radio" id="march" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="march" required />
+            <label for="march" class="add-goal-repetitive-month-label">
+              <span class="form-label">march</span>
+            </label>
+            <input type="radio" id="april" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="april" required />
+            <label for="april" class="add-goal-repetitive-month-label">
+              <span class="form-label">april</span>
+            </label>
+            <input type="radio" id="may" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="may" required />
+            <label for="may" class="add-goal-repetitive-month-label">
+              <span class="form-label">may</span>
+            </label>
+            <input type="radio" id="june" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="june" required />
+            <label for="june" class="add-goal-repetitive-month-label">
+              <span class="form-label">june</span>
+            </label>
+            <input type="radio" id="july" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="july" required />
+            <label for="july" class="add-goal-repetitive-month-label">
+              <span class="form-label">july</span>
+            </label>
+            <input type="radio" id="august" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="august" required />
+            <label for="august" class="add-goal-repetitive-month-label">
+              <span class="form-label">august</span>
+            </label>
+            <input type="radio" id="september" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="september" required />
+            <label for="september" class="add-goal-repetitive-month-label">
+              <span class="form-label">september</span>
+            </label>
+            <input type="radio" id="october" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="october" required />
+            <label for="october" class="add-goal-repetitive-month-label">
+              <span class="form-label">october</span>
+            </label>
+            <input type="radio" id="november" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="november" required />
+            <label for="november" class="add-goal-repetitive-month-label">
+              <span class="form-label">november</span>
+            </label>
+            <input type="radio" id="december" class="add-goal-repetitive-month-radio" name="chosen_repetitive_goal_month" value="december" required />
+            <label for="december" class="add-goal-repetitive-month-label">
+              <span class="form-label">december</span>
+            </label>
+          </div>
         </fieldset>
         <label class="add-goal-form-submit">
           <svg width="22px" height="16px" viewBox="0 0 22 16">
@@ -838,54 +842,56 @@
         <fieldset class="add-goal-form-field add-goal-form-field-month">
           <legend class="add-goal-form-field-legend">Choose your month.</legend>
           <?php if(!empty($errors['chosen_total_goal_month'])) echo '<span class="error">' . $errors['chosen_total_goal_month'] . '</span>';?>
-          <input type="radio" id="january" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="january" required checked />
-          <label for="january" class="add-goal-total-month-label">
-            <span class="form-label">january</span>
-          </label>
-          <input type="radio" id="february" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="february" required />
-          <label for="february" class="add-goal-total-month-label">
-            <span class="form-label">february</span>
-          </label>
-          <input type="radio" id="march" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="march" required />
-          <label for="march" class="add-goal-total-month-label">
-            <span class="form-label">march</span>
-          </label>
-          <input type="radio" id="april" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="april" required />
-          <label for="april" class="add-goal-total-month-label">
-            <span class="form-label">april</span>
-          </label>
-          <input type="radio" id="may" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="may" required />
-          <label for="may" class="add-goal-total-month-label">
-            <span class="form-label">may</span>
-          </label>
-          <input type="radio" id="june" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="june" required />
-          <label for="june" class="add-goal-total-month-label">
-            <span class="form-label">june</span>
-          </label>
-          <input type="radio" id="july" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="july" required />
-          <label for="july" class="add-goal-total-month-label">
-            <span class="form-label">july</span>
-          </label>
-          <input type="radio" id="august" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="august" required />
-          <label for="august" class="add-goal-total-month-label">
-            <span class="form-label">august</span>
-          </label>
-          <input type="radio" id="september" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="september" required />
-          <label for="september" class="add-goal-total-month-label">
-            <span class="form-label">september</span>
-          </label>
-          <input type="radio" id="october" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="october" required />
-          <label for="october" class="add-goal-total-month-label">
-            <span class="form-label">october</span>
-          </label>
-          <input type="radio" id="november" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="november" required />
-          <label for="november" class="add-goal-total-month-label">
-            <span class="form-label">november</span>
-          </label>
-          <input type="radio" id="december" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="december" required />
-          <label for="december" class="add-goal-total-month-label">
-            <span class="form-label">december</span>
-          </label>
+          <div class="add-habit-form-field-all">
+            <input type="radio" id="january" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="january" required checked />
+            <label for="january" class="add-goal-total-month-label">
+              <span class="form-label">january</span>
+            </label>
+            <input type="radio" id="february" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="february" required />
+            <label for="february" class="add-goal-total-month-label">
+              <span class="form-label">february</span>
+            </label>
+            <input type="radio" id="march" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="march" required />
+            <label for="march" class="add-goal-total-month-label">
+              <span class="form-label">march</span>
+            </label>
+            <input type="radio" id="april" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="april" required />
+            <label for="april" class="add-goal-total-month-label">
+              <span class="form-label">april</span>
+            </label>
+            <input type="radio" id="may" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="may" required />
+            <label for="may" class="add-goal-total-month-label">
+              <span class="form-label">may</span>
+            </label>
+            <input type="radio" id="june" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="june" required />
+            <label for="june" class="add-goal-total-month-label">
+              <span class="form-label">june</span>
+            </label>
+            <input type="radio" id="july" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="july" required />
+            <label for="july" class="add-goal-total-month-label">
+              <span class="form-label">july</span>
+            </label>
+            <input type="radio" id="august" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="august" required />
+            <label for="august" class="add-goal-total-month-label">
+              <span class="form-label">august</span>
+            </label>
+            <input type="radio" id="september" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="september" required />
+            <label for="september" class="add-goal-total-month-label">
+              <span class="form-label">september</span>
+            </label>
+            <input type="radio" id="october" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="october" required />
+            <label for="october" class="add-goal-total-month-label">
+              <span class="form-label">october</span>
+            </label>
+            <input type="radio" id="november" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="november" required />
+            <label for="november" class="add-goal-total-month-label">
+              <span class="form-label">november</span>
+            </label>
+            <input type="radio" id="december" class="add-goal-total-month-radio" name="chosen_total_goal_month" value="december" required />
+            <label for="december" class="add-goal-total-month-label">
+              <span class="form-label">december</span>
+            </label>
+          </div>
         </fieldset>
         <label class="add-goal-form-submit">
           <svg width="22px" height="16px" viewBox="0 0 22 16">

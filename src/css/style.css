@@ -149,7 +149,7 @@ input[type=radio], input[type=checkbox] {
 }
 
 .home-image-wrap {
-  position: absolute;
+  position: relative;
   z-index: -1;
 }
 
@@ -167,24 +167,6 @@ input[type=radio], input[type=checkbox] {
   100% {
     transform: rotate(15deg);
   }
-}
-
-.home-content {
-  padding-top: 40rem;
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: 5vw 40vw 40vw 5vw;
-  grid-column-gap: 5vw;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-}
-
-.header-nosession {
-  position: absolute;
-  width: 100%;
-}
-
-.header-nav-ul-nosession {
-  background-color: transparent;
 }
 
 .home-section {
@@ -213,8 +195,10 @@ input[type=radio], input[type=checkbox] {
 }
 
 .section-capture {
-  grid-row: 2;
-  grid-column: 2;
+  position: absolute;
+  top: 22%;
+  width: 50%;
+  left: 0;
 
   & h3 {
     color: var(--purple);
@@ -222,8 +206,10 @@ input[type=radio], input[type=checkbox] {
 }
 
 .section-reflect {
-  grid-row: 3;
-  grid-column: 3;
+  position: absolute;
+  top: 40%;
+  width: 50%;
+  right: 0;
 
   & h3 {
     color: var(--orange);
@@ -231,8 +217,10 @@ input[type=radio], input[type=checkbox] {
 }
 
 .section-shape {
-  grid-row: 4;
-  grid-column: 2;
+  position: absolute;
+  top: 62%;
+  width: 50%;
+  left: 0;
 
   & .home-section-subtitle {
     margin-left: 0;
@@ -244,10 +232,10 @@ input[type=radio], input[type=checkbox] {
 }
 
 .section-cta {
-  grid-column: 2 / 4;
-  grid-row: 5;
-  margin: 15rem 0;
-  height: 40rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1866,7 +1854,7 @@ footer {
     width: 30%;
   }
 
-  .add-habit-form-submit {
+  .add-habit-form-submit, .add-goal-form-submit {
     padding: 4rem;
     border-bottom-left-radius: 2rem;
 
@@ -2233,6 +2221,7 @@ footer {
   }
 
   .main-profile-links-phone {
+    margin-bottom: 10rem;
     display: grid;
     grid-template: repeat(4, 4rem) / .2fr 3fr 3fr .2fr;
     grid-gap: 1rem;
