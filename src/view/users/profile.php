@@ -792,7 +792,7 @@
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
           <?php if(!empty($errors['chosen_streak_goal_number'])) echo '<span class="error">' . $errors['chosen_streak_goal_number'] . '</span>';?>
           <label class="add-goal-form-field-stepper">
-          <button type="button" class="cin-btn cin-increment">+</button>
+            <button type="button" class="cin-btn cin-increment">+</button>
             <input type="number" class="cin-input" name="chosen_streak_goal_number" step="1" value="2" min="2" max="30" required />
             <button type="button" class="cin-btn cin-decrement">-</button>
           </label>
@@ -838,7 +838,9 @@
           <legend class="add-goal-form-field-legend">Choose amount of days</legend>
           <?php if(!empty($errors['chosen_total_goal_number'])) echo '<span class="error">' . $errors['chosen_total_goal_number'] . '</span>';?>
           <label class="add-goal-form-field-stepper">
-            <input type="number" name="chosen_total_goal_number" value="2" min="2" max="30" required />
+            <button type="button" class="cin-btn cin-increment">+</button>
+            <input type="number" class="cin-input" name="chosen_total_goal_number" step="1" value="2" min="2" max="30" required />
+            <button type="button" class="cin-btn cin-decrement">-</button>
           <label class="add-goal-form-field-stepper">
         </fieldset>
         <fieldset class="add-goal-form-field add-goal-form-field-month">

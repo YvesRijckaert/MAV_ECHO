@@ -53,6 +53,14 @@
     const step = parseInt($input.getAttribute('step'));
     const temp = val + step;
     $input.value = (temp <= max ? temp : max);
+    const $streak = document.querySelector(`.streak-amount`);
+    if ($streak) {
+      $streak.innerHTML = `${$input.value} days`;
+    }
+    const $total = document.querySelector(`.total-amount`);
+    if ($total) {
+      $total.innerHTML = `${$input.value} days`;
+    }
   };
 
   const handleClickInputDecrement = (e, $input) => {
@@ -61,6 +69,14 @@
     const step = parseInt($input.getAttribute('step'));
     const temp = val - step;
     $input.value = (temp >= min ? temp : min);
+    const $streak = document.querySelector(`.streak-amount`);
+    if ($streak) {
+      $streak.innerHTML = `${$input.value} days`;
+    }
+    const $total = document.querySelector(`.total-amount`);
+    if ($total) {
+      $total.innerHTML = `${$input.value} days`;
+    }
   };
 
   const init = () => {
