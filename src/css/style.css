@@ -2049,6 +2049,10 @@ footer {
     & svg {
       margin: 0 0 1rem;
     }
+
+    & .register-button {
+      position: fixed;
+    }
   }
 
   .nav-no-login {
