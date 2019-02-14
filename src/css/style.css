@@ -1600,14 +1600,7 @@ footer {
 .add-goal-type-subtitle {
   padding-top: 1rem;
   font-family: 'FreightSans Pro', Arial, Helvetica, sans-serif;
-}
-
-.add-goal-type-subtitle-abbr {
-  color: var(--grey);
-}
-
-.add-goal-type-subtitle-habitname, strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .main-profile-add-goal-text {

@@ -524,7 +524,7 @@
               </g>
             </svg>
             <p class="add-goal-type-title">Repetitive</p>
-            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every <strong>monday</strong> of <strong>january</strong>.</p>
+            <p class="add-goal-type-subtitle">e.g. <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, every monday of january.</p>
           </a>
         </li>
         <li class="add-goal-type">
@@ -580,7 +580,7 @@
               </g>
             </svg>
             <p class="add-goal-type-title">Streak</p>
-            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <strong>10 days</strong> in a row.</p>
+            <p class="add-goal-type-subtitle">e.g. <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 10 days in a row.</p>
           </a>
         </li>
         <li class="add-goal-type">
@@ -636,7 +636,7 @@
               </g>
             </svg>
             <p class="add-goal-type-title">Total</p>
-            <p class="add-goal-type-subtitle"><span class="add-goal-type-subtitle-abbr">e.g.</span> <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, <strong>20 days</strong> in <strong>january</strong>.</p>
+            <p class="add-goal-type-subtitle">e.g. <span class="add-goal-type-subtitle-habitname" style="color: <?php echo $habit_colour ?>"><?php echo $habit ?></span>, 20 days in january.</p>
           </a>
         </li>
       </ul>
