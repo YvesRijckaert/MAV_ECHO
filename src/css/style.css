@@ -325,6 +325,15 @@ footer {
       margin-left: 10rem;
     }
   }
+
+  .section-cta {
+
+    & p {
+      font-size: 3.3rem;
+      padding: 2.5rem;
+    }
+  }
+
 }
 
 /* login */
