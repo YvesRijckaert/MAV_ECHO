@@ -793,7 +793,7 @@
           <?php if(!empty($errors['chosen_streak_goal_number'])) echo '<span class="error">' . $errors['chosen_streak_goal_number'] . '</span>';?>
           <label class="add-goal-form-field-stepper">
           <button type="button" class="cin-btn cin-increment">+</button>
-            <input type="number" class="cin-input" name="chosen_streak_goal_number" value="2" min="2" max="30" required />
+            <input type="number" class="cin-input" name="chosen_streak_goal_number" step="1" value="2" min="2" max="30" required />
             <button type="button" class="cin-btn cin-decrement">-</button>
           </label>
         </fieldset>

@@ -47,6 +47,22 @@
     }
   };
 
+  const handleClickInputIncrement = (e, $input) => {
+    const val = parseInt($input.value);
+    const max = parseInt($input.getAttribute('max'));
+    const step = parseInt($input.getAttribute('step'));
+    const temp = val + step;
+    $input.value = (temp <= max ? temp : max);
+  };
+
+  const handleClickInputDecrement = (e, $input) => {
+    const val = parseInt($input.value);
+    const min = parseInt($input.getAttribute('min'));
+    const step = parseInt($input.getAttribute('step'));
+    const temp = val - step;
+    $input.value = (temp >= min ? temp : min);
+  };
+
   const init = () => {
     //AJAX CALENDAR
     const categorySubmit = document.querySelector(`.month-form-submit`);
@@ -75,6 +91,16 @@
     }
     if ($totalForm) {
       $totalForm.addEventListener(`change`, handleChangeTotal);
+    }
+
+    //P.E. : input number
+    const $input = document.querySelector(`.cin-input`);
+    const $increment = document.querySelector(`.cin-increment`);
+    const $decrement = document.querySelector(`.cin-decrement`);
+    
+    if ($input && $increment) {
+      $increment.addEventListener(`click`, e => handleClickInputIncrement(e, $input));
+      $decrement.addEventListener(`click`, e => handleClickInputDecrement(e, $input));
     }
   };
   init();
