@@ -1758,19 +1758,32 @@ footer {
 
 @media only screen and (max-width: 1000px) {
 
+  .main-profile-add-goal-types {
+    padding-top: 0;
+    margin-bottom: 10rem;
+  }
+
   .main-profile-add-habit-title, .main-profile-add-goal-title {
     padding-top: 2rem;
   }
 
   .main-profile-add-habit-form {
     grid-template: auto / .5fr 6fr .5fr;
-    grid-row-gap: 1rem;
+    grid-row-gap: 2.5rem;
     grid-column-gap: 0;
     grid-template-areas:
       '. suggested .'
       '. write .'
       '. all .'
       '. . submit';
+  }
+
+  .add-habit-form-field-legend {
+    margin: 0;
+  }
+
+  .add-habit-write {
+    display: none;
   }
 
   .main-overview-day {
@@ -1853,6 +1866,10 @@ footer {
 }
 
 @media only screen and (max-width: 700px) {
+
+  .main-profile-add-habit-form-shape {
+    margin-bottom: 10rem;
+  }
 
   .main-profile-add-habit-subtitle {
     width: 30%;
