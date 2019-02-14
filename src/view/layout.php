@@ -134,7 +134,7 @@
             <a href="index.php?page=login">Login</a>
           </li>
           <li class="header-nav-item <?php if($currentPage === 'register') { echo 'header-nav-item-active';} ?>">
-            <a href="index.php?page=register" class="register-button">Hop on board</a>
+            <a href="index.php?page=register" class="register-button"><span>Hop on board</span></a>
           </li>
         </ul>
       </nav>

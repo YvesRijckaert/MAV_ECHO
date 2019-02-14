@@ -2023,6 +2023,14 @@ footer {
     display: none;
   }
 
+  .main-home {
+    margin-top: -3rem;
+  }
+
+  footer {
+    display: none;
+  }
+
   .header-nav {
     background-color: transparent;
     position: fixed;
@@ -2052,6 +2060,12 @@ footer {
 
     & .register-button {
       position: fixed;
+      padding: 5rem;
+      font-size: 1.6rem;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      border-top-left-radius: 2rem;
     }
   }
 
