@@ -129,14 +129,23 @@ input[type=radio], input[type=checkbox] {
 
 /* home */
 
-@media only screen and (max-width: 700px) {
+.header-nosession {
+  position: absolute;
+  width: 100%;
+
+  & .header-nav-ul {
+    background-color: transparent;
+  }
+}
+
+@media only screen and (max-width: 900px) {
 
   .home-image-desktop {
     display: none;
   }
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 900px) {
 
   .home-image-mobile {
     display: none;
@@ -196,9 +205,9 @@ input[type=radio], input[type=checkbox] {
 
 .section-capture {
   position: absolute;
-  top: 22%;
-  width: 50%;
-  left: 0;
+  top: 32%;
+  width: 30%;
+  left: 10rem;
 
   & h3 {
     color: var(--purple);
@@ -207,9 +216,9 @@ input[type=radio], input[type=checkbox] {
 
 .section-reflect {
   position: absolute;
-  top: 40%;
-  width: 50%;
-  right: 0;
+  top: 52%;
+  width: 30%;
+  right: 10rem;
 
   & h3 {
     color: var(--orange);
@@ -218,9 +227,9 @@ input[type=radio], input[type=checkbox] {
 
 .section-shape {
   position: absolute;
-  top: 62%;
-  width: 50%;
-  left: 0;
+  top: 72%;
+  width: 30%;
+  left: 10rem;
 
   & .home-section-subtitle {
     margin-left: 0;
