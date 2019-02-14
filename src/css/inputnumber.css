@@ -1,0 +1,33 @@
+/*custom-input-number*/
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.cin-btn {
+  border: none;
+  background: transparent;
+  background-color: var(--grey);
+  border-radius: 1.2rem;
+  display: block;
+  margin: 0 auto;
+  height: 5rem;
+  width: 5rem;
+
+  &:focus {
+    outline: none;
+    border: .25rem solid var(--red);
+  }
+}
+
+.cin-input {
+  border: 0;
+  appearance: none;
+  background: transparent;
+  margin: 1rem 0;
+  pointer-events: none;
+  text-align: center;
+  user-select: none;
+}

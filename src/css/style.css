@@ -3,6 +3,7 @@
 @import 'fonts';
 @import 'vars';
 @import 'messages';
+@import 'inputnumber';
 @import 'animations';
 
 html {
