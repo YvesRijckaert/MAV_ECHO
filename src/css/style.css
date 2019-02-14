@@ -145,9 +145,9 @@ input[type=radio], input[type=checkbox] {
   }
 
   .section-capture {
-    top: 40%;
+    top: 39%;
     width: 70%;
-    right: 5rem;
+    right: 2.5rem;
   }
 
   .section-reflect {
@@ -157,7 +157,7 @@ input[type=radio], input[type=checkbox] {
   }
 
   .section-shape {
-    top: 76%;
+    top: 75%;
     width: 70%;
     left: 5rem;
   }
@@ -304,6 +304,27 @@ footer {
   padding: 0 10rem;
   display: flex;
   align-items: center;
+}
+
+@media only screen and (max-width: 500px) {
+
+  .home-section {
+
+    & h3 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    & p {
+      font-size: 1.4rem;
+    }
+
+    & .home-section-subtitle {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      margin-left: 10rem;
+    }
+  }
 }
 
 /* login */
