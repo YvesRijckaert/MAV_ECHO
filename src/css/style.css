@@ -1831,6 +1831,14 @@ footer {
 
 @media only screen and (max-width: 700px) {
 
+  .day-info-mood {
+    width: 100%;
+
+    & svg {
+      width: 10rem;
+    }
+  }
+
   .main-profile-info-logout {
     bottom: 10rem;
     right: 28rem;
@@ -1918,10 +1926,6 @@ footer {
 
   .day-info-habits {
     padding: 1rem;
-  }
-
-  .day-info-mood svg {
-    width: 100%;
   }
 
   .day-info-share {
