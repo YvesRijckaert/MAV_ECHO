@@ -477,7 +477,6 @@ footer {
 
   & svg {
     max-width: 40rem;
-    border: var(--light-grey) .15rem solid;
   }
 }
 
@@ -1880,7 +1879,6 @@ footer {
   .main-overview-day-collage {
     margin: 0 auto;
     border-right: none;
-    border-top: var(--light-grey) solid .4rem;
     grid-row: 2;
     grid-column: 1 / 5;
 
