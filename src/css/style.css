@@ -13,15 +13,6 @@ html {
   box-sizing: inherit;
 }
 
-:focus {
-  outline: .25rem dotted var(--black);
-  outline-offset: .5rem;
-}
-
-input:focus {
-  outline-offset: 0;
-}
-
 body {
   font-size: 2rem;
   background-color: white;
