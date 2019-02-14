@@ -1649,6 +1649,7 @@ footer {
 .add-goal-form-field-stepper {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .repetitive-day, .streak-amount, .total-amount {
