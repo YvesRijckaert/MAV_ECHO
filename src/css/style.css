@@ -143,12 +143,49 @@ input[type=radio], input[type=checkbox] {
   .home-image-desktop {
     display: none;
   }
+
+  .section-capture {
+    top: 40%;
+    width: 70%;
+    right: 5rem;
+  }
+
+  .section-reflect {
+    top: 58%;
+    width: 70%;
+    left: 5rem;
+  }
+
+  .section-shape {
+    top: 76%;
+    width: 70%;
+    left: 5rem;
+  }
+
 }
 
 @media only screen and (min-width: 900px) {
 
   .home-image-mobile {
     display: none;
+  }
+
+  .section-capture {
+    top: 32%;
+    width: 30%;
+    left: 10rem;
+  }
+
+  .section-reflect {
+    top: 52%;
+    width: 30%;
+    right: 10rem;
+  }
+
+  .section-shape {
+    top: 72%;
+    width: 30%;
+    left: 10rem;
   }
 }
 
@@ -205,9 +242,6 @@ input[type=radio], input[type=checkbox] {
 
 .section-capture {
   position: absolute;
-  top: 32%;
-  width: 30%;
-  left: 10rem;
 
   & h3 {
     color: var(--purple);
@@ -216,9 +250,6 @@ input[type=radio], input[type=checkbox] {
 
 .section-reflect {
   position: absolute;
-  top: 52%;
-  width: 30%;
-  right: 10rem;
 
   & h3 {
     color: var(--orange);
@@ -227,9 +258,6 @@ input[type=radio], input[type=checkbox] {
 
 .section-shape {
   position: absolute;
-  top: 72%;
-  width: 30%;
-  left: 10rem;
 
   & .home-section-subtitle {
     margin-left: 0;
